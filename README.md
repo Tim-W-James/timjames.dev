@@ -8,21 +8,6 @@
 *** Find a list of resources for writing markdown, etc. at the end of this file.
 -->
 
-<!-- PROJECT SHIELDS -->
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/12de8af7-3635-4547-9d57-1d93e0bf8db1/deploy-status)](https://timjames.dev)
-[![CI][ci-shield]][ci-url]
-[![Last Commit][last-commit-shield]][last-commit-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-<!-- [![Netlify][netlify-shield]][netlify-url] -->
-<!-- [![Release][release-shield]][release-url] -->
-<!-- [![Contributors][contributors-shield]][contributors-url] -->
-<!-- [![Forks][forks-shield]][forks-url] -->
-<!-- [![Stargazers][stars-shield]][stars-url] -->
-<!-- [![Issues][issues-shield]][issues-url] -->
-<!-- [![MIT License][license-shield]][license-url] -->
-
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
@@ -45,6 +30,24 @@
     <a href="https://github.com/Tim-W-James/website/issues">Request Feature</a> -->
   </p>
 </p>
+
+<!-- PROJECT SHIELDS -->
+<p align="center">
+  <!-- [![Netlify][netlify-shield]][netlify-url] -->
+  <!-- [![Release][release-shield]][release-url] -->
+  <!-- [![Contributors][contributors-shield]][contributors-url] -->
+  <!-- [![Forks][forks-shield]][forks-url] -->
+  <!-- [![Stargazers][stars-shield]][stars-url] -->
+  <!-- [![Issues][issues-shield]][issues-url] -->
+  <!-- [![MIT License][license-shield]][license-url] -->
+  <a href="https://github.com/Tim-W-James/website/actions"><img src="https://img.shields.io/github/workflow/status/Tim-W-James/website/CI?style=for-the-badge&logo=githubactions&logoColor=white" alt="CI"></a>
+  <a href="https://github.com/Tim-W-James/website/commits/main"><img src="https://img.shields.io/github/last-commit/Tim-W-James/website.svg?style=for-the-badge&logo=git&logoColor=white" alt="Last Commit"></a>
+  <a href="https://linkedin.com/in/timothy-william-james/"><img src="https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555" alt="Linkedin"></a>
+
+<a href="https://timjames.dev)"><img src="https://api.netlify.com/api/v1/badges/12de8af7-3635-4547-9d57-1d93e0bf8db1/deploy-status" alt="Netlify Status"></a>
+
+</p>
+<br/>
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
