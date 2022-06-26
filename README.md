@@ -110,6 +110,7 @@ Complete the configuration checklist below and remove from the README once compl
 <!-- [![Issues][issues-shield]][issues-url] -->
 <!-- [![MIT License][license-shield]][license-url] -->
 <!-- [![LinkedIn][linkedin-shield]][linkedin-url] -->
+[![Netlify][netlify-shield]][netlify-url]
 
 <!-- PROJECT LOGO -->
 <br />
@@ -328,6 +329,8 @@ Project Link: [https://github.com/Tim-W-James/repo_name](https://github.com/Tim-
 <!-- Shields: https://shields.io -->
 <!-- Icons: https://github.com/simple-icons/simple-icons/blob/develop/slugs.md -->
 
+[netlify-shield]: https://img.shields.io/netlify/12de8af7-3635-4547-9d57-1d93e0bf8db1?logo=netlify&style=for-the-badge
+[netlify-url]: https://tim-w-james.netlify.app/
 [ci-shield]: https://img.shields.io/github/workflow/status/Tim-W-James/repo_name/CI?style=for-the-badge&logo=githubactions&logoColor=white
 [ci-url]: https://github.com/Tim-W-James/repo_name/actions
 [release-shield]: https://img.shields.io/github/v/release/Tim-W-James/repo_name.svg?include_prereleases&style=for-the-badge
