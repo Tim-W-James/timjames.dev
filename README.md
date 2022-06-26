@@ -10,8 +10,8 @@
 
 <!-- PROJECT SHIELDS -->
 
-[![CI][ci-shield]][ci-url]
 [![Netlify Status](https://api.netlify.com/api/v1/badges/12de8af7-3635-4547-9d57-1d93e0bf8db1/deploy-status)](https://timjames.dev)
+[![CI][ci-shield]][ci-url]
 [![Last Commit][last-commit-shield]][last-commit-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
@@ -22,8 +22,6 @@
 <!-- [![Stargazers][stars-shield]][stars-url] -->
 <!-- [![Issues][issues-shield]][issues-url] -->
 <!-- [![MIT License][license-shield]][license-url] -->
-
-
 
 <!-- PROJECT LOGO -->
 <br />
