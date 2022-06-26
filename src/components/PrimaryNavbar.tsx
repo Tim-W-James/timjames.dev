@@ -1,5 +1,5 @@
 import logo from "@assets/logo.svg";
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const PrimaryNavbar: React.FC = () => (
@@ -13,7 +13,7 @@ const PrimaryNavbar: React.FC = () => (
           height="30"
           className="d-inline-block align-top"
         />{" "}
-        project_title
+        Tim James
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
@@ -21,21 +21,6 @@ const PrimaryNavbar: React.FC = () => (
           <Link className="nav-link" to="/">
             Home
           </Link>
-          <Link className="nav-link" to="/form">
-            Example Form
-          </Link>
-          <NavDropdown
-            title="Dropdown"
-            id="basic-nav-dropdown"
-            menuVariant="dark"
-          >
-            <Link className="dropdown-item" to="dropdown/1">
-              Action
-            </Link>
-            <Link className="dropdown-item" to="dropdown/2">
-              Another Action
-            </Link>
-          </NavDropdown>
         </Nav>
       </Navbar.Collapse>
     </Container>
