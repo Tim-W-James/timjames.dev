@@ -18,13 +18,6 @@
 # plugins
 
 [[plugins]]
-  package = "netlify-plugin-a11y"
-  
-  [plugins.inputs]
-  
-    resultMode = "warn"
-
-[[plugins]]
   package = "@netlify/plugin-sitemap"
 
 [[plugins]]
