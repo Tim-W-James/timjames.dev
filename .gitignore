@@ -123,3 +123,6 @@ dist-ssr
 
 # Other output
 out
+
+# Local Netlify folder
+.netlify

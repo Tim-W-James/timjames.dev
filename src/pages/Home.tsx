@@ -9,6 +9,7 @@ const Home: React.FC = () => {
     <div className="home">
       <header>
         <img src={logo} className="home-logo" alt="logo" />
+        <h1>Coming Soon...</h1>
         <p>
           <Button type="button" onClick={() => setCount((c) => c + 1)}>
             count is: {count}
