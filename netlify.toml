@@ -18,13 +18,13 @@
 # plugins
 
 [[plugins]]
-  package = "@netlify/plugin-sitemap"
+package = "@netlify/plugin-sitemap"
 
 [[plugins]]
-  package = "netlify-plugin-submit-sitemap"
+package = "netlify-plugin-submit-sitemap"
 
 [[plugins]]
-  package = "@netlify/plugin-lighthouse"
+package = "@netlify/plugin-lighthouse"
 
 # asset optimization
 
