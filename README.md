@@ -110,6 +110,7 @@ Complete the configuration checklist below and remove from the README once compl
 <!-- [![Issues][issues-shield]][issues-url] -->
 <!-- [![MIT License][license-shield]][license-url] -->
 <!-- [![LinkedIn][linkedin-shield]][linkedin-url] -->
+
 [![Netlify][netlify-shield]][netlify-url]
 
 <!-- PROJECT LOGO -->
@@ -246,6 +247,18 @@ _For more examples, please refer to the [Documentation](https://example.com)_ --
 <!-- DEVELOPMENT -->
 
 ## Development
+
+- Install Git hooks:
+
+  ```sh
+  npm run prepare
+  ```
+
+- Initialize Netlify CLI:
+
+  ```sh
+  netlify init
+  ```
 
 - Start a development environment:
 

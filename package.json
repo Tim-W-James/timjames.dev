@@ -18,7 +18,7 @@
   "type": "module",
   "main": "src/main.ts",
   "scripts": {
-    "prepare": "husky install && netlify init",
+    "prepare": "husky install",
     "dev": "vite",
     "dev:netlify": "netlify dev",
     "dev:live": "netlify dev --live",
