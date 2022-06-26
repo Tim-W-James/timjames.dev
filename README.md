@@ -11,22 +11,19 @@
 <!-- PROJECT SHIELDS -->
 
 [![CI][ci-shield]][ci-url]
-
-<!-- [![Release][release-shield]][release-url] -->
-
+[![Netlify Status](https://api.netlify.com/api/v1/badges/12de8af7-3635-4547-9d57-1d93e0bf8db1/deploy-status)](https://timjames.dev)
 [![Last Commit][last-commit-shield]][last-commit-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
+<!-- [![Netlify][netlify-shield]][netlify-url] -->
+<!-- [![Release][release-shield]][release-url] -->
 <!-- [![Contributors][contributors-shield]][contributors-url] -->
 <!-- [![Forks][forks-shield]][forks-url] -->
 <!-- [![Stargazers][stars-shield]][stars-url] -->
 <!-- [![Issues][issues-shield]][issues-url] -->
 <!-- [![MIT License][license-shield]][license-url] -->
 
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
-<!-- [![Netlify][netlify-shield]][netlify-url] -->
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/12de8af7-3635-4547-9d57-1d93e0bf8db1/deploy-status)](https://app.netlify.com/sites/tim-w-james/deploys)
 
 <!-- PROJECT LOGO -->
 <br />
