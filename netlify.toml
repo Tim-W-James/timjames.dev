@@ -17,6 +17,15 @@
 
 # plugins
 
+[[plugins]]
+  package = "@netlify/plugin-sitemap"
+
+[[plugins]]
+  package = "netlify-plugin-submit-sitemap"
+
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+
 # asset optimization
 
 [build.processing]

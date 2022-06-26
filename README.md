@@ -1,95 +1,3 @@
-## React TS Template
-
-Opinionated template for frontend React TypeScript projects with Vite, ESLint,
-Prettier, Vitetest, and various Node packages. This template aims to speed up
-the initial configuration and boilerplate for new projects, while providing
-integration with a range of modern tooling. This repo also includes a React
-starter app using Bootstrap Components and React Router 6.
-
-### Template includes:
-
-- [React 18](https://reactjs.org/docs/getting-started.html): frontend framework
-- [Vite](https://vitejs.dev/config/): frontend build tool and dev server, configured in `./vite.config.ts`
-- [TypeScript 4.7](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html): types for js. Configured in `./tsconfig.json`
-- [SASS](https://sass-lang.com/): CSS preprocessor
-- [ESLint](https://eslint.org/docs/2.0.0/user-guide/configuring): Linter/code
-  analyzer for TypeScript. Configured in `./.eslintrc.cjs` with
-  rules from AirBnB and SonarJS.
-- [Stylelint](https://stylelint.io/): Linter/code analyzer for SCSS. Configured in `./.stylelintrc.cjs`
-- [Prettier](https://prettier.io/docs/en/configuration.html): Formatter. Configured in `./.prettierrc.cjs`
-- [Vitest](https://vitest.dev/config/): testing framework, configured in `./vite.config.ts` > test
-- [unplugin-auto-import](https://github.com/antfu/unplugin-auto-import#configuration): global imports. Configured in `./vite.config.ts` > Plugins > AutoImport
-- npm scripts (run with `npm run <script>`):
-  - `dev` - starts a dev environment on localhost that will reload as files change
-  - `dev:https` - starts a dev environment on localhost over https (requires a
-    cert to be generated)
-  - `build` - compile prod source code to `./dist`
-  - `preview` - after build, preview on localhost
-  - `lint` - evaluate ESLint rules against source code
-  - `format` - format source code with prettier and try to fix any ESLint errors
-  - `test:run` - run tests
-  - `test:ui` - run tests and display on localhost
-  - `test` - run unit tests located in `./tests` that will reload whenever files change
-  - `coverage` - run coverage tests and output results to `./coverage`
-- [Husky](https://github.com/typicode/husky): pre-commit Git hooks to lint, format and run tests. Configured in `./.husky`
-- [GitHub Actions](https://docs.github.com/en/actions): CI/CD pipeline. Configured in `./.github/workflows`
-- Starter React app with [Bootstrap 5](https://react-bootstrap.github.io/getting-started/introduction/) and [React Router 6](https://reactrouter.com/docs/en/v6/getting-started/overview)
-- <a href="#project-structure">Project Structure</a>
-
-Complete the configuration checklist below and remove from the README once complete.
-
-## TODO
-
-- [ ] If using VSCode, install recommended extensions with the command pallet: `Extensions:Show Recommended Extensions`. Otherwise, use install an[`EditorConfig`](https://editorconfig.org/#download) plugin for your text editor or IDE of choice
-- [ ] Specify the following fields with a search and replace:
-      repo_name, project_title, project_description, project_keywords
-- [ ] Replace personal information with your own:
-      Tim-W-James, Tim James, tim.jameswork9800@gmail.com, https://linkedin.com/in/timothy-william-james/
-- [ ] Specify the LICENSE.txt for the project
-- [ ] `README.md` - there is a README template [below](#top) based on the [Best-README-Template](https://github.com/othneildrew/Best-README-Template). Find a list of resources to help you write READMEs in a comment at the end of this file. Fill out the following:
-  - [ ] Fill out each section of the README as needed, uncommenting/removing sections as needed.
-  - [ ] Add images for the following:
-      images/logo.png, images/screenshot.png
-  <!-- ! Use ESM where possible
-       ! If you need to use CJS, see: https://www.typescriptlang.org/docs/handbook/esm-node.html
-- [ ] Set the environment of the project:
-  - ES Modules (import, export):
-    - Add to `package.json`: `"type": "module"`
-    - Add to `tsconfig.json`:
-      - `"module": "ES6"`
-      - `"moduleResolution" : "node`
-      - `"lib": ["ES6", "DOM"]`
-    - Add to `.eslintrc.cjs`: `"parserOptions": { "sourceType": "module" }`
-  - Node CommonJS (require, exports):
-    - Add to `package.json`: `"type": "commonjs"`
-    - Add to `tsconfig.json`: `"module": "commonjs"`
-    - Add to `.eslintrc.cjs`: `"parserOptions": { "sourceType": "script" }` -->
-- [ ] Set the target ES version (ES6 - supported by most browsers, ESNext - latest):
-  - `./.eslint.cjs`:
-    - `"<target>": true`
-    - `"ecmaVersion": <target>`
-  - `./tsconfig.json`:
-    - `"target": "<target>"`
-    - `"module": "<target>"`
-    - `"lib": ["<target>", "DOM"]`
-  - Append `--target <target>` to the `package.json` build script
-- [ ] Add any [global imports](https://github.com/antfu/unplugin-auto-import#configuration) to `vite.config.ts` > Plugins > AutoImport
-- [ ] Do you want to commit package-lock? If not, add it to the `./.gitignore` and change the GitHub Action step "install dependencies" from `npm ci` to `npm i`. Also consider using [`yarn`](https://classic.yarnpkg.com/lang/en/docs/install/#debian-stable)
-- [ ] Specify node version in the `.nvmrc`
-- [ ] Specify formatting and editor configuration in `./.editorconfig`. Use the `./.prettierrc.cjs` for js specific rules that are not defined in `./.editorconfig`.
-- [ ] Run: `npm i` (or `yarn` if using [`yarn`](https://classic.yarnpkg.com/lang/en/docs/install/#debian-stable))
-- [ ] Setup Git hooks (Husky): `npm run prepare`
-- [ ] Add continuous deployment workflow to `./.github/workflows`
-- [ ] Finally, remove/modify the sample code:
-  - `./src/*`
-  - `./tests/*`
-  - `./public/assets/*`
-  - `./index.html`
-  - And any dependencies you don't need such as `react-router-dom`,
-    `react-bootstrap` or `react-icons`
-
-↑ Remove everything above once setup is complete. ↑
-
 <!-- ! If you can read this comment, please preview this file with a markdown renderer -->
 
 <!--
@@ -101,38 +9,45 @@ Complete the configuration checklist below and remove from the README once compl
 -->
 
 <!-- PROJECT SHIELDS -->
-<!-- [![CI][ci-shield]][ci-url] -->
+
+[![CI][ci-shield]][ci-url]
+
 <!-- [![Release][release-shield]][release-url] -->
-<!-- [![Last Commit][last-commit-shield]][last-commit-url] -->
+
+[![Last Commit][last-commit-shield]][last-commit-url]
+
 <!-- [![Contributors][contributors-shield]][contributors-url] -->
 <!-- [![Forks][forks-shield]][forks-url] -->
 <!-- [![Stargazers][stars-shield]][stars-url] -->
 <!-- [![Issues][issues-shield]][issues-url] -->
 <!-- [![MIT License][license-shield]][license-url] -->
-<!-- [![LinkedIn][linkedin-shield]][linkedin-url] -->
 
-[![Netlify][netlify-shield]][netlify-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+
+<!-- [![Netlify][netlify-shield]][netlify-url] -->
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/12de8af7-3635-4547-9d57-1d93e0bf8db1/deploy-status)](https://app.netlify.com/sites/tim-w-james/deploys)
 
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/Tim-W-James/repo_name">
+  <a href="https://github.com/Tim-W-James/website">
     <!-- <img src="images/logo.png" alt="Logo" width="80" height="80"> -->
   </a>
 
-  <h2 align="center" id="top">project_title</h2>
+  <h2 align="center" id="top">Tim James's Website</h2>
 
   <p align="center">
     project_description
     <br />
-<!--     <a href="https://github.com/Tim-W-James/repo_name"><strong>Explore the docs »</strong></a>
+<!--     <a href="https://github.com/Tim-W-James/website"><strong>Explore the docs »</strong></a>
     <br />
     <br /> -->
-<!--     <a href="https://github.com/Tim-W-James/repo_name">View Demo</a> -->
+<!--     <a href="https://github.com/Tim-W-James/website">View Demo</a> -->
 <!--     ·
-    <a href="https://github.com/Tim-W-James/repo_name/issues">Report Bug</a> -->
+    <a href="https://github.com/Tim-W-James/website/issues">Report Bug</a> -->
 <!--     ·
-    <a href="https://github.com/Tim-W-James/repo_name/issues">Request Feature</a> -->
+    <a href="https://github.com/Tim-W-James/website/issues">Request Feature</a> -->
   </p>
 </p>
 
@@ -181,7 +96,7 @@ Complete the configuration checklist below and remove from the README once compl
 
 ## About The Project
 
-<!-- [![repo_name Screen Shot][product-screenshot]](https://example.com) -->
+<!-- [![website Screen Shot][product-screenshot]](https://example.com) -->
 
 About text.
 
@@ -191,7 +106,7 @@ About text.
 
 <!-- ### Roadmap
 
-See the [open issues](https://github.com/Tim-W-James/repo_name/issues) for a list of proposed features (and known issues). -->
+See the [open issues](https://github.com/Tim-W-James/website/issues) for a list of proposed features (and known issues). -->
 
 <!-- ### Features
 
@@ -218,7 +133,7 @@ See the [open issues](https://github.com/Tim-W-James/repo_name/issues) for a lis
 1. Clone the repo
 
 ```sh
-git clone https://github.com/Tim-W-James/repo_name.git
+git clone https://github.com/Tim-W-James/website.git
 ```
 
 2. Install dependencies
@@ -326,7 +241,7 @@ Distributed under the MIT License. See `LICENSE` for more information. -->
 
 Email: [tim.jameswork9800@gmail.com](mailto:tim.jameswork9800@gmail.com "tim.jameswork9800@gmail.com")
 
-Project Link: [https://github.com/Tim-W-James/repo_name](https://github.com/Tim-W-James/repo_name) -->
+Project Link: [https://github.com/Tim-W-James/website](https://github.com/Tim-W-James/website) -->
 
 <!-- ACKNOWLEDGEMENTS -->
 <!-- ## Acknowledgements
@@ -344,22 +259,22 @@ Project Link: [https://github.com/Tim-W-James/repo_name](https://github.com/Tim-
 
 [netlify-shield]: https://img.shields.io/netlify/12de8af7-3635-4547-9d57-1d93e0bf8db1?logo=netlify&style=for-the-badge
 [netlify-url]: https://tim-w-james.netlify.app/
-[ci-shield]: https://img.shields.io/github/workflow/status/Tim-W-James/repo_name/CI?style=for-the-badge&logo=githubactions&logoColor=white
-[ci-url]: https://github.com/Tim-W-James/repo_name/actions
-[release-shield]: https://img.shields.io/github/v/release/Tim-W-James/repo_name.svg?include_prereleases&style=for-the-badge
-[release-url]: https://github.com/Tim-W-James/repo_name/releases
-[last-commit-shield]: https://img.shields.io/github/last-commit/Tim-W-James/repo_name.svg?style=for-the-badge&logo=git&logoColor=white
-[last-commit-url]: https://github.com/Tim-W-James/repo_name/commits/main
-[contributors-shield]: https://img.shields.io/github/contributors/Tim-W-James/repo_name.svg?style=for-the-badge&logo=github&logoColor=white
-[contributors-url]: https://github.com/Tim-W-James/repo_name/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Tim-W-James/repo_name.svg?style=for-the-badge
-[forks-url]: https://github.com/Tim-W-James/repo_name/network/members
-[stars-shield]: https://img.shields.io/github/stars/Tim-W-James/repo_name.svg?style=for-the-badge
-[stars-url]: https://github.com/Tim-W-James/repo_name/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Tim-W-James/repo_name.svg?style=for-the-badge
-[issues-url]: https://github.com/Tim-W-James/repo_name/issues
-[license-shield]: https://img.shields.io/github/license/Tim-W-James/repo_name.svg?style=for-the-badge
-[license-url]: https://github.com/Tim-W-James/repo_name/blob/main/LICENSE.txt
+[ci-shield]: https://img.shields.io/github/workflow/status/Tim-W-James/website/CI?style=for-the-badge&logo=githubactions&logoColor=white
+[ci-url]: https://github.com/Tim-W-James/website/actions
+[release-shield]: https://img.shields.io/github/v/release/Tim-W-James/website.svg?include_prereleases&style=for-the-badge
+[release-url]: https://github.com/Tim-W-James/website/releases
+[last-commit-shield]: https://img.shields.io/github/last-commit/Tim-W-James/website.svg?style=for-the-badge&logo=git&logoColor=white
+[last-commit-url]: https://github.com/Tim-W-James/website/commits/main
+[contributors-shield]: https://img.shields.io/github/contributors/Tim-W-James/website.svg?style=for-the-badge&logo=github&logoColor=white
+[contributors-url]: https://github.com/Tim-W-James/website/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Tim-W-James/website.svg?style=for-the-badge
+[forks-url]: https://github.com/Tim-W-James/website/network/members
+[stars-shield]: https://img.shields.io/github/stars/Tim-W-James/website.svg?style=for-the-badge
+[stars-url]: https://github.com/Tim-W-James/website/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Tim-W-James/website.svg?style=for-the-badge
+[issues-url]: https://github.com/Tim-W-James/website/issues
+[license-shield]: https://img.shields.io/github/license/Tim-W-James/website.svg?style=for-the-badge
+[license-url]: https://github.com/Tim-W-James/website/blob/main/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/timothy-william-james/
 [product-screenshot]: images/screenshot.png
