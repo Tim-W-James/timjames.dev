@@ -1,0 +1,8 @@
+**/.git
+**/.svn
+**/.hg
+**/node_modules
+**/dist
+**/coverage
+**/auto-imports.d.ts
+**/.eslintrc-auto-import.json

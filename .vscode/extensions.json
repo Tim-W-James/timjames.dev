@@ -1,0 +1,19 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=827846
+  // for the documentation about the extensions.json format
+  "recommendations": [
+    "EditorConfig.EditorConfig",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "stylelint.vscode-stylelint",
+    "DavidAnson.vscode-markdownlint",
+    "bierner.markdown-checkbox",
+    "antfu.vite",
+    "zixuanchen.vitest-explorer",
+    "steoates.autoimport",
+    "aaron-bond.better-comments",
+    "ms-vscode.vscode-typescript-next",
+    "dsznajder.es7-react-js-snippets",
+    "streetsidesoftware.code-spell-checker"
+  ]
+}

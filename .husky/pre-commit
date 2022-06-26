@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# bypass with --no-verify
+npx lint-staged
+npm run test:run

@@ -1,0 +1,20 @@
+# EditorConfig is awesome: https://EditorConfig.org
+# Where possible, specify config here instead of .prettierrc.cjs
+# There are some exceptions for js specific formatting, such as:
+# "semi": ...
+# "singleQuote": ...
+# "trailingComma": ...
+
+# top-most EditorConfig file
+root = true
+
+# 2 space indentation
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+
+# Tab indentation (no size specified)
+[Makefile]
+indent_style = tab

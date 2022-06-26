@@ -1,0 +1,21 @@
+{
+  "explorer.fileNesting.patterns": {
+    "*.ts": "${capture}.js",
+    "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+    "*.jsx": "${capture}.js",
+    "*.tsx": "${capture}.ts",
+    "tsconfig.json": "tsconfig.*.json",
+    "package.json": "package-lock.json, yarn.lock",
+    "README.md": "LICENSE.txt",
+    ".eslintrc.*": ".eslintignore, .eslintrc-auto-import.json",
+    ".editorconfig": ".prettierrc.*, .prettierignore"
+  },
+  "stylelint.validate": ["css", "less", "postcss", "scss"],
+  "markdownlint.config": {
+    "MD001": false,
+    "MD026": false,
+    "MD033": false,
+    "MD041": false,
+    "MD029": false
+  }
+}
