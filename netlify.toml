@@ -29,9 +29,6 @@
     ignorePeriod = 1
 
 [[plugins]]
-  package = "netlify-plugin-chromium"
-
-[[plugins]]
   package = "@netlify/plugin-lighthouse"
 
 # asset optimization
