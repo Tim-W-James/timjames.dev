@@ -17,20 +17,6 @@
 
 # plugins
 
-[[plugins]]
-  package = "@netlify/plugin-sitemap"
-
-[[plugins]]
-  package = "netlify-plugin-submit-sitemap"
-
-	[plugins.inputs]
-
-    # Time in seconds to not submit the sitemap after successful submission
-    ignorePeriod = 1
-
-[[plugins]]
-  package = "@netlify/plugin-lighthouse"
-
 # asset optimization
 
 [build.processing]
