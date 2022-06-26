@@ -9,11 +9,10 @@
     "DavidAnson.vscode-markdownlint",
     "bierner.markdown-checkbox",
     "antfu.vite",
-    "zixuanchen.vitest-explorer",
-    "steoates.autoimport",
     "aaron-bond.better-comments",
     "ms-vscode.vscode-typescript-next",
     "dsznajder.es7-react-js-snippets",
-    "streetsidesoftware.code-spell-checker"
+    "streetsidesoftware.code-spell-checker",
+    "crystal-spider.jsdoc-generator"
   ]
 }

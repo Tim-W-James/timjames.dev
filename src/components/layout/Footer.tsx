@@ -1,4 +1,4 @@
-const PrimaryFooter: React.FC = () => (
+const Footer: React.FC = () => (
   <footer id="footer" className="bg-dark">
     <div className="container">
       <span className="text-muted">© 2022 Company, Inc</span>
@@ -6,4 +6,4 @@ const PrimaryFooter: React.FC = () => (
   </footer>
 );
 
-export default PrimaryFooter;
+export default Footer;

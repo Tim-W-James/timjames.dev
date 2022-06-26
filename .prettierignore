@@ -6,3 +6,4 @@
 **/coverage
 **/auto-imports.d.ts
 **/.eslintrc-auto-import.json
+**/storybook-static

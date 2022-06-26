@@ -1,13 +1,17 @@
 # Dependency directories
-# package-lock.json # uncomment this line if you don't want to commit package-lock
 node_modules/
 jspm_packages/
+# * Uncomment the lines below if you don't want to commit the lockfile - not recommended
+# pnpm-lock.yaml    # pnpm
+# yarn.lock         # yarn
+# package-lock.json # npm
 
 # Editor directories and files
 .vscode/*
+# Commit workspace configuration
+!.vscode/extensions.json
 !.vscode/settings.json
 !.vscode/launch.json
-!.vscode/extensions.json
 .idea
 .DS_Store
 *.suo
@@ -123,3 +127,9 @@ dist-ssr
 
 # Other output
 out
+
+# Storybook output
+storybook-static
+
+# Local Netlify folder
+.netlify

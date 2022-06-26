@@ -33,5 +33,5 @@ module.exports = {
     "alpha-value-notation": ["percentage", { exceptProperties: ["opacity"] }],
   },
   plugins: ["stylelint-order"],
-  ignoreFiles: ["./dist"],
+  ignoreFiles: ["./dist", "./storybook-static"],
 };

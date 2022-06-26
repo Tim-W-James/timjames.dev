@@ -4,9 +4,12 @@
     "paths": {
       // Specify a set of entries that re-map imports to additional lookup locations.
       // ! Define paths relative to the ./public directory in ./vite.config.ts
-      "@scss/*": ["scss/*"],
+      "@pages/*": ["pages/*"],
+      "@utils/*": ["utils/*"],
+      "@hooks/*": ["hooks/*"],
+      "@context/*": ["context/*"],
       "@components/*": ["components/*"],
-      "@context/*": ["context/*"]
+      "@layout/*": ["components/layout/*"]
     }
   }
 }

@@ -3,4 +3,4 @@
 
 # bypass with --no-verify
 npx lint-staged
-npm run test:run
+pnpm --if-present test:run
