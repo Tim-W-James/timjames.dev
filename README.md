@@ -225,7 +225,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_ --
 - Initialize Netlify CLI:
 
   ```sh
-  netlify init
+  npx netlify init
   ```
 
 - Start a development environment:
