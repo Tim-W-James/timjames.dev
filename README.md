@@ -20,9 +20,9 @@
   <p align="center">
     Personal site for Tim W James - Portfolio, Blog, and more
     <br />
-<!--     <a href="https://github.com/Tim-W-James/site"><strong>Explore the docs »</strong></a>
-    <br />
-    <br /> -->
+    <strong>Deployed to <a href="https://timjames.dev">timjames.dev</a></strong>
+    <!-- <br /> -->
+    <!-- <br /> -->
 <!--     <a href="https://github.com/Tim-W-James/site">View Demo</a> -->
 <!--     ·
     <a href="https://github.com/Tim-W-James/site/issues">Report Bug</a> -->
@@ -35,14 +35,14 @@
 <!-- Shields: https://shields.io -->
 <!-- Icons: https://github.com/simple-icons/simple-icons/blob/develop/slugs.md -->
 
-<br/>
+<!-- <br/> -->
 <p align="center">
   <!-- GitHub Actions Shield -->
   <a href="https://github.com/Tim-W-James/site/actions"><img src="https://img.shields.io/github/workflow/status/Tim-W-James/site/CI?style=for-the-badge&logo=githubactions&logoColor=white" alt="CI"></a>
   <!-- Last Commit Shield -->
   <a href="https://github.com/Tim-W-James/site/commits/main"><img src="https://img.shields.io/github/last-commit/Tim-W-James/site.svg?style=for-the-badge&logo=git&logoColor=white" alt="Release"></a>
   <!-- Renovate Shield -->
-  <a href="https://github.com/Tim-W-James/site/issues/1"><img src="https://img.shields.io/badge/-Renovate-black.svg?style=for-the-badge&logo=renovatebot&colorB=555" alt="Renovate"></a>
+  <a href="https://github.com/Tim-W-James/site/issues/2"><img src="https://img.shields.io/badge/-Renovate-black.svg?style=for-the-badge&logo=renovatebot&colorB=555" alt="Renovate"></a>
   <!-- Release Shield -->
   <!-- <a href="https://github.com/Tim-W-James/site/releases"><img src="https://img.shields.io/github/v/release/Tim-W-James/site.svg?include_prereleases&style=for-the-badge" alt="Release"></a> -->
   <!-- Contributors Shield -->
@@ -56,7 +56,7 @@
   <!-- License Shield -->
   <!-- <a href="https://github.com/Tim-W-James/site/blob/main/LICENSE.txt"><img src="https://img.shields.io/github/license/Tim-W-James/site.svg?style=for-the-badge" alt="License"></a> -->
   <!-- Linkedin Shield -->
-  <!-- <a href="https://linkedin.com/in/timothy-william-james/"><img src="https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555" alt="Linkedin"></a> -->
+  <a href="https://linkedin.com/in/timothy-william-james/"><img src="https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555" alt="Linkedin"></a>
 </p>
 <p align="center">
   <a href="https://timjames.dev"><img src="https://api.netlify.com/api/v1/badges/12de8af7-3635-4547-9d57-1d93e0bf8db1/deploy-status" alt="Netlify Status"></a>
@@ -73,7 +73,7 @@
         <li><a href="#goals">Goals</a></li>
         <!-- <li><a href="#roadmap">Goals</a></li> -->
         <!-- <li><a href="#features">Features</a></li> -->
-        <!-- <li><a href="#built-with">Built With</a></li> -->
+        <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
     <li>
@@ -93,15 +93,15 @@
         <a href="#development">Development</a>
         <ul>
           <li><a href="#testing">Testing</a></li>
-          <li><a href="#deploy">Deploy</a></li>
+          <li><a href="#deployment">Deployment</a></li>
           <li><a href="#code-style">Code Style</a></li>
           <li><a href="#project-structure">Project Structure</a></li>
           <li><a href="#documentation">Documentation</a></li>
         </ul>
     </li>
     <!-- <li><a href="#contributing">Contributing</a></li> -->
-    <!-- <li><a href="#license">License</a></li> -->
-    <!-- <li><a href="#contact">Contact</a></li> -->
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
     <!-- <li><a href="#acknowledgements">Acknowledgements</a></li> -->
   </ol>
 </details>
@@ -112,11 +112,12 @@
 
 <!-- [![site Screen Shot][product-screenshot]](https://example.com) -->
 
-About text.
-
 ### Goals
 
-- Stuff to do
+Site to be used to:
+
+- **Portfolio**: display and demo past projects
+- **Blog**: display blog posts from [dev.to/timwjames](https://dev.to/timwjames)
 
 <!-- ### Roadmap
 
@@ -126,9 +127,41 @@ See the [open issues](https://github.com/Tim-W-James/site/issues) for a list of 
 
 * -->
 
-<!-- ### Built With
+### Built With
 
-* []() -->
+**Development**:
+
+- [React 17](https://reactjs.org/docs/getting-started.html): frontend framework
+- [Vite](https://vitejs.dev/config/): frontend build tool and dev server, configured in [`./vite.config.ts`](./vite.config.ts)
+- [TypeScript 4.7](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html): types for js. Configured in [`./tsconfig.json`](./tsconfig.json)
+- [SASS](https://sass-lang.com/): CSS preprocessor
+- [ESLint](https://eslint.org/docs/2.0.0/user-guide/configuring): Linter/code analyzer for TypeScript. Configured in [`./.eslintrc.cjs`](./.eslintrc.cjs) with rules from AirBnB and SonarJS
+- [Stylelint](https://stylelint.io/): Linter/code analyzer for SCSS. Configured in [`./.stylelintrc.cjs`](./.stylelintrc.cjs)
+- [Prettier](https://prettier.io/docs/en/configuration.html): Formatter. Configured in [`./.prettierrc.cjs`](./.prettierrc.cjs)
+- [Vitest](https://vitest.dev/config/): unit testing framework. Configured in [`./vite.config.ts` > `test`](./vite.config.ts#L52)
+- [Storybook](https://storybook.js.org/): view, document and test individual components and pages. Configured in [`./.storybook/main.cjs`](./.storybook/main.cjs)
+- [unplugin-auto-import](https://github.com/antfu/unplugin-auto-import#configuration): global imports. Configured in [`./vite.config.ts` > `Plugins` > `AutoImport`](https://github.com/Tim-W-James/react-ts-template/blob/main/vite.config.ts#L19)
+- [pnpm](https://pnpm.io/): configuration for the `pnpm` package manager for better performance, lockfiles and monorepo support. See steps <a href="#todo">below</a> if you wish to use a different package manager.
+- `npm` scripts - run with `pnpm run <script>`:
+  - `dev` - starts a dev environment on localhost with Hot Module Reloading (automatically updates when source code changes)
+  - `build` - compile production source code to [`./dist`](./dist)
+  - `preview` - after build, preview on localhost
+  - `lint` - evaluate ESLint rules against source code
+  - `format` - format source code with prettier and try to fix any ESLint errors
+  - `test:run` - run tests using [Vitest](https://vitest.dev/config/)
+  - `test:ui` - run tests and display a UI on localhost
+  - `test` - run unit tests in watch mode (automatically reruns tests when source code changes)
+  - `coverage` - run coverage tests and output results to [`./coverage`](./coverage)
+  - `storybook` - launch [Storybook](https://storybook.js.org/) to view, document and test components and pages
+- [Husky](https://github.com/typicode/husky): pre-commit Git hooks to lint, format and run tests. Configured in [`./.husky`](./.husky)
+- [Renovate](https://github.com/Tim-W-James/site/issues/2): GitHub bot for automatic dependency updates. Configured in [`./renovate.json`](./renovate.json)
+- [GitHub Actions](https://github.com/Tim-W-James/site/actions): GitHub CI/CD pipeline. Used to ensure builds, linting rules and tests pass for any [Pull Request](https://github.com/Tim-W-James/site/pulls) against the [`main`](https://github.com/Tim-W-James/site/branches) branch. Configured in [`./.github/workflows`](./.github/workflows)
+
+**Deployment**:
+
+- [Netlify](https://www.netlify.com/): Hosting, CDN, NS and continuous deployment for [timjames.dev](https://timjames.dev). Netlify domain: [tim-w-james.netlify.app](https://tim-w-james.netlify.app) - go [here](#deployment) for details. Configured in [`./netlify.toml`](./netlify.toml)
+- [GoDaddy](https://www.godaddy.com/en-au/tlds/dev-domain): Domain Registry for [timjames.dev](https://timjames.dev) using the `.dev` TLD
+- [Let's Encrypt](https://letsencrypt.org/): TLS/SSL Certificate Authority for [timjames.dev](https://timjames.dev)
 
 <!-- GETTING STARTED -->
 
@@ -223,7 +256,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_ --
 
   Note: initially, you may need to run this script twice to fix a caching error
 
-### Deploy
+### Deployment
 
 - Initialize Netlify CLI:
 
@@ -243,9 +276,9 @@ _For more examples, please refer to the [Documentation](https://example.com)_ --
   pnpm run deploy
   ```
 
-  Note that any [PR](https://github.com/Tim-W-James/site/pulls) will automatically be deployed to a [Netlify preview server](https://app.netlify.com/sites/tim-w-james/deploys?filter=deploy+previews).
+  Note that any [Pull Request](https://github.com/Tim-W-James/site/pulls) will automatically be deployed to a [Netlify preview server](https://app.netlify.com/sites/tim-w-james/deploys?filter=deploy+previews).
 
-- Deploy to production: continuous deployment to [Netlify](https://app.netlify.com/sites/tim-w-james/deploys?filter=main) on the [`main`](https://github.com/Tim-W-James/site/branches) branch.
+- Deploy to production: continuous deployment to [Netlify](https://app.netlify.com/sites/tim-w-james/deploys?filter=main) domain [tim-w-james.netlify.app](https://tim-w-james.netlify.app) on the [`main`](https://github.com/Tim-W-James/site/branches) branch.
 
 ### Code Style
 
@@ -306,16 +339,16 @@ Contributions are what make the open source community such an amazing place to l
 
 <!-- LICENSE -->
 <!-- https://choosealicense.com -->
-<!-- ## License
+## License
 
-Distributed under the MIT License. See [`LICENSE.txt`](./LICENSE.txt) for more information. -->
+Distributed under the MIT License. See [`LICENSE.txt`](./LICENSE.txt) for more information.
 
 <!-- CONTACT -->
-<!-- ## Contact
+## Contact
 
 Email: [tim.jameswork9800@gmail.com](mailto:tim.jameswork9800@gmail.com "tim.jameswork9800@gmail.com")
 
-Project Link: [https://github.com/Tim-W-James/site](https://github.com/Tim-W-James/site) -->
+Project Link: [https://github.com/Tim-W-James/site](https://github.com/Tim-W-James/site)
 
 <!-- ACKNOWLEDGEMENTS -->
 <!-- ## Acknowledgements
