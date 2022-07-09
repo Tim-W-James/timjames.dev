@@ -9,8 +9,12 @@
   # directory if one has been set, or the root directory if 
   # a base has not been set. This sample publishes the directory 
   # located at the absolute path "root/project/build-output"
-  
+
   publish = "dist"
+
+  # don't trigger unnecessary builds by ignoring changes to the following globs
+  # https://git-scm.com/docs/gitglossary#gitglossary-aiddefpathspecapathspec
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- ':^***.md' ':^***.txt' ':^.git*' ':^.github' ':^.husky' ':^.vscode' ':^.storybook'"
 
   # Default build command.
   command = "npm run build"
@@ -66,7 +70,6 @@ package = "@netlify/plugin-lighthouse"
   for = "/*.jpg"
   [headers.values]
     Cache-Control = "public, max-age=604800"
-
 
 [[headers]]
   for = "/*.js"

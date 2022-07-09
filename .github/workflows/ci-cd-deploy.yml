@@ -8,10 +8,16 @@ on:
     branches: ["main"]
     paths-ignore:
       - "**.md"
+      - "**.txt"
+      - ".husky/**"
+      - ".vscode/**"
   pull_request:
     branches: ["main"]
     paths-ignore:
       - "**.md"
+      - "**.txt"
+      - ".husky/**"
+      - ".vscode/**"
 
 jobs:
   build:
