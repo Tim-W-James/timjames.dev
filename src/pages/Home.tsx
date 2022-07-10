@@ -1,9 +1,9 @@
 import logo from "@assets/svg/logo.svg";
 import { BsLinkedin } from "react-icons/bs";
-import "./Home.scss";
+import styles from "./Home.scss";
 
 const Home: React.FC = () => (
-  <div className="home">
+  <div className={styles.home}>
     <header>
       <img src={logo} className="home-logo" alt="logo" />
       <h1>Coming Soon...</h1>

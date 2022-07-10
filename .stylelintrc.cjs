@@ -31,7 +31,14 @@ module.exports = {
       },
     ],
     "alpha-value-notation": ["percentage", { exceptProperties: ["opacity"] }],
+    "css-modules/no-global-scoped-selector": [
+      true,
+      { fileExtensions: [".module.css", ".module.scss"] },
+    ],
   },
-  plugins: ["stylelint-order"],
+  plugins: [
+    "stylelint-order",
+    "stylelint-css-modules-no-global-scoped-selector",
+  ],
   ignoreFiles: ["./dist", "./storybook-static"],
 };

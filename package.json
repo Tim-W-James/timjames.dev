@@ -128,6 +128,7 @@
     "stylelint-config-idiomatic-order": "^8.1.0",
     "stylelint-config-prettier-scss": "^0.0.1",
     "stylelint-config-standard-scss": "^4.0.0",
+    "stylelint-css-modules-no-global-scoped-selector": "^1.0.2",
     "stylelint-order": "^5.0.0",
     "ts-node": "^10.8.0",
     "typescript": "^4.7.2",
