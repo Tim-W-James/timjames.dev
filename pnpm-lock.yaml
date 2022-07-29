@@ -80,7 +80,7 @@ specifiers:
   vite: ^2.9.9
   vite-plugin-eslint: ^1.6.1
   vite-tsconfig-paths: ^3.5.0
-  vitest: ^0.18.0
+  vitest: ^0.19.0
   web-vitals: ^2.1.4
 
 dependencies:
@@ -166,7 +166,7 @@ devDependencies:
   vite: 2.9.13_sass@1.53.0
   vite-plugin-eslint: 1.6.1_eslint@8.19.0+vite@2.9.13
   vite-tsconfig-paths: 3.5.0_vite@2.9.13
-  vitest: 0.18.1_d4p2vlikidj5rraclzomobzlpa
+  vitest: 0.19.1_d4p2vlikidj5rraclzomobzlpa
 
 packages:
 
@@ -6352,7 +6352,7 @@ packages:
       mississippi: 3.0.0
       mkdirp: 0.5.6
       move-concurrently: 1.0.1
-      promise-inflight: 1.0.1
+      promise-inflight: 1.0.1_bluebird@3.7.2
       rimraf: 2.7.1
       ssri: 6.0.2
       unique-filename: 1.1.1
@@ -14620,6 +14620,17 @@ packages:
         optional: true
     dev: true
 
+  /promise-inflight/1.0.1_bluebird@3.7.2:
+    resolution: {integrity: sha512-6zWPyEOFaQBJYcGMHBKTKJ3u6TBsnMFOIZSa6ce1e/ZrrsOlnHRHbabMjLiBYKp+n44X9eUI6VUPaukCXHuG4g==}
+    peerDependencies:
+      bluebird: '*'
+    peerDependenciesMeta:
+      bluebird:
+        optional: true
+    dependencies:
+      bluebird: 3.7.2
+    dev: true
+
   /promise.allsettled/1.0.5:
     resolution: {integrity: sha512-tVDqeZPoBC0SlzJHzWGZ2NKAguVq2oiYj7gbggbiTvH2itHohijTp7njOUA0aQ/nl+0lr/r6egmhoYu63UZ/pQ==}
     engines: {node: '>= 0.4'}
@@ -18019,18 +18030,21 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitest/0.18.1_d4p2vlikidj5rraclzomobzlpa:
-    resolution: {integrity: sha512-4F/1K/Vn4AvJwe7i2YblR02PT5vMKcw9KN4unDq2KD0YcSxX0B/6D6Qu9PJaXwVuxXMFTQ5ovd4+CQaW3bwofA==}
+  /vitest/0.19.1_d4p2vlikidj5rraclzomobzlpa:
+    resolution: {integrity: sha512-E/ZXpFMUahn731wzhMBNzWRp4mGgiZFT0xdHa32cbNO0CSaHpE9hTfteEU247Gi2Dula8uXo5vvrNB6dtszmQA==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
     peerDependencies:
       '@edge-runtime/vm': '*'
+      '@vitest/browser': '*'
       '@vitest/ui': '*'
       c8: '*'
       happy-dom: '*'
       jsdom: '*'
     peerDependenciesMeta:
       '@edge-runtime/vm':
+        optional: true
+      '@vitest/browser':
         optional: true
       '@vitest/ui':
         optional: true
