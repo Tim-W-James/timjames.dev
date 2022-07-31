@@ -1,5 +1,5 @@
 {
-  "name": "tim-w-james-site",
+  "name": "timjames.dev",
   "version": "0.0.0",
   "description": "Personal site for Tim W James - Portfolio, Blog, and more :rocket:",
   "author": {
@@ -8,16 +8,16 @@
     "url": "https://timjames.dev"
   },
   "license": "MIT",
-  "homepage": "https://github.com/Tim-W-James/site#readme",
+  "homepage": "https://github.com/Tim-W-James/timjames.dev#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Tim-W-James/site.git"
+    "url": "git+https://github.com/Tim-W-James/timjames.dev.git"
   },
   "keywords": [
     "Tim-W-James, Portfolio, Blog"
   ],
   "bugs": {
-    "url": "https://github.com/Tim-W-James/site/issues"
+    "url": "https://github.com/Tim-W-James/timjames.dev/issues"
   },
   "type": "module",
   "engines": {
@@ -29,6 +29,7 @@
   "private": "true",
   "scripts": {
     "prepare": "husky install",
+    "init:netlify": "netlify init",
     "dev": "vite",
     "dev:netlify": "netlify dev",
     "dev:live": "netlify dev --live",

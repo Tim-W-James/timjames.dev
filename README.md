@@ -11,11 +11,11 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/Tim-W-James/site">
+  <a href="https://github.com/Tim-W-James/timjames.dev">
     <!-- <img src="images/logo.png" alt="Logo" width="80" height="80"> -->
   </a>
 
-  <h2 align="center" id="top">Tim James's Site</h2>
+  <h2 align="center" id="top">timjames.dev</h2>
 
   <p align="center">
     Personal site for Tim W James - Portfolio, Blog, and more
@@ -23,11 +23,11 @@
     <strong>Deployed to <a href="https://timjames.dev">timjames.dev 🌐</a></strong>
     <!-- <br /> -->
     <!-- <br /> -->
-<!--     <a href="https://github.com/Tim-W-James/site">View Demo</a> -->
+<!--     <a href="https://github.com/Tim-W-James/timjames.dev">View Demo</a> -->
 <!--     ·
-    <a href="https://github.com/Tim-W-James/site/issues">Report Bug</a> -->
+    <a href="https://github.com/Tim-W-James/timjames.dev/issues">Report Bug</a> -->
 <!--     ·
-    <a href="https://github.com/Tim-W-James/site/issues">Request Feature</a> -->
+    <a href="https://github.com/Tim-W-James/timjames.dev/issues">Request Feature</a> -->
   </p>
 </p>
 
@@ -38,28 +38,28 @@
 <!-- <br/> -->
 <p align="center">
   <!-- GitHub Actions Shield -->
-  <a href="https://github.com/Tim-W-James/site/actions"><img src="https://img.shields.io/github/workflow/status/Tim-W-James/site/CI?style=for-the-badge&logo=githubactions&logoColor=white" alt="CI"></a>
+  <a href="https://github.com/Tim-W-James/timjames.dev/actions"><img src="https://img.shields.io/github/workflow/status/Tim-W-James/timjames.dev/CI?style=for-the-badge&logo=githubactions&logoColor=white" alt="CI"></a>
   <!-- Last Commit Shield -->
-  <a href="https://github.com/Tim-W-James/site/commits/main"><img src="https://img.shields.io/github/last-commit/Tim-W-James/site.svg?style=for-the-badge&logo=git&logoColor=white" alt="Release"></a>
+  <a href="https://github.com/Tim-W-James/timjames.dev/commits/main"><img src="https://img.shields.io/github/last-commit/Tim-W-James/timjames.dev.svg?style=for-the-badge&logo=git&logoColor=white" alt="Release"></a>
   <!-- Renovate Shield -->
-  <a href="https://github.com/Tim-W-James/site/issues/2"><img src="https://img.shields.io/badge/-Renovate-black.svg?style=for-the-badge&logo=renovatebot&colorB=555" alt="Renovate"></a>
+  <a href="https://github.com/Tim-W-James/timjames.dev/issues/2"><img src="https://img.shields.io/badge/-Renovate-black.svg?style=for-the-badge&logo=renovatebot&colorB=555" alt="Renovate"></a>
   <!-- Release Shield -->
-  <!-- <a href="https://github.com/Tim-W-James/site/releases"><img src="https://img.shields.io/github/v/release/Tim-W-James/site.svg?include_prereleases&style=for-the-badge" alt="Release"></a> -->
+  <!-- <a href="https://github.com/Tim-W-James/timjames.dev/releases"><img src="https://img.shields.io/github/v/release/Tim-W-James/timjames.dev.svg?include_prereleases&style=for-the-badge" alt="Release"></a> -->
   <!-- Contributors Shield -->
-  <!-- <a href="https://github.com/Tim-W-James/site/graphs/contributors"><img src="https://img.shields.io/github/contributors/Tim-W-James/site.svg?style=for-the-badge&logo=github&logoColor=white" alt="Contributors"></a> -->
+  <!-- <a href="https://github.com/Tim-W-James/timjames.dev/graphs/contributors"><img src="https://img.shields.io/github/contributors/Tim-W-James/timjames.dev.svg?style=for-the-badge&logo=github&logoColor=white" alt="Contributors"></a> -->
   <!-- Forks Shield -->
-  <!-- <a href="https://github.com/Tim-W-James/site/network/members"><img src="https://img.shields.io/github/forks/Tim-W-James/site.svg?style=for-the-badge" alt="Forks"></a> -->
+  <!-- <a href="https://github.com/Tim-W-James/timjames.dev/network/members"><img src="https://img.shields.io/github/forks/Tim-W-James/timjames.dev.svg?style=for-the-badge" alt="Forks"></a> -->
   <!-- Stars Shield -->
-  <!-- <a href="https://github.com/Tim-W-James/site/stargazers"><img src="https://img.shields.io/github/stars/Tim-W-James/site.svg?style=for-the-badge" alt="Stars"></a> -->
+  <!-- <a href="https://github.com/Tim-W-James/timjames.dev/stargazers"><img src="https://img.shields.io/github/stars/Tim-W-James/timjames.dev.svg?style=for-the-badge" alt="Stars"></a> -->
   <!-- Issues Shield -->
-  <!-- <a href="https://github.com/Tim-W-James/site/issues"><img src="https://img.shields.io/github/issues/Tim-W-James/site.svg?style=for-the-badge" alt="Issues"></a> -->
+  <!-- <a href="https://github.com/Tim-W-James/timjames.dev/issues"><img src="https://img.shields.io/github/issues/Tim-W-James/timjames.dev.svg?style=for-the-badge" alt="Issues"></a> -->
   <!-- License Shield -->
-  <!-- <a href="https://github.com/Tim-W-James/site/blob/main/LICENSE.txt"><img src="https://img.shields.io/github/license/Tim-W-James/site.svg?style=for-the-badge" alt="License"></a> -->
+  <!-- <a href="https://github.com/Tim-W-James/timjames.dev/blob/main/LICENSE.txt"><img src="https://img.shields.io/github/license/Tim-W-James/timjames.dev.svg?style=for-the-badge" alt="License"></a> -->
   <!-- Linkedin Shield -->
   <a href="https://linkedin.com/in/timothy-william-james/"><img src="https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555" alt="Linkedin"></a>
 </p>
 <p align="center">
-  <a href="https://app.netlify.com/sites/tim-w-james/deploys?filter=main"><img src="https://api.netlify.com/api/v1/badges/12de8af7-3635-4547-9d57-1d93e0bf8db1/deploy-status" alt="Netlify Status"></a>
+  <a href="https://app.netlify.com/timjames.devs/tim-w-james/deploys?filter=main"><img src="https://api.netlify.com/api/v1/badges/12de8af7-3635-4547-9d57-1d93e0bf8db1/deploy-status" alt="Netlify Status"></a>
 </p>
 <br/>
 
@@ -121,7 +121,7 @@ Site to be used to:
 
 <!-- ### Roadmap
 
-See the [open issues](https://github.com/Tim-W-James/site/issues) for a list of proposed features (and known issues). -->
+See the [open issues](https://github.com/Tim-W-James/timjames.dev/issues) for a list of proposed features (and known issues). -->
 
 <!-- ### Features
 
@@ -158,12 +158,12 @@ See the [open issues](https://github.com/Tim-W-James/site/issues) for a list of 
   - `coverage` - run coverage tests and output results to [`./coverage`](./coverage)
   - `storybook` - launch [Storybook](https://storybook.js.org/) to view, document and test components and pages
 - [![Husky](https://img.shields.io/badge/-Husky-black?style=flat-square&logo=git)](https://github.com/typicode/husky): pre-commit Git hooks to lint, format and run tests. Configured in [`./.husky`](./.husky)
-- [![Renovate](https://img.shields.io/badge/-Renovate-black?style=flat-square&logo=renovatebot)](https://github.com/Tim-W-James/site/issues/2): GitHub bot for automatic dependency updates. Configured in [`./renovate.json`](./renovate.json)
-- [![GitHub Actions](https://img.shields.io/badge/-GitHub%20Actions-black?style=flat-square&logo=githubactions)](https://github.com/Tim-W-James/site/actions): GitHub CI/CD pipeline. Used to ensure builds, linting rules and tests pass for any [Pull Request](https://github.com/Tim-W-James/site/pulls) against the [`main`](https://github.com/Tim-W-James/site/branches) branch. Configured in [`./.github/workflows`](./.github/workflows)
+- [![Renovate](https://img.shields.io/badge/-Renovate-black?style=flat-square&logo=renovatebot)](https://github.com/Tim-W-James/timjames.dev/issues/2): GitHub bot for automatic dependency updates. Configured in [`./renovate.json`](./renovate.json)
+- [![GitHub Actions](https://img.shields.io/badge/-GitHub%20Actions-black?style=flat-square&logo=githubactions)](https://github.com/Tim-W-James/timjames.dev/actions): GitHub CI/CD pipeline. Used to ensure builds, linting rules and tests pass for any [Pull Request](https://github.com/Tim-W-James/timjames.dev/pulls) against the [`main`](https://github.com/Tim-W-James/timjames.dev/branches) branch. Configured in [`./.github/workflows`](./.github/workflows)
 
 **Deployment**:
 
-- [![Netlify](https://img.shields.io/badge/-Netlify-black?style=flat-square&logo=netlify)](https://www.netlify.com/): Hosting, CDN, NS and continuous deployment for [timjames.dev](https://timjames.dev). Netlify domain: [tim-w-james.netlify.app](https://tim-w-james.netlify.app) - go [here](#deployment) for details. Configured in [`./netlify.toml`](./netlify.toml)
+- [![Netlify](https://img.shields.io/badge/-Netlify-black?style=flat-square&logo=netlify)](https://www.netlify.com/): Hosting, CDN, NS and continuous deployment for [timjames.dev](https://timjames.dev). Netlify domain: [timjames.netlify.app](https://timjames.netlify.app) - go [here](#deployment) for details. Configured in [`./netlify.toml`](./netlify.toml)
 - [![GoDaddy](https://img.shields.io/badge/-GoDaddy-black?style=flat-square&logo=goDaddy)](https://www.godaddy.com/en-au/tlds/dev-domain): Domain Registry for [timjames.dev](https://timjames.dev) using the `.dev` TLD
 - [![Let's Encrypt](https://img.shields.io/badge/-Let%27s%20Encrypt-black?style=flat-square&logo=letsencrypt)](https://letsencrypt.org/): TLS/SSL Certificate Authority for [timjames.dev](https://timjames.dev)
 
@@ -190,7 +190,7 @@ See the [open issues](https://github.com/Tim-W-James/site/issues) for a list of 
 - Clone the repo:
 
   ```sh
-  git clone https://github.com/Tim-W-James/site.git
+  git clone https://github.com/Tim-W-James/timjames.dev.git
   ```
 
 - Install dependencies with [`pnpm`](https://pnpm.io/installation):
@@ -256,6 +256,12 @@ _For more examples, please refer to the [Documentation](https://example.com)_ --
   npx netlify init
   ```
 
+  or
+
+  ```sh
+  pnpm init:netlify
+  ```
+
 - Build locally:
 
   ```sh
@@ -268,9 +274,9 @@ _For more examples, please refer to the [Documentation](https://example.com)_ --
   pnpm run deploy
   ```
 
-  Note that any [Pull Request](https://github.com/Tim-W-James/site/pulls) will automatically be deployed to a [Netlify preview server](https://app.netlify.com/sites/tim-w-james/deploys?filter=deploy+previews).
+  Note that any [Pull Request](https://github.com/Tim-W-James/timjames.dev/pulls) will automatically be deployed to a [Netlify preview server](https://app.netlify.com/timjames.devs/tim-w-james/deploys?filter=deploy+previews).
 
-- Deploy to production: continuous deployment to [Netlify](https://app.netlify.com/sites/tim-w-james/deploys?filter=main) domain [tim-w-james.netlify.app](https://tim-w-james.netlify.app) on the [`main`](https://github.com/Tim-W-James/site/branches) branch.
+- Deploy to production: continuous deployment to [Netlify](https://app.netlify.com/timjames.devs/tim-w-james/deploys?filter=main) domain [timjames.netlify.app](https://timjames.netlify.app) on the [`main`](https://github.com/Tim-W-James/timjames.dev/branches) branch.
 
 ### Code Style
 
@@ -327,7 +333,7 @@ Contributions are what make the open source community such an amazing place to l
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a [Pull Request](https://github.com/Tim-W-James/site/pulls) -->
+5. Open a [Pull Request](https://github.com/Tim-W-James/timjames.dev/pulls) -->
 
 <!-- LICENSE -->
 <!-- https://choosealicense.com -->
@@ -342,7 +348,7 @@ Distributed under the MIT License. See [`LICENSE.txt`](./LICENSE.txt) for more i
 
 Email: [tim.jameswork9800@gmail.com](mailto:tim.jameswork9800@gmail.com "tim.jameswork9800@gmail.com")
 
-Project Link: [https://github.com/Tim-W-James/site](https://github.com/Tim-W-James/site)
+Project Link: [https://github.com/Tim-W-James/timjames.dev](https://github.com/Tim-W-James/timjames.dev)
 
 <!-- ACKNOWLEDGEMENTS -->
 <!-- ## Acknowledgements

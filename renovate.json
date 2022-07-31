@@ -19,5 +19,6 @@
       "matchDatasources": ["npm"],
       "stabilityDays": 3
     }
-  ]
+  ],
+  "commitBody": "[skip netlify]"
 }
