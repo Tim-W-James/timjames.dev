@@ -7,6 +7,10 @@ import eslintPlugin from "vite-plugin-eslint";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
+  // port must equal port in ./netlify.toml
+  server: {
+    port: 3000,
+  },
   // define paths relative to the ./public directory here
   resolve: {
     alias: {

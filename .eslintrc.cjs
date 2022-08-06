@@ -22,6 +22,7 @@ module.exports = {
     "airbnb-typescript",
     "airbnb/hooks",
     "plugin:sonarjs/recommended",
+    "plugin:jsx-a11y/recommended",
     "plugin:prettier/recommended",
     "plugin:storybook/recommended",
     "./.eslintrc-auto-import.json",
@@ -30,10 +31,12 @@ module.exports = {
     "react",
     "@typescript-eslint",
     "sonarjs",
+    "jsx-a11y",
     "prettier",
     "vitest",
     "prefer-arrow-functions",
   ],
+  // Ignore files in root
   ignorePatterns: ["/*.*"],
   settings: {
     react: {
@@ -124,6 +127,7 @@ module.exports = {
       },
     ],
     "react/self-closing-comp": "warn",
+    "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/quotes": "off",
     "@typescript-eslint/comma-dangle": "off",
     "react/react-in-jsx-scope": "off",

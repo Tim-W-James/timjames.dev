@@ -146,17 +146,7 @@ See the [open issues](https://github.com/Tim-W-James/timjames.dev/issues) for a 
 - [![Storybook](https://img.shields.io/badge/-Storybook-black?style=flat-square&logo=storybook)](https://storybook.js.org/): view, document and test individual components and pages. Configured in [`./.storybook/main.cjs`](./.storybook/main.cjs)
 - [![unplugin-auto-import](https://img.shields.io/badge/-Unplugin%20Auto%20Import-black?style=flat-square&logo=vite)](https://github.com/antfu/unplugin-auto-import#configuration): global imports. Configured in [`./vite.config.ts` > `Plugins` > `AutoImport`](https://github.com/Tim-W-James/react-ts-template/blob/main/vite.config.ts#L19)
 - [![pnpm](https://img.shields.io/badge/-pnpm-black?style=flat-square&logo=pnpm)](https://pnpm.io/): configuration for the `pnpm` package manager for better performance, lockfiles and monorepo support. See steps <a href="#todo">below</a> if you wish to use a different package manager.
-- [![npm](https://img.shields.io/badge/-npm-black?style=flat-square&logo=nodedotjs)](https://pnpm.io/) scripts - run with `pnpm run <script>`:
-  - `dev` - starts a dev environment on localhost with Hot Module Reloading (automatically updates when source code changes)
-  - `build` - compile production source code to [`./dist`](./dist)
-  - `preview` - after build, preview on localhost
-  - `lint` - evaluate ESLint rules against source code
-  - `format` - format source code with prettier and try to fix any ESLint errors
-  - `test:run` - run tests using [Vitest](https://vitest.dev/config/)
-  - `test:ui` - run tests and display a UI on localhost
-  - `test` - run unit tests in watch mode (automatically reruns tests when source code changes)
-  - `coverage` - run coverage tests and output results to [`./coverage`](./coverage)
-  - `storybook` - launch [Storybook](https://storybook.js.org/) to view, document and test components and pages
+- [![npm](https://img.shields.io/badge/-npm-black?style=flat-square&logo=nodedotjs)](https://www.npmjs.com/) scripts - run with `pnpm run <script>`
 - [![Husky](https://img.shields.io/badge/-Husky-black?style=flat-square&logo=git)](https://github.com/typicode/husky): pre-commit Git hooks to lint, format and run tests. Configured in [`./.husky`](./.husky)
 - [![Renovate](https://img.shields.io/badge/-Renovate-black?style=flat-square&logo=renovatebot)](https://github.com/Tim-W-James/timjames.dev/issues/2): GitHub bot for automatic dependency updates. Configured in [`./renovate.json`](./renovate.json)
 - [![GitHub Actions](https://img.shields.io/badge/-GitHub%20Actions-black?style=flat-square&logo=githubactions)](https://github.com/Tim-W-James/timjames.dev/actions): GitHub CI/CD pipeline. Used to ensure builds, linting rules and tests pass for any [Pull Request](https://github.com/Tim-W-James/timjames.dev/pulls) against the [`main`](https://github.com/Tim-W-James/timjames.dev/branches) branch. Configured in [`./.github/workflows`](./.github/workflows)
@@ -245,8 +235,6 @@ _For more examples, please refer to the [Documentation](https://example.com)_ --
   ```sh
   pnpm storybook
   ```
-
-  Note: initially, you may need to run this script twice to fix a caching error
 
 ### Deployment
 

@@ -14,7 +14,7 @@
 
   # don't trigger unnecessary builds by ignoring changes to the following globs
   # https://git-scm.com/docs/gitglossary#gitglossary-aiddefpathspecapathspec
-  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- ':^***.md' ':^***.txt' ':^.git*' ':^.github' ':^.husky' ':^.vscode' ':^.storybook'"
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- ':^***.md' ':^***.txt' ':^.git*' ':^.github' ':^.husky' ':^.vscode'"
 
   # Default build command.
   command = "npm run build"

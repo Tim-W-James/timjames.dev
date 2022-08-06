@@ -26,7 +26,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [18.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -55,6 +55,9 @@ jobs:
 
       - name: Run Tests
         run: pnpm --if-present test
+
+      - name: Run Storybook Smoke Test
+        run: pnpm --if-present storybook:smoke-test
 
       - name: Build
         run: pnpm --if-present build

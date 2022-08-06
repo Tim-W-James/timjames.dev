@@ -3,11 +3,11 @@ import Home from "@pages/Home";
 import NotFound from "@pages/NotFound";
 import App from "App";
 import { StrictMode } from "react";
-import { render } from "react-dom";
+import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./index.scss";
 
-render(
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Router>
       <Routes>
@@ -20,6 +20,5 @@ render(
         </Route>
       </Routes>
     </Router>
-  </StrictMode>,
-  document.getElementById("root")
+  </StrictMode>
 );
