@@ -59,7 +59,7 @@
   <a href="https://linkedin.com/in/timothy-william-james/"><img src="https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555" alt="Linkedin"></a>
 </p>
 <p align="center">
-  <a href="https://app.netlify.com/timjames.devs/tim-w-james/deploys?filter=main"><img src="https://api.netlify.com/api/v1/badges/12de8af7-3635-4547-9d57-1d93e0bf8db1/deploy-status" alt="Netlify Status"></a>
+  <a href="https://app.netlify.com/sites/timjames/deploys?filter=main"><img src="https://api.netlify.com/api/v1/badges/12de8af7-3635-4547-9d57-1d93e0bf8db1/deploy-status" alt="Netlify Status"></a>
 </p>
 <br/>
 
@@ -262,9 +262,9 @@ _For more examples, please refer to the [Documentation](https://example.com)_ --
   pnpm run deploy
   ```
 
-  Note that any [Pull Request](https://github.com/Tim-W-James/timjames.dev/pulls) will automatically be deployed to a [Netlify preview server](https://app.netlify.com/timjames.devs/tim-w-james/deploys?filter=deploy+previews).
+  Note that any [Pull Request](https://github.com/Tim-W-James/timjames.dev/pulls) will automatically be deployed to a [Netlify preview server](https://app.netlify.com/sites/timjames/deploys?filter=deploy+previews).
 
-- Deploy to production: continuous deployment to [Netlify](https://app.netlify.com/timjames.devs/tim-w-james/deploys?filter=main) domain [timjames.netlify.app](https://timjames.netlify.app) on the [`main`](https://github.com/Tim-W-James/timjames.dev/branches) branch.
+- Deploy to production: continuous deployment to [Netlify](https://app.netlify.com/sites/timjames/deploys?filter=main) domain [timjames.netlify.app](https://timjames.netlify.app) on the [`main`](https://github.com/Tim-W-James/timjames.dev/branches) branch.
 
 ### Code Style
 
