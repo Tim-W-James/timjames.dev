@@ -341,8 +341,6 @@ Project Link: [https://github.com/Tim-W-James/timjames.dev](https://github.com/T
 <!-- ACKNOWLEDGEMENTS -->
 <!-- ## Acknowledgements
 
-* []()
-* []()
 * []() -->
 
 <a href="#top">↑ Back to Top ↑</a>
