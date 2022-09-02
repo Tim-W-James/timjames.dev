@@ -127,7 +127,7 @@
     "prettier": "^2.7.1",
     "react-test-renderer": "^18.2.0",
     "sass": "^1.54.3",
-    "storybook-addon-react-router-v6": "^0.1.13",
+    "storybook-addon-react-router-v6": "^0.2.0",
     "storybook_vitest_addon": "^0.0.8",
     "stylelint": "^14.9.1",
     "stylelint-config-idiomatic-order": "^8.1.0",
