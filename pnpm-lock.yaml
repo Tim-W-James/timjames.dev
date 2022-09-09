@@ -83,7 +83,7 @@ specifiers:
   vite: ^3.0.4
   vite-plugin-eslint: ^1.7.0
   vite-tsconfig-paths: ^3.5.0
-  vitest: ^0.22.0
+  vitest: ^0.23.0
   web-vitals: ^2.1.4
 
 dependencies:
@@ -172,7 +172,7 @@ devDependencies:
   vite: 3.0.9_sass@1.54.4
   vite-plugin-eslint: 1.8.1_eslint@8.22.0+vite@3.0.9
   vite-tsconfig-paths: 3.5.0_vite@3.0.9
-  vitest: 0.22.1_zgky2jcxicfdntu6wtnmfwoxxa
+  vitest: 0.23.1_zgky2jcxicfdntu6wtnmfwoxxa
 
 packages:
 
@@ -17394,6 +17394,10 @@ packages:
       setimmediate: 1.0.5
     dev: true
 
+  /tinybench/2.1.5:
+    resolution: {integrity: sha512-ak+PZZEuH3mw6CCFOgf5S90YH0MARnZNhxjhjguAmoJimEMAJuNip/rJRd6/wyylHItomVpKTzZk9zrhTrQCoQ==}
+    dev: true
+
   /tinypool/0.2.4:
     resolution: {integrity: sha512-Vs3rhkUH6Qq1t5bqtb816oT+HeJTXfwt2cbPH17sWHIYKTotQIFPk3tf2fgqRrVyMDVOc1EnPgzIxfIulXVzwQ==}
     engines: {node: '>=14.0.0'}
@@ -18305,8 +18309,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitest/0.22.1_zgky2jcxicfdntu6wtnmfwoxxa:
-    resolution: {integrity: sha512-+x28YTnSLth4KbXg7MCzoDAzPJlJex7YgiZbUh6YLp0/4PqVZ7q7/zyfdL0OaPtKTpNiQFPpMC8Y2MSzk8F7dw==}
+  /vitest/0.23.1_zgky2jcxicfdntu6wtnmfwoxxa:
+    resolution: {integrity: sha512-kn9pG+h6VA3yj/xRvwgLKEd33rOlzMqJEg3tl5HSm3WUPlkY1Lr1FK8RN1uIqVKvFxmz6HGU3EQW+xW2kazRkQ==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
     peerDependencies:
@@ -18336,6 +18340,8 @@ packages:
       happy-dom: 6.0.4
       jsdom: 20.0.0
       local-pkg: 0.4.2
+      strip-literal: 0.4.0
+      tinybench: 2.1.5
       tinypool: 0.2.4
       tinyspy: 1.0.2
       vite: 3.0.9_sass@1.54.4
