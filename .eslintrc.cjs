@@ -111,6 +111,13 @@ module.exports = {
       // allow devDependencies to be imported into testing files, etc.
       { devDependencies: ["**/*.{test,spec,story,stories}.{ts,tsx}"] },
     ],
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        argsIgnorePattern: "^_",
+      },
+    ],
+    "require-await": "warn",
     "prefer-arrow-functions/prefer-arrow-functions": [
       "warn",
       {
@@ -127,6 +134,46 @@ module.exports = {
       },
     ],
     "react/self-closing-comp": "warn",
+    "react/jsx-sort-props": "warn",
+    "@typescript-eslint/switch-exhaustiveness-check": "warn",
+    "@typescript-eslint/naming-convention": [
+      "warn",
+      {
+        selector: "default",
+        format: ["camelCase"],
+      },
+      {
+        selector: "variable",
+        format: ["PascalCase", "camelCase", "UPPER_CASE"],
+      },
+      {
+        selector: "parameter",
+        format: ["camelCase"],
+        leadingUnderscore: "allow",
+      },
+      {
+        selector: "memberLike",
+        modifiers: ["private"],
+        format: ["camelCase"],
+        leadingUnderscore: "require",
+      },
+      {
+        selector: "typeLike",
+        format: ["PascalCase"],
+      },
+    ],
+    "max-len": [
+      "warn",
+      {
+        code: 80,
+        tabWidth: 2,
+        ignoreUrls: true,
+        ignoreRegExpLiterals: true,
+      },
+    ],
+    curly: "warn",
+    "object-shorthand": "warn",
+    "@typescript-eslint/no-shadow": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/quotes": "off",
     "@typescript-eslint/comma-dangle": "off",

@@ -1,5 +1,5 @@
 # EditorConfig is awesome: https://EditorConfig.org
-# Where possible, specify config here instead of .prettierrc.cjs
+# ! Where possible, specify config here instead of .prettierrc.cjs
 # There are some exceptions for js specific formatting, such as:
 # "semi": ...
 # "singleQuote": ...

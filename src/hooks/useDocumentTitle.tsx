@@ -4,7 +4,8 @@ import { useEffect, useRef } from "react";
  * Set the document title.
  *
  * @param {string} title The title to set.
- * @param {boolean} [prevailOnUnmount=false] If true, the title will be set even if the component is unmounted.
+ * @param {boolean} [prevailOnUnmount=false] If true, the title will be set even
+ * if the component is unmounted.
  */
 const useDocumentTitle = (title: string, prevailOnUnmount = false) => {
   const defaultTitle = useRef(document.title);

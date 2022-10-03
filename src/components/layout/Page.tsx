@@ -10,10 +10,10 @@ import { PRIMARY_TITLE } from "globals";
 const Page: React.FC<{
   title?: string;
   content: JSX.Element;
-}> = ({ title, content: Content }) => {
+}> = ({ title, content }) => {
   const titleSeparator = " | ";
   useDocumentTitle(`${PRIMARY_TITLE}${title ? titleSeparator + title : ""}`);
-  return Content;
+  return content;
 };
 
 export default Page;

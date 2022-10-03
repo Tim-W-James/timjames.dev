@@ -11,7 +11,7 @@ const NotFound: React.FC = () => (
       <p className="lead">
         The page you&apos;re looking for doesn&apos;t exist.
       </p>
-      <Link to="/" className="btn btn-primary">
+      <Link className="btn btn-primary" to="/">
         Go Home
       </Link>
     </div>

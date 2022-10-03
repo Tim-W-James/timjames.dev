@@ -3,15 +3,15 @@ import { Container, Nav, Navbar as BSNavbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const Navbar: React.FC = () => (
-  <BSNavbar bg="dark" variant="dark" expand="lg" sticky="top">
+  <BSNavbar bg="dark" expand="lg" sticky="top" variant="dark">
     <Container>
       <BSNavbar.Brand as={Link} to="/">
         <img
           alt=""
+          className="d-inline-block align-top"
+          height="30"
           src={logo}
           width="30"
-          height="30"
-          className="d-inline-block align-top"
         />{" "}
         Tim James
       </BSNavbar.Brand>
