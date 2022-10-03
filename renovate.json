@@ -1,5 +1,5 @@
 {
-  "extends": ["config:base", ":preserveSemverRanges"],
+  "extends": ["config:base", ":preserveSemverRanges", ":semanticCommits"],
   "labels": ["dependencies"],
   "timezone": "Australia/Sydney",
   "schedule": "before 5am on Saturday",
