@@ -72,7 +72,7 @@ specifiers:
   storybook-addon-react-router-v6: ^0.2.0
   storybook_vitest_addon: ^0.0.8
   stylelint: ^14.9.1
-  stylelint-config-idiomatic-order: ^8.1.0
+  stylelint-config-idiomatic-order: ^9.0.0
   stylelint-config-prettier-scss: ^0.0.1
   stylelint-config-standard-scss: ^5.0.0
   stylelint-css-modules-no-global-scoped-selector: ^1.0.2
@@ -161,7 +161,7 @@ devDependencies:
   storybook-addon-react-router-v6: 0.2.1_q7a2mjoaaomc4ahmtdqyhsjckq
   storybook_vitest_addon: 0.0.8_4jw4gf676f7wsotn33iq7hzelq
   stylelint: 14.10.0
-  stylelint-config-idiomatic-order: 8.1.0_stylelint@14.10.0
+  stylelint-config-idiomatic-order: 9.0.0_stylelint@14.10.0
   stylelint-config-prettier-scss: 0.0.1_stylelint@14.10.0
   stylelint-config-standard-scss: 5.0.0_azcu7ozukcosyoqn57hruaqjcq
   stylelint-css-modules-no-global-scoped-selector: 1.0.2_stylelint@14.10.0
@@ -14682,14 +14682,6 @@ packages:
       util-deprecate: 1.0.2
     dev: true
 
-  /postcss-sorting/5.0.1:
-    resolution: {integrity: sha512-Y9fUFkIhfrm6i0Ta3n+89j56EFqaNRdUKqXyRp6kvTcSXnmgEjaVowCXH+JBe9+YKWqd4nc28r2sgwnzJalccA==}
-    engines: {node: '>=8.7.0'}
-    dependencies:
-      lodash: 4.17.21
-      postcss: 7.0.39
-    dev: true
-
   /postcss-sorting/7.0.1_postcss@8.4.16:
     resolution: {integrity: sha512-iLBFYz6VRYyLJEJsBJ8M3TCqNcckVzz4wFounSc5Oez35ogE/X+aoC5fFu103Ot7NyvjU3/xqIXn93Gp3kJk4g==}
     peerDependencies:
@@ -16831,13 +16823,14 @@ packages:
       inline-style-parser: 0.1.1
     dev: true
 
-  /stylelint-config-idiomatic-order/8.1.0_stylelint@14.10.0:
-    resolution: {integrity: sha512-iTPY6JjbkIdzy+21x3a1xi/tG33zKhLJb6lZl1xg6jZrXjgIYelnRZ5xVtbcEP9rElxZq/Zu1eGthfvI+ri+YQ==}
+  /stylelint-config-idiomatic-order/9.0.0_stylelint@14.10.0:
+    resolution: {integrity: sha512-+LtfPycY1Paayf1MaERyh6BzVPnZxemX5NtzdUPqi4u8hyAR7859f/4EL02+Kr9va76iX7mbYC4HendocXKJZQ==}
+    engines: {node: '>=12'}
     peerDependencies:
       stylelint: '>=11'
     dependencies:
       stylelint: 14.10.0
-      stylelint-order: 3.1.1_stylelint@14.10.0
+      stylelint-order: 5.0.0_stylelint@14.10.0
     dev: true
 
   /stylelint-config-prettier-scss/0.0.1_stylelint@14.10.0:
@@ -16915,18 +16908,6 @@ packages:
       stylelint: 14.10.0
     transitivePeerDependencies:
       - supports-color
-    dev: true
-
-  /stylelint-order/3.1.1_stylelint@14.10.0:
-    resolution: {integrity: sha512-4gP/r8j/6JGZ/LL41b2sYtQqfwZl4VSqTp7WeIwI67v/OXNQ08dnn64BGXNwAUSgb2+YIvIOxQaMzqMyQMzoyQ==}
-    engines: {node: '>=8.7.0'}
-    peerDependencies:
-      stylelint: '>=10.0.1'
-    dependencies:
-      lodash: 4.17.21
-      postcss: 7.0.39
-      postcss-sorting: 5.0.1
-      stylelint: 14.10.0
     dev: true
 
   /stylelint-order/5.0.0_stylelint@14.10.0:
