@@ -81,3 +81,11 @@ package = "@netlify/plugin-lighthouse"
   for = "/*.css"
   [headers.values]
     Cache-Control = "public, max-age=604800"
+
+# redirects
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = true
