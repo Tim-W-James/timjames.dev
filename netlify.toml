@@ -88,4 +88,3 @@ package = "@netlify/plugin-lighthouse"
   from = "/*"
   to = "/index.html"
   status = 200
-  force = true
