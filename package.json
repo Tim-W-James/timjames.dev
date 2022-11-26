@@ -118,7 +118,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-sonarjs": "^0.16.0",
     "eslint-plugin-storybook": "^0.6.7",
-    "eslint-plugin-vitest": "^0.0.8",
+    "eslint-plugin-vitest": "^0.0.20",
     "happy-dom": "^6.0.4",
     "http-server": "^14.1.1",
     "husky": "^8.0.1",
