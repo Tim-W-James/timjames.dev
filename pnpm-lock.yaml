@@ -53,7 +53,7 @@ specifiers:
   eslint-plugin-react-hooks: ^4.6.0
   eslint-plugin-sonarjs: ^0.16.0
   eslint-plugin-storybook: ^0.6.7
-  eslint-plugin-vitest: ^0.0.8
+  eslint-plugin-vitest: ^0.0.20
   happy-dom: ^6.0.4
   http-server: ^14.1.1
   husky: ^8.0.1
@@ -150,7 +150,7 @@ devDependencies:
   eslint-plugin-react-hooks: 4.6.0_eslint@8.28.0
   eslint-plugin-sonarjs: 0.16.0_eslint@8.28.0
   eslint-plugin-storybook: 0.6.7_hsf322ms6xhhd4b5ne6lb74y4a
-  eslint-plugin-vitest: 0.0.8_hsf322ms6xhhd4b5ne6lb74y4a
+  eslint-plugin-vitest: 0.0.20_hsf322ms6xhhd4b5ne6lb74y4a
   happy-dom: 6.0.4
   http-server: 14.1.1_debug@4.3.4
   husky: 8.0.1
@@ -9269,13 +9269,13 @@ packages:
       - typescript
     dev: true
 
-  /eslint-plugin-vitest/0.0.8_hsf322ms6xhhd4b5ne6lb74y4a:
-    resolution: {integrity: sha512-6xn2b4Cspn7Qc0v/ZMCq13fmsucnkEeUeKCna57M5vayvreshHEUFVgjtsksnyODlHIm9oyVfNfSFkToYz/dJg==}
+  /eslint-plugin-vitest/0.0.20_hsf322ms6xhhd4b5ne6lb74y4a:
+    resolution: {integrity: sha512-c4Rap+L5L9jkjwo9EubiLaJn0gp1bDQD7kyVR8IU6gUONtBba/hC/zlpd85svWKPuU4Ko6OOk/4AUtYfaGCHzA==}
     engines: {node: 14.x || >= 16}
     peerDependencies:
       eslint: '>=8.0.0'
     dependencies:
-      '@typescript-eslint/utils': 5.38.1_hsf322ms6xhhd4b5ne6lb74y4a
+      '@typescript-eslint/utils': 5.44.0_hsf322ms6xhhd4b5ne6lb74y4a
       eslint: 8.28.0
     transitivePeerDependencies:
       - supports-color
