@@ -5,23 +5,42 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Launch Firefox",
+      "request": "launch",
+      "type": "firefox",
+      // ! Change to where Firefox or Firefox developer edition is installed
+      "firefoxExecutable": "/opt/firefox/firefox",
+      "reAttach": true,
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}"
+    },
+    // Launch Firefox with firefox-dev -start-debugger-server -no-remote
+    {
+      "name": "Attach to Firefox",
+      "port": 6000,
+      "request": "attach",
+      "type": "firefox",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
       "name": "Launch Chrome",
       "request": "launch",
       "type": "chrome",
       "url": "http://localhost:3000",
       "webRoot": "${workspaceFolder}"
     },
+    // Launch Chrome with: google-chrome --remote-debugging-port=9222
     {
-      // launch chrome with: google-chrome --remote-debugging-port=9222
       "name": "Attach to Chrome",
       "port": 9222,
       "request": "attach",
       "type": "chrome",
-      "urlFilter": "https://localhost:3000/*",
+      "urlFilter": "http://localhost:3000/*",
       "webRoot": "${workspaceFolder}"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "Debug Tests",
       "autoAttachChildProcesses": true,
