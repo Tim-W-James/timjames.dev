@@ -1,30 +1,20 @@
-import logo from "@assets/svg/logo.svg";
-import { Container, Nav, Navbar as BSNavbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import "./Navbar.scss";
+import NavbarButton from "./NavbarButton";
 
 const Navbar: React.FC = () => (
-  <BSNavbar bg="dark" expand="lg" sticky="top" variant="dark">
-    <Container>
-      <BSNavbar.Brand as={Link} to="/">
-        <img
-          alt=""
-          className="d-inline-block align-top"
-          height="30"
-          src={logo}
-          width="30"
-        />{" "}
-        Tim James
-      </BSNavbar.Brand>
-      <BSNavbar.Toggle aria-controls="basic-navbar-nav" />
-      <BSNavbar.Collapse id="basic-navbar-nav">
-        <Nav className="me-auto">
-          <Link className="nav-link" to="/">
-            Home
-          </Link>
-        </Nav>
-      </BSNavbar.Collapse>
-    </Container>
-  </BSNavbar>
+  <div
+    className={
+      "custom-navbar glass-morphism-dark background-blur-strong " +
+      "radial-gradient-border"
+    }
+  >
+    <NavbarButton label="Tim James" />
+    <div className="navbar-links">
+      <NavbarButton label="Home" />
+      <NavbarButton label="Projects" />
+      <NavbarButton label="Blog" />
+    </div>
+  </div>
 );
 
 export default Navbar;

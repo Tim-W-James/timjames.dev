@@ -3,11 +3,14 @@
 body {
   margin: 0;
   margin-bottom: 5rem;
-    background-color: hsl(220deg 13% 18%);
+  background-color: hsl(220deg 13% 18%);
+  background-image: url("@assets/bg-aurora.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
   color: white;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -33,4 +36,91 @@ code {
   padding: 1rem;
   margin-top: 1rem;
   text-align: center;
+}
+
+// .glass-morphism-dark {
+//   background: linear-gradient(
+//     90deg,
+//     rgb(19 23 30 / 20%) 0%,
+//     rgb(19 23 30 / 50%) 100%,
+//     rgb(19 23 30 / 0%) 100%
+//   );
+// }
+
+.glass-morphism-dark {
+  background: linear-gradient(
+    var(--mouse-deg, 90deg),
+    rgb(19 23 30 / 20%) 0%,
+    rgb(19 23 30 / 50%) 100%,
+    rgb(19 23 30 / 0%) 100%
+  );
+}
+
+.glass-morphism-dark-button {
+  background: rgb(19 23 30 / 50%);
+}
+
+.glass-morphism-dark-button:hover {
+  background: linear-gradient(
+    var(--mouse-deg, 90deg),
+    rgb(19 23 30 / 20%) 0%,
+    rgb(19 23 30 / 50%) 100%,
+    rgb(19 23 30 / 0%) 100%
+  );
+}
+
+.background-blur {
+  backdrop-filter: blur(21px);
+}
+
+.background-blur-strong {
+  backdrop-filter: blur(60px);
+}
+
+.radial-gradient-border {
+  border-bottom: 1px solid;
+  border-image: radial-gradient(
+      50% 100% at 50% 50%,
+      hsl(185deg 46% 52%) 0%,
+      rgb(76 179 188 / 0%) 100%
+    )
+    1;
+}
+
+.radial-gradient-border-radius:hover::before {
+  position: absolute;
+  z-index: -1;
+  padding: 1px;
+  border: 0;
+
+  // border-radius: 30px;
+  background: radial-gradient(
+    50% 100% at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    hsl(185deg 46% 52%) 0%,
+    rgb(76 179 188 / 0%) 100%
+  );
+  content: "";
+  inset: 0;
+  mask: linear-gradient(white 0 0) content-box, linear-gradient(white 0 0);
+  mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.subtitle-sm {
+  /* Inside auto layout */
+  flex: none;
+  flex-grow: 0;
+  order: 0;
+
+  /* Light Accent */
+  color: hsl(185deg 46% 52%);
+  font-family: Outfit, sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: bold;
+
+  /* or 24px */
+  letter-spacing: 0.16em;
+  line-height: 101%;
+  text-transform: uppercase;
 }

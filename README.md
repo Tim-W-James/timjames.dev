@@ -114,14 +114,13 @@
 
 ### Goals
 
-Site to be used to:
-
 - **Portfolio**: display and demo past projects
 - **Blog**: display blog posts from [dev.to/timwjames](https://dev.to/timwjames)
 
 <!-- ### Roadmap
 
-See the [open issues](https://github.com/Tim-W-James/timjames.dev/issues) for a list of proposed features (and known issues). -->
+See the [open issues](https://github.com/Tim-W-James/timjames.dev/issues) for a
+list of proposed features (and known issues). -->
 
 <!-- ### Features
 
@@ -131,31 +130,72 @@ See the [open issues](https://github.com/Tim-W-James/timjames.dev/issues) for a 
 
 **Design**:
 
-- [![Figma](https://img.shields.io/badge/-Figma-black?style=flat-square&logo=figma)](https://www.figma.com/): tool for design, mockups and wireframes
+- [![Figma](https://img.shields.io/badge/-Figma-black?style=flat-square&logo=figma)](https://www.figma.com/file/pVOwmsYdIymurR4GmEFry1/Portfolio?node-id=9%3A117&t=c2WxYEnrq61XsoNL-1):
+  design tool. View the design
+  [online](https://www.figma.com/file/pVOwmsYdIymurR4GmEFry1/Portfolio?node-id=9%3A117&t=c2WxYEnrq61XsoNL-1)
+  or the exported file [`./Portfolio.fig`](./Portfolio.fig)
 
 **Development**:
 
-- [![React 17](https://img.shields.io/badge/-React%2017-black?style=flat-square&logo=react)](https://reactjs.org/docs/getting-started.html): frontend framework
-- [![Vite](https://img.shields.io/badge/-Vite-black?style=flat-square&logo=vite)](https://vitejs.dev/config/): frontend build tool and dev server, configured in [`./vite.config.ts`](./vite.config.ts)
-- [![TypeScript 4.7](https://img.shields.io/badge/-TypeScript-black?style=flat-square&logo=typescript)](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html): types for js. Configured in [`./tsconfig.json`](./tsconfig.json)
-- [![SASS](https://img.shields.io/badge/-SASS-black?style=flat-square&logo=sass)](https://sass-lang.com/): CSS preprocessor
-- [![ESLint](https://img.shields.io/badge/-ESLint-black?style=flat-square&logo=eslint)](https://eslint.org/docs/2.0.0/user-guide/configuring): Linter/code analyzer for TypeScript. Configured in [`./.eslintrc.cjs`](./.eslintrc.cjs) with rules from AirBnB and SonarJS
-- [![Stylelint](https://img.shields.io/badge/-Stylelint-black?style=flat-square&logo=stylelint)](https://stylelint.io/): Linter/code analyzer for SCSS. Configured in [`./.stylelintrc.cjs`](./.stylelintrc.cjs)
-- [![Prettier](https://img.shields.io/badge/-Prettier-black?style=flat-square&logo=prettier)](https://prettier.io/docs/en/configuration.html): Formatter. Configured in [`./.prettierrc.cjs`](./.prettierrc.cjs)
-- [![Vitest](https://img.shields.io/badge/-Vitest-black?style=flat-square&logo=vite)](https://vitest.dev/config/): unit testing framework. Configured in [`./vite.config.ts` > `test`](./vite.config.ts#L52)
-- [![Storybook](https://img.shields.io/badge/-Storybook-black?style=flat-square&logo=storybook)](https://storybook.js.org/): view, document and test individual components and pages. Configured in [`./.storybook/main.cjs`](./.storybook/main.cjs)
-- [![unplugin-auto-import](https://img.shields.io/badge/-Unplugin%20Auto%20Import-black?style=flat-square&logo=vite)](https://github.com/antfu/unplugin-auto-import#configuration): global imports. Configured in [`./vite.config.ts` > `Plugins` > `AutoImport`](https://github.com/Tim-W-James/react-ts-template/blob/main/vite.config.ts#L19)
-- [![pnpm](https://img.shields.io/badge/-pnpm-black?style=flat-square&logo=pnpm)](https://pnpm.io/): configuration for the `pnpm` package manager for better performance, lockfiles and monorepo support. See steps <a href="#todo">below</a> if you wish to use a different package manager.
-- [![npm](https://img.shields.io/badge/-npm-black?style=flat-square&logo=nodedotjs)](https://www.npmjs.com/) scripts - run with `pnpm run <script>`
-- [![Husky](https://img.shields.io/badge/-Husky-black?style=flat-square&logo=git)](https://github.com/typicode/husky): pre-commit Git hooks to lint, format and run tests. Configured in [`./.husky`](./.husky)
-- [![Renovate](https://img.shields.io/badge/-Renovate-black?style=flat-square&logo=renovatebot)](https://github.com/Tim-W-James/timjames.dev/issues/2): GitHub bot for automatic dependency updates. Configured in [`./renovate.json`](./renovate.json)
-- [![GitHub Actions](https://img.shields.io/badge/-GitHub%20Actions-black?style=flat-square&logo=githubactions)](https://github.com/Tim-W-James/timjames.dev/actions): GitHub CI/CD pipeline. Used to ensure builds, linting rules and tests pass for any [Pull Request](https://github.com/Tim-W-James/timjames.dev/pulls) against the [`main`](https://github.com/Tim-W-James/timjames.dev/branches) branch. Configured in [`./.github/workflows`](./.github/workflows)
+- [![React
+17](https://img.shields.io/badge/-React%2017-black?style=flat-square&logo=react)](https://reactjs.org/docs/getting-started.html):
+  frontend framework
+- [![Vite](https://img.shields.io/badge/-Vite-black?style=flat-square&logo=vite)](https://vitejs.dev/config/):
+  frontend build tool and dev server. Configured in
+  [`./vite.config.ts`](./vite.config.ts)
+- [![TypeScript
+4.7](https://img.shields.io/badge/-TypeScript-black?style=flat-square&logo=typescript)](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html):
+  types for js. Configured in [`./tsconfig.json`](./tsconfig.json)
+- [![SASS](https://img.shields.io/badge/-SASS-black?style=flat-square&logo=sass)](https://sass-lang.com/):
+  CSS preprocessor
+- [![ESLint](https://img.shields.io/badge/-ESLint-black?style=flat-square&logo=eslint)](https://eslint.org/docs/2.0.0/user-guide/configuring):
+  Linter/code analyzer for TypeScript. Configured in
+  [`./.eslintrc.cjs`](./.eslintrc.cjs) with rules from AirBnB and SonarJS
+- [![Stylelint](https://img.shields.io/badge/-Stylelint-black?style=flat-square&logo=stylelint)](https://stylelint.io/):
+  Linter/code analyzer for SCSS. Configured in
+  [`./.stylelintrc.cjs`](./.stylelintrc.cjs)
+- [![Prettier](https://img.shields.io/badge/-Prettier-black?style=flat-square&logo=prettier)](https://prettier.io/docs/en/configuration.html):
+  Formatter. Configured in [`./.prettierrc.cjs`](./.prettierrc.cjs)
+- [![Vitest](https://img.shields.io/badge/-Vitest-black?style=flat-square&logo=vite)](https://vitest.dev/config/):
+  unit testing framework. Configured in [`./vite.config.ts` >
+  `test`](./vite.config.ts#L52)
+- [![Storybook](https://img.shields.io/badge/-Storybook-black?style=flat-square&logo=storybook)](https://storybook.js.org/):
+  view, document and test individual components and pages. Configured in
+  [`./.storybook/main.cjs`](./.storybook/main.cjs)
+- [![unplugin-auto-import](https://img.shields.io/badge/-Unplugin%20Auto%20Import-black?style=flat-square&logo=vite)](https://github.com/antfu/unplugin-auto-import#configuration):
+  global imports. Configured in [`./vite.config.ts` > `Plugins` >
+  `AutoImport`](https://github.com/Tim-W-James/react-ts-template/blob/main/vite.config.ts#L19)
+- [![pnpm](https://img.shields.io/badge/-pnpm-black?style=flat-square&logo=pnpm)](https://pnpm.io/):
+  configuration for the `pnpm` package manager for better performance, lockfiles
+  and monorepo support. See steps <a href="#todo">below</a> if you wish to use a
+  different package manager.
+- [![npm](https://img.shields.io/badge/-npm-black?style=flat-square&logo=nodedotjs)](https://www.npmjs.com/)
+  scripts - run with `pnpm run <script>`
+- [![Husky](https://img.shields.io/badge/-Husky-black?style=flat-square&logo=git)](https://github.com/typicode/husky):
+  pre-commit Git hooks to lint, format and run tests. Configured in
+  [`./.husky`](./.husky)
+- [![Renovate](https://img.shields.io/badge/-Renovate-black?style=flat-square&logo=renovatebot)](https://github.com/Tim-W-James/timjames.dev/issues/2):
+  GitHub bot for automatic dependency updates. Configured in
+  [`./renovate.json`](./renovate.json)
+- [![GitHub
+Actions](https://img.shields.io/badge/-GitHub%20Actions-black?style=flat-square&logo=githubactions)](https://github.com/Tim-W-James/timjames.dev/actions):
+  GitHub CI/CD pipeline. Used to ensure builds, linting rules and tests pass for
+  any [Pull Request](https://github.com/Tim-W-James/timjames.dev/pulls) against
+  the [`main`](https://github.com/Tim-W-James/timjames.dev/branches) branch.
+  Configured in [`./.github/workflows`](./.github/workflows)
 
 **Deployment**:
 
-- [![Netlify](https://img.shields.io/badge/-Netlify-black?style=flat-square&logo=netlify)](https://www.netlify.com/): Hosting, CDN, NS and continuous deployment for [timjames.dev](https://timjames.dev). Netlify domain: [timjames.netlify.app](https://timjames.netlify.app) - go [here](#deployment) for details. Configured in [`./netlify.toml`](./netlify.toml)
-- [![GoDaddy](https://img.shields.io/badge/-GoDaddy-black?style=flat-square&logo=goDaddy)](https://www.godaddy.com/en-au/tlds/dev-domain): Domain Registry for [timjames.dev](https://timjames.dev) using the `.dev` TLD
-- [![Let's Encrypt](https://img.shields.io/badge/-Let%27s%20Encrypt-black?style=flat-square&logo=letsencrypt)](https://letsencrypt.org/): TLS/SSL Certificate Authority for [timjames.dev](https://timjames.dev)
+- [![Netlify](https://img.shields.io/badge/-Netlify-black?style=flat-square&logo=netlify)](https://www.netlify.com/):
+  Hosting, CDN, NS and continuous deployment for
+  [timjames.dev](https://timjames.dev). Netlify domain:
+  [timjames.netlify.app](https://timjames.netlify.app) - go [here](#deployment)
+  for details. Configured in [`./netlify.toml`](./netlify.toml)
+- [![GoDaddy](https://img.shields.io/badge/-GoDaddy-black?style=flat-square&logo=goDaddy)](https://www.godaddy.com/en-au/tlds/dev-domain):
+  Domain Registry for [timjames.dev](https://timjames.dev) using the `.dev` TLD
+- [![Let's
+Encrypt](https://img.shields.io/badge/-Let%27s%20Encrypt-black?style=flat-square&logo=letsencrypt)](https://letsencrypt.org/):
+  TLS/SSL Certificate Authority for [timjames.dev](https://timjames.dev)
 
 <!-- GETTING STARTED -->
 
@@ -163,13 +203,16 @@ See the [open issues](https://github.com/Tim-W-James/timjames.dev/issues) for a 
 
 ### Prerequisites
 
-- Install [`node`](https://nodejs.org/en/) for the version in `.nvmrc` or use [`nvm`](https://github.com/nvm-sh/nvm):
+- Install [`node`](https://nodejs.org/en/) for the version in `.nvmrc` or use
+  [`nvm`](https://github.com/nvm-sh/nvm):
 
   ```sh
   nvm install && nvm use
   ```
 
-- Install the [`pnpm`](https://pnpm.io/installation) package manager. Use [`corepack`](https://nodejs.org/api/corepack.html) for automatic installation, which is an experimental `node` feature that must be enabled using:
+- Install the [`pnpm`](https://pnpm.io/installation) package manager. Use
+  [`corepack`](https://nodejs.org/api/corepack.html) for automatic installation,
+  which is an experimental `node` feature that must be enabled using:
 
   ```sh
   corepack enable
@@ -202,9 +245,12 @@ See the [open issues](https://github.com/Tim-W-James/timjames.dev/issues) for a 
 
 <!-- ### Example Usecases
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Use this space to show useful examples of how a project can be used. Additional
+screenshots, code examples and demos work well in this space. You may also link
+to more resources.
 
-_For more examples, please refer to the [Documentation](https://example.com)_ -->
+_For more examples, please refer to the [Documentation](https://example.com)_
+-->
 
 <!-- DEVELOPMENT -->
 
@@ -262,19 +308,28 @@ _For more examples, please refer to the [Documentation](https://example.com)_ --
   pnpm run deploy
   ```
 
-  Note that any [Pull Request](https://github.com/Tim-W-James/timjames.dev/pulls) will automatically be deployed to a [Netlify preview server](https://app.netlify.com/sites/timjames/deploys?filter=deploy+previews).
+  Note that any [Pull
+  Request](https://github.com/Tim-W-James/timjames.dev/pulls) will automatically
+  be deployed to a [Netlify preview
+  server](https://app.netlify.com/sites/timjames/deploys?filter=deploy+previews).
 
-- Deploy to production: continuous deployment to [Netlify](https://app.netlify.com/sites/timjames/deploys?filter=main) domain [timjames.netlify.app](https://timjames.netlify.app) on the [`main`](https://github.com/Tim-W-James/timjames.dev/branches) branch.
+- Deploy to production: continuous deployment to
+  [Netlify](https://app.netlify.com/sites/timjames/deploys?filter=main) domain
+  [timjames.netlify.app](https://timjames.netlify.app) on the
+  [`main`](https://github.com/Tim-W-James/timjames.dev/branches) branch.
 
 ### Code Style
 
-- Evaluate ESLint ([`./.eslintrc.cjs`](./.eslintrc.cjs)) and StyleLint ([`./.stylelintrc.cjs`](./.stylelintrc.cjs)) rules against source code:
+- Evaluate ESLint ([`./.eslintrc.cjs`](./.eslintrc.cjs)) and StyleLint
+  ([`./.stylelintrc.cjs`](./.stylelintrc.cjs)) rules against source code:
 
   ```sh
   pnpm lint
   ```
 
-- Format source code with prettier ([`./.prettierrc.cjs`](./.prettierrc.cjs)) and try to fix any ESLint ([`./.eslintrc.cjs`](./.eslintrc.cjs)) or StyleLint ([`./.stylelintrc.cjs`](./.stylelintrc.cjs)) errors:
+- Format source code with prettier ([`./.prettierrc.cjs`](./.prettierrc.cjs))
+  and try to fix any ESLint ([`./.eslintrc.cjs`](./.eslintrc.cjs)) or StyleLint
+  ([`./.stylelintrc.cjs`](./.stylelintrc.cjs)) errors:
 
   ```sh
   pnpm format
@@ -288,25 +343,31 @@ _For more examples, please refer to the [Documentation](https://example.com)_ --
   - Common components: [`./src/components`](./src/components). Has alias `@components`. Group by type for `layout`, `buttons`, `forms`, etc.
   - Common hooks: [`./src/hooks`](./src/hooks). Has alias `@hooks`
   - Common utils: [`./src/utils`](./src/utils). Has alias `@utils`
-  - Pages: [`./src/pages`](./src/pages). Has alias `@pages`. Nest subfolders for `components`, `utils`, `hooks`, etc. depending on the scope they apply to
+  - Pages: [`./src/pages`](./src/pages). Has alias `@pages`. Nest subfolders for
+    `components`, `utils`, `hooks`, etc. depending on the scope they apply to
   - React context: [`./src/context`](./src/context). Has alias `@context`
 - **Unit Tests**: place `tests` adjacent to source code
 - **Storybook Stories**: place `stories` adjacent to source code
 - **SCSS Styling**:
   - Use [`index.scss`](./src/index.scss) for globals
-  - Place page or component specific styles adjacent to source code, using scoped `.modules`
+  - Place page or component specific styles adjacent to source code, using
+    scoped `.modules`
 - **Global TypeScript Types**: [`./types`](./types)
 - **Web Accessible Files** (`robots.txt`, `manifest.json`, etc.): [`./public`](./public)
-- **Site Assets** (`favicon.svg`, images, etc.): [`./public/assets`](./public/assets). Has alias `@assets`
+- **Site Assets** (`favicon.svg`, images, etc.):
+  [`./public/assets`](./public/assets). Has alias `@assets`
 
 Define path alias in [`./tsconfig.paths.json`](./tsconfig.paths.json).
 
-I recommend using [VSCode file nesting](https://code.visualstudio.com/updates/v1_64#_explorer-file-nesting) for a [cleaner file tree](https://github.com/antfu/vscode-file-nesting-config).
+I recommend using [VSCode file
+nesting](https://code.visualstudio.com/updates/v1_64#_explorer-file-nesting) for
+a [cleaner file tree](https://github.com/antfu/vscode-file-nesting-config).
 
 ### Documentation
 
 - Document code with [JSDoc](https://jsdoc.app/about-getting-started.html)
-- Document components or pages with [Storybook](https://storybook.js.org/) and run with:
+- Document components or pages with [Storybook](https://storybook.js.org/) and
+  run with:
 
   ```sh
   pnpm storybook
@@ -326,7 +387,8 @@ I recommend using [VSCode file nesting](https://code.visualstudio.com/updates/v1
 
 ## License
 
-Distributed under the MIT License. See [`LICENSE.txt`](./LICENSE.txt) for more information.
+Distributed under the MIT License. See [`LICENSE.txt`](./LICENSE.txt) for more
+information.
 
 <!-- CONTACT -->
 
@@ -334,7 +396,8 @@ Distributed under the MIT License. See [`LICENSE.txt`](./LICENSE.txt) for more i
 
 Email: [tim.jameswork9800@gmail.com](mailto:tim.jameswork9800@gmail.com "tim.jameswork9800@gmail.com")
 
-Project Link: [https://github.com/Tim-W-James/timjames.dev](https://github.com/Tim-W-James/timjames.dev)
+Project Link:
+[https://github.com/Tim-W-James/timjames.dev](https://github.com/Tim-W-James/timjames.dev)
 
 <!-- ACKNOWLEDGEMENTS -->
 <!-- ## Acknowledgements
@@ -345,8 +408,6 @@ Project Link: [https://github.com/Tim-W-James/timjames.dev](https://github.com/T
 
 <!-- MARKDOWN IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-
-[product-screenshot]: public/assets/images/screenshot.png
 
 <!-- USEFUL LINKS FOR MARKDOWN
 * https://github.com/Tim-W-James/blog/blob/master/Markdow-Cheatsheet.md
