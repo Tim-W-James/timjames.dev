@@ -3,13 +3,40 @@
 }
 
 .home-logo {
-  height: 40vmin;
+  position: relative;
+  z-index: -1;
+  height: 200px;
+  border-radius: 50%;
+  margin-top: 200px;
   pointer-events: none;
+}
+
+.home-logo-wrapper::before {
+  position: absolute;
+  z-index: -1;
+  width: 200px;
+  height: 200px;
+  padding: 1px;
+  border: 0;
+  border-radius: 50%;
+  margin-top: 199px;
+  margin-left: calc(50vw - 101px);
+  background: radial-gradient(
+    50% 100% at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    $light-accent 75%,
+    rgb(76 179 188 / 0%) 100%
+  );
+  content: "";
+  inset: 0;
+  mask: linear-gradient(white 0 0) content-box, linear-gradient(white 0 0);
+  mask-composite: xor;
+  mask-composite: exclude;
 }
 
 .solid-background {
   width: 100%;
   height: auto;
+  padding-bottom: 100vh;
   background-color: $dark-shades;
 }
 
@@ -26,22 +53,10 @@
   );
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .home-logo {
-    animation: home-logo-spin infinite 20s linear;
-  }
-}
-
 .home-link {
   color: hsl(193deg 95% 68%);
 }
 
-@keyframes home-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
+.gradient-hz {
+  @include radial-border($light-accent);
 }
