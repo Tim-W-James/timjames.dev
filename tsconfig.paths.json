@@ -9,6 +9,7 @@
       "@utils/*": ["utils/*"],
       "@hooks/*": ["hooks/*"],
       "@context/*": ["context/*"],
+      "@constants/*": ["constants/*"],
       "@components/*": ["components/*"],
       "@layout/*": ["components/layout/*"]
     }

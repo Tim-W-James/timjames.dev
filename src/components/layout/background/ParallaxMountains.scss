@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.mountain-1 {
+  position: absolute;
+  z-index: -1;
+  top: 80px;
+  width: 0;
+  height: 0;
+  border-width: 0 clamp(450px, 25vw, 25vw) clamp(800px, 75vh, 75vh);
+  border-style: solid;
+  border-color: transparent transparent $dark-shades;
+}
+
+.mountain-2 {
+  position: absolute;
+  top: clamp(125px, 18vh, 18vh);
+  right: -275px;
+  width: 0;
+  height: 0;
+  border-width: 0 clamp(450px, 25vw, 25vw) clamp(800px, 75vh, 75vh);
+  border-style: solid;
+  border-color: transparent transparent $dark-shades;
+}
+
+.mountain-3 {
+  position: absolute;
+  top: clamp(75px, 10vh, 10vh);
+  left: -325px;
+  width: 0;
+  height: 0;
+  border-width: 0 clamp(450px, 25vw, 25vw) clamp(800px, 75vh, 75vh);
+  border-style: solid;
+  border-color: transparent transparent $dark-shades;
+}

@@ -1,14 +1,11 @@
-import Footer from "@components/layout/Footer";
-import Navbar from "@layout/Navbar";
-import { Container } from "react-bootstrap";
+import Footer from "@layout/Footer";
+import Navbar from "@layout/nav/Navbar";
 import { Outlet } from "react-router-dom";
 
 const App = () => (
   <>
     <Navbar />
-    <Container className="mt-3">
-      <Outlet />
-    </Container>
+    <Outlet />
     <Footer />
   </>
 );

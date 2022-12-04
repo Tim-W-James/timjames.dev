@@ -7,27 +7,39 @@ import eslintPlugin from "vite-plugin-eslint";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
-  // port must equal port in ./netlify.toml
+  // Port must equal port in ./netlify.toml
   server: {
     port: 3000,
   },
-  // define paths relative to the ./public directory here
+  // Define paths relative to the ./public directory here.
+  // Otherwise,
   resolve: {
     alias: {
       "@assets": path.resolve(__dirname, "/assets"),
+      "@styles": path.resolve(__dirname, "src/styles"),
+    },
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // Global Sass modules
+        additionalData:
+          `@use "@styles/variables.scss" as *;` +
+          `@use "@styles/mixins.scss" as *;`,
+      },
     },
   },
   plugins: [
     react(),
     eslintPlugin(),
     AutoImport({
-      /// targets to transform
+      /// Targets to transform
       include: [
         /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
         /\.md$/, // .md
       ],
 
-      // global imports to register
+      // Global imports to register
       imports: [
         // presets
         "vitest",
@@ -35,7 +47,7 @@ export default defineConfig({
       ],
 
       // Generate corresponding .eslintrc-auto-import.json file.
-      // eslint globals Docs - https://eslint.org/docs/user-guide/configuring/language-options#specifying-globals
+      // ESLint globals Docs - https://eslint.org/docs/user-guide/configuring/language-options#specifying-globals
       eslintrc: {
         enabled: true,
         filepath: "./.eslintrc-auto-import.json",

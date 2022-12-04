@@ -1,5 +1,5 @@
-.custom-navbar {
-  position: relative;
+.navbar {
+  position: fixed;
   top: 0;
   left: 0;
   display: flex;
@@ -8,13 +8,11 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 0 4rem;
-  gap: 20px;
+  padding: 0 clamp(2rem, 10%, 16rem);
+  gap: clamp(2rem, 10%, 16rem);
 }
 
 .navbar-links {
   display: flex;
   justify-content: space-around;
-
-  // gap: 20px;
 }

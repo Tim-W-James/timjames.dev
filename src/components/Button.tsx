@@ -1,4 +1,4 @@
-import "./NavbarButton.scss";
+import "./Button.scss";
 
 const mousePercent = (
   e: React.MouseEvent<HTMLButtonElement>,
@@ -9,14 +9,10 @@ const mousePercent = (
     e.currentTarget[`client${coordinate === "X" ? "Width" : "Height"}`]) *
   100;
 
-const NavbarButton: React.FC<{
+const Button: React.FC<{
   label: string;
 }> = ({ label }) => (
   <button
-    className={
-      "button glass-morphism-dark-button background-blur " +
-      "radial-gradient-border-radius subtitle-sm"
-    }
     onMouseMove={(e) => {
       const horizontalPercent = mousePercent(e, "X");
       const verticalPercent = mousePercent(e, "Y");
@@ -42,9 +38,10 @@ const NavbarButton: React.FC<{
         ).toFixed(2)}deg`
       );
     }}
+    type="button"
   >
     {label}
   </button>
 );
 
-export default NavbarButton;
+export default Button;
