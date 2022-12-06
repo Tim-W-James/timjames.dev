@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import "./Navbar.scss";
+import styles from "./Navbar.module.scss";
 import NavbarLink from "./NavbarLink";
 
 const Navbar: React.FC = () => {
@@ -8,12 +8,17 @@ const Navbar: React.FC = () => {
   return (
     <div
       className={
-        "navbar glass-morphism-dark background-blur-strong " +
+        styles.navbar +
+        " " +
+        "glass-morphism-dark" +
+        " " +
+        "background-blur-strong" +
+        " " +
         "radial-gradient-underline"
       }
     >
       <NavbarLink label={"Tim James"} to="/" />
-      <div className="navbar-links">
+      <div className={styles.navbarLinks}>
         <NavbarLink
           isSelected={location.pathname === "/"}
           label="Home"

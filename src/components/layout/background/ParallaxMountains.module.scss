@@ -4,7 +4,7 @@
   justify-content: center;
 }
 
-.mountain-1 {
+.mountainMiddle {
   position: absolute;
   z-index: -1;
   top: 80px;
@@ -15,7 +15,7 @@
   border-color: transparent transparent $dark-shades;
 }
 
-.mountain-2 {
+.mountainLeft {
   position: absolute;
   top: clamp(125px, 18vh, 18vh);
   right: -275px;
@@ -26,7 +26,7 @@
   border-color: transparent transparent $dark-shades;
 }
 
-.mountain-3 {
+.mountainRight {
   position: absolute;
   top: clamp(75px, 10vh, 10vh);
   left: -325px;

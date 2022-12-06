@@ -1,14 +1,14 @@
 import { Parallax } from "react-scroll-parallax";
-import "./ParallaxMountains.scss";
+import style from "./ParallaxMountains.module.scss";
 
 const ParallaxMountains = () => (
-  <div className="container">
-    <div className="mountain-1" />
+  <div className={style.container}>
+    <div className={style.mountain_1} />
     <Parallax speed={-10} style={{ zIndex: -2 }}>
-      <div className="mountain-2" />
+      <div className={style.mountain_2} />
     </Parallax>
     <Parallax speed={-8} style={{ zIndex: -3 }}>
-      <div className="mountain-3" />
+      <div className={style.mountain_3} />
     </Parallax>
   </div>
 );

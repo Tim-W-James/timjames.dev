@@ -12,20 +12,19 @@ export default defineConfig({
     port: 3000,
   },
   // Define paths relative to the ./public directory here.
-  // Otherwise,
+  // Otherwise, use ./tsconfig.paths.json
   resolve: {
     alias: {
       "@assets": path.resolve(__dirname, "/assets"),
-      "@styles": path.resolve(__dirname, "src/styles"),
     },
   },
   css: {
     preprocessorOptions: {
       scss: {
-        // Global Sass modules
+        // Global SCSS modules
         additionalData:
-          `@use "@styles/variables.scss" as *;` +
-          `@use "@styles/mixins.scss" as *;`,
+          `@use "src/styles/variables.scss" as *;` +
+          `@use "src/styles/mixins.scss" as *;`,
       },
     },
   },

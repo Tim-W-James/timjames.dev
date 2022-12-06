@@ -8,6 +8,7 @@
       "@pages/*": ["pages/*"],
       "@utils/*": ["utils/*"],
       "@hooks/*": ["hooks/*"],
+      "@styles/*": ["styles/*"],
       "@context/*": ["context/*"],
       "@constants/*": ["constants/*"],
       "@components/*": ["components/*"],

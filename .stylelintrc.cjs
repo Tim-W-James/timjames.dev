@@ -5,6 +5,12 @@ module.exports = {
     "stylelint-config-idiomatic-order",
   ],
   rules: {
+    "selector-class-pattern": [
+      "^[a-z][a-zA-Z0-9]+$",
+      {
+        message: "Expected class name to be lowerCamelCase",
+      },
+    ],
     "unit-allowed-list": [
       "em",
       "rem",

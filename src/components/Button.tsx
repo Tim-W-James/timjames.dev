@@ -1,4 +1,4 @@
-import "./Button.scss";
+import "./Button.module.scss";
 
 const mousePercent = (
   e: React.MouseEvent<HTMLButtonElement>,

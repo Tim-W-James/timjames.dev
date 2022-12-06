@@ -14,11 +14,11 @@ const mousePercent = (
   100;
 
 const Home: React.FC = () => (
-  <div className={styles["home"]}>
+  <div className={styles.home}>
     <ParallaxMountains />
     <header>
       <div
-        className={styles["home-logo-wrapper"]}
+        className={styles.homeLogoWrapper}
         onMouseMove={(e) => {
           const horizontalPercent = mousePercent(e, "X");
           const verticalPercent = mousePercent(e, "Y");
@@ -45,17 +45,17 @@ const Home: React.FC = () => (
           );
         }}
       >
-        <img alt="logo" className={styles["home-logo"]} src={logo} />
+        <img alt="logo" className={styles.homeLogo} src={logo} />
       </div>
       <h1>
         👋 Hullo,
         <br />
         I&apos;m Tim James
-        <hr className={styles["gradient-hz"]} />
+        <hr className={styles.gradientHz} />
         Full-Stack Developer
       </h1>
-      <div className={styles["gradient-background"]} />
-      <div className={styles["solid-background"]}>
+      <div className={styles.gradientBackground} />
+      <div className={styles.solidBackground}>
         <h1>Coming Soon...</h1>
         <a href="https://www.linkedin.com/in/timothy-william-james/">
           <BsLinkedin /> Find me on Linkedin

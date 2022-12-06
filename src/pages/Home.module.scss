@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.home-logo {
+.homeLogo {
   position: relative;
   z-index: -1;
   height: 200px;
@@ -11,7 +11,7 @@
   pointer-events: none;
 }
 
-.home-logo-wrapper::before {
+.homeLogoWrapper::before {
   position: absolute;
   z-index: -1;
   width: 200px;
@@ -33,14 +33,14 @@
   mask-composite: exclude;
 }
 
-.solid-background {
+.solidBackground {
   width: 100%;
   height: auto;
   padding-bottom: 100vh;
   background-color: $dark-shades;
 }
 
-.gradient-background {
+.gradientBackground {
   position: relative;
   z-index: -5;
   top: 0;
@@ -53,10 +53,10 @@
   );
 }
 
-.home-link {
+.homeLink {
   color: hsl(193deg 95% 68%);
 }
 
-.gradient-hz {
+.gradientHz {
   @include radial-border($light-accent);
 }
