@@ -6,18 +6,8 @@ const Navbar: React.FC = () => {
   const location = useLocation();
 
   return (
-    <div
-      className={
-        styles.navbar +
-        " " +
-        "glass-morphism-dark" +
-        " " +
-        "background-blur-strong" +
-        " " +
-        "radial-gradient-underline"
-      }
-    >
-      <NavbarLink label={"Tim James"} to="/" />
+    <div className={styles.navbar}>
+      <NavbarLink label={"TimJames.dev"} to="/" />
       <div className={styles.navbarLinks}>
         <NavbarLink
           isSelected={location.pathname === "/"}

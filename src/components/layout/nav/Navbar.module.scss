@@ -10,9 +10,10 @@
   justify-content: space-between;
   padding: 0 clamp(2rem, 10%, 16rem);
   gap: clamp(2rem, 10%, 16rem);
+  @include acrylic(45deg);
 }
 
-.navbar-links {
+.navbarLinks {
   display: flex;
   justify-content: space-around;
 }

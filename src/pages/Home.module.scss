@@ -11,6 +11,10 @@
   pointer-events: none;
 }
 
+.highlight {
+  color: $light-accent;
+}
+
 .homeLogoWrapper::before {
   position: absolute;
   z-index: -1;
@@ -58,5 +62,5 @@
 }
 
 .gradientHz {
-  @include radial-border($light-accent);
+  @include radial-border($dark-accent);
 }

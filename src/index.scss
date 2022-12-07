@@ -6,20 +6,21 @@ body {
   background-image: url("@assets/bg-aurora.jpg");
   background-position: center top;
   background-repeat: no-repeat;
-  background-size: contain;
   color: white;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 
-  @media (max-width: 1400px) {
-    background-size: auto clamp(800px, 75vh, 75vh);
+  @media (max-width: 800px) {
+    background-size: auto 600px;
   }
 
-  @media (min-width: 1600px) {
+  @media (min-width: 800px) {
     background-size: cover;
   }
+  
 }
 
 header {
@@ -40,53 +41,8 @@ code {
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 1rem;
-  margin-top: 1rem;
+  padding: 2rem 0;
+  background-color: $dark-shades;
+  color: $dark-accent;
   text-align: center;
-}
-
-.glass-morphism-dark {
-  background: linear-gradient(
-    var(--mouse-deg, 90deg),
-    rgb(19 23 30 / 20%) 0%,
-    rgb(19 23 30 / 50%) 100%,
-    rgb(19 23 30 / 0%) 100%
-  );
-}
-
-.background-blur {
-  backdrop-filter: blur(21px);
-}
-
-.background-blur-strong {
-  backdrop-filter: blur(60px);
-}
-
-.radial-gradient-underline {
-  border-bottom: 1px solid;
-  border-image: radial-gradient(
-      50% 100% at 50% 50%,
-      $light-accent 0%,
-      rgb(76 179 188 / 0%) 100%
-    )
-    1;
-}
-
-.subtitle-sm {
-  /* Inside auto layout */
-  flex: none;
-  flex-grow: 0;
-  order: 0;
-
-  /* Light Accent */
-  color: $light-accent;
-  font-family: Outfit, sans-serif;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: bold;
-
-  /* or 24px */
-  letter-spacing: 0.16em;
-  line-height: 101%;
-  text-transform: uppercase;
 }
