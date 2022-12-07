@@ -1,0 +1,12 @@
+.solidBackground {
+  width: 100%;
+  height: auto;
+  padding-bottom: 100vh;
+  background-color: $dark-shades;
+}
+
+.notFound {
+  padding-top: 3rem;
+  font-size: calc(10px + 2vmin);
+  text-align: center;
+}
