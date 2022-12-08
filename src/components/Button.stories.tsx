@@ -5,4 +5,4 @@ export default {
   component: ButtonComponent,
 };
 
-export const Button = () => <ButtonComponent label="label" />;
+export const Button = () => <ButtonComponent label="label" to="/" />;
