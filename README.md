@@ -354,7 +354,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
     scoped `.modules`
 - **Global TypeScript Types**: [`./types`](./types)
 - **Web Accessible Files** (`robots.txt`, `manifest.json`, etc.): [`./public`](./public)
-- **Site Assets** (`favicon.svg`, images, etc.):
+- **Site Assets** (`favicon.png`, images, etc.):
   [`./public/assets`](./public/assets). Has alias `@assets`
 
 Define path alias in [`./tsconfig.paths.json`](./tsconfig.paths.json).

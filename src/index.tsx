@@ -1,12 +1,12 @@
 import Page from "@components/layout/Page";
 import Home from "@pages/Home";
 import NotFound from "@pages/NotFound";
+import "@styles/global.scss";
 import App from "App";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ParallaxProvider } from "react-scroll-parallax";
-import "./index.scss";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

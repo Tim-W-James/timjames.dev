@@ -10,7 +10,7 @@ const Button: React.FC<{
 
   return (
     <button
-      className={styles.acrylicButton}
+      className={`${styles.acrylicButton}`}
       onClick={() => navigate(route)}
       onMouseMove={(e) => setMouseHoverCssProperties(e)}
       type="button"

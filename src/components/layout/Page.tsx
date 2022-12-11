@@ -1,5 +1,5 @@
+import { PRIMARY_TITLE } from "@constants/content";
 import useDocumentTitle from "@hooks/useDocumentTitle";
-import { PRIMARY_TITLE } from "globals";
 
 /**
  * Page Wrapper

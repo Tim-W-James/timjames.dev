@@ -1,12 +1,16 @@
 .solidBackground {
-  width: 100%;
-  height: auto;
-  padding-bottom: 100vh;
-  background-color: $dark-shades;
+  @include solid-background;
 }
 
-.notFound {
+.container {
   padding-top: 3rem;
-  font-size: calc(10px + 2vmin);
   text-align: center;
+}
+
+.errorHeader {
+  @include body-lg;
+}
+
+.danger {
+  color: $danger;
 }

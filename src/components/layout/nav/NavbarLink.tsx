@@ -16,7 +16,7 @@ const NavbarLink: React.FC<{
         location.pathname === route || isSelected ? styles.selected : ""
       }`}
       onClick={() => navigate(route)}
-      onMouseMove={(e) => setMouseHoverCssProperties(e)}
+      onMouseMove={(e) => setMouseHoverCssProperties(e, true)}
       type="button"
     >
       {label}

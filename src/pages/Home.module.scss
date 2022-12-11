@@ -38,10 +38,7 @@
 }
 
 .solidBackground {
-  width: 100%;
-  height: auto;
-  padding-bottom: 100vh;
-  background-color: $dark-shades;
+  @include solid-background;
 }
 
 .gradientBackground {

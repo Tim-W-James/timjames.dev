@@ -1,16 +1,13 @@
 body {
   margin: 0;
-  margin-bottom: 5rem;
   background-attachment: fixed;
   background-color: hsl(220deg 13% 18%);
   background-image: url("@assets/bg-aurora.jpg");
   background-position: center top;
   background-repeat: no-repeat;
-  color: white;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  color: $light-shades;
+  @include body;
+
   overflow-x: hidden;
 
   @media (max-width: 800px) {
@@ -20,7 +17,6 @@ body {
   @media (min-width: 800px) {
     background-size: cover;
   }
-  
 }
 
 header {
@@ -31,18 +27,23 @@ header {
   font-size: calc(10px + 2vmin);
 }
 
+h1 {
+  @include heading-1;
+}
+
+h2 {
+  @include heading-2;
+}
+
+h3 {
+  @include heading-3;
+}
+
+h4 {
+  @include heading-4;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
-
-#footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 2rem 0;
-  background-color: $dark-shades;
-  color: $dark-accent;
-  text-align: center;
 }

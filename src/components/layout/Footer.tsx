@@ -1,5 +1,7 @@
+import styles from "./Footer.module.scss";
+
 const Footer: React.FC = () => (
-  <footer id="footer">
+  <footer className={styles.footer} id="footer">
     <span>© {new Date().getFullYear()} Tim James</span>
   </footer>
 );
