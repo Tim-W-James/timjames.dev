@@ -1,4 +1,6 @@
 {
+  "scss.validate": false,
+  "css.validate": false,
   "stylelint.validate": ["scss", "css", "less", "postcss"],
   "markdownlint.config": {
     "MD001": false,

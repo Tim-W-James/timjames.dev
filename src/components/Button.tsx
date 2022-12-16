@@ -1,6 +1,7 @@
+import cn from "@styles/cssUtils";
 import { setMouseHoverCssProperties } from "@utils/mouseHover";
 import { useNavigate } from "react-router-dom";
-import styles from "./Button.module.scss";
+import { ClassNames } from "./Button.module.scss";
 
 const Button: React.FC<{
   label: string;
@@ -10,7 +11,7 @@ const Button: React.FC<{
 
   return (
     <button
-      className={`${styles.acrylicButton}`}
+      className={cn<ClassNames>()("_acrylicButton")}
       onClick={() => navigate(route)}
       onMouseMove={(e) => setMouseHoverCssProperties(e)}
       type="button"

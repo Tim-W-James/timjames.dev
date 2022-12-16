@@ -1,4 +1,4 @@
-.navbarLink {
+._navbarLink {
   padding: 1rem 2rem;
   border: transparent 1px solid;
   background: none;
@@ -29,7 +29,7 @@
     }
   }
 
-  &.selected {
+  &._selected {
     animation: shadow-inset-center 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)
       both;
     color: $light-shades;

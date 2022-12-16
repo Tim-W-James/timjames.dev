@@ -1,10 +1,10 @@
-.container {
+._container {
   display: flex;
   width: 100%;
   justify-content: center;
 }
 
-.mountainMiddle {
+._mountainMiddle {
   position: absolute;
   z-index: -1;
   top: 80px;
@@ -15,7 +15,7 @@
   border-color: transparent transparent $dark-shades;
 }
 
-.mountainLeft {
+._mountainLeft {
   position: absolute;
   top: clamp(125px, 18vh, 18vh);
   right: -275px;
@@ -26,7 +26,7 @@
   border-color: transparent transparent $dark-shades;
 }
 
-.mountainRight {
+._mountainRight {
   position: absolute;
   top: clamp(75px, 10vh, 10vh);
   left: -325px;

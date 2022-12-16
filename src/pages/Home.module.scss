@@ -1,8 +1,8 @@
-.home {
+._home {
   text-align: center;
 }
 
-.homeLogo {
+._homeLogo {
   position: relative;
   z-index: -1;
   height: 200px;
@@ -11,11 +11,11 @@
   pointer-events: none;
 }
 
-.highlight {
+._highlight {
   color: $light-accent;
 }
 
-.homeLogoWrapper::before {
+._homeLogoWrapper::before {
   position: absolute;
   z-index: -1;
   width: 200px;
@@ -37,11 +37,11 @@
   mask-composite: exclude;
 }
 
-.solidBackground {
+._solidBackground {
   @include solid-background;
 }
 
-.gradientBackground {
+._gradientBackground {
   position: relative;
   z-index: -5;
   top: 0;
@@ -54,10 +54,10 @@
   );
 }
 
-.homeLink {
+._homeLink {
   color: hsl(193deg 95% 68%);
 }
 
-.gradientHz {
+._gradientHz {
   @include radial-border($dark-accent);
 }

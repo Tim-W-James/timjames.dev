@@ -4,12 +4,16 @@ import * as path from "path";
 import AutoImport from "unplugin-auto-import/vite";
 import { defineConfig } from "vite";
 import eslintPlugin from "vite-plugin-eslint";
+import sassDts from "vite-plugin-sass-dts";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
   // Port must equal port in ./netlify.toml
   server: {
     port: 3000,
+    watch: {
+      ignored: ["**/tailwindClasses.d.ts", "**/*module.scss.d.ts"],
+    },
   },
   // Define paths relative to the ./public directory here.
   // Otherwise, use ./tsconfig.paths.json
@@ -59,6 +63,7 @@ export default defineConfig({
       dts: "./types/auto-imports.d.ts",
     }),
     tsconfigPaths(),
+    sassDts(),
   ],
   build: {
     sourcemap: true,

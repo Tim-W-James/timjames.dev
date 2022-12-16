@@ -1,14 +1,15 @@
+import cn from "@styles/cssUtils";
 import { useLocation } from "react-router-dom";
-import styles from "./Navbar.module.scss";
+import { ClassNames } from "./Navbar.module.scss";
 import NavbarLink from "./NavbarLink";
 
 const Navbar: React.FC = () => {
   const location = useLocation();
 
   return (
-    <div className={styles.navbar}>
+    <div className={cn<ClassNames>()("_navbar")}>
       <NavbarLink label={"TimJames.dev"} to="/" />
-      <div className={styles.navbarLinks}>
+      <div className={cn<ClassNames>()("_navbarLinks")}>
         <NavbarLink
           isSelected={location.pathname === "/"}
           label="Home"

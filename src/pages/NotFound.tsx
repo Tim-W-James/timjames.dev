@@ -1,12 +1,14 @@
 import Button from "@components/Button";
-import styles from "./NotFound.module.scss";
+import cn from "@styles/cssUtils";
+import { ClassNames } from "./NotFound.module.scss";
 
 const NotFound: React.FC = () => (
-  <div className={styles.solidBackground}>
-    <div className={styles.container}>
+  <div className={cn<ClassNames>()("_solidBackground")}>
+    <div className={cn<ClassNames>()("_container")}>
       <h1>404</h1>
-      <span className={styles.errorHeader}>
-        <span className={styles.danger}>Oops!</span> Page not found. <br />
+      <span className={cn<ClassNames>()("_errorHeader")}>
+        <span className={cn<ClassNames>()("_danger")}>Oops!</span> Page not
+        found. <br />
         <br />
       </span>
       The page you&apos;re looking for doesn&apos;t exist.

@@ -1,4 +1,4 @@
-.navbar {
+._navbar {
   position: fixed;
   z-index: 10;
   top: 0;
@@ -14,7 +14,7 @@
   @include acrylic(45deg);
 }
 
-.navbarLinks {
+._navbarLinks {
   display: flex;
   justify-content: space-around;
 }

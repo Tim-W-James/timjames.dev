@@ -1,7 +1,7 @@
 import Page from "@components/layout/Page";
 import Home from "@pages/Home";
 import NotFound from "@pages/NotFound";
-import "@styles/global.scss";
+import "@styles/main.scss";
 import App from "App";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";

@@ -128,6 +128,9 @@ list of proposed features (and known issues). -->
 
 ### Built With
 
+<!-- https://shields.io/ -->
+<!-- https://github.com/simple-icons/simple-icons/blob/develop/slugs.md -->
+
 **Design**:
 
 - [![Figma](https://img.shields.io/badge/-Figma-black?style=flat-square&logo=figma)](https://www.figma.com/file/pVOwmsYdIymurR4GmEFry1/Portfolio?node-id=9%3A117&t=c2WxYEnrq61XsoNL-1):
@@ -142,47 +145,46 @@ list of proposed features (and known issues). -->
   frontend framework
 - [![Vite](https://img.shields.io/badge/-Vite-black?style=flat-square&logo=vite)](https://vitejs.dev/config/):
   frontend build tool and dev server. Configured in
-  [`./vite.config.ts`](./vite.config.ts)
+  [`vite.config.ts`](./vite.config.ts)
 - [![TypeScript
 4.7](https://img.shields.io/badge/-TypeScript-black?style=flat-square&logo=typescript)](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html):
-  types for js. Configured in [`./tsconfig.json`](./tsconfig.json)
+  types for js. Configured in [`tsconfig.json`](./tsconfig.json)
 - [![SASS](https://img.shields.io/badge/-SASS-black?style=flat-square&logo=sass)](https://sass-lang.com/):
-  CSS preprocessor
+  CSS preprocessor. This repo uses a custom setup to auto-generate scoped type
+  definitions for CSS classes, go [here](#styling) for further details
+- [![Tailwind](https://img.shields.io/badge/-Tailwind-black?style=flat-square&logo=tailwindcss)](https://tailwindcss.com/):
+  Utility-first CSS framework. This repo uses a custom setup to auto-generate
+  type definitions for Tailwind classes, go [here](#styling) for further details
 - [![ESLint](https://img.shields.io/badge/-ESLint-black?style=flat-square&logo=eslint)](https://eslint.org/docs/2.0.0/user-guide/configuring):
   Linter/code analyzer for TypeScript. Configured in
-  [`./.eslintrc.cjs`](./.eslintrc.cjs) with rules from AirBnB and SonarJS
+  [`.eslintrc.cjs`](./.eslintrc.cjs) with rules from AirBnB and SonarJS
 - [![Stylelint](https://img.shields.io/badge/-Stylelint-black?style=flat-square&logo=stylelint)](https://stylelint.io/):
   Linter/code analyzer for SCSS. Configured in
-  [`./.stylelintrc.cjs`](./.stylelintrc.cjs)
+  [`.stylelintrc.cjs`](./.stylelintrc.cjs)
 - [![Prettier](https://img.shields.io/badge/-Prettier-black?style=flat-square&logo=prettier)](https://prettier.io/docs/en/configuration.html):
-  Formatter. Configured in [`./.prettierrc.cjs`](./.prettierrc.cjs)
+  Formatter. Configured in [`.prettierrc.cjs`](./.prettierrc.cjs)
 - [![Vitest](https://img.shields.io/badge/-Vitest-black?style=flat-square&logo=vite)](https://vitest.dev/config/):
-  unit testing framework. Configured in [`./vite.config.ts` >
+  unit testing framework. Configured in [`vite.config.ts` >
   `test`](./vite.config.ts#L52)
 - [![Storybook](https://img.shields.io/badge/-Storybook-black?style=flat-square&logo=storybook)](https://storybook.js.org/):
   view, document and test individual components and pages. Configured in
-  [`./.storybook/main.cjs`](./.storybook/main.cjs)
-- [![unplugin-auto-import](https://img.shields.io/badge/-Unplugin%20Auto%20Import-black?style=flat-square&logo=vite)](https://github.com/antfu/unplugin-auto-import#configuration):
-  global imports. Configured in [`./vite.config.ts` > `Plugins` >
-  `AutoImport`](https://github.com/Tim-W-James/react-ts-template/blob/main/vite.config.ts#L19)
+  [`.storybook/main.cjs`](./.storybook/main.cjs)
 - [![pnpm](https://img.shields.io/badge/-pnpm-black?style=flat-square&logo=pnpm)](https://pnpm.io/):
   configuration for the `pnpm` package manager for better performance, lockfiles
   and monorepo support. See steps <a href="#todo">below</a> if you wish to use a
   different package manager.
-- [![npm](https://img.shields.io/badge/-npm-black?style=flat-square&logo=nodedotjs)](https://www.npmjs.com/)
-  scripts - run with `pnpm run <script>`
 - [![Husky](https://img.shields.io/badge/-Husky-black?style=flat-square&logo=git)](https://github.com/typicode/husky):
   pre-commit Git hooks to lint, format and run tests. Configured in
-  [`./.husky`](./.husky)
+  [`.husky`](./.husky)
 - [![Renovate](https://img.shields.io/badge/-Renovate-black?style=flat-square&logo=renovatebot)](https://github.com/Tim-W-James/timjames.dev/issues/2):
   GitHub bot for automatic dependency updates. Configured in
-  [`./renovate.json`](./renovate.json)
+  [`renovate.json`](./renovate.json)
 - [![GitHub
 Actions](https://img.shields.io/badge/-GitHub%20Actions-black?style=flat-square&logo=githubactions)](https://github.com/Tim-W-James/timjames.dev/actions):
   GitHub CI/CD pipeline. Used to ensure builds, linting rules and tests pass for
   any [Pull Request](https://github.com/Tim-W-James/timjames.dev/pulls) against
   the [`main`](https://github.com/Tim-W-James/timjames.dev/branches) branch.
-  Configured in [`./.github/workflows`](./.github/workflows)
+  Configured in [`.github/workflows`](./.github/workflows)
 
 **Deployment**:
 
@@ -190,7 +192,7 @@ Actions](https://img.shields.io/badge/-GitHub%20Actions-black?style=flat-square&
   Hosting, CDN, NS and continuous deployment for
   [timjames.dev](https://timjames.dev). Netlify domain:
   [timjames.netlify.app](https://timjames.netlify.app) - go [here](#deployment)
-  for details. Configured in [`./netlify.toml`](./netlify.toml)
+  for details. Configured in [`netlify.toml`](./netlify.toml)
 - [![GoDaddy](https://img.shields.io/badge/-GoDaddy-black?style=flat-square&logo=goDaddy)](https://www.godaddy.com/en-au/tlds/dev-domain):
   Domain Registry for [timjames.dev](https://timjames.dev) using the `.dev` TLD
 - [![Let's
@@ -236,7 +238,7 @@ Encrypt](https://img.shields.io/badge/-Let%27s%20Encrypt-black?style=flat-square
 
 ## Usage
 
-- Build to [`./dist`](./dist) and preview:
+- Build to [`dist`](./dist) and preview:
 
   ```sh
   pnpm build
@@ -270,7 +272,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
   pnpm test
   ```
 
-- Run coverage tests and output results to [`./coverage`](./coverage):
+- Run coverage tests and output results to [`coverage`](./coverage):
 
   ```sh
   pnpm coverage
@@ -320,44 +322,123 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ### Code Style
 
-- Evaluate ESLint ([`./.eslintrc.cjs`](./.eslintrc.cjs)) and StyleLint
-  ([`./.stylelintrc.cjs`](./.stylelintrc.cjs)) rules against source code:
+- Evaluate ESLint ([`.eslintrc.cjs`](./.eslintrc.cjs)) and StyleLint
+  ([`.stylelintrc.cjs`](./.stylelintrc.cjs)) rules against source code:
 
   ```sh
   pnpm lint
   ```
 
-- Format source code with prettier ([`./.prettierrc.cjs`](./.prettierrc.cjs))
-  and try to fix any ESLint ([`./.eslintrc.cjs`](./.eslintrc.cjs)) or StyleLint
-  ([`./.stylelintrc.cjs`](./.stylelintrc.cjs)) errors:
+- Format source code with prettier ([`.prettierrc.cjs`](./.prettierrc.cjs))
+  and try to fix any ESLint ([`.eslintrc.cjs`](./.eslintrc.cjs)) or StyleLint
+  ([`.stylelintrc.cjs`](./.stylelintrc.cjs)) errors:
 
   ```sh
   pnpm format
   ```
 
+### Styling
+
+This repo takes a [utility-first](https://tailwindcss.com/docs/utility-first)
+approach to styling. HTML tags (and React components) describe semantics (e.g.,
+header, section). Where possible, CSS classes should instead describe utilities
+(e.g., typography, layout).
+
+When applying styles, consider the following:
+
+1. Before adding CSS classes, consider whether the default HTML styles from the
+   [base
+   styles](https://tailwindcss.com/docs/adding-custom-styles#adding-base-styles)
+   in [`main.scss`](./src/styles/main.scss) are sufficient
+2. Style the component with existing Tailwind classes
+3. If existing Tailwind classes need to be customized (e.g., font-family),
+   configure the
+   [theme](https://tailwindcss.com/docs/adding-custom-styles#customizing-your-theme)
+   in [`tailwind.config.cjs`](./tailwind.config.cjs)
+4. If there is no existing Tailwind class for the use case, **and** the style is
+   deemed to be reusable:
+   1. For a CSS feature Tailwind doesn’t support, create a [custom
+      utility](https://tailwindcss.com/docs/adding-custom-styles#adding-custom-utilities)
+      in [`main.scss`](./src/styles/main.scss)
+   2. For complex classes (i.e., more than 1 CSS property), semantic classes
+      (e.g., card, btn) can be created via [component
+      classes](https://tailwindcss.com/docs/adding-custom-styles#adding-component-classes)
+      in [`main.scss`](./src/styles/main.scss).
+      However, be careful to avoid [hasty
+      abstractions](https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction)
+5. If the style is not deemed to be reusable, and custom CSS needs to be used,
+   create an SCSS module in the same directory as the parent component
+
+#### Typed CSS
+
+Avoid applying classes directly to a component, as this does not provide type
+safety. Instead, use a custom utility function. For example:
+
+```tsx
+import cn from "@styles/cssUtils";
+...
+<div className={cn()("container p-5", { "text-lg": true })}>
+...
+```
+
+This works by generating CSS class names for any Tailwind or global classes from
+the compiled CSS, and generating a union type in
+[`cssClasses.d.ts`](./src/styles/cssClasses.d.ts). This is
+automatically generated during development (run `pnpm dev`). Note that unused
+Tailwind classes are purged and excluded from the type definition, so when
+adding a new class your IDE will complain momentarily until the file is saved
+and types are re-generated.
+
+To use scoped **SCSS modules** with type safety, separate
+`./...module.scss.d.ts` files are generated in the directory of it's parent
+component. This can be used with the `cn` function, for example:
+
+```tsx
+import cn from "@styles/cssUtils";
+import styles, { ClassNames } from "./component.module.scss";
+...
+<div className={cn<ClassNames>()(styles._component, "container p-5", {
+  "text-lg": true,
+})}>
+...
+```
+
+Some things to note:
+
+- Classes in SCSS modules are named with a `_` prefix and are lowerCamelCase
+- Using the `styles` import is required for the module to be compiled and avoid
+  name collisions, and gives intellisense
+- The `ClassNames` type provides `cn` with a union of all class names in that
+  SCSS module, so that it knows what valid classes are in scope
+
 ### Project Structure
 
-- **Source Code**: [`./src`](./src)
-  - Entry point and routes: [`./src/index.tsx`](./src/index.tsx)
-  - Root component: [`./src/App.tsx`](./src/App.tsx)
-  - Common components: [`./src/components`](./src/components). Has alias `@components`. Group by type for `layout`, `buttons`, `forms`, etc.
-  - Common hooks: [`./src/hooks`](./src/hooks). Has alias `@hooks`
-  - Common utils: [`./src/utils`](./src/utils). Has alias `@utils`
-  - Pages: [`./src/pages`](./src/pages). Has alias `@pages`. Nest subfolders for
+- **Source Code**: [`src`](./src)
+  - Entry point and routes: [`index.tsx`](./src/index.tsx)
+  - Root component: [`App.tsx`](./src/App.tsx)
+  - Common components: [`components`](./src/components). Has alias
+    `@components`. Group by type for `layout`, `buttons`, `forms`, etc.
+  - Common hooks: [`hooks`](./src/hooks). Has alias `@hooks`
+  - Common utils: [`utils`](./src/utils). Has alias `@utils`
+  - Pages: [`pages`](./src/pages). Has alias `@pages`. Nest subfolders for
     `components`, `utils`, `hooks`, etc. depending on the scope they apply to
-  - React context: [`./src/context`](./src/context). Has alias `@context`
 - **Unit Tests**: place `tests` adjacent to source code
 - **Storybook Stories**: place `stories` adjacent to source code
-- **SCSS Styling**:
-  - Use [`index.scss`](./src/index.scss) for globals
+- **CSS Styling**:
+  - Use [`main.scss`](./src/styles/main.scss) for base styles and custom
+    Tailwind
+  - Put global SCSS variables and mixins in [`src/styles`](./src/styles). These
+    are automatically imported via [`vite.config.ts`](./vite.config.ts) ->
+    `preprocessorOptions`
   - Place page or component specific styles adjacent to source code, using
     scoped `.modules`
-- **Global TypeScript Types**: [`./types`](./types)
-- **Web Accessible Files** (`robots.txt`, `manifest.json`, etc.): [`./public`](./public)
+- **Global TypeScript Types**: [`types`](./types)
+- **Web Accessible Files** (`robots.txt`, `manifest.json`, etc.):
+  [`public`](./public)
 - **Site Assets** (`favicon.png`, images, etc.):
-  [`./public/assets`](./public/assets). Has alias `@assets`
+  [`public/assets`](./public/assets). Has alias `@assets`
 
-Define path alias in [`./tsconfig.paths.json`](./tsconfig.paths.json).
+Define path alias in [`tsconfig.paths.json`](./tsconfig.paths.json).
 
 I recommend using [VSCode file
 nesting](https://code.visualstudio.com/updates/v1_64#_explorer-file-nesting) for

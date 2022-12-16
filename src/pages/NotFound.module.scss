@@ -1,16 +1,16 @@
-.solidBackground {
+._solidBackground {
   @include solid-background;
 }
 
-.container {
+._container {
   padding-top: 3rem;
   text-align: center;
 }
 
-.errorHeader {
+._errorHeader {
   @include body-lg;
 }
 
-.danger {
+._danger {
   color: $danger;
 }

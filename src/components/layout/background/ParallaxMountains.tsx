@@ -1,14 +1,15 @@
+import cn from "@styles/cssUtils";
 import { Parallax } from "react-scroll-parallax";
-import styles from "./ParallaxMountains.module.scss";
+import { ClassNames } from "./ParallaxMountains.module.scss";
 
 const ParallaxMountains = () => (
-  <div className={styles.container}>
-    <div className={styles.mountainMiddle} />
+  <div className={cn<ClassNames>()("_container")}>
+    <div className={cn<ClassNames>()("_mountainMiddle")} />
     <Parallax speed={-10} style={{ zIndex: -2 }}>
-      <div className={styles.mountainLeft} />
+      <div className={cn<ClassNames>()("_mountainLeft")} />
     </Parallax>
     <Parallax speed={-8} style={{ zIndex: -3 }}>
-      <div className={styles.mountainRight} />
+      <div className={cn<ClassNames>()("_mountainRight")} />
     </Parallax>
   </div>
 );
