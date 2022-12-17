@@ -25,9 +25,8 @@ module.exports = {
       },
     ],
     "unit-allowed-list": [
-      "em",
       "rem",
-      "ch",
+      "em",
       "vh",
       "vw",
       "vmin",
@@ -36,6 +35,7 @@ module.exports = {
       "%",
       "s",
       "deg",
+      "ex",
     ],
     "color-named": "always-where-possible",
     "color-no-hex": true,

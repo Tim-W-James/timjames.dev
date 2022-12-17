@@ -2,10 +2,10 @@ import { PRIMARY_TITLE } from "@constants/content";
 import useDocumentTitle from "@hooks/useDocumentTitle";
 
 /**
- * Page Wrapper
- * ------------
- *
  * Wrapper for page content that sets the title.
+ *
+ * @param {{ title: any; content: any; }} { page title, inner content }
+ * @returns {*}
  */
 const Page: React.FC<{
   title?: string;

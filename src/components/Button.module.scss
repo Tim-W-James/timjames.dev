@@ -1,11 +1,8 @@
 ._acrylicButton {
-  padding: 1rem 2rem;
-  border: 0;
-  border-radius: 200px;
+  @apply subtitle border-0 px-8 py-4 rounded-full text-light-accent;
+  @apply cursor-pointer;
+
   background: none;
-  color: $light-accent;
-  cursor: pointer;
-  @include subtitle-sm;
   @include acrylic(var(--mouse-deg, 90deg));
 
   @keyframes shadow-inset-center {
@@ -24,21 +21,13 @@
   }
 
   &::before {
-    position: absolute;
-    z-index: -1;
-    padding: 1px;
-    border: 0;
-    border-radius: 200px;
+    @apply absolute p-px border-0 rounded-full radial-border-utils -z-[1];
+
     background: radial-gradient(
       50% 100% at var(--mouse-x, 50%) var(--mouse-y, 50%),
       $light-accent 75%,
       rgb(76 179 188 / 0%) 100%
     );
-    content: "";
-    inset: 0;
-    mask: linear-gradient(white 0 0) content-box, linear-gradient(white 0 0);
-    mask-composite: xor;
-    mask-composite: exclude;
   }
 
   &:active::before {

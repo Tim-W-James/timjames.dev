@@ -1,7 +1,7 @@
 import cn from "@styles/cssUtils";
 import { setMouseHoverCssProperties } from "@utils/mouseHover";
 import { useLocation, useNavigate } from "react-router-dom";
-import { ClassNames } from "./NavbarLink.module.scss";
+import styles, { ClassNames } from "./NavbarLink.module.scss";
 
 const NavbarLink: React.FC<{
   label: string;
@@ -13,8 +13,8 @@ const NavbarLink: React.FC<{
 
   return (
     <button
-      className={cn<ClassNames>()("_navbarLink", {
-        _selected: location.pathname === route || !!isSelected,
+      className={cn<ClassNames>()("subtitle px-8 py-2", styles._navbarLink, {
+        [styles._selected]: location.pathname === route || !!isSelected,
       })}
       onClick={() => navigate(route)}
       onMouseMove={(e) => setMouseHoverCssProperties(e, true)}

@@ -5,23 +5,28 @@ import "@styles/main.scss";
 import App from "App";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { ParallaxProvider } from "react-scroll-parallax";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <ParallaxProvider>
-      <Router>
-        <Routes>
-          <Route element={<App />} path="/">
-            <Route element={<Page content={<Home />} />} index />
+    <Router>
+      <Routes>
+        <Route element={<App />} path="/">
+          {/* Alternate routes to the index */}
+          {["/", "/home", "/index", "/index.html"].map((path, index) => (
             <Route
-              element={<Page content={<NotFound />} title="Not Found" />}
-              path="*"
+              element={<Page content={<Home />} />}
+              index
+              key={index}
+              path={path}
             />
-          </Route>
-        </Routes>
-      </Router>
-    </ParallaxProvider>
+          ))}
+          <Route
+            element={<Page content={<NotFound />} title="Not Found" />}
+            path="*"
+          />
+        </Route>
+      </Routes>
+    </Router>
   </StrictMode>
 );

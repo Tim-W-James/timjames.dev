@@ -1,53 +1,102 @@
+@import "https://fonts.googleapis.com/css?family=Outfit";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  margin: 0;
-  background-attachment: fixed;
-  background-color: hsl(220deg 13% 18%);
-  background-image: url("@assets/bg-aurora.jpg");
-  background-position: center top;
-  background-repeat: no-repeat;
-  color: $light-shades;
-  @include body;
-
-  overflow-x: hidden;
-
-  @media (max-width: 800px) {
-    background-size: auto 600px;
+@layer components {
+  .subtitle {
+    @apply heading-4 m-0 tracking-wider font-extrabold uppercase;
   }
 
-  @media (min-width: 800px) {
-    background-size: cover;
+  .radial-border {
+    @include radial-border($dark-accent);
+  }
+
+  .solid-background {
+    @apply w-full h-auto bg-dark;
+  }
+
+  .radial-border-utils {
+    content: "";
+    inset: 0;
+    mask: linear-gradient(white 0 0) content-box, linear-gradient(white 0 0);
+    mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  @include fluid-headers;
+}
+
+@layer utilities {
+  .text-light-shades {
+    color: $light-shades;
+  }
+
+  .text-dark-accent {
+    color: $dark-accent;
+  }
+
+  .text-light-accent {
+    color: $light-accent;
+  }
+
+  .bg-dark {
+    background-color: $dark-shades;
+  }
+
+  .hyphens {
+    hyphens: auto;
   }
 }
 
-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-}
+@layer base {
+  body {
+    @apply font-sans subpixel-antialiased m-0 text-light-shades;
+    @apply bg-dark bg-fixed bg-top bg-no-repeat overflow-x-hidden;
 
-h1 {
-  @include heading-1;
-}
+    background-image: url("@assets/bg-aurora.jpg");
+    font-display: optional;
+    font-size: $type-base-size;
 
-h2 {
-  @include heading-2;
-}
+    @media (max-width: 600px) {
+      background-size: auto 600px;
+    }
 
-h3 {
-  @include heading-3;
-}
+    @media (min-width: 600px) {
+      background-size: cover;
+    }
+  }
 
-h4 {
-  @include heading-4;
-}
+  p,
+  li,
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply mt-0 break-words hyphens;
+  }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  * {
+    box-sizing: border-box;
+  }
+
+  h1 {
+    @apply heading-1;
+  }
+
+  h2 {
+    @apply heading-2;
+  }
+
+  h3 {
+    @apply heading-3;
+  }
+
+  h4 {
+    @apply heading-4;
+  }
+
+  code {
+    @apply font-mono;
+  }
 }

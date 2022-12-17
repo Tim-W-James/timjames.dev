@@ -1,20 +1,8 @@
 ._navbar {
-  position: fixed;
-  z-index: 10;
-  top: 0;
-  left: 0;
-  display: flex;
-  width: 100%;
-  box-sizing: border-box;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  @apply fixed z-10 top-0 left-0 w-full;
+  @apply flex flex-row items-center justify-between;
+
   padding: 0 clamp(2rem, 10%, 16rem);
   gap: clamp(2rem, 10%, 16rem);
   @include acrylic(45deg);
-}
-
-._navbarLinks {
-  display: flex;
-  justify-content: space-around;
 }

@@ -1,7 +1,7 @@
 import NavbarComponent from "./Navbar";
 
 export default {
-  title: "Components/Navbar",
+  title: "Components/Layout/Navbar",
   component: NavbarComponent,
 };
 

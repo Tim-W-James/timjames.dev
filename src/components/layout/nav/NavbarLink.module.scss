@@ -1,10 +1,8 @@
 ._navbarLink {
-  padding: 1rem 2rem;
   border: transparent 1px solid;
   background: none;
   color: $light-accent;
   cursor: pointer;
-  @include subtitle-sm;
 
   &:hover {
     @include acrylic(var(--mouse-deg, 90deg));

@@ -1,12 +1,9 @@
-@use "./variables.scss" as *;
-
 @mixin acrylic($angle: 90deg) {
   backdrop-filter: blur(21px);
   background: linear-gradient(
     $angle,
     hsl(0deg 0% 0% / 20%) 0%,
-    hsl(0deg 0% 0% / 50%) 100%,
-    hsl(0deg 0% 0% / 0%) 100%
+    hsl(0deg 0% 0% / 50%) 100%
   );
 }
 
@@ -15,89 +12,7 @@
   border-image: radial-gradient(
       50% 100% at $x $y,
       $color 50%,
-      rgb(76 179 188 / 0%) 100%
+      rgb(0 0 0 / 0%) 100%
     )
     1;
-}
-
-@mixin solid-background {
-  width: 100%;
-  height: auto;
-  padding-bottom: 100vh;
-  background-color: $dark-shades;
-}
-
-// typography
-@mixin heading-1 {
-  font-family: $font-family-heading;
-  font-size: calc(4rem);
-  font-style: normal;
-  font-weight: bold;
-  letter-spacing: 0.02em;
-  line-height: 120%;
-}
-
-@mixin heading-2 {
-  font-family: $font-family-heading;
-  font-size: calc(3rem);
-  font-style: normal;
-  font-weight: bold;
-  letter-spacing: 0.02em;
-  line-height: 120%;
-}
-
-@mixin heading-3 {
-  font-family: $font-family-heading;
-  font-size: calc(2.5rem);
-  font-style: normal;
-  font-weight: bold;
-  letter-spacing: 0.02em;
-  line-height: 120%;
-}
-
-@mixin heading-4 {
-  font-family: $font-family-heading;
-  font-size: calc(2rem + 4.5vw);
-  font-style: normal;
-  font-weight: bold;
-  letter-spacing: 0.02em;
-  line-height: 120%;
-}
-
-@mixin subtitle {
-  font-family: $font-family-body;
-  font-size: 2rem;
-  font-style: normal;
-  font-weight: bold;
-  letter-spacing: 0.1em;
-  line-height: 101%;
-  text-transform: uppercase;
-}
-
-@mixin subtitle-sm {
-  font-family: $font-family-body;
-  font-size: 1.5rem;
-  font-style: normal;
-  font-weight: bold;
-  letter-spacing: 0.16rem;
-  line-height: 101%;
-  text-transform: uppercase;
-}
-
-@mixin body-lg {
-  font-family: $font-family-body;
-  font-size: 1.5rem;
-  font-style: normal;
-  font-weight: 500;
-}
-
-@mixin body {
-  font-family: $font-family-body;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 500;
-}
-
-@mixin code {
-  font-family: $font-family-code;
 }

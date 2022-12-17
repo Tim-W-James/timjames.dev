@@ -1,38 +1,34 @@
-._container {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-}
-
 ._mountainMiddle {
-  position: absolute;
-  z-index: -1;
+  @apply absolute w-0 h-0 -z-[1];
+
   top: 80px;
-  width: 0;
-  height: 0;
-  border-width: 0 clamp(450px, 25vw, 25vw) clamp(800px, 75vh, 75vh);
+  border-width: 0 clamp(450px, 25vw, 25vw) 800px;
   border-style: solid;
   border-color: transparent transparent $dark-shades;
 }
 
 ._mountainLeft {
-  position: absolute;
+  @apply absolute w-0 h-0;
+
   top: clamp(125px, 18vh, 18vh);
   right: -275px;
-  width: 0;
-  height: 0;
-  border-width: 0 clamp(450px, 25vw, 25vw) clamp(800px, 75vh, 75vh);
+  border-width: 0 clamp(450px, 25vw, 25vw) 800px;
   border-style: solid;
   border-color: transparent transparent $dark-shades;
 }
 
 ._mountainRight {
-  position: absolute;
+  @apply absolute w-0 h-0;
+
   top: clamp(75px, 10vh, 10vh);
   left: -325px;
-  width: 0;
-  height: 0;
-  border-width: 0 clamp(450px, 25vw, 25vw) clamp(800px, 75vh, 75vh);
+  border-width: 0 clamp(450px, 25vw, 25vw) 800px;
   border-style: solid;
   border-color: transparent transparent $dark-shades;
+}
+
+._gradientBackground {
+  @apply fixed -z-[5] top-1/2 h-1/4 w-full left-0;
+
+  background: linear-gradient(180deg, rgb(0 0 0 / 0%) 0%, $dark-shades 100%);
 }

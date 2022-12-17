@@ -12,7 +12,7 @@ export default defineConfig({
   server: {
     port: 3000,
     watch: {
-      ignored: ["**/tailwindClasses.d.ts", "**/*module.scss.d.ts"],
+      ignored: ["**/cssClasses.d.ts", "**/*module.scss.d.ts"],
     },
   },
   // Define paths relative to the ./public directory here.
@@ -27,8 +27,9 @@ export default defineConfig({
       scss: {
         // Global SCSS modules
         additionalData:
-          `@use "src/styles/variables.scss" as *;` +
-          `@use "src/styles/mixins.scss" as *;`,
+          `@use "src/styles/color.scss" as *;` +
+          `@use "src/styles/mixins.scss" as *;` +
+          `@use "src/styles/typography.scss" as *;`,
       },
     },
   },
