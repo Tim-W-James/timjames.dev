@@ -4,7 +4,8 @@ const Footer: React.FC = () => (
   <>
     <footer
       className={cn()(
-        "text-dark-accent bg-dark fixed bottom-0 left-0 w-full p-8 text-center"
+        "text-dark-accent bg-dark fixed p-8 text-center",
+        "bottom-0 left-0 w-screen"
       )}
     >
       © {new Date().getFullYear()} Tim James

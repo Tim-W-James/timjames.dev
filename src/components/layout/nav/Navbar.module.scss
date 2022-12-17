@@ -1,5 +1,5 @@
 ._navbar {
-  @apply fixed z-10 top-0 left-0 w-full;
+  @apply fixed z-10 top-0 left-0 w-screen;
   @apply flex flex-row items-center justify-between;
 
   padding: 0 clamp(2rem, 10%, 16rem);

@@ -45,6 +45,7 @@ export type ClassNames =
   | "text-light-accent"
   | "top-3"
   | "top-3/4"
-  | "w-full";
+  | "w-full"
+  | "w-screen";
 
 export default ClassNames;

@@ -2,7 +2,7 @@
   @apply absolute w-0 h-0 -z-[1];
 
   top: 80px;
-  border-width: 0 clamp(450px, 25vw, 25vw) 800px;
+  border-width: 0 clamp(450px, 25vw, 25vw) clamp(800px, 75vh, 75vh);
   border-style: solid;
   border-color: transparent transparent $dark-shades;
 }
@@ -12,7 +12,7 @@
 
   top: clamp(125px, 18vh, 18vh);
   right: -275px;
-  border-width: 0 clamp(450px, 25vw, 25vw) 800px;
+  border-width: 0 clamp(450px, 25vw, 25vw) clamp(800px, 75vh, 75vh);
   border-style: solid;
   border-color: transparent transparent $dark-shades;
 }
@@ -22,13 +22,13 @@
 
   top: clamp(75px, 10vh, 10vh);
   left: -325px;
-  border-width: 0 clamp(450px, 25vw, 25vw) 800px;
+  border-width: 0 clamp(450px, 25vw, 25vw) clamp(800px, 75vh, 75vh);
   border-style: solid;
   border-color: transparent transparent $dark-shades;
 }
 
 ._gradientBackground {
-  @apply fixed -z-[5] top-1/2 h-1/4 w-full left-0;
+  @apply fixed -z-[5] top-1/2 h-1/4 w-screen left-0;
 
   background: linear-gradient(180deg, rgb(0 0 0 / 0%) 0%, $dark-shades 100%);
 }
