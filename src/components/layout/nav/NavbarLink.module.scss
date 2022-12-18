@@ -5,7 +5,7 @@
   cursor: pointer;
 
   &:hover {
-    @apply text-light-shades;
+    color: colors.$light-shades;
     @include mixins.acrylic(var(--mouse-deg, 90deg));
     @include mixins.radial-border(
       colors.$light-accent,
@@ -19,9 +19,8 @@
   }
 
   &:active {
-    @apply text-light-shades;
-
     border: colors.$light-accent 1px solid;
+    color: colors.$light-shades;
   }
 
   @keyframes shadow-inset-center {

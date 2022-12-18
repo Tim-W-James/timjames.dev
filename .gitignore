@@ -133,3 +133,6 @@ storybook-static
 
 # Local Netlify folder
 .netlify
+
+# Vite temporary files
+vite.config.ts.timestamp-*

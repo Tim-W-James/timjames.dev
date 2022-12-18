@@ -13,11 +13,11 @@
   }
 
   &:active {
-    @apply text-light-shades;
+    color: colors.$light-shades;
   }
 
   &:hover {
-    @apply text-light-shades;
+    color: colors.$light-shades;
   }
 
   &._dark:hover {
