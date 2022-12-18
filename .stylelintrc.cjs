@@ -5,10 +5,28 @@ module.exports = {
     "stylelint-config-idiomatic-order",
   ],
   rules: {
+    "scss/at-rule-no-unknown": [
+      true,
+      {
+        ignoreAtRules: [
+          "tailwind",
+          "apply",
+          "variants",
+          "responsive",
+          "screen",
+        ],
+      },
+    ],
+    "selector-class-pattern": [
+      "^_[a-z][a-zA-Z0-9]+$",
+      {
+        message:
+          "Expected class name to be prefixed with '_' and be lowerCamelCase",
+      },
+    ],
     "unit-allowed-list": [
-      "em",
       "rem",
-      "ch",
+      "em",
       "vh",
       "vw",
       "vmin",
@@ -17,6 +35,7 @@ module.exports = {
       "%",
       "s",
       "deg",
+      "ex",
     ],
     "color-named": "always-where-possible",
     "color-no-hex": true,

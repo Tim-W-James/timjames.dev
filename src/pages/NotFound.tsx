@@ -1,21 +1,27 @@
-import { Link } from "react-router-dom";
+import Button from "@components/Button";
+import cn from "@styles/cssUtils";
+import { HiOutlineArrowSmRight } from "react-icons/hi";
 
 const NotFound: React.FC = () => (
-  <div className="d-flex align-items-center justify-content-center">
-    <div className="text-center">
-      <h1 className="display-1 fw-bold">404</h1>
-      <p className="fs-3">
-        {" "}
-        <span className="text-danger">Oops!</span> Page not found.
-      </p>
-      <p className="lead">
-        The page you&apos;re looking for doesn&apos;t exist.
-      </p>
-      <Link className="btn btn-primary" to="/">
-        Go Home
-      </Link>
+  <>
+    <div className={cn()("text-center")}>
+      <h1 className={cn()("text-8xl pt-10")}>404</h1>
+      <h2>
+        <span className={cn()("text-danger")}>Oops!</span> Page not found.
+      </h2>
+      <h3>The page you&apos;re looking for doesn&apos;t exist.</h3>
+      <br />
+      <div className="flex justify-center items-center">
+        <Button
+          icon={<HiOutlineArrowSmRight />}
+          isLight
+          label="Go Home"
+          linkIsRoute
+          to="/"
+        />
+      </div>
     </div>
-  </div>
+  </>
 );
 
 export default NotFound;

@@ -1,0 +1,82 @@
+@use "src/styles/typography.scss" as typography;
+@import "https://fonts.googleapis.com/css?family=Outfit";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  @include typography.components;
+
+  .radial-border {
+    @include mixins.radial-border(colors.$dark-accent);
+  }
+
+  .solid-background {
+    @apply w-screen h-auto bg-dark;
+  }
+
+  .acrylic-dark {
+    @include mixins.acrylic;
+  }
+
+  .acrylic-light {
+    @include mixins.acrylic-light;
+  }
+
+  .radial-border-utils {
+    content: "";
+    inset: 0;
+    mask: linear-gradient(white 0 0) content-box, linear-gradient(white 0 0);
+    mask-composite: xor;
+    mask-composite: exclude;
+  }
+}
+
+@layer utilities {
+  @include typography.utilities;
+
+  .bg-dark {
+    background-color: colors.$dark-shades;
+  }
+
+  .hyphens {
+    hyphens: auto;
+  }
+}
+
+@layer base {
+  @include typography.base;
+
+  body {
+    @apply font-sans subpixel-antialiased m-0 text-light-shades scroll-smooth;
+    @apply bg-dark bg-fixed bg-top bg-no-repeat overflow-x-hidden;
+
+    background-image: url("@assets/bg-aurora.jpg");
+    font-display: optional;
+
+    @media (max-width: 600px) {
+      background-size: auto 600px;
+    }
+
+    @media (min-width: 600px) {
+      background-size: cover;
+    }
+  }
+
+  p,
+  li,
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply mt-0 break-words hyphens;
+  }
+
+  svg {
+    display: inline-block;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}

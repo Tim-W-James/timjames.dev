@@ -4,30 +4,45 @@ import * as path from "path";
 import AutoImport from "unplugin-auto-import/vite";
 import { defineConfig } from "vite";
 import eslintPlugin from "vite-plugin-eslint";
+import sassDts from "vite-plugin-sass-dts";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
-  // port must equal port in ./netlify.toml
+  // Port must equal port in ./netlify.toml
   server: {
     port: 3000,
+    watch: {
+      ignored: ["**/cssClasses.d.ts", "**/*module.scss.d.ts"],
+    },
   },
-  // define paths relative to the ./public directory here
+  // Define paths relative to the ./public directory here.
+  // Otherwise, use ./tsconfig.paths.json
   resolve: {
     alias: {
       "@assets": path.resolve(__dirname, "/assets"),
+    },
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // Global SCSS modules
+        additionalData:
+          `@use "src/styles/colors.scss" as colors;` +
+          `@use "src/styles/mixins.scss" as mixins;`,
+      },
     },
   },
   plugins: [
     react(),
     eslintPlugin(),
     AutoImport({
-      /// targets to transform
+      /// Targets to transform
       include: [
         /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
         /\.md$/, // .md
       ],
 
-      // global imports to register
+      // Global imports to register
       imports: [
         // presets
         "vitest",
@@ -35,7 +50,7 @@ export default defineConfig({
       ],
 
       // Generate corresponding .eslintrc-auto-import.json file.
-      // eslint globals Docs - https://eslint.org/docs/user-guide/configuring/language-options#specifying-globals
+      // ESLint globals Docs - https://eslint.org/docs/user-guide/configuring/language-options#specifying-globals
       eslintrc: {
         enabled: true,
         filepath: "./.eslintrc-auto-import.json",
@@ -48,6 +63,7 @@ export default defineConfig({
       dts: "./types/auto-imports.d.ts",
     }),
     tsconfigPaths(),
+    sassDts(),
   ],
   build: {
     sourcemap: true,
