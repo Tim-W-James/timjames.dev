@@ -64,6 +64,7 @@ specifiers:
   postcss-ts-classnames: ^0.3.0
   prettier: ^2.8.0
   react: ^18.2.0
+  react-click-away-listener: ^2.2.2
   react-dom: ^18.2.0
   react-icons: ^4.6.0
   react-router-dom: ^6.4.3
@@ -95,6 +96,7 @@ dependencies:
   classnames: 2.3.2
   framer-motion: 7.10.2_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
+  react-click-away-listener: 2.2.2_biqbaboplfbrettd7655fr4n2y
   react-dom: 18.2.0_react@18.2.0
   react-icons: 4.6.0_react@18.2.0
   react-router-dom: 6.4.3_biqbaboplfbrettd7655fr4n2y
@@ -21682,6 +21684,19 @@ packages:
       minimist: 1.2.6
       strip-json-comments: 2.0.1
     dev: true
+
+  /react-click-away-listener/2.2.2_biqbaboplfbrettd7655fr4n2y:
+    resolution:
+      {
+        integrity: sha512-6x5Ra+2xagMq+5YcBu42jtht+bKVErgPXaI/GqYP5M8Xz2o/UbGyMd3TISQK6ixfORUTvdHeRnOVU3TbSpZ5Zg==,
+      }
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
 
   /react-docgen-typescript/2.2.2_typescript@4.9.3:
     resolution:

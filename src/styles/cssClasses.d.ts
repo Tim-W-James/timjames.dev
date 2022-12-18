@@ -65,6 +65,8 @@ export type ClassNames =
   | "my-20"
   | "my-auto"
   | "object-cover"
+  | "overflow-hidden"
+  | "overflow-x-hidden"
   | "p-2"
   | "p-8"
   | "place-content-center"

@@ -1,4 +1,4 @@
-import { HiOutlineArrowSmRight } from "react-icons/hi";
+import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import ButtonComponent from "./Button";
 
 export default {
@@ -11,12 +11,12 @@ export const Button = () => (
     <ButtonComponent label="label" to="https://timjames.dev/" />
     <ButtonComponent isLight label="light" to="https://timjames.dev/" />
     <ButtonComponent
-      icon={<HiOutlineArrowSmRight />}
+      icon={<BsFillArrowRightCircleFill />}
       label="icon"
       to="https://timjames.dev/"
     />
     <ButtonComponent
-      icon={<HiOutlineArrowSmRight />}
+      icon={<BsFillArrowRightCircleFill />}
       to="https://timjames.dev/"
     />
   </div>

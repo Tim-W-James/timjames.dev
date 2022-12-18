@@ -1,6 +1,6 @@
 import Button from "@components/Button";
 import cn from "@styles/cssUtils";
-import { HiOutlineArrowSmRight } from "react-icons/hi";
+import { BsFillHouseDoorFill } from "react-icons/bs";
 
 const NotFound: React.FC = () => (
   <>
@@ -13,7 +13,7 @@ const NotFound: React.FC = () => (
       <br />
       <div className="flex justify-center items-center">
         <Button
-          icon={<HiOutlineArrowSmRight />}
+          icon={<BsFillHouseDoorFill />}
           isLight
           label="Go Home"
           linkIsRoute
