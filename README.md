@@ -38,7 +38,7 @@
 <!-- <br/> -->
 <p align="center">
   <!-- GitHub Actions Shield -->
-  <a href="https://github.com/Tim-W-James/timjames.dev/actions"><img src="https://img.shields.io/github/workflow/status/Tim-W-James/timjames.dev/CI?style=for-the-badge&logo=githubactions&logoColor=white" alt="CI"></a>
+  <a href="https://github.com/Tim-W-James/timjames.dev/actions"><img src="https://img.shields.io/github/actions/workflow/status/Tim-W-James/timjames.dev/ci-cd-deploy.yml?branch=main&style=for-the-badge&logo=githubactions&logoColor=white" alt="CI"></a>
   <!-- Last Commit Shield -->
   <a href="https://github.com/Tim-W-James/timjames.dev/commits/main"><img src="https://img.shields.io/github/last-commit/Tim-W-James/timjames.dev.svg?style=for-the-badge&logo=git&logoColor=white" alt="Release"></a>
   <!-- Renovate Shield -->
