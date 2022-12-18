@@ -1,6 +1,6 @@
 import cn from "@styles/cssUtils";
 import { setMouseHoverCssProperties } from "@utils/mouseHover";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styles, { ClassNames } from "./NavbarLink.module.scss";
 
 const NavbarLink: React.FC<{
@@ -8,7 +8,6 @@ const NavbarLink: React.FC<{
   to: string;
   isSelected?: boolean;
 }> = ({ label, to: route, isSelected }) => {
-  const navigate = useNavigate();
   const location = useLocation();
 
   return (
