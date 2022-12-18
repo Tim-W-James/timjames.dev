@@ -66,9 +66,6 @@
     "./**/*.md": "prettier --write",
     "./**/*.{json,yaml,yml,ts,js,cjs}": "prettier --write"
   },
-  "peerDependencies": {
-    "cssnano": "^5.1.12"
-  },
   "devDependencies": {
     "@babel/core": "^7.20.2",
     "@babel/types": "^7.20.2",
