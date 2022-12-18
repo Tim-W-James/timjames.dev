@@ -4,5 +4,5 @@
 
   padding: 0 clamp(2rem, 10%, 16rem);
   gap: clamp(2rem, 10%, 16rem);
-  @include acrylic(45deg);
+  @include mixins.acrylic(45deg);
 }

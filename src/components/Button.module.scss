@@ -3,7 +3,7 @@
   @apply cursor-pointer;
 
   background: none;
-  @include acrylic(var(--mouse-deg, 90deg));
+  @include mixins.acrylic(var(--mouse-deg, 90deg));
 
   @keyframes shadow-inset-center {
     0% {
@@ -25,12 +25,12 @@
 
     background: radial-gradient(
       50% 100% at var(--mouse-x, 50%) var(--mouse-y, 50%),
-      $light-accent 75%,
+      colors.$light-accent 75%,
       rgb(76 179 188 / 0%) 100%
     );
   }
 
   &:active::before {
-    background: $light-accent;
+    background: colors.$light-accent;
   }
 }

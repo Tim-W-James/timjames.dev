@@ -1,20 +1,20 @@
 ._navbarLink {
   border: transparent 1px solid;
   background: none;
-  color: $light-accent;
+  color: colors.$light-accent;
   cursor: pointer;
 
   &:hover {
-    @include acrylic(var(--mouse-deg, 90deg));
-    @include radial-border(
-      $light-accent,
+    @include mixins.acrylic(var(--mouse-deg, 90deg));
+    @include mixins.radial-border(
+      colors.$light-accent,
       var(--mouse-x, 50%),
       var(--mouse-y, 50%)
     );
   }
 
   &:active {
-    border: $light-accent 1px solid;
+    border: colors.$light-accent 1px solid;
   }
 
   @keyframes shadow-inset-center {
@@ -30,6 +30,6 @@
   &._selected {
     animation: shadow-inset-center 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)
       both;
-    color: $light-shades;
+    color: colors.$light-shades;
   }
 }

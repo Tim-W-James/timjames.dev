@@ -17,7 +17,7 @@
 
   background: radial-gradient(
     50% 100% at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    $light-accent 75%,
+    colors.$light-accent 75%,
     rgb(0 0 0 / 0%) 100%
   );
 }

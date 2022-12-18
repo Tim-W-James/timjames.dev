@@ -1,9 +1,105 @@
 @use "sass:math";
 @use "sass:map";
-
-// Template adapted from https://moderncss.dev/generating-font-size-css-rules-and-creating-a-fluid-type-scale/
+@use "sass:color";
+@use "src/styles/colors.scss" as colors;
 
 $type-base-size: 1rem;
+
+// Tailwind components
+@mixin components {
+  .subtitle {
+    @apply heading-4 m-0 tracking-wider font-extrabold uppercase;
+  }
+  @include fluid-header-components;
+}
+
+// Tailwind utilities
+@mixin utilities {
+  @include text-colors;  
+}
+
+@mixin text-colors {
+  .text-light-shades {
+    color: colors.$light-shades;
+  }
+
+  .text-dark-accent {
+    color: colors.$dark-accent;
+  }
+
+  .text-light-accent {
+    color: colors.$light-accent;
+  }
+}
+
+// Tailwind base
+@mixin base {
+  body {
+    color: red;
+    font-size: $type-base-size;
+  }
+
+  h1 {
+    @apply heading-1;
+  }
+
+  h2 {
+    @apply heading-2;
+  }
+
+  h3 {
+    @apply heading-3;
+  }
+
+  h4 {
+    @apply heading-4;
+  }
+
+  p {
+    // Source: https://hugogiraudel.com/2020/05/18/using-calc-to-figure-out-optimal-line-height/
+    line-height: calc(2px + 2ex + 2px);
+  }
+
+  code {
+    @apply font-mono;
+  }
+
+  @include links;
+}
+
+@mixin links {
+  a {
+    padding: 2px 1px 0;
+    outline: none;
+    text-decoration: none;
+  }
+  
+  a:link {
+    color: colors.$light-accent;
+  }
+  
+  a:visited {
+    color: colors.$dark-accent;
+  }
+  
+  a:focus {
+    border-bottom: 1px solid;
+    background: color.scale(colors.$main-brand, $lightness: -75%);
+  }
+  
+  a:hover {
+    border-bottom: 1px solid;
+    background: color.scale(colors.$main-brand, $lightness: -50%);
+  }
+  
+  a:active {
+    background: colors.$light-accent;
+    color: color.scale(colors.$main-brand, $lightness: -50%);
+  }
+}
+
+// Fluid font size
+// Template adapted from https://moderncss.dev/generating-font-size-css-rules-and-creating-a-fluid-type-scale/
 
 // Select a ratio to preview
 // Default is "perfectFourth"
@@ -33,7 +129,7 @@ $type-levels: 4, 3, 2, 1;
 // and computed font-size as value
 $type-styles: ();
 $level-size: $type-base-size;
-@mixin fluid-headers {
+@mixin fluid-header-components {
   @each $level in $type-levels {
     $level-size: $level-size * $type-size-ratio;
     $type-styles: map.merge($type-styles, (#{"h"}$level: $level-size));

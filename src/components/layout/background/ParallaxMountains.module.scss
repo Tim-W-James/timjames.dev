@@ -4,7 +4,7 @@
   top: 80px;
   border-width: 0 clamp(450px, 25vw, 25vw) clamp(800px, 75vh, 75vh);
   border-style: solid;
-  border-color: transparent transparent $dark-shades;
+  border-color: transparent transparent colors.$dark-shades;
 }
 
 ._mountainLeft {
@@ -14,7 +14,7 @@
   right: -275px;
   border-width: 0 clamp(450px, 25vw, 25vw) clamp(800px, 75vh, 75vh);
   border-style: solid;
-  border-color: transparent transparent $dark-shades;
+  border-color: transparent transparent colors.$dark-shades;
 }
 
 ._mountainRight {
@@ -24,11 +24,15 @@
   left: -325px;
   border-width: 0 clamp(450px, 25vw, 25vw) clamp(800px, 75vh, 75vh);
   border-style: solid;
-  border-color: transparent transparent $dark-shades;
+  border-color: transparent transparent colors.$dark-shades;
 }
 
 ._gradientBackground {
   @apply fixed -z-[5] top-1/2 h-1/4 w-screen left-0;
 
-  background: linear-gradient(180deg, rgb(0 0 0 / 0%) 0%, $dark-shades 100%);
+  background: linear-gradient(
+    180deg,
+    rgb(0 0 0 / 0%) 0%,
+    colors.$dark-shades 100%
+  );
 }

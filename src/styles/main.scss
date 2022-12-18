@@ -1,15 +1,14 @@
+@use "src/styles/typography.scss" as typography;
 @import "https://fonts.googleapis.com/css?family=Outfit";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer components {
-  .subtitle {
-    @apply heading-4 m-0 tracking-wider font-extrabold uppercase;
-  }
+  @include typography.components;
 
   .radial-border {
-    @include radial-border($dark-accent);
+    @include mixins.radial-border(colors.$dark-accent);
   }
 
   .solid-background {
@@ -23,25 +22,13 @@
     mask-composite: xor;
     mask-composite: exclude;
   }
-
-  @include fluid-headers;
 }
 
 @layer utilities {
-  .text-light-shades {
-    color: $light-shades;
-  }
-
-  .text-dark-accent {
-    color: $dark-accent;
-  }
-
-  .text-light-accent {
-    color: $light-accent;
-  }
+  @include typography.utilities;
 
   .bg-dark {
-    background-color: $dark-shades;
+    background-color: colors.$dark-shades;
   }
 
   .hyphens {
@@ -50,13 +37,14 @@
 }
 
 @layer base {
+  @include typography.base;
+
   body {
     @apply font-sans subpixel-antialiased m-0 text-light-shades;
     @apply bg-dark bg-fixed bg-top bg-no-repeat overflow-x-hidden;
 
     background-image: url("@assets/bg-aurora.jpg");
     font-display: optional;
-    font-size: $type-base-size;
 
     @media (max-width: 600px) {
       background-size: auto 600px;
@@ -78,25 +66,5 @@
 
   * {
     box-sizing: border-box;
-  }
-
-  h1 {
-    @apply heading-1;
-  }
-
-  h2 {
-    @apply heading-2;
-  }
-
-  h3 {
-    @apply heading-3;
-  }
-
-  h4 {
-    @apply heading-4;
-  }
-
-  code {
-    @apply font-mono;
   }
 }

@@ -27,9 +27,8 @@ export default defineConfig({
       scss: {
         // Global SCSS modules
         additionalData:
-          `@use "src/styles/color.scss" as *;` +
-          `@use "src/styles/mixins.scss" as *;` +
-          `@use "src/styles/typography.scss" as *;`,
+          `@use "src/styles/colors.scss" as colors;` +
+          `@use "src/styles/mixins.scss" as mixins;`,
       },
     },
   },

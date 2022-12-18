@@ -16,13 +16,13 @@ export type ClassNames =
   | "bg-dark"
   | "block"
   | "bottom-0"
-  | "container"
   | "fixed"
   | "flex"
   | "flex-col"
   | "h-1"
   | "h-1/4"
   | "h-56"
+  | "inline-block"
   | "invisible"
   | "items-center"
   | "justify-around"
@@ -45,7 +45,7 @@ export type ClassNames =
   | "text-light-accent"
   | "top-3"
   | "top-3/4"
-  | "w-full"
+  | "underline-offset-4"
   | "w-screen";
 
 export default ClassNames;
