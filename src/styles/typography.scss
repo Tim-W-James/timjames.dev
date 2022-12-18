@@ -40,12 +40,19 @@ $type-base-size: 1rem;
   .text-main-brand {
     color: colors.$main-brand;
   }
+
+  .text-danger {
+    color: colors.$danger;
+  }
+
+  .text-success {
+    color: colors.$success;
+  }
 }
 
 // Tailwind base
 @mixin base {
   body {
-    color: red;
     font-size: $type-base-size;
   }
 

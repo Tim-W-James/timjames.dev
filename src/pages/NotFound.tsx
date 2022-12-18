@@ -1,23 +1,27 @@
 import Button from "@components/Button";
 import cn from "@styles/cssUtils";
-import { ClassNames } from "./NotFound.module.scss";
+import { HiOutlineArrowSmRight } from "react-icons/hi";
 
 const NotFound: React.FC = () => (
-  <div className={cn<ClassNames>()("_solidBackground")}>
-    <div className={cn<ClassNames>()("_container")}>
-      <h1>404</h1>
-      <span className={cn<ClassNames>()("_errorHeader")}>
-        <span className={cn<ClassNames>()("_danger")}>Oops!</span> Page not
-        found. <br />
-        <br />
-      </span>
-      The page you&apos;re looking for doesn&apos;t exist.
+  <>
+    <div className={cn()("text-center")}>
+      <h1 className={cn()("text-8xl pt-10")}>404</h1>
+      <h2>
+        <span className={cn()("text-danger")}>Oops!</span> Page not found.
+      </h2>
+      <h3>The page you&apos;re looking for doesn&apos;t exist.</h3>
       <br />
-      <br />
-      <br />
-      <Button label="Go Home" to="/" />
+      <div className="flex justify-center items-center">
+        <Button
+          icon={<HiOutlineArrowSmRight />}
+          isLight
+          label="Go Home"
+          linkIsRoute
+          to="/"
+        />
+      </div>
     </div>
-  </div>
+  </>
 );
 
 export default NotFound;
