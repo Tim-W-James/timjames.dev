@@ -1,5 +1,5 @@
 @mixin acrylic($angle: 90deg) {
-  backdrop-filter: 24px;
+  backdrop-filter: blur(24px);
   background: linear-gradient(
     $angle,
     hsl(0deg 0% 0% / 20%) 0%,
@@ -8,7 +8,7 @@
 }
 
 @mixin acrylic-light($angle: 90deg) {
-  backdrop-filter: 24px;
+  backdrop-filter: blur(24px);
   background: linear-gradient(
     $angle,
     hsl(180deg 56% 21%/ 10%) 0%,
