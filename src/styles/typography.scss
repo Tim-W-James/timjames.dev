@@ -10,6 +10,12 @@ $type-base-size: 1rem;
   .subtitle {
     @apply heading-4 m-0 tracking-wider font-extrabold uppercase;
   }
+
+  .stroke-light-shades {
+    -webkit-text-stroke-color: colors.$light-shades;
+    -webkit-text-stroke-width: 1px;
+  }
+
   @include fluid-header-components;
 }
 
@@ -29,6 +35,10 @@ $type-base-size: 1rem;
 
   .text-light-accent {
     color: colors.$light-accent;
+  }
+
+  .text-main-brand {
+    color: colors.$main-brand;
   }
 }
 
@@ -64,7 +74,9 @@ $type-base-size: 1rem;
     @apply font-mono;
   }
 
-  @include links;
+  .styled-link {
+    @include links;
+  }
 }
 
 @mixin links {

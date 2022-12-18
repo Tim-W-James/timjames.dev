@@ -15,6 +15,14 @@
     @apply w-screen h-auto bg-dark;
   }
 
+  .acrylic-dark {
+    @include mixins.acrylic;
+  }
+
+  .acrylic-light {
+    @include mixins.acrylic-light;
+  }
+
   .radial-border-utils {
     content: "";
     inset: 0;
@@ -40,7 +48,7 @@
   @include typography.base;
 
   body {
-    @apply font-sans subpixel-antialiased m-0 text-light-shades;
+    @apply font-sans subpixel-antialiased m-0 text-light-shades scroll-smooth;
     @apply bg-dark bg-fixed bg-top bg-no-repeat overflow-x-hidden;
 
     background-image: url("@assets/bg-aurora.jpg");
@@ -62,6 +70,10 @@
   h3,
   h4 {
     @apply mt-0 break-words hyphens;
+  }
+
+  svg {
+    display: inline-block;
   }
 
   * {

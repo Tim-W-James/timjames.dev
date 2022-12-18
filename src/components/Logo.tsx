@@ -19,7 +19,7 @@ const Logo: React.FC<{
   >
     <img
       alt={altText}
-      className={cn<ClassNames>()(
+      className={cn()(
         "relative h-56 object-cover aspect-square rounded-full -z-[1]",
         "pointer-events-none"
       )}

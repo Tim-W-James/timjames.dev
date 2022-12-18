@@ -5,6 +5,7 @@
   cursor: pointer;
 
   &:hover {
+    @apply text-light-shades;
     @include mixins.acrylic(var(--mouse-deg, 90deg));
     @include mixins.radial-border(
       colors.$light-accent,
@@ -13,23 +14,32 @@
     );
   }
 
+  &:focus {
+    @include mixins.acrylic(var(--mouse-deg, 90deg));
+  }
+
   &:active {
+    @apply text-light-shades;
+
     border: colors.$light-accent 1px solid;
   }
 
   @keyframes shadow-inset-center {
-    0% {
+    from {
       box-shadow: inset 0 0 0 0 rgb(0 0 0 / 0%);
     }
 
-    100% {
+    to {
       box-shadow: inset 0 0 2rem 0 rgb(0 0 0 / 50%);
     }
   }
 
   &._selected {
-    animation: shadow-inset-center 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    @include mixins.acrylic(var(--mouse-deg, 90deg));
+
+    animation: shadow-inset-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
       both;
+    background-color: colors.$main-brand;
     color: colors.$light-shades;
   }
 }

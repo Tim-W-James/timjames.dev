@@ -1,4 +1,5 @@
 import Page from "@components/layout/Page";
+import { HOME } from "@constants/routes";
 import Home from "@pages/Home";
 import NotFound from "@pages/NotFound";
 import "@styles/main.scss";
@@ -13,7 +14,7 @@ createRoot(document.getElementById("root")!).render(
       <Routes>
         <Route element={<App />} path="/">
           {/* Alternate routes to the index */}
-          {["/", "/home", "/index", "/index.html"].map((path, index) => (
+          {HOME.map((path, index) => (
             <Route
               element={<Page content={<Home />} />}
               index

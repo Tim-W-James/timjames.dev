@@ -2,22 +2,38 @@
   @apply relative rounded-full h-56 aspect-square;
 
   background: linear-gradient(
-    var(--mouse-deg, 90deg),
+    90deg,
     rgb(125 125 125 / 15%) 0%,
     rgb(255 255 255 / 0%) 75%
   );
-}
 
-._logoBorder::before {
-  @apply absolute p-px h-56 border-0 rounded-full radial-border-utils;
-
-  @media (min-width: 14rem) {
-    width: 14rem;
+  &:hover {
+    background: linear-gradient(
+      var(--mouse-deg, 90deg),
+      rgb(125 125 125 / 15%) 0%,
+      rgb(255 255 255 / 0%) 75%
+    );
   }
 
-  background: radial-gradient(
-    50% 100% at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    colors.$light-accent 75%,
-    rgb(0 0 0 / 0%) 100%
-  );
+  &::before {
+    @apply absolute p-px h-56 border-0 rounded-full radial-border-utils;
+
+    @media (min-width: 14rem) {
+      width: 14rem;
+    }
+
+    background: radial-gradient(
+      50% 100% at 50% 50%,
+      colors.$light-accent 75%,
+      rgb(0 0 0 / 0%) 100%
+    );
+  }
+
+  &:hover::before {
+    background: radial-gradient(
+      50% 100% at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      colors.$light-accent 75%,
+      rgb(0 0 0 / 0%) 100%
+    );
+  }
 }

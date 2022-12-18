@@ -1,18 +1,31 @@
 ._acrylicButton {
-  @apply subtitle border-0 px-8 py-4 rounded-full text-light-accent;
+  @apply subtitle border-0 py-4 rounded-full text-light-accent;
   @apply cursor-pointer;
 
-  background: none;
-  @include mixins.acrylic(var(--mouse-deg, 90deg));
-
   @keyframes shadow-inset-center {
-    0% {
+    from {
       box-shadow: inset 0 0 0 0 rgb(0 0 0 / 0%);
     }
 
-    100% {
+    to {
       box-shadow: inset 0 0 2rem 0 rgb(0 0 0 / 50%);
     }
+  }
+
+  &:active {
+    @apply text-light-shades;
+  }
+
+  &:hover {
+    @apply text-light-shades;
+  }
+
+  &._dark:hover {
+    @include mixins.acrylic(var(--mouse-deg, 90deg));
+  }
+
+  &._light:hover {
+    @include mixins.acrylic-light(var(--mouse-deg, 90deg));
   }
 
   &:focus {
@@ -24,7 +37,15 @@
     @apply absolute p-px border-0 rounded-full radial-border-utils -z-[1];
 
     background: radial-gradient(
-      50% 100% at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      50% 100% at 50% 50%,
+      colors.$light-accent 75%,
+      rgb(76 179 188 / 0%) 100%
+    );
+  }
+
+  &:hover::before {
+    background: radial-gradient(
+      75% 100% at var(--mouse-x, 50%) var(--mouse-y, 50%),
       colors.$light-accent 75%,
       rgb(76 179 188 / 0%) 100%
     );
