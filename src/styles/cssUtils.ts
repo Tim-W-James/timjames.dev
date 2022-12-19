@@ -96,7 +96,7 @@ type IsValidString<T extends string, ScopedClassNames> = string extends T
   : IsValidClass<T, ScopedClassNames>;
 
 // The object format for 'classnames' module
-type ClassNamesObject = { [key: string]: boolean };
+type ClassNamesObject = Record<string, boolean>;
 
 // See https://stackoverflow.com/questions/65737948/how-to-type-check-if-object-keys-conform-a-conditional-recursive-template-type
 export type TailwindClassNamesObject<
