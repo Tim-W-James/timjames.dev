@@ -205,8 +205,8 @@ Encrypt](https://img.shields.io/badge/-Let%27s%20Encrypt-black?style=flat-square
 
 ### Prerequisites
 
-- Install [`node`](https://nodejs.org/en/) for the version in `.nvmrc` or use
-  [`nvm`](https://github.com/nvm-sh/nvm):
+- Install [`node`](https://nodejs.org/en/) for the version in
+  [`.nvmrc`](./.nvmrc) or use [`nvm`](https://github.com/nvm-sh/nvm):
 
   ```sh
   nvm install && nvm use
