@@ -2,8 +2,8 @@
 
 export type ClassNames =
   | "-z-10"
-  | "-z-[1]"
-  | "-z-[5]"
+  | "-z-\[1\]"
+  | "-z-\[5\]"
   | "_acrylicButton"
   | "_dark"
   | "_gradientBackground"
@@ -36,7 +36,7 @@ export type ClassNames =
   | "font-extrabold"
   | "gap-4"
   | "h-1"
-  | "h-1/4"
+  | "h-1\/4"
   | "h-4"
   | "h-56"
   | "h-8"
@@ -94,7 +94,7 @@ export type ClassNames =
   | "text-main-brand"
   | "top-0"
   | "top-3"
-  | "top-3/4"
+  | "top-3\/4"
   | "transition"
   | "w-auto"
   | "w-full"
