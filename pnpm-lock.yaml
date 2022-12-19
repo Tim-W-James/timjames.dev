@@ -51,7 +51,7 @@ specifiers:
   eslint-plugin-prettier: ^4.2.1
   eslint-plugin-react: ^7.31.11
   eslint-plugin-react-hooks: ^4.6.0
-  eslint-plugin-sonarjs: ^0.16.0
+  eslint-plugin-sonarjs: ^0.17.0
   eslint-plugin-storybook: ^0.6.7
   eslint-plugin-vitest: ^0.0.20
   framer-motion: ^7.10.2
@@ -131,7 +131,7 @@ devDependencies:
   '@storybook/preview-web': 6.5.13_biqbaboplfbrettd7655fr4n2y
   '@storybook/react': 6.5.13_dtmhruwo36kgv6zzjfj7khikqu
   '@storybook/testing-library': 0.0.13_biqbaboplfbrettd7655fr4n2y
-  '@tim-w-james/eslint-config': 1.0.6_oh47okipa5ejjfcscjrpwivvpa
+  '@tim-w-james/eslint-config': 1.0.6_krtqbmgdx57tm5x2atw6b6a4gy
   '@types/node': 18.11.9
   '@types/react': 18.0.25
   '@types/react-dom': 18.0.9
@@ -155,7 +155,7 @@ devDependencies:
   eslint-plugin-prettier: 4.2.1_cwlo2dingkvfydnaculr42urve
   eslint-plugin-react: 7.31.11_eslint@8.28.0
   eslint-plugin-react-hooks: 4.6.0_eslint@8.28.0
-  eslint-plugin-sonarjs: 0.16.0_eslint@8.28.0
+  eslint-plugin-sonarjs: 0.17.0_eslint@8.28.0
   eslint-plugin-storybook: 0.6.7_hsf322ms6xhhd4b5ne6lb74y4a
   eslint-plugin-vitest: 0.0.20_hsf322ms6xhhd4b5ne6lb74y4a
   happy-dom: 7.7.0
@@ -5076,7 +5076,7 @@ packages:
       '@testing-library/dom': 8.18.1
     dev: true
 
-  /@tim-w-james/eslint-config/1.0.6_oh47okipa5ejjfcscjrpwivvpa:
+  /@tim-w-james/eslint-config/1.0.6_krtqbmgdx57tm5x2atw6b6a4gy:
     resolution: {integrity: sha512-F/KBbo1gikalSMDino8whKiMclXGYQBnJQTzGHPnRBimsaKy/mFc6kWhC294AnXWi5+1dCdNwwdJq8zJiV22yw==}
     peerDependencies:
       '@typescript-eslint/eslint-plugin': ^5.44.0
@@ -5107,7 +5107,7 @@ packages:
       eslint-plugin-prettier: 4.2.1_cwlo2dingkvfydnaculr42urve
       eslint-plugin-react: 7.31.11_eslint@8.28.0
       eslint-plugin-react-hooks: 4.6.0_eslint@8.28.0
-      eslint-plugin-sonarjs: 0.16.0_eslint@8.28.0
+      eslint-plugin-sonarjs: 0.17.0_eslint@8.28.0
       eslint-plugin-storybook: 0.6.7_hsf322ms6xhhd4b5ne6lb74y4a
       typescript: 4.9.3
     dev: true
@@ -9960,8 +9960,8 @@ packages:
       string.prototype.matchall: 4.0.8
     dev: true
 
-  /eslint-plugin-sonarjs/0.16.0_eslint@8.28.0:
-    resolution: {integrity: sha512-al8ojAzcQW8Eu0tWn841ldhPpPcjrJ59TzzTfAVWR45bWvdAASCmrGl8vK0MWHyKVDdC0i17IGbtQQ1KgxLlVA==}
+  /eslint-plugin-sonarjs/0.17.0_eslint@8.28.0:
+    resolution: {integrity: sha512-jtGtxI49UbJJeJj7CVRLI3+LLH+y+hkR3GOOwM7vBbci9DEFIRGCWvEd2BJScrzltZ6D6iubukTAfc9cyG7sdw==}
     engines: {node: '>=14'}
     peerDependencies:
       eslint: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
