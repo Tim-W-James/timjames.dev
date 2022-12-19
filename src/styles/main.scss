@@ -65,7 +65,7 @@
 
   #root {
     // HACK to fix the nav and background scrolling on mobile
-    @media only screen and (max-device-width: 1366px) {
+    @media (hover: none) and (pointer: coarse) {
       @apply relative overflow-x-hidden;
     }
   }

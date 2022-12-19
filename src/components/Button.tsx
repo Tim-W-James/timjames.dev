@@ -1,3 +1,4 @@
+import { useTouchInputQuery } from "@hooks/useMediaQuery";
 import cn from "@styles/cssUtils";
 import { setMouseHoverCssProperties } from "@utils/mouseHover";
 import { Link } from "react-router-dom";
@@ -10,6 +11,8 @@ const Button: React.FC<{
   linkIsRoute?: boolean;
   isLight?: boolean;
 }> = ({ to: link, label, icon, linkIsRoute, isLight }) => {
+  const deviceIsTouch = useTouchInputQuery();
+
   const className = cn<ClassNames>()(
     styles._acrylicButton,
     label ? "px-8" : "px-4 h-fit",
@@ -27,7 +30,7 @@ const Button: React.FC<{
   return linkIsRoute ? (
     <Link
       className={className}
-      onMouseMove={(e) => setMouseHoverCssProperties(e)}
+      onMouseMove={(e) => setMouseHoverCssProperties(e, false, deviceIsTouch)}
       rel="noreferrer"
       to={link}
       type="button"
@@ -38,7 +41,7 @@ const Button: React.FC<{
     <a
       className={className}
       href={link}
-      onMouseMove={(e) => setMouseHoverCssProperties(e)}
+      onMouseMove={(e) => setMouseHoverCssProperties(e, false, deviceIsTouch)}
       rel="noreferrer"
       target="_blank"
       type="button"

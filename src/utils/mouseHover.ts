@@ -22,11 +22,18 @@ const mousePercent = (
  *
  * @param {React.MouseEvent<HTMLElement>} e - mouse event for the element
  * @param {?boolean} [isFixed] - if the element uses fixed positioning
+ * @param {?boolean} [deviceIsTouch] - if the input of the device is touch
  */
 export const setMouseHoverCssProperties = (
   e: React.MouseEvent<HTMLElement>,
-  isFixed?: boolean
+  isFixed?: boolean,
+  deviceIsTouch?: boolean
 ) => {
+  // Touch screens shouldn't have hover events
+  if (deviceIsTouch) {
+    return;
+  }
+
   const horizontalPercent = mousePercent(e, "X", isFixed);
   const verticalPercent = mousePercent(e, "Y", isFixed);
   const mouseDegFromCenter =

@@ -1,3 +1,9 @@
+/**
+ * Hook to check if a css media query is true
+ *
+ * @param {string} query
+ * @example useMediaQuery("(min-width: 900px)")
+ */
 const useMediaQuery = (query: string) => {
   const [matches, setMatches] = useState(false);
   useEffect(
@@ -13,5 +19,16 @@ const useMediaQuery = (query: string) => {
   );
   return matches;
 };
+
+/**
+ * Check if on a mobile device
+ */
+export const useMobileQuery = () =>
+  useMediaQuery("(hover: none) and (pointer: coarse)");
+
+/**
+ * Check if the primary input is touch (not necessarily a mobile device)
+ */
+export const useTouchInputQuery = () => useMediaQuery("(pointer: coarse)");
 
 export default useMediaQuery;
