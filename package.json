@@ -144,7 +144,7 @@
     "vite": "^4.0.0",
     "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-sass-dts": "^1.2.8",
-    "vite-tsconfig-paths": "^3.6.0",
+    "vite-tsconfig-paths": "^4.0.0",
     "vitest": "^0.25.3"
   },
   "dependencies": {
