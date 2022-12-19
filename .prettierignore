@@ -5,7 +5,7 @@
 **/dist
 **/coverage
 **/auto-imports.d.ts
-**/tailwindClasses.d.ts
+**/cssClasses.d.ts
 **/*module.scss.d.ts
 **/.eslintrc-auto-import.json
 **/storybook-static

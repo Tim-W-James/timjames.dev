@@ -26,7 +26,7 @@ specifiers:
   '@storybook/preview-web': ^6.5.13
   '@storybook/react': ^6.5.13
   '@storybook/testing-library': ^0.0.13
-  '@tim-w-james/eslint-config': 1.0.6
+  '@tim-w-james/eslint-config': 1.1.1
   '@types/node': ^18.11.9
   '@types/react': ^18.0.25
   '@types/react-dom': ^18.0.9
@@ -131,7 +131,7 @@ devDependencies:
   '@storybook/preview-web': 6.5.13_biqbaboplfbrettd7655fr4n2y
   '@storybook/react': 6.5.13_dtmhruwo36kgv6zzjfj7khikqu
   '@storybook/testing-library': 0.0.13_biqbaboplfbrettd7655fr4n2y
-  '@tim-w-james/eslint-config': 1.0.6_krtqbmgdx57tm5x2atw6b6a4gy
+  '@tim-w-james/eslint-config': 1.1.1_krtqbmgdx57tm5x2atw6b6a4gy
   '@types/node': 18.11.9
   '@types/react': 18.0.25
   '@types/react-dom': 18.0.9
@@ -5072,12 +5072,12 @@ packages:
       '@testing-library/dom': 8.18.1
     dev: true
 
-  /@tim-w-james/eslint-config/1.0.6_krtqbmgdx57tm5x2atw6b6a4gy:
-    resolution: {integrity: sha512-F/KBbo1gikalSMDino8whKiMclXGYQBnJQTzGHPnRBimsaKy/mFc6kWhC294AnXWi5+1dCdNwwdJq8zJiV22yw==}
+  /@tim-w-james/eslint-config/1.1.1_krtqbmgdx57tm5x2atw6b6a4gy:
+    resolution: {integrity: sha512-Fb4tZD1cIZCMyR/J8V4Pm2FJQUowQomggmtCTcQ7NROBSPGVMmYJwMVPeYFOrrbx4PrgiyXy4mt3T4jVoJaGdw==}
     peerDependencies:
-      '@typescript-eslint/eslint-plugin': ^5.44.0
-      '@typescript-eslint/parser': ^5.44.0
-      eslint: ^8.28.0
+      '@typescript-eslint/eslint-plugin': ^5.46.1
+      '@typescript-eslint/parser': ^5.46.1
+      eslint: ^8.30.0
       eslint-config-airbnb: ^19.0.4
       eslint-config-airbnb-typescript: ^17.0.0
       eslint-config-prettier: ^8.5.0
@@ -5087,9 +5087,9 @@ packages:
       eslint-plugin-prettier: ^4.2.1
       eslint-plugin-react: ^7.31.11
       eslint-plugin-react-hooks: ^4.6.0
-      eslint-plugin-sonarjs: ^0.16.0
-      eslint-plugin-storybook: ^0.6.7
-      typescript: ^4.9.3
+      eslint-plugin-sonarjs: ^0.17.0
+      eslint-plugin-storybook: ^0.6.8
+      typescript: ^4.9.4
     dependencies:
       '@typescript-eslint/eslint-plugin': 5.44.0_fnsv2sbzcckq65bwfk7a5xwslu
       '@typescript-eslint/parser': 5.44.0_hsf322ms6xhhd4b5ne6lb74y4a
