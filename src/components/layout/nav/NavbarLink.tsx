@@ -7,16 +7,23 @@ import styles, { ClassNames } from "./NavbarLink.module.scss";
 const NavbarLink: React.FC<{
   label: string;
   to: string;
+  order: 1 | 2 | 3 | 4 | 5;
   isSelected?: boolean;
-}> = ({ label, to: route, isSelected }) => {
+  inHamburgerMenu?: boolean;
+}> = ({ label, to: route, order, isSelected, inHamburgerMenu }) => {
   const location = useLocation();
   const deviceIsTouch = useTouchInputQuery();
 
   return (
     <Link
-      className={cn<ClassNames>()("subtitle px-8 py-2", styles._navbarLink, {
-        [styles._selected]: location.pathname === route || !!isSelected,
-      })}
+      className={cn<ClassNames>()(
+        "subtitle px-8 py-2",
+        styles._navbarLink,
+        {
+          [styles._selected]: location.pathname === route || !!isSelected,
+        },
+        inHamburgerMenu ? styles[`_dropdownItem${order}`] : ""
+      )}
       onMouseMove={(e) => setMouseHoverCssProperties(e, true, deviceIsTouch)}
       to={route}
       type="button"

@@ -11,14 +11,42 @@ import NavbarLink from "./NavbarLink";
 
 const Navbar: React.FC = () => {
   const location = useLocation();
-  const [isOpen, setOpen] = useState(false);
-  const shouldShowHamburgerMenu = useMediaQuery("(min-width: 900px)");
+  const [hamburgerMenuIsOpen, openHamburgerMenu] = useState(false);
+  const shouldUseHamburgerMenu = useMediaQuery("(min-width: 900px)");
+
+  const navbarItems = (
+    <>
+      <NavbarLink
+        inHamburgerMenu={hamburgerMenuIsOpen}
+        isSelected={HOME.includes(location.pathname)}
+        label="Home"
+        order={1}
+        to="/"
+      />
+      <NavbarLink
+        inHamburgerMenu={hamburgerMenuIsOpen}
+        label="Projects"
+        order={2}
+        to={PROJECTS}
+      />
+      <NavbarLink
+        inHamburgerMenu={hamburgerMenuIsOpen}
+        label="Blog"
+        order={3}
+        to={BLOG}
+      />
+    </>
+  );
+
+  const navbarBrand = (
+    <NavbarBrand label={"TimJames.dev"} logo={brand} to="/" />
+  );
 
   useEffect(() => {
-    setOpen(false);
+    openHamburgerMenu(false);
   }, [location]);
 
-  return shouldShowHamburgerMenu ? (
+  return shouldUseHamburgerMenu ? (
     <div
       className={
         "flex flex-row " +
@@ -28,19 +56,11 @@ const Navbar: React.FC = () => {
         )
       }
     >
-      <NavbarBrand label={"TimJames.dev"} logo={brand} to="/" />
-      <div className={cn()("flex justify-around")}>
-        <NavbarLink
-          isSelected={location.pathname === "/"}
-          label="Home"
-          to="/"
-        />
-        <NavbarLink label="Projects" to="/projects" />
-        <NavbarLink label="Blog" to="/blog" />
-      </div>
+      {navbarBrand}
+      <div className={cn()("flex justify-around")}>{navbarItems}</div>
     </div>
   ) : (
-    <ClickAwayListener onClickAway={() => setOpen(false)}>
+    <ClickAwayListener onClickAway={() => openHamburgerMenu(false)}>
       <div className={cn()("fixed z-10 top-0 left-0")}>
         <div
           className={
@@ -51,31 +71,17 @@ const Navbar: React.FC = () => {
             )
           }
         >
-          <NavbarBrand label={"TimJames.dev"} logo={brand} to="/" />
+          {navbarBrand}
           <MenuToggle
-            color="hsl(185deg 46% 52%)"
-            isOpen={isOpen}
-            toggle={() => setOpen(!isOpen)}
+            baseColor="hsl(185deg 46% 52%)"
+            hoverColor="hsl(180deg 5% 91%)"
+            isOpen={hamburgerMenuIsOpen}
+            toggle={() => openHamburgerMenu(!hamburgerMenuIsOpen)}
           />
         </div>
 
-        <div
-          className={
-            "flex flex-col " +
-            cn<ClassNames>()("text-center", styles._navbarMenu)
-          }
-        >
-          {isOpen ? (
-            <>
-              <NavbarLink
-                isSelected={HOME.includes(location.pathname)}
-                label="Home"
-                to="/"
-              />
-              <NavbarLink label="Projects" to={PROJECTS} />
-              <NavbarLink label="Blog" to={BLOG} />
-            </>
-          ) : null}
+        <div className={cn<ClassNames>()(styles._navbarMenu)}>
+          {hamburgerMenuIsOpen ? navbarItems : null}
         </div>
       </div>
     </ClickAwayListener>

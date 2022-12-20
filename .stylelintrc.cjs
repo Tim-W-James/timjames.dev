@@ -33,7 +33,7 @@ module.exports = {
       "vmax",
       "px",
       "%",
-      "s",
+      "ms",
       "deg",
       "ex",
     ],
