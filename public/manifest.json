@@ -1,8 +1,29 @@
 {
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
   "short_name": "Tim James",
-  "name": "Tim James Portfolio and Blog",
+  "name": "Tim James | Software Dev | Portfolio and Blog",
+  "description": "Full-stack software developer from Canberra, Australia. Obsessive coder, cat lover, and all-round nerd.",
+  "categories": ["software", "development", "portfolio"],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#185454",
+  "background_color": "#14181f",
+  "icons": [
+    {
+      "src": "assets/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/ico"
+    },
+    {
+      "src": "assets/maskable_icon_x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
 }
