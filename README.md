@@ -12,7 +12,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/Tim-W-James/timjames.dev">
-    <!-- <img src="images/logo.png" alt="Logo" width="80" height="80"> -->
+    <img src="public/assets/logo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h2 align="center" id="top">timjames.dev</h2>
@@ -110,7 +110,7 @@
 
 ## About The Project
 
-<!-- [![site Screen Shot][product-screenshot]](https://example.com) -->
+<img src="screenshot.png" alt="screenshot" width="400"/>
 
 ### Goals
 
