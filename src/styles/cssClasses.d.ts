@@ -55,7 +55,6 @@ export type ClassNames =
   | "mx-auto"
   | "my-10"
   | "object-cover"
-  | "overflow-clip"
   | "p-8"
   | "place-content-center"
   | "pointer-events-none"

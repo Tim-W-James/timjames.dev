@@ -8,7 +8,7 @@ import { BsGithub, BsLinkedin, BsTwitter } from "react-icons/bs";
 import { ParallaxProvider } from "react-scroll-parallax";
 
 const Home: React.FC = () => {
-  const shouldShrinkButtons = useMediaQuery("(min-width: 600px)");
+  const shouldShrinkButtons = useMediaQuery("(max-width: 600px)");
   return (
     <ParallaxProvider>
       <div className={cn()("text-center")}>
@@ -33,21 +33,27 @@ const Home: React.FC = () => {
             >
               <Button
                 icon={<BsLinkedin />}
+                isLabelHidden={shouldShrinkButtons}
                 isLight
-                label={shouldShrinkButtons ? "Linkedin" : ""}
+                label={"Linkedin"}
                 to="https://www.linkedin.com/in/timothy-william-james/"
+                tooltip="Find me on Linkedin"
               />
               <Button
                 icon={<BsGithub />}
+                isLabelHidden={shouldShrinkButtons}
                 isLight
-                label={shouldShrinkButtons ? "GitHub" : ""}
+                label={"GitHub"}
                 to="https://github.com/Tim-W-James"
+                tooltip="Find my projects on GitHub"
               />
               <Button
                 icon={<BsTwitter />}
+                isLabelHidden={shouldShrinkButtons}
                 isLight
-                label={shouldShrinkButtons ? "Twitter" : ""}
+                label={"Twitter"}
                 to="https://twitter.com/TimWJames"
+                tooltip="Follow me on Twitter"
               />
             </div>
           </h1>

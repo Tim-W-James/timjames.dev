@@ -21,7 +21,7 @@ $type-base-size: 1rem;
 
 // Tailwind utilities
 @mixin utilities {
-  @include text-colors;  
+  @include text-colors;
 }
 
 @mixin text-colors {
@@ -92,25 +92,25 @@ $type-base-size: 1rem;
     outline: none;
     text-decoration: none;
   }
-  
+
   a:link {
     color: colors.$light-accent;
   }
-  
+
   a:visited {
     color: colors.$dark-accent;
   }
-  
+
   a:focus {
     border-bottom: 1px solid;
     background: color.scale(colors.$main-brand, $lightness: -75%);
   }
-  
+
   a:hover {
     border-bottom: 1px solid;
     background: color.scale(colors.$main-brand, $lightness: -50%);
   }
-  
+
   a:active {
     background: colors.$light-accent;
     color: color.scale(colors.$main-brand, $lightness: -50%);

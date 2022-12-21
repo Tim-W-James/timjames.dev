@@ -1,3 +1,4 @@
+import { useTouchInputQuery } from "@hooks/useMediaQuery";
 import { motion } from "framer-motion";
 
 // Adapted from: https://github.com/ipenywis/react-navbar-responsive
@@ -21,10 +22,12 @@ const MenuToggle: React.FC<{
   hoverColor: string;
 }> = ({ toggle, isOpen, baseColor, hoverColor }) => {
   const [isHovered, setHovered] = useState(false);
-  const color = isHovered ? hoverColor : baseColor;
+  const deviceIsTouch = useTouchInputQuery();
+  const color = isHovered && !deviceIsTouch ? hoverColor : baseColor;
 
   return (
     <button
+      aria-label="Open Navigation Menu"
       onClick={toggle}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
