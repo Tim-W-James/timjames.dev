@@ -1,4 +1,4 @@
-import brand from "@assets/brand.png";
+import logo from "@assets/logo.png";
 import { BLOG, HOME, PROJECTS } from "@constants/routes";
 import useMediaQuery from "@hooks/useMediaQuery";
 import cn from "@styles/cssUtils";
@@ -38,9 +38,7 @@ const Navbar: React.FC = () => {
     </>
   );
 
-  const navbarBrand = (
-    <NavbarBrand label={"TimJames.dev"} logo={brand} to="/" />
-  );
+  const navbarBrand = <NavbarBrand label={"TimJames.dev"} logo={logo} to="/" />;
 
   useEffect(() => {
     openHamburgerMenu(false);
