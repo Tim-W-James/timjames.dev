@@ -435,7 +435,7 @@ Some things to note:
 - **Global TypeScript Types**: [`types`](./types)
 - **Web Accessible Files** (`robots.txt`, `manifest.json`, etc.):
   [`public`](./public)
-- **Site Assets** (`favicon.png`, images, etc.):
+- **Site Assets** (`favicon.ico`, images, etc.):
   [`public/assets`](./public/assets). Has alias `@assets`
 
 Define path alias in [`tsconfig.paths.json`](./tsconfig.paths.json).
