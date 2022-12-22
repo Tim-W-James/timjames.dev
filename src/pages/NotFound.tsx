@@ -15,9 +15,10 @@ const NotFound: React.FC = () => (
         <Button
           icon={<BsFillHouseDoorFill />}
           isLight
-          label="Go Home"
+          label="Return Home"
           linkIsRoute
           to="/"
+          tooltip="Return to the homepage"
         />
       </div>
     </div>

@@ -1,4 +1,4 @@
-export const HOME = ["/", "/home", "/index", "/index.html"];
+export const HOME = ["/", "/home", "/index", "/index.html", "/timjames.dev"];
 
 export const PROJECTS = "/projects";
 
