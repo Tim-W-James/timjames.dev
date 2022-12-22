@@ -1,5 +1,6 @@
-import Page from "@components/layout/Page";
+import ScrollToTop from "@components/ScrollToTop";
 import { HOME } from "@constants/routes";
+import Page from "@layout/Page";
 import Home from "@pages/Home";
 import NotFound from "@pages/NotFound";
 import "@styles/main.scss";
@@ -11,6 +12,7 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route element={<App />} path="/">
           {/* Alternate routes to the index */}
