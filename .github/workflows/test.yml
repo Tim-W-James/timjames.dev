@@ -11,6 +11,7 @@ on:
       - "**.txt"
       - ".husky/**"
       - ".vscode/**"
+
   pull_request:
     branches: ["main"]
     paths-ignore:
@@ -18,6 +19,9 @@ on:
       - "**.txt"
       - ".husky/**"
       - ".vscode/**"
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
 jobs:
   build:
@@ -30,34 +34,34 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-      - name: Checkout
+      - name: Checkout 🛎️
         uses: actions/checkout@v3
 
-      - name: Install pnpm
+      - name: Install pnpm 🔧
         uses: pnpm/action-setup@v2.2.4
         with:
           version: 7
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js ${{ matrix.node-version }} 🔧
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: "pnpm"
 
-      - name: Install Dependencies
+      - name: Install Dependencies 🔧
         run: pnpm install
 
-      - name: Check for Vulnerabilities
+      - name: Check for Vulnerabilities 🔧
         run: pnpm audit --production --audit-level=high
 
-      - name: Lint
+      - name: Lint 🔧
         run: pnpm --if-present lint
 
-      - name: Run Tests
+      - name: Run Tests 🔧
         run: pnpm --if-present test
 
-      - name: Run Storybook Smoke Test
+      - name: Run Storybook Smoke Test 🔧
         run: pnpm --if-present storybook:smoke-test
 
-      - name: Build
+      - name: Build 🚀
         run: pnpm --if-present build
