@@ -44,7 +44,7 @@ jobs:
         run: pnpm install
 
       - name: Build 🔧
-        run: pnpm build
+        run: pnpm build --base "/timjames.dev"
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
