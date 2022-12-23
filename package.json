@@ -101,7 +101,7 @@
     "@typescript-eslint/eslint-plugin": "^5.46.1",
     "@typescript-eslint/parser": "^5.46.1",
     "@vitejs/plugin-react": "^3.0.0",
-    "@vitest/ui": "^0.25.0",
+    "@vitest/ui": "^0.26.0",
     "autoprefixer": "^10.4.13",
     "babel-loader": "^9.1.0",
     "c8": "^7.12.0",
@@ -145,7 +145,7 @@
     "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-sass-dts": "^1.2.8",
     "vite-tsconfig-paths": "^4.0.0",
-    "vitest": "^0.25.3"
+    "vitest": "^0.26.0"
   },
   "dependencies": {
     "classnames": "^2.3.2",
