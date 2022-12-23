@@ -22,7 +22,8 @@ concurrency:
 
 jobs:
   # Build job
-  build-and-deploy:
+  deploy:
+    name: Deploy 🚀
     concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
     runs-on: ubuntu-latest
     steps:
