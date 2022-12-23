@@ -22,7 +22,7 @@ on:
 
 jobs:
   analyze:
-    name: Analyze
+    name: Analyze 📡
     runs-on: ubuntu-latest
     permissions:
       actions: read
@@ -39,11 +39,11 @@ jobs:
         # Learn more about CodeQL language support at https://aka.ms/codeql-docs/language-support
 
     steps:
-    - name: Checkout repository
+    - name: Checkout 🛎️
       uses: actions/checkout@v3
 
     # Initializes the CodeQL tools for scanning.
-    - name: Initialize CodeQL
+    - name: Initialize CodeQL 🔧
       uses: github/codeql-action/init@v2
       with:
         languages: ${{ matrix.language }}
@@ -57,7 +57,7 @@ jobs:
 
     # Autobuild attempts to build any compiled languages  (C/C++, C#, Go, or Java).
     # If this step fails, then you should remove it and run the build manually (see below)
-    - name: Autobuild
+    - name: Build 🔧
       uses: github/codeql-action/autobuild@v2
 
     # ℹ️ Command-line programs to run using the OS shell.
@@ -70,7 +70,7 @@ jobs:
     #   echo "Run, Build Application using script"
     #   ./location_of_script_within_repo/buildscript.sh
 
-    - name: Perform CodeQL Analysis
+    - name: Perform CodeQL Analysis 📡
       uses: github/codeql-action/analyze@v2
       with:
         category: "/language:${{matrix.language}}"
