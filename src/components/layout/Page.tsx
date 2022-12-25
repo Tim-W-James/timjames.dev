@@ -14,7 +14,7 @@ const Page: React.FC<{
   content: JSX.Element;
 }> = ({ title, isStandardLayout, content }) => {
   const titleSeparator = " | ";
-  const defaultTitle = "Software Dev";
+  const defaultTitle = "Full-Stack Software Engineer 🚀";
   useDocumentTitle(
     `${PRIMARY_TITLE}${titleSeparator}${title ? title : defaultTitle}`
   );
