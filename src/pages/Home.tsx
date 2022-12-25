@@ -20,7 +20,7 @@ const Home: React.FC = () => {
         >
           <Logo imageSrc={logo} />
           <h1>
-            👋 Hullo,
+            👋 Hello,
             <br />
             I&apos;m <b className={cn()("text-light-accent")}>Tim James</b>
             <hr className={cn()("radial-border")} />
