@@ -8,7 +8,7 @@ export default {
 
 export const Button = () => (
   <div className="flex flex-row gap-4 items-center">
-    <ButtonComponent label="label" to="https://timjames.dev/" />
+    <ButtonComponent label="dark" to="https://timjames.dev/" />
     <ButtonComponent isLight label="light" to="https://timjames.dev/" />
     <ButtonComponent
       icon={<BsFillArrowRightCircleFill />}

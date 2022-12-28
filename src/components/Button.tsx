@@ -42,7 +42,6 @@ const Button: React.FC<{
       aria-label={label}
       className={className}
       onMouseMove={(e) => setMouseHoverCssProperties(e, false, deviceIsTouch)}
-      rel="noreferrer"
       title={label && tooltip}
       to={link}
       type="button"

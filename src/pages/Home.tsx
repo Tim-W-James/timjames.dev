@@ -1,6 +1,8 @@
 import logo from "@assets/profile.jpg";
 import Button from "@components/Button";
 import Logo from "@components/Logo";
+import Timeline from "@components/Timeline";
+import timelineData from "@constants/timelineData";
 import useMediaQuery from "@hooks/useMediaQuery";
 import ParallaxMountains from "@layout/background/ParallaxMountains";
 import cn from "@styles/cssUtils";
@@ -58,8 +60,9 @@ const Home: React.FC = () => {
             </div>
           </h1>
         </header>
-        <div className={cn()("mt-8")}>
-          <h1>🛠️ Coming Soon...</h1>
+        <div className={cn()("mt-8 mx-auto container")}>
+          <h2>Timeline</h2>
+          <Timeline data={timelineData} />
         </div>
       </div>
     </ParallaxProvider>

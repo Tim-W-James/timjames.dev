@@ -1,4 +1,4 @@
-import { PRIMARY_TITLE } from "@constants/content";
+import { DEFAULT_SUB_TITLE, PRIMARY_TITLE } from "@constants/content";
 import useDocumentTitle from "@hooks/useDocumentTitle";
 import cn from "@styles/cssUtils";
 
@@ -14,9 +14,8 @@ const Page: React.FC<{
   content: JSX.Element;
 }> = ({ title, isStandardLayout, content }) => {
   const titleSeparator = " | ";
-  const defaultTitle = "Full-Stack Software Engineer 🚀";
   useDocumentTitle(
-    `${PRIMARY_TITLE}${titleSeparator}${title ? title : defaultTitle}`
+    `${PRIMARY_TITLE}${titleSeparator}${title ? title : DEFAULT_SUB_TITLE}`
   );
   return isStandardLayout ? (
     <>

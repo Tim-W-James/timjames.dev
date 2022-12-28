@@ -39,6 +39,14 @@
     background-color: colors.$dark-shades;
   }
 
+  .border-main-brand {
+    border-color: colors.$main-brand;
+  }
+
+  .border-dark-accent {
+    border-color: colors.$dark-accent;
+  }
+
   .hyphens {
     hyphens: auto;
   }

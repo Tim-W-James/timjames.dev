@@ -1,5 +1,5 @@
 import logo from "@assets/profile.jpg";
-import LogoComponent from "@components/Logo";
+import LogoComponent from "./Logo";
 
 export default {
   title: "Components/Logo",

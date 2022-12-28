@@ -1,0 +1,105 @@
+@use "sass:color";
+
+._timelineContainer {
+  @apply relative flex flex-col mb-10 -mt-0.5 mx-2;
+
+  &::after {
+    @apply absolute w-1 h-full;
+
+    left: calc(91.6666% - 2px);
+    background: linear-gradient(
+      180deg,
+      colors.$dark-accent 95%,
+      rgb(0 0 0 / 0%) 100%
+    );
+    content: "";
+  }
+
+  &::before {
+    @apply absolute w-1 h-4 -mt-4;
+
+    left: calc(91.6666% - 2px);
+    background: linear-gradient(
+      0deg,
+      colors.$dark-accent 0%,
+      rgb(0 0 0 / 0%) 100%
+    );
+    content: "";
+  }
+
+  &._twoColumns::after {
+    left: calc(50% - 2px);
+  }
+
+  &._twoColumns::before {
+    background: none;
+  }
+}
+
+._timelineItem {
+  @apply relative flex justify-end w-11/12 pr-8 my-8 text-dark-shades;
+
+  &._twoColumns {
+    @apply w-1/2;
+  }
+
+  ._timelineItemContent {
+    @apply relative flex flex-col items-end w-auto p-4 rounded-lg text-right;
+    @apply max-w-full;
+
+    background: linear-gradient(
+      calc(45deg - var(--rotation-offset, 0deg)),
+      color.scale(colors.$dark-accent, $lightness: 25%) 0%,
+      colors.$light-shades 80%
+    );
+
+    &::after {
+      @apply absolute w-4 h-4 -z-[1];
+
+      top: calc(50% - 7.5px);
+      right: -7.5px;
+      background-color: colors.$light-shades;
+      content: " ";
+      transform: rotate(45deg);
+    }
+  }
+
+  ._circle {
+    @apply absolute w-5 h-5 rounded-full z-10;
+
+    top: calc(50% - 10px);
+    right: -10px;
+    border: 3px solid colors.$dark-accent;
+    background-color: colors.$light-shades;
+  }
+
+  &:nth-child(odd)._twoColumns {
+    @apply self-end justify-start pl-8 pr-0;
+
+    ._timelineItemContent {
+      @apply items-start text-left;
+
+      background: linear-gradient(
+        calc(315deg - var(--rotation-offset, 0deg)),
+        color.scale(colors.$dark-accent, $lightness: 25%) 0%,
+        colors.$light-shades 80%
+      );
+
+      &::after {
+        right: auto;
+        left: -7.5px;
+        box-shadow: -1px 1px 1px rgb(0 0 0 / 20%);
+      }
+    }
+
+    ._circle {
+      @apply right-auto;
+
+      left: -10px;
+    }
+  }
+
+  &:not(:first-child)._twoColumns {
+    @apply -mt-16;
+  }
+}

@@ -1,3 +1,5 @@
+@use "src/styles/colors.scss" as colors;
+
 @mixin acrylic($angle: 90deg) {
   backdrop-filter: blur(24px);
   background: linear-gradient(
@@ -16,10 +18,10 @@
   );
 }
 
-@mixin radial-border($color: $light-accent, $x: 50%, $y: 50%) {
+@mixin radial-border($color: colors.$light-accent, $x: 50%, $y: 50%, $radius: 50%) {
   border: 1px solid;
   border-image: radial-gradient(
-      50% 100% at $x $y,
+      $radius 100% at $x $y,
       $color 50%,
       rgb(0 0 0 / 0%) 100%
     )

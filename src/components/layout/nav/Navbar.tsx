@@ -12,7 +12,7 @@ import NavbarLink from "./NavbarLink";
 const Navbar: React.FC = () => {
   const location = useLocation();
   const [hamburgerMenuIsOpen, openHamburgerMenu] = useState(false);
-  const shouldUseHamburgerMenu = useMediaQuery("(min-width: 900px)");
+  const shouldUseHamburgerMenu = useMediaQuery("(max-width: 900px)");
 
   const navbarItems = (
     <>
@@ -45,19 +45,6 @@ const Navbar: React.FC = () => {
   }, [location]);
 
   return shouldUseHamburgerMenu ? (
-    <div
-      className={
-        "flex flex-row " +
-        cn<ClassNames>()(
-          styles._navbar,
-          "items-center justify-between fixed z-10 top-0 left-0  w-screen"
-        )
-      }
-    >
-      {navbarBrand}
-      <div className={cn()("flex justify-around")}>{navbarItems}</div>
-    </div>
-  ) : (
     <ClickAwayListener onClickAway={() => openHamburgerMenu(false)}>
       <div className={cn()("fixed z-10 top-0 left-0")}>
         <div
@@ -83,6 +70,22 @@ const Navbar: React.FC = () => {
         </div>
       </div>
     </ClickAwayListener>
+  ) : (
+    <div
+      className={cn<ClassNames>()(
+        styles._navbar,
+        "w-screen fixed z-10 top-0 left-0"
+      )}
+    >
+      <div className={cn()("container mx-auto")}>
+        <div
+          className={"flex flex-row " + cn()("items-center justify-between")}
+        >
+          {navbarBrand}
+          <div className={cn()("flex justify-around")}>{navbarItems}</div>
+        </div>
+      </div>
+    </div>
   );
 };
 

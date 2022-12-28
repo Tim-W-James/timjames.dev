@@ -9,7 +9,6 @@ module.exports = {
     "@storybook/addon-actions",
     "@storybook/addon-backgrounds",
     "@storybook/addon-controls",
-    "@storybook/addon-docs",
     "@storybook/addon-viewport",
     "@storybook/addon-toolbars",
     "@storybook/addon-links",
