@@ -1,110 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-EE890B8JDM"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
+    <meta charset="utf-8" />
+
+    <title>@storybook/cli - Storybook</title>
+
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+      
+
+    <style>
+      #storybook-root[hidden]{
+        display: none !important;
       }
-      gtag("js", new Date());
+    </style>
 
-      gtag("config", "G-EE890B8JDM");
-    </script>
-
-    <!-- Metadata -->
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="apple-touch-icon" href="assets/logo.png" />
-    <title>Tim James | Full-Stack Software Engineer 🚀</title>
-    <meta
-      name="description"
-      content="Hi, I'm TJ, a full-stack software engineer from Canberra, Australia. I use TypeScript, React, Tailwind, and AWS. I'm a developer, cat lover, and nerd."
-    />
-    <meta name="author" content="Tim James" />
-    <link rel="canonical" href="https://timjames.dev" />
-    <meta name="theme-color" content="#185454" />
-    <link rel="manifest" href="manifest.json" />
-
-    <!-- social media -->
-    <meta property="og:title" content="Tim James" />
-    <meta
-      property="og:description"
-      content="Full-stack software engineer from Canberra, Australia. I use TypeScript, React, Tailwind, and AWS. I'm a developer, cat lover, and nerd."
-    />
-    <meta property="og:url" content="https://timjames.dev" />
-    <meta
-      property="og:image"
-      content="https://timjames.dev/assets/profile.jpg"
-    />
-    <meta name="twitter:title" content="Tim James" />
-    <meta
-      name="twitter:description"
-      content="Full-stack software engineer from Canberra, Australia. I use TypeScript, React, Tailwind, and AWS. I'm a developer, cat lover, and nerd."
-    />
-    <meta
-      name="twitter:image"
-      content="https://timjames.dev/assets/profile.jpg"
-    />
-    <meta name="twitter:card" content="summary_large_image" />
-
-    <!-- structured data markup, rich results -->
-    <script type="application/ld+json">
-      {
-        "@context": "http://schema.org",
-        "@graph": [
-          {
-            "@type": "Person",
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Canberra, Australia"
-            },
-            "alumniOf": [
-              {
-                "@type": "EducationalOrganization",
-                "name": "The Australian National University",
-                "url": "https://au.linkedin.com/school/australian-national-university/",
-                "member": {
-                  "@type": "OrganizationRole",
-                  "description": "GPA of 6.3",
-                  "startDate": 2019,
-                  "endDate": 2022
-                }
-              },
-              {
-                "@type": "EducationalOrganization",
-                "name": "Canberra College",
-                "member": {
-                  "@type": "OrganizationRole",
-                  "description": "Principals Award for Information Technology",
-                  "startDate": 2017,
-                  "endDate": 2018
-                }
-              }
-            ],
-            "image": {
-              "@type": "ImageObject",
-              "contentUrl": "https://media.licdn.com/dms/image/C5603AQH3yRNd5gf4MQ/profile-displayphoto-shrink_800_800/0/1618547427728?e=2147483647&v=beta&t=9Y55Blkh-hP37k3_d3CSH6-h_NPhTJppbS0gFnnxtJM"
-            },
-            "jobTitle": ["Software Engineer"],
-            "name": "Tim James",
-            "sameAs": "https://timjames.dev",
-            "url": "https://timjames.dev",
-            "description": "Full-stack software engineer from Canberra, Australia. I use TypeScript, React, Tailwind, and AWS. I'm a developer, cat lover, and nerd."
-          }
-        ]
-      }
-    </script>
-    <script type="module" crossorigin src="/timjames.dev/assets/index-69148fa5.js"></script>
-    <link rel="stylesheet" href="/timjames.dev/assets/index-40ca6148.css">
+    
   </head>
   <body>
     <div id="root"></div>
+
     
+    <script>
+      
+        
+          window['FEATURES'] = {
+  "warnOnLegacyHierarchySeparator": true,
+  "buildStoriesJson": false,
+  "storyStoreV7": true,
+  "breakingChangesV7": true,
+  "interactionsDebugger": false,
+  "argTypeTargetsV7": true
+};
+        
+      
+        
+          window['REFS'] = {};
+        
+      
+        
+          window['LOGLEVEL'] = "info";
+        
+      
+        
+          window['DOCS_OPTIONS'] = {
+  "disable": false,
+  "defaultName": "Docs",
+  "autodocs": "tag"
+};
+        
+      
+        
+          window['CONFIG_TYPE'] = "PRODUCTION";
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </script>
+    
+
+    <script type="module">
+      import './sb-manager/runtime.mjs';
+
+      
+      import './sb-addons/%40storybook%2Baddon-essentials%407.0.0-beta.16_biqbaboplfbrettd7655fr4n2y/node_modules/%40storybook/addon-essentials/dist/controls/manager-bundle.mjs';
+      
+      import './sb-addons/%40storybook%2Baddon-essentials%407.0.0-beta.16_biqbaboplfbrettd7655fr4n2y/node_modules/%40storybook/addon-essentials/dist/actions/manager-bundle.mjs';
+      
+      import './sb-addons/%40storybook%2Baddon-essentials%407.0.0-beta.16_biqbaboplfbrettd7655fr4n2y/node_modules/%40storybook/addon-essentials/dist/backgrounds/manager-bundle.mjs';
+      
+      import './sb-addons/%40storybook%2Baddon-essentials%407.0.0-beta.16_biqbaboplfbrettd7655fr4n2y/node_modules/%40storybook/addon-essentials/dist/viewport/manager-bundle.mjs';
+      
+      import './sb-addons/%40storybook%2Baddon-essentials%407.0.0-beta.16_biqbaboplfbrettd7655fr4n2y/node_modules/%40storybook/addon-essentials/dist/toolbars/manager-bundle.mjs';
+      
+      import './sb-addons/%40storybook%2Baddon-essentials%407.0.0-beta.16_biqbaboplfbrettd7655fr4n2y/node_modules/%40storybook/addon-essentials/dist/measure/manager-bundle.mjs';
+      
+      import './sb-addons/%40storybook%2Baddon-essentials%407.0.0-beta.16_biqbaboplfbrettd7655fr4n2y/node_modules/%40storybook/addon-essentials/dist/outline/manager-bundle.mjs';
+      
+      import './sb-addons/%40storybook%2Baddon-links%407.0.0-beta.16_biqbaboplfbrettd7655fr4n2y/node_modules/%40storybook/addon-links/dist/manager-bundle.mjs';
+      
+      import './sb-addons/%40storybook%2Baddon-interactions%407.0.0-beta.16_biqbaboplfbrettd7655fr4n2y/node_modules/%40storybook/addon-interactions/dist/manager-bundle.mjs';
+      
+      import './sb-addons/%40storybook%2Baddon-a11y%407.0.0-beta.16_biqbaboplfbrettd7655fr4n2y/node_modules/%40storybook/addon-a11y/dist/manager-bundle.mjs';
+      
+      import './sb-addons/storybook-addon-react-router-v6%400.2.1_sfzsy3u2az54edssfljvlogiey/node_modules/storybook-addon-react-router-v6/dist/esm/preset/manager-bundle.mjs';
+           
+    </script>    
+
+    <link href="./sb-preview/runtime.mjs" rel="preload" as="script">
   </body>
 </html>
