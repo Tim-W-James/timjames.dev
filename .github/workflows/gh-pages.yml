@@ -45,7 +45,7 @@ jobs:
         run: pnpm install
 
       - name: Build 🔧
-        run: export SET BASE_URL=/timjames.dev && pnpm storybook:build
+        run: pnpm storybook:build
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
