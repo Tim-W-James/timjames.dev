@@ -4,6 +4,9 @@ import ParallaxMountainsComponent from "./ParallaxMountains";
 export default {
   title: "Components/Layout/ParallaxMountains",
   component: ParallaxMountainsComponent,
+  parameters: {
+    backgrounds: { disable: true },
+  },
 };
 
 export const ParallaxMountains = () => (

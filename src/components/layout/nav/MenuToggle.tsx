@@ -15,6 +15,13 @@ const Path = (props: any) => (
 
 const transition = { duration: 0.11 };
 
+/**
+ * Description placeholder
+ *
+ * @param {{ toggle; isOpen; baseColor; hoverColor; }} {
+ * function to run on toggle, whether the menu is open, base color, hover color
+ * }
+ */
 const MenuToggle: React.FC<{
   toggle: () => void;
   isOpen: boolean;

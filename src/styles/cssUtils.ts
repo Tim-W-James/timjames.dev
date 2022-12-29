@@ -3,13 +3,27 @@
 import classnames from "classnames";
 import ClassName from "./cssClasses";
 
-// Wrapper for 'classnames' module with strict typing.
-// We need to curry to allow an explicit type for scoped class names but still
-// have inferred params
-const cn =
-  <ScopedClassNames>() =>
+/**
+ * Wrapper for 'classnames' module with strict typing.
+ */
+const cn = <S1, S2, S3, S4, S5>(
   // Multiple type parameters are so that TS is able to inference each parameter
   // individually
+  c1?: TailwindClassParameterValue<S1, null>,
+  c2?: TailwindClassParameterValue<S2, null>,
+  c3?: TailwindClassParameterValue<S3, null>,
+  c4?: TailwindClassParameterValue<S4, null>,
+  c5?: TailwindClassParameterValue<S5, null>
+): string => classnames(c1, c2, c3, c4, c5);
+
+/**
+ * Type checking for Tailwind Classes and allows an explicit type for scoped
+ * class names to be specified. Is curried to allow the params to be inferred
+ *
+ * @template ScopedClassNames - auto generated union type of all scoped classes
+ */
+export const cnScoped =
+  <ScopedClassNames extends string>() =>
   <S1, S2, S3, S4, S5>(
     c1?: TailwindClassParameterValue<S1, ScopedClassNames>,
     c2?: TailwindClassParameterValue<S2, ScopedClassNames>,
@@ -52,9 +66,13 @@ type IsValidClass<
     : Err<`'${T}' is scoped, and is not included in the ScopedClassNames type`>
   : // Make sure each item is a valid `ClassName`
   SplitToTailwindClassNames<T> extends ClassName[]
-  ? // If yes, success and return `T`
+  ? // If valid, success and return `T`
     T
-  : // If no, raise an error
+  : // Cover an edge case where, e.g., flex-col is invalid because the
+  // flex class exists
+  T extends ClassName
+  ? T
+  : // If still invalid, raise an error
     GetFirstError<SplitToTailwindClassNames<T>>;
 
 type SplitToTailwindClassNamesInner<T extends string> =

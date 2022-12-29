@@ -1,7 +1,6 @@
 ._navbar {
   padding-right: clamp(2rem, 10%, 16rem);
   padding-left: clamp(2rem, 10%, 16rem);
-  gap: clamp(2rem, 10%, 16rem);
   @include mixins.acrylic(45deg);
 }
 

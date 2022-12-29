@@ -2,7 +2,7 @@
  * Hook to check if a css media query is true
  *
  * @param {string} query
- * @example useMediaQuery("(min-width: 900px)")
+ * @example useMediaQuery("(min-width: 1280px)")
  */
 const useMediaQuery = (query: string) => {
   const [matches, setMatches] = useState(false);

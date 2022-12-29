@@ -1,9 +1,16 @@
 import { useTouchInputQuery } from "@hooks/useMediaQuery";
-import cn from "@styles/cssUtils";
+import { cnScoped } from "@styles/cssUtils";
 import { setMouseHoverCssProperties } from "@utils/mouseHover";
 import { Link, useLocation } from "react-router-dom";
 import styles, { ClassNames } from "./NavbarLink.module.scss";
 
+/**
+ * Link in the navbar
+ *
+ * @param {{ label; to; order; isSelected; inHamburgerMenu; }} { label text,
+ * route, order for sorting, whether the link is selected, use a dropdown menu
+ * style }
+ */
 const NavbarLink: React.FC<{
   label: string;
   to: string;
@@ -16,7 +23,7 @@ const NavbarLink: React.FC<{
 
   return (
     <Link
-      className={cn<ClassNames>()(
+      className={cnScoped<ClassNames>()(
         "subtitle px-8 py-2",
         styles._navbarLink,
         {

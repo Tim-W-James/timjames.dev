@@ -1,9 +1,22 @@
 import { useTouchInputQuery } from "@hooks/useMediaQuery";
-import cn from "@styles/cssUtils";
+import cn, { cnScoped } from "@styles/cssUtils";
 import { setMouseHoverCssProperties } from "@utils/mouseHover";
 import { Link } from "react-router-dom";
 import styles, { ClassNames } from "./Button.module.scss";
 
+/**
+ * Description placeholder
+ *
+ * @param {{ to; label; tooltip; icon; linkIsRoute; isLight; isLabelHidden; }} {
+  link,
+  label text,
+  tooltip text when hovering over button,
+  icon,
+  whether the link is a local route or external link,
+  use light theme,
+  hide the label text,
+}
+ */
 const Button: React.FC<{
   to: string;
   label?: string;
@@ -23,7 +36,7 @@ const Button: React.FC<{
 }) => {
   const deviceIsTouch = useTouchInputQuery();
 
-  const className = cn<ClassNames>()(
+  const className = cnScoped<ClassNames>()(
     styles._acrylicButton,
     label && !isLabelHidden ? "px-8" : "px-4 h-fit",
     isLight ? "acrylic-light" : "acrylic-dark",
@@ -31,7 +44,7 @@ const Button: React.FC<{
   );
 
   const inner = (
-    <span className={cn()("flex items-center")}>
+    <span className={cn("flex items-center")}>
       {!isLabelHidden ? (icon && label ? `${label}\u00A0` : label) : null}
       {icon}
     </span>
@@ -42,7 +55,6 @@ const Button: React.FC<{
       aria-label={label}
       className={className}
       onMouseMove={(e) => setMouseHoverCssProperties(e, false, deviceIsTouch)}
-      rel="noreferrer"
       title={label && tooltip}
       to={link}
       type="button"

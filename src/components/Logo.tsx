@@ -1,14 +1,12 @@
 import { useTouchInputQuery } from "@hooks/useMediaQuery";
-import cn from "@styles/cssUtils";
+import cn, { cnScoped } from "@styles/cssUtils";
 import { setMouseHoverCssProperties } from "@utils/mouseHover";
 import styles, { ClassNames } from "./Logo.module.scss";
 
 /**
  * Circular logo with hover effects
  *
- * @param {{ imageSrc: any; altText?: string; }} { image link, optional alt text
- * }
- * @returns {*}
+ * @param {{ imageSrc; altText?; }} { image link, optional alt text }
  */
 const Logo: React.FC<{
   imageSrc: string;
@@ -18,13 +16,14 @@ const Logo: React.FC<{
 
   return (
     <div
-      className={cn<ClassNames>()(styles._logoBorder)}
+      className={cnScoped<ClassNames>()(styles._logoBorder)}
       onMouseMove={(e) => setMouseHoverCssProperties(e, false, deviceIsTouch)}
     >
       <img
         alt={altText}
-        className={cn()(
-          "relative h-56 object-cover aspect-square rounded-full -z-[1]",
+        className={cn(
+          "relative object-cover aspect-square rounded-full -z-[1]",
+          "h-56",
           "pointer-events-none"
         )}
         src={imageSrc}

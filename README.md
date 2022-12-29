@@ -377,7 +377,7 @@ safety. Instead, use a custom utility function. For example:
 ```tsx
 import cn from "@styles/cssUtils";
 ...
-<div className={cn()("container p-5", { "text-lg": true })}>
+<div className={cn("container p-5", { "text-lg": true })}>
 ...
 ```
 
@@ -389,15 +389,24 @@ Tailwind classes are purged and excluded from the type definition, so when
 adding a new class your IDE will complain momentarily until the file is saved
 and types are re-generated.
 
+Due to a limitation with how TypeScript infers template literals, if a class
+exists which is a prefix, it will break other classes that use that prefix.
+For example: `flex-col` will be marked as invalid because `flex` is a class.
+As a workaround, you can pass these classes as separate parameters:
+
+```ts
+cn("flex p-5", "flex-col", "flex-wrap");
+```
+
 To use scoped **SCSS modules** with type safety, separate
 `./...module.scss.d.ts` files are generated in the directory of it's parent
-component. This can be used with the `cn` function, for example:
+component. This can be used with the `cnScoped` function, for example:
 
 ```tsx
-import cn from "@styles/cssUtils";
+import { cnScoped } from "@styles/cssUtils";
 import styles, { ClassNames } from "./component.module.scss";
 ...
-<div className={cn<ClassNames>()(styles._component, "container p-5", {
+<div className={cnScoped<ClassNames>()(styles._component, "container p-5", {
   "text-lg": true,
 })}>
 ...
@@ -408,8 +417,9 @@ Some things to note:
 - Classes in SCSS modules are named with a `_` prefix and are lowerCamelCase
 - Using the `styles` import is required for the module to be compiled and avoid
   name collisions, and gives intellisense
-- The `ClassNames` type provides `cn` with a union of all class names in that
-  SCSS module, so that it knows what valid classes are in scope
+- The `ClassNames` type provides `cnScoped` with a union of all class names in
+  that SCSS module, so that it knows what valid classes are in scope. Note the
+  extra `()` since the function needs to by curried.
 
 ### Project Structure
 

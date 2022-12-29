@@ -11,10 +11,16 @@ $type-base-size: 1rem;
     @apply heading-4 m-0 tracking-wider font-extrabold uppercase;
   }
 
+  .subtitle-sm {
+    @apply heading-4 m-0;
+  }
+
   .stroke-light-shades {
     -webkit-text-stroke-color: colors.$light-shades;
     -webkit-text-stroke-width: 1px;
   }
+
+  @include links;
 
   @include fluid-header-components;
 }
@@ -31,6 +37,10 @@ $type-base-size: 1rem;
 
   .text-dark-accent {
     color: colors.$dark-accent;
+  }
+
+  .text-dark-shades {
+    color: colors.$dark-shades;
   }
 
   .text-light-accent {
@@ -80,40 +90,37 @@ $type-base-size: 1rem;
   code {
     @apply font-mono;
   }
-
-  .styled-link {
-    @include links;
-  }
 }
 
 @mixin links {
-  a {
+  .link {
     padding: 2px 1px 0;
+    border-bottom: 1px solid;
     outline: none;
     text-decoration: none;
-  }
 
-  a:link {
-    color: colors.$light-accent;
-  }
+    &:link {
+      color: colors.$light-accent;
+    }
 
-  a:visited {
-    color: colors.$dark-accent;
-  }
+    &:visited {
+      color: color.scale(colors.$dark-accent, $lightness: -25%);
+    }
 
-  a:focus {
-    border-bottom: 1px solid;
-    background: color.scale(colors.$main-brand, $lightness: -75%);
-  }
+    &:focus {
+      border-bottom: 1px solid;
+      background: color.scale(colors.$main-brand, $lightness: -75%);
+    }
 
-  a:hover {
-    border-bottom: 1px solid;
-    background: color.scale(colors.$main-brand, $lightness: -50%);
-  }
+    &:hover {
+      border-bottom: 1px solid;
+      background: color.scale(colors.$main-brand, $lightness: -50%);
+    }
 
-  a:active {
-    background: colors.$light-accent;
-    color: color.scale(colors.$main-brand, $lightness: -50%);
+    &:active {
+      background: colors.$light-accent;
+      color: color.scale(colors.$main-brand, $lightness: -50%);
+    }
   }
 }
 

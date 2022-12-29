@@ -1,12 +1,11 @@
-import { PRIMARY_TITLE } from "@constants/content";
+import { DEFAULT_SUB_TITLE, PRIMARY_TITLE } from "@constants/content";
 import useDocumentTitle from "@hooks/useDocumentTitle";
 import cn from "@styles/cssUtils";
 
 /**
  * Wrapper for page content that sets the title.
  *
- * @param {{ title: any; content: any; }} { page title, inner content }
- * @returns {*}
+ * @param {{ title; content; }} { page title, inner content }
  */
 const Page: React.FC<{
   title?: string;
@@ -14,15 +13,14 @@ const Page: React.FC<{
   content: JSX.Element;
 }> = ({ title, isStandardLayout, content }) => {
   const titleSeparator = " | ";
-  const defaultTitle = "Full-Stack Software Engineer 🚀";
   useDocumentTitle(
-    `${PRIMARY_TITLE}${titleSeparator}${title ? title : defaultTitle}`
+    `${PRIMARY_TITLE}${titleSeparator}${title ? title : DEFAULT_SUB_TITLE}`
   );
   return isStandardLayout ? (
     <>
       {" "}
-      <div className={cn()("fixed bg-dark w-screen h-screen -z-10")} />
-      <div className={cn()("my-10 mx-auto pt-10 container")}>{content}</div>
+      <div className={cn("fixed bg-dark w-screen h-screen -z-10")} />
+      <div className={cn("my-10 mx-auto pt-10 container")}>{content}</div>
     </>
   ) : (
     content

@@ -1,4 +1,5 @@
 @use "src/styles/typography.scss" as typography;
+@use "sass:color";
 @import "https://fonts.googleapis.com/css?family=Outfit";
 @tailwind base;
 @tailwind components;
@@ -39,6 +40,14 @@
     background-color: colors.$dark-shades;
   }
 
+  .border-main-brand {
+    border-color: colors.$main-brand;
+  }
+
+  .border-dark-accent {
+    border-color: colors.$dark-accent;
+  }
+
   .hyphens {
     hyphens: auto;
   }
@@ -63,6 +72,11 @@
     }
   }
 
+  html {
+    // Need scroll padding to offset the fixed header
+    @apply scroll-smooth scroll-pt-16;
+  }
+
   #root {
     // HACK to fix the nav and background scrolling on mobile
     @media (hover: none) and (pointer: coarse) {
@@ -82,11 +96,37 @@
     @apply mt-0 break-words hyphens;
   }
 
+  h1,
+  h2,
+  h3,
+  h4 {
+    &::before {
+      display: inline-block;
+      height: 75px;
+      margin-top: -75px;
+      content: "";
+      visibility: hidden;
+    }
+  }
+
   svg {
     display: inline-block;
   }
 
   * {
     box-sizing: border-box;
+    scrollbar-color: colors.$light-shades
+      color.scale(colors.$dark-shades, $alpha: -30%);
+
+    // Override browser default focus styles
+
+    &:focus-visible {
+      outline: 3px solid colors.$light-accent;
+    }
+
+    &::selection {
+      background-color: colors.$light-accent;
+      color: colors.$dark-shades;
+    }
   }
 }
