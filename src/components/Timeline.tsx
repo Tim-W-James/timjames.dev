@@ -1,5 +1,5 @@
 import technologies from "@constants/technologies";
-import { TimelineItemData, categories } from "@constants/timelineData";
+import { categories } from "@constants/timelineData";
 import useMediaQuery from "@hooks/useMediaQuery";
 import cn, { cnScoped } from "@styles/cssUtils";
 import { motion, useAnimation, useInView } from "framer-motion";
@@ -7,6 +7,21 @@ import Divider from "./Divider";
 import styles, { ClassNames } from "./Timeline.module.scss";
 
 // Adapted from: https://www.florin-pop.com/blog/2019/04/how-to-create-a-timeline-with-react/
+
+export type TimelineItemData = {
+  date: string;
+  title: string;
+  body: JSX.Element;
+  thumbnailSrc?: string;
+  category: keyof typeof categories;
+  technologies?: (keyof typeof technologies)[];
+  starred?: boolean;
+  links?: {
+    text: string;
+    url: string;
+    icon?: JSX.Element;
+  }[];
+};
 
 const itemAnimationVariants = {
   visible: {
@@ -195,7 +210,7 @@ const TimelineItem: React.FC<{
               hasTwoColumns={hasTwoColumns}
               isOddIndex={isOddIndex}
             />
-            <p>{itemData.text}</p>
+            <p>{itemData.body}</p>
           </div>
           <TechnologyList data={itemData} isOddIndex={isOddIndex} />
           <LinksList data={itemData} isOddIndex={isOddIndex} />

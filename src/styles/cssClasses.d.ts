@@ -124,6 +124,7 @@ export type ClassNames =
   | "relative"
   | "rounded-full"
   | "solid-background"
+  | "static"
   | "subtitle"
   | "subtitle-sm"
   | "text-8xl"
