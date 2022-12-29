@@ -61,7 +61,9 @@ jobs:
         run: pnpm --if-present test
 
       - name: Run Storybook Smoke Test 🔧
-        run: pnpm --if-present storybook:smoke-test
+        run: |
+          pnpm --if-present storybook:smoke-test
+          pnpm --if-present storybook:build
 
       - name: Build 🚀
         run: pnpm --if-present build

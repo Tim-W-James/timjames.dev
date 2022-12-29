@@ -23,13 +23,13 @@ concurrency:
 jobs:
   # Build job
   deploy:
-    name: Deploy 🚀
+    name: Deploy Storybook 🚀
     concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
-        
+
       - name: Install pnpm 🔧
         uses: pnpm/action-setup@v2.2.4
         with:
@@ -45,9 +45,9 @@ jobs:
         run: pnpm install
 
       - name: Build 🔧
-        run: pnpm build --base "/timjames.dev"
+        run: export SET BASE_URL=/timjames.dev && pnpm storybook:build
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist
+          folder: storybook-static
