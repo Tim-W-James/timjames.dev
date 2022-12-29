@@ -51,6 +51,10 @@
   .hyphens {
     hyphens: auto;
   }
+
+  .hyphens-none {
+    hyphens: none;
+  }
 }
 
 @layer base {

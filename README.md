@@ -136,7 +136,7 @@ list of proposed features (and known issues). -->
 - [![Figma](https://img.shields.io/badge/-Figma-black?style=flat-square&logo=figma)](https://www.figma.com/file/pVOwmsYdIymurR4GmEFry1/Portfolio?node-id=9%3A117&t=c2WxYEnrq61XsoNL-1):
   design tool. View the design
   [online](https://www.figma.com/file/pVOwmsYdIymurR4GmEFry1/Portfolio?node-id=9%3A117&t=c2WxYEnrq61XsoNL-1)
-  or the exported file [`./Portfolio.fig`](./Portfolio.fig)
+  or the exported file [`Portfolio.fig`](./Portfolio.fig)
 
 **Development**:
 
@@ -166,9 +166,10 @@ list of proposed features (and known issues). -->
 - [![Vitest](https://img.shields.io/badge/-Vitest-black?style=flat-square&logo=vite)](https://vitest.dev/config/):
   unit testing framework. Configured in [`vite.config.ts` >
   `test`](./vite.config.ts#L52)
-- [![Storybook](https://img.shields.io/badge/-Storybook-black?style=flat-square&logo=storybook)](https://storybook.js.org/):
+- [![Storybook](https://img.shields.io/badge/-Storybook-black?style=flat-square&logo=storybook)](https://tim-w-james.github.io/timjames.dev/):
   view, document and test individual components and pages. Configured in
-  [`.storybook/main.cjs`](./.storybook/main.cjs)
+  [`.storybook/main.cjs`](./.storybook/main.cjs). Automatically deployed to
+  [Github Pages](https://tim-w-james.github.io/timjames.dev/)
 - [![pnpm](https://img.shields.io/badge/-pnpm-black?style=flat-square&logo=pnpm)](https://pnpm.io/):
   configuration for the `pnpm` package manager for better performance, lockfiles
   and monorepo support. See steps <a href="#todo">below</a> if you wish to use a
@@ -463,6 +464,9 @@ a [cleaner file tree](https://github.com/antfu/vscode-file-nesting-config).
   ```sh
   pnpm storybook
   ```
+
+  Storybook is automatically deployed to [Github
+  Pages](https://tim-w-james.github.io/timjames.dev/)
 
 <!-- CONTRIBUTING -->
 <!-- ## Contributing

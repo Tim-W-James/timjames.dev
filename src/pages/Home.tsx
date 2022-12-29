@@ -7,7 +7,12 @@ import timelineData from "@constants/timelineData";
 import useMediaQuery from "@hooks/useMediaQuery";
 import ParallaxMountains from "@layout/background/ParallaxMountains";
 import cn from "@styles/cssUtils";
-import { BsGithub, BsLinkedin, BsTwitter } from "react-icons/bs";
+import {
+  BsFillArrowRightCircleFill,
+  BsGithub,
+  BsLinkedin,
+  BsTwitter,
+} from "react-icons/bs";
 import { ParallaxProvider } from "react-scroll-parallax";
 
 const SocialLinks: React.FC<{ shouldShrinkButtons: boolean }> = ({
@@ -79,13 +84,13 @@ const CoreTechnologies: React.FC = () => (
             target="_blank"
             title={technology[0]}
           >
-            {technology[0]}
             {technology[1].icon ? (
               <>
-                {"\u00A0"}
                 {technology[1].icon}
+                {"\u00A0"}
               </>
             ) : null}
+            {technology[0]}
           </a>
         ))}
     </div>
@@ -95,6 +100,7 @@ const CoreTechnologies: React.FC = () => (
 const AboutMe: React.FC = () => (
   <div
     className={cn(
+      // eslint-disable-next-line sonarjs/no-duplicate-string
       "flex mx-auto items-center place-content-center px-8",
       "flex-col"
     )}
@@ -172,6 +178,37 @@ const AboutMe: React.FC = () => (
     </ul>
   </div>
 );
+
+const MajorProjects: React.FC = () => {
+  const hasTwoColumns = !useMediaQuery("(max-width: 767px)");
+  return (
+    <div className={cn("mb-8")}>
+      <div
+        className={cn(
+          "flex mx-auto items-center place-content-center px-8",
+          "flex-col"
+        )}
+      >
+        <h2 className={cn("pt-8 mb-0")} id="timeline">
+          Major Projects
+          {!hasTwoColumns ? <hr className={cn("radial-border")} /> : null}
+        </h2>
+      </div>
+      <Timeline data={timelineData} />
+
+      <div className={cn("flex justify-center")}>
+        <Button
+          icon={<BsFillArrowRightCircleFill />}
+          isLight
+          label={"More Projects"}
+          linkIsRoute
+          to="/projects"
+          tooltip="View more projects"
+        />
+      </div>
+    </div>
+  );
+};
 
 const Hobbies: React.FC = () => (
   <div
@@ -260,10 +297,7 @@ const Home: React.FC = () => {
         <div className={cn("solid-background")}>
           <div className={cn("pt-8 mx-auto container")}>
             <AboutMe />
-            <h2 className={cn("pt-8 mb-0 mx-auto container")} id="timeline">
-              Major Projects
-            </h2>
-            <Timeline data={timelineData} />
+            <MajorProjects />
             <Hobbies />
           </div>
           <div className={cn("pb-16")} />

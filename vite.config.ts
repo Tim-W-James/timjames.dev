@@ -11,6 +11,7 @@ import sassDts from "vite-plugin-sass-dts";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig(() => {
+  // Certain processes shouldn't generate CSS types
   const enableCssTypeGen = !(process.env.DISABLE_CSS_TYPE_GEN === "true");
   return {
     // Port must equal port in ./netlify.toml

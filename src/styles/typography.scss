@@ -21,13 +21,45 @@ $type-base-size: 1rem;
   }
 
   @include links;
-
+  @include tooltip;
   @include fluid-header-components;
 }
 
 // Tailwind utilities
 @mixin utilities {
   @include text-colors;
+}
+
+// Tailwind base
+@mixin base {
+  body {
+    font-size: $type-base-size;
+  }
+
+  h1 {
+    @apply heading-1;
+  }
+
+  h2 {
+    @apply heading-2;
+  }
+
+  h3 {
+    @apply heading-3;
+  }
+
+  h4 {
+    @apply heading-4;
+  }
+
+  p {
+    // Source: https://hugogiraudel.com/2020/05/18/using-calc-to-figure-out-optimal-line-height/
+    line-height: calc(2px + 2ex + 2px);
+  }
+
+  code {
+    @apply font-mono;
+  }
 }
 
 @mixin text-colors {
@@ -60,35 +92,39 @@ $type-base-size: 1rem;
   }
 }
 
-// Tailwind base
-@mixin base {
-  body {
-    font-size: $type-base-size;
-  }
+@mixin tooltip {
+  .tooltip {
+    @apply relative inline-block;
 
-  h1 {
-    @apply heading-1;
-  }
+    border-bottom: 1px dotted colors.$dark-shades;
 
-  h2 {
-    @apply heading-2;
-  }
+    .tooltip-text {
+      @apply absolute z-[1] bottom-full left-2/4 w-32 py-1 -ml-16;
+      @apply text-center;
 
-  h3 {
-    @apply heading-3;
-  }
+      border-radius: 6px;
+      background-color: colors.$dark-shades;
+      color: colors.$light-shades;
+      opacity: 0;
+      transition: opacity 300ms;
+      visibility: hidden;
 
-  h4 {
-    @apply heading-4;
-  }
+      // Arrow
+      &::after {
+        @apply absolute top-full left-1/2;
 
-  p {
-    // Source: https://hugogiraudel.com/2020/05/18/using-calc-to-figure-out-optimal-line-height/
-    line-height: calc(2px + 2ex + 2px);
-  }
+        border-width: 5px;
+        border-style: solid;
+        border-color: black transparent transparent;
+        margin-left: -5px;
+        content: " ";
+      }
+    }
 
-  code {
-    @apply font-mono;
+    &:hover .tooltip-text {
+      opacity: 1;
+      visibility: visible;
+    }
   }
 }
 

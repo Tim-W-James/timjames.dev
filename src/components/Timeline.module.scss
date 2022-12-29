@@ -53,6 +53,14 @@
       colors.$light-shades 80%
     );
 
+    @media (max-width: 1024px) {
+      background: linear-gradient(
+        calc(45deg - var(--rotation-offset, 0deg)),
+        color.scale(colors.$dark-accent, $lightness: 50%) 0%,
+        colors.$light-shades 80%
+      );
+    }
+
     &::after {
       @apply absolute w-4 h-4 -z-[1];
 
@@ -85,6 +93,14 @@
         colors.$light-shades 80%
       );
 
+      @media (max-width: 1024px) {
+        background: linear-gradient(
+          calc(315deg - var(--rotation-offset, 0deg)),
+          color.scale(colors.$dark-accent, $lightness: 50%) 0%,
+          colors.$light-shades 80%
+        );
+      }
+
       &::after {
         right: auto;
         left: -7.5px;
@@ -100,6 +116,6 @@
   }
 
   &:not(:first-child)._twoColumns {
-    @apply -mt-16;
+    @apply -mt-32;
   }
 }

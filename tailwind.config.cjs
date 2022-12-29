@@ -13,6 +13,9 @@ module.exports = {
         "1/3": "33%",
         "2/3": "66%",
       },
+      flexBasis: {
+        content: "content",
+      },
     },
   },
 };

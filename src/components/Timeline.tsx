@@ -93,9 +93,9 @@ const Thumbnail: React.FC<{
       className={
         hasTwoColumns
           ? isOddIndex
-            ? cn("float-left", "mr-4", "w-1/3")
-            : cn("float-right", "ml-4", "w-1/3")
-          : "" + cn("max-md:float-none max-md:w-auto max-md:mx-0 max-md:mb-4")
+            ? cn("mr-4", "w-1/3", "basis-content")
+            : cn("order-1", "ml-4", "w-1/3", "basis-content")
+          : "" + cn("w-auto ml-auto mb-4")
       }
       src={itemData.thumbnailSrc}
     />
@@ -121,13 +121,13 @@ const TechnologyList: React.FC<{
               target="_blank"
               title={technology}
             >
-              {technology}
               {technologies[technology].icon ? (
                 <>
-                  {"\u00A0"}
                   {technologies[technology].icon}
+                  {"\u00A0"}
                 </>
               ) : null}
+              {technology}
             </a>
           </>
         ))}
@@ -157,8 +157,8 @@ const LinksList: React.FC<{ data: TimelineItemData; isOddIndex: boolean }> = ({
               target="_blank"
               title={link.text}
             >
+              {link.icon ? <>{link.icon} </> : ""}
               {link.text}
-              {link.icon ? <> {link.icon}</> : ""}
             </a>
           </>
         ))}
@@ -204,13 +204,13 @@ const TimelineItem: React.FC<{
           <h4 className={cn("text-main-brand")}>
             <time>{itemData.date}</time>
           </h4>
-          <div>
+          <div className={cn("md:flex items-center")}>
             <Thumbnail
               data={itemData}
               hasTwoColumns={hasTwoColumns}
               isOddIndex={isOddIndex}
             />
-            <p>{itemData.body}</p>
+            <p className={cn("hyphens-none")}>{itemData.body}</p>
           </div>
           <TechnologyList data={itemData} isOddIndex={isOddIndex} />
           <LinksList data={itemData} isOddIndex={isOddIndex} />
@@ -231,7 +231,7 @@ const TimelineItem: React.FC<{
 const Timeline: React.FC<{ data: TimelineItemData[] }> = ({
   data: timelineData,
 }) => {
-  const hasTwoColumns = !useMediaQuery("(max-width: 768px)");
+  const hasTwoColumns = !useMediaQuery("(max-width: 767px)");
 
   return timelineData.length > 0 ? (
     <>
