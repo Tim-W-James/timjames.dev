@@ -5,8 +5,7 @@ import cn from "@styles/cssUtils";
 /**
  * Wrapper for page content that sets the title.
  *
- * @param {{ title: any; content: any; }} { page title, inner content }
- * @returns {*}
+ * @param {{ title; content; }} { page title, inner content }
  */
 const Page: React.FC<{
   title?: string;
@@ -20,8 +19,8 @@ const Page: React.FC<{
   return isStandardLayout ? (
     <>
       {" "}
-      <div className={cn()("fixed bg-dark w-screen h-screen -z-10")} />
-      <div className={cn()("my-10 mx-auto pt-10 container")}>{content}</div>
+      <div className={cn("fixed bg-dark w-screen h-screen -z-10")} />
+      <div className={cn("my-10 mx-auto pt-10 container")}>{content}</div>
     </>
   ) : (
     content

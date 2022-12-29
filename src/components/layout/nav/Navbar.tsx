@@ -1,7 +1,7 @@
 import logo from "@assets/logo.png";
 import { BLOG, HOME, PROJECTS } from "@constants/routes";
 import useMediaQuery from "@hooks/useMediaQuery";
-import cn from "@styles/cssUtils";
+import cn, { cnScoped } from "@styles/cssUtils";
 import ClickAwayListener from "react-click-away-listener";
 import { useLocation } from "react-router-dom";
 import MenuToggle from "./MenuToggle";
@@ -9,6 +9,9 @@ import styles, { ClassNames } from "./Navbar.module.scss";
 import NavbarBrand from "./NavbarBrand";
 import NavbarLink from "./NavbarLink";
 
+/**
+ * Responsive nav bar
+ */
 const Navbar: React.FC = () => {
   const location = useLocation();
   const [hamburgerMenuIsOpen, openHamburgerMenu] = useState(false);
@@ -46,15 +49,13 @@ const Navbar: React.FC = () => {
 
   return shouldUseHamburgerMenu ? (
     <ClickAwayListener onClickAway={() => openHamburgerMenu(false)}>
-      <div className={cn()("fixed z-10 top-0 left-0")}>
+      <div className={cn("fixed z-10 top-0 left-0")}>
         <div
-          className={
-            "flex flex-row " +
-            cn<ClassNames>()(
-              "justify-between w-screen content-center items-center py-2",
-              styles._navbar
-            )
-          }
+          className={cnScoped<ClassNames>()(
+            "flex justify-between w-screen content-center items-center py-2",
+            "flex-row",
+            styles._navbar
+          )}
         >
           {navbarBrand}
           <MenuToggle
@@ -65,24 +66,22 @@ const Navbar: React.FC = () => {
           />
         </div>
 
-        <div className={cn<ClassNames>()(styles._navbarMenu)}>
+        <div className={cnScoped<ClassNames>()(styles._navbarMenu)}>
           {hamburgerMenuIsOpen ? navbarItems : null}
         </div>
       </div>
     </ClickAwayListener>
   ) : (
     <div
-      className={cn<ClassNames>()(
+      className={cnScoped<ClassNames>()(
         styles._navbar,
         "w-screen fixed z-10 top-0 left-0"
       )}
     >
-      <div className={cn()("container mx-auto")}>
-        <div
-          className={"flex flex-row " + cn()("items-center justify-between")}
-        >
+      <div className={cn("container mx-auto")}>
+        <div className={cn("flex items-center justify-between", "flex-row")}>
           {navbarBrand}
-          <div className={cn()("flex justify-around")}>{navbarItems}</div>
+          <div className={cn("flex justify-around")}>{navbarItems}</div>
         </div>
       </div>
     </div>

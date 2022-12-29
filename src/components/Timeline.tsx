@@ -1,10 +1,7 @@
-import {
-  TimelineItemData,
-  categories,
-  technologies,
-} from "@constants/timelineData";
+import technologies from "@constants/technologies";
+import { TimelineItemData, categories } from "@constants/timelineData";
 import useMediaQuery from "@hooks/useMediaQuery";
-import cn from "@styles/cssUtils";
+import cn, { cnScoped } from "@styles/cssUtils";
 import { motion, useAnimation, useInView } from "framer-motion";
 import Divider from "./Divider";
 import styles, { ClassNames } from "./Timeline.module.scss";
@@ -29,6 +26,131 @@ const itemAnimationVariants = {
   } as any,
 };
 
+const TitleLink: React.FC<{ data: TimelineItemData; className: string }> = ({
+  data: itemData,
+  className,
+}) =>
+  categories[itemData.category].link ? (
+    <a
+      className={className}
+      href={categories[itemData.category].link}
+      rel="noreferrer"
+      target="_blank"
+      title={itemData.category}
+    >
+      {itemData.category}
+    </a>
+  ) : (
+    <span className={className}>{itemData.category}</span>
+  );
+
+const Title: React.FC<{ isOddIndex: boolean; data: TimelineItemData }> = ({
+  isOddIndex,
+  data: itemData,
+}) =>
+  isOddIndex ? (
+    <>
+      <h3
+        className={cn("text-main-brand uppercase mb-0 leading-snug")}
+        id={itemData.title}
+      >
+        {itemData.title}
+      </h3>
+      <TitleLink className={cn("text-main-brand text-right")} data={itemData} />
+    </>
+  ) : (
+    <>
+      <TitleLink className={cn("text-main-brand text-left")} data={itemData} />
+      <h3 className={cn("text-main-brand uppercase mb-0 leading-snug")}>
+        {itemData.title}
+      </h3>
+    </>
+  );
+
+const Thumbnail: React.FC<{
+  data: TimelineItemData;
+  hasTwoColumns: boolean;
+  isOddIndex: boolean;
+}> = ({ data: itemData, hasTwoColumns, isOddIndex }) =>
+  itemData.thumbnailSrc ? (
+    <img
+      alt={itemData.title}
+      className={
+        hasTwoColumns
+          ? isOddIndex
+            ? cn("float-left", "mr-4", "w-1/3")
+            : cn("float-right", "ml-4", "w-1/3")
+          : "" + cn("max-md:float-none max-md:w-auto max-md:mx-0 max-md:mb-4")
+      }
+      src={itemData.thumbnailSrc}
+    />
+  ) : null;
+
+const TechnologyList: React.FC<{
+  data: TimelineItemData;
+  isOddIndex: boolean;
+}> = ({ data: itemData, isOddIndex }) =>
+  itemData.technologies ? (
+    <>
+      <Divider isReversed={!isOddIndex} label="Technologies" />
+
+      <div>
+        {itemData.technologies.map((technology, index) => (
+          <>
+            {index !== itemData.technologies?.length && index !== 0 ? ", " : ""}
+            <a
+              className={cn("inline-flex items-center")}
+              href={technologies[technology].link}
+              key={index}
+              rel="noreferrer"
+              target="_blank"
+              title={technology}
+            >
+              {technology}
+              {technologies[technology].icon ? (
+                <>
+                  {"\u00A0"}
+                  {technologies[technology].icon}
+                </>
+              ) : null}
+            </a>
+          </>
+        ))}
+      </div>
+    </>
+  ) : null;
+
+const LinksList: React.FC<{ data: TimelineItemData; isOddIndex: boolean }> = ({
+  data: itemData,
+  isOddIndex,
+}) =>
+  itemData.links ? (
+    <>
+      <Divider isReversed={!isOddIndex} label="Links" />
+
+      <div>
+        {itemData.links.map((link, index) => (
+          <>
+            {index !== itemData.technologies?.length && index !== 0
+              ? " - "
+              : ""}
+            <a
+              className={cn("link")}
+              href={link.url}
+              key={index}
+              rel="noreferrer"
+              target="_blank"
+              title={link.text}
+            >
+              {link.text}
+              {link.icon ? <> {link.icon}</> : ""}
+            </a>
+          </>
+        ))}
+      </div>
+    </>
+  ) : null;
+
 const TimelineItem: React.FC<{
   data: TimelineItemData;
   index: number;
@@ -49,168 +171,48 @@ const TimelineItem: React.FC<{
 
   return (
     <div
-      className={cn<ClassNames>()(styles._timelineItem, {
+      className={cnScoped<ClassNames>()(styles._timelineItem, {
         [styles._twoColumns]: hasTwoColumns,
       })}
     >
       <div>
         <motion.div
           animate={control}
-          className={cn<ClassNames>()(styles._timelineItemContent)}
+          className={cnScoped<ClassNames>()(styles._timelineItemContent)}
           initial="hidden"
           ref={ref}
           variants={itemAnimationVariants}
         >
-          <div className={cn()("flex w-full justify-between gap-2")}>
-            {isOddIndex ? (
-              <>
-                <h3
-                  className={cn()(
-                    "text-main-brand uppercase mb-0 leading-snug"
-                  )}
-                >
-                  {itemData.title}
-                </h3>
-                {categories[itemData.category].link ? (
-                  <a
-                    className={cn()("text-main-brand text-right")}
-                    href={categories[itemData.category].link}
-                    rel="noreferrer"
-                    target="_blank"
-                    title={itemData.category}
-                  >
-                    {itemData.category}
-                  </a>
-                ) : (
-                  <span className={cn()("text-main-brand text-right")}>
-                    {itemData.category}
-                  </span>
-                )}
-              </>
-            ) : (
-              <>
-                {categories[itemData.category].link ? (
-                  <a
-                    className={cn()("text-main-brand text-left")}
-                    href={categories[itemData.category].link}
-                    rel="noreferrer"
-                    target="_blank"
-                    title={itemData.category}
-                  >
-                    {itemData.category}
-                  </a>
-                ) : (
-                  <span className={cn()("text-main-brand text-left")}>
-                    {itemData.category}
-                  </span>
-                )}
-                <h3
-                  className={cn()(
-                    "text-main-brand uppercase mb-0 leading-snug"
-                  )}
-                >
-                  {itemData.title}
-                </h3>
-              </>
-            )}
+          <div className={cn("flex w-full justify-between gap-2")}>
+            <Title data={itemData} isOddIndex={isOddIndex} />
           </div>
-          <h4 className={cn()("text-main-brand")}>
+          <h4 className={cn("text-main-brand")}>
             <time>{itemData.date}</time>
           </h4>
           <div>
-            {itemData.thumbnailSrc ? (
-              <img
-                alt={itemData.title}
-                className={
-                  hasTwoColumns
-                    ? isOddIndex
-                      ? "float-left mr-4 w-1/3 "
-                      : "float-right ml-4 w-1/3 "
-                    : "" +
-                      cn<ClassNames>()(
-                        "max-md:float-none max-md:w-auto max-md:mx-0 max-md:mb-4"
-                      )
-                }
-                src={itemData.thumbnailSrc}
-              />
-            ) : null}
+            <Thumbnail
+              data={itemData}
+              hasTwoColumns={hasTwoColumns}
+              isOddIndex={isOddIndex}
+            />
             <p>{itemData.text}</p>
           </div>
-          {itemData.technologies && (
-            <>
-              <Divider isReversed={!isOddIndex} label="Technologies" />
-
-              <div>
-                {itemData.technologies.map((technology, index) => (
-                  <>
-                    {index !== itemData.technologies?.length && index !== 0
-                      ? ", "
-                      : ""}
-                    {technologies[technology].link ? (
-                      <a
-                        className={cn()("inline-flex items-center")}
-                        href={technologies[technology].link}
-                        key={index}
-                        rel="noreferrer"
-                        target="_blank"
-                        title={technology}
-                      >
-                        {technology}
-                        {technologies[technology].icon ? (
-                          <>
-                            {"\u00A0"}
-                            {technologies[technology].icon}
-                          </>
-                        ) : null}
-                      </a>
-                    ) : (
-                      <span key={index}>
-                        {technology}
-                        {technologies[technology].icon ? (
-                          <> {technologies[technology].icon}</>
-                        ) : (
-                          ""
-                        )}
-                      </span>
-                    )}
-                  </>
-                ))}
-              </div>
-            </>
-          )}
-          {itemData.links && (
-            <>
-              <Divider isReversed={!isOddIndex} label="Links" />
-
-              <div>
-                {itemData.links.map((link, index) => (
-                  <>
-                    {index !== itemData.technologies?.length && index !== 0
-                      ? " - "
-                      : ""}
-                    <a
-                      className={cn()("link")}
-                      href={link.url}
-                      key={index}
-                      rel="noreferrer"
-                      target="_blank"
-                      title={link.text}
-                    >
-                      {link.text}
-                      {link.icon ? <> {link.icon}</> : ""}
-                    </a>
-                  </>
-                ))}
-              </div>
-            </>
-          )}
+          <TechnologyList data={itemData} isOddIndex={isOddIndex} />
+          <LinksList data={itemData} isOddIndex={isOddIndex} />
         </motion.div>
-        <span className={cn<ClassNames>()(styles._circle)} />
+        <span className={cnScoped<ClassNames>()(styles._circle)} />
       </div>
     </div>
   );
 };
 
+/**
+ * Displays a timeline of items
+ *
+ * @param {{ data; }} {
+  data to be displayed in the timeline,
+}
+ */
 const Timeline: React.FC<{ data: TimelineItemData[] }> = ({
   data: timelineData,
 }) => {
@@ -218,9 +220,9 @@ const Timeline: React.FC<{ data: TimelineItemData[] }> = ({
 
   return timelineData.length > 0 ? (
     <>
-      {hasTwoColumns ? <hr className={cn()("radial-border border-2")} /> : null}
+      {hasTwoColumns ? <hr className={cn("radial-border border-2")} /> : null}
       <div
-        className={cn<ClassNames>()(styles._timelineContainer, {
+        className={cnScoped<ClassNames>()(styles._timelineContainer, {
           [styles._twoColumns]: hasTwoColumns,
         })}
       >

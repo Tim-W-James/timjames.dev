@@ -1,4 +1,5 @@
 import timelineData from "@constants/timelineData";
+import cn from "@styles/cssUtils";
 import TimelineComponent from "./Timeline";
 
 export default {
@@ -6,4 +7,8 @@ export default {
   component: TimelineComponent,
 };
 
-export const Timeline = () => <TimelineComponent data={timelineData} />;
+export const Timeline = () => (
+  <div className={cn("container mx-auto")}>
+    <TimelineComponent data={timelineData} />
+  </div>
+);
