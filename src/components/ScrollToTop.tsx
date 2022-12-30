@@ -4,7 +4,13 @@ const ScrollToTop = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // Don't scroll to top if the route contains a hash
+    if (!window.location.hash) {
+      // HACK to ensure this runs after the page has rendered
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 0);
+    }
   }, [pathname]);
 
   return null;

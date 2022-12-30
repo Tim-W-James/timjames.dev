@@ -12,28 +12,31 @@ import styles, { ClassNames } from "./Button.module.scss";
   label text,
   tooltip text when hovering over button,
   icon,
-  whether the link is a local route or external link,
+  mode is a route or anchor or button,
   use light theme,
   hide the label text,
 }
  */
-const Button: React.FC<{
-  to: string;
+const button: React.FC<{
+  to?: string;
   label?: string;
   tooltip?: string;
   icon?: JSX.Element;
-  linkIsRoute?: boolean;
+  mode?: "route" | "anchor" | "button";
   isLight?: boolean;
   isLabelHidden?: boolean;
+  onClick?: () => void;
 }> = ({
   to: link,
   label,
   tooltip,
   icon,
-  linkIsRoute,
+  mode,
   isLight,
   isLabelHidden,
+  onClick,
 }) => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const deviceIsTouch = useTouchInputQuery();
 
   const className = cnScoped<ClassNames>()(
@@ -50,31 +53,59 @@ const Button: React.FC<{
     </span>
   );
 
-  return linkIsRoute ? (
-    <Link
-      aria-label={label}
-      className={className}
-      onMouseMove={(e) => setMouseHoverCssProperties(e, false, deviceIsTouch)}
-      title={label && tooltip}
-      to={link}
-      type="button"
-    >
-      {inner}
-    </Link>
-  ) : (
-    <a
-      aria-label={label}
-      className={className}
-      href={link}
-      onMouseMove={(e) => setMouseHoverCssProperties(e, false, deviceIsTouch)}
-      rel="noreferrer"
-      target="_blank"
-      title={label && tooltip}
-      type="button"
-    >
-      {inner}
-    </a>
-  );
+  switch (mode) {
+    case "route":
+      return (
+        <Link
+          aria-label={label}
+          className={className}
+          onClick={onClick}
+          onMouseMove={(e) =>
+            setMouseHoverCssProperties(e, false, deviceIsTouch)
+          }
+          title={label && tooltip}
+          to={link || "/"}
+          type="button"
+        >
+          {inner}
+        </Link>
+      );
+
+    case "button":
+      return (
+        <button
+          aria-label={label}
+          className={className}
+          onClick={onClick}
+          onMouseMove={(e) =>
+            setMouseHoverCssProperties(e, false, deviceIsTouch)
+          }
+          title={label && tooltip}
+          type="button"
+        >
+          {inner}
+        </button>
+      );
+
+    default:
+      return (
+        <a
+          aria-label={label}
+          className={className}
+          href={link || "/"}
+          onClick={onClick}
+          onMouseMove={(e) =>
+            setMouseHoverCssProperties(e, false, deviceIsTouch)
+          }
+          rel="noreferrer"
+          target="_blank"
+          title={label && tooltip}
+          type="button"
+        >
+          {inner}
+        </a>
+      );
+  }
 };
 
-export default Button;
+export default button;

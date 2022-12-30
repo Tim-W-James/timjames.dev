@@ -208,7 +208,7 @@ const MajorProjects: React.FC = () => {
           icon={<BsFillArrowRightCircleFill />}
           isLight
           label={"More Projects"}
-          linkIsRoute
+          mode="route"
           to="/projects"
           tooltip="View more projects"
         />
@@ -382,7 +382,7 @@ const Skills: React.FC = () => (
               className={cn("link")}
               rel="noreferrer"
               title={"View project details"}
-              to={"/#Toyota Finance Australia"}
+              to={"/projects/#Toyota Finance Australia"}
             >
               Toyota Finance Australia
             </HashLink>
@@ -480,7 +480,7 @@ const Home: React.FC = () => {
                 icon={<BsFillArrowRightCircleFill />}
                 isLight
                 label={"Contact Me"}
-                linkIsRoute
+                mode="route"
                 to="/contact"
                 tooltip="Get in touch"
               />

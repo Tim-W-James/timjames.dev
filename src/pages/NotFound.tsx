@@ -16,7 +16,7 @@ const NotFound: React.FC = () => (
           icon={<BsFillHouseDoorFill />}
           isLight
           label="Return Home"
-          linkIsRoute
+          mode="route"
           to="/"
           tooltip="Return to the homepage"
         />

@@ -35,14 +35,14 @@ const itemAnimationVariants = {
   } as any,
   hidden: {
     opacity: 0,
-    rotateX: -90,
+    rotateX: -50,
     "--rotation-offset": "180deg",
     // https://www.framer.com/docs/component/###animating-css-variables
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } as any,
 };
 
-const TitleLink: React.FC<{ data: TimelineItemData; className: string }> = ({
+const Category: React.FC<{ data: TimelineItemData; className: string }> = ({
   data: itemData,
   className,
 }) =>
@@ -67,19 +67,24 @@ const Title: React.FC<{ isOddIndex: boolean; data: TimelineItemData }> = ({
   isOddIndex ? (
     <>
       <h3
-        className={cn("text-main-brand uppercase mb-0 leading-snug")}
-        id={itemData.title}
+        className={cn(
+          "text-main-brand uppercase mb-0 leading-snug",
+          "flex-grow",
+          "basis-min-content"
+        )}
       >
         {itemData.title}
       </h3>
-      <TitleLink className={cn("text-main-brand text-right")} data={itemData} />
+      <Category className={cn("text-main-brand text-right")} data={itemData} />
     </>
   ) : (
     <>
-      <TitleLink className={cn("text-main-brand text-left")} data={itemData} />
+      <Category className={cn("text-main-brand text-left")} data={itemData} />
       <h3
-        className={cn("text-main-brand uppercase mb-0 leading-snug")}
-        id={itemData.title}
+        className={cn(
+          "text-main-brand uppercase mb-0 leading-snug",
+          "flex-grow"
+        )}
       >
         {itemData.title}
       </h3>
@@ -99,7 +104,7 @@ const Thumbnail: React.FC<{
           ? isOddIndex
             ? cn("mr-4", "w-1/3", "basis-content")
             : cn("order-1", "ml-4", "w-1/3", "basis-content")
-          : "" + cn("w-auto ml-auto mb-4")
+          : cn("w-auto ml-auto mb-4")
       }
       src={itemData.thumbnailSrc}
     />
@@ -115,12 +120,11 @@ const TechnologyList: React.FC<{
 
       <div>
         {itemData.technologies.map((technology, index) => (
-          <>
-            {index !== itemData.technologies?.length && index !== 0 ? ", " : ""}
+          <span key={index}>
+            {" "}
             <a
               className={cn("inline-flex items-center")}
               href={technologies[technology].link}
-              key={index}
               rel="noreferrer"
               target="_blank"
               title={technology}
@@ -132,8 +136,9 @@ const TechnologyList: React.FC<{
                 </>
               ) : null}
               {technology}
+              {index < itemData.technologies!.length - 1 ? "," : ""}
             </a>
-          </>
+          </span>
         ))}
       </div>
     </>
@@ -149,14 +154,13 @@ const LinksList: React.FC<{ data: TimelineItemData; isOddIndex: boolean }> = ({
 
       <div>
         {itemData.links.map((link, index) => (
-          <>
+          <span key={index}>
             {index !== itemData.technologies?.length && index !== 0
               ? " - "
               : ""}
             <a
               className={cn("link")}
               href={link.url}
-              key={index}
               rel="noreferrer"
               target="_blank"
               title={link.text}
@@ -164,7 +168,7 @@ const LinksList: React.FC<{ data: TimelineItemData; isOddIndex: boolean }> = ({
               {link.icon ? <>{link.icon} </> : ""}
               {link.text}
             </a>
-          </>
+          </span>
         ))}
       </div>
     </>
@@ -193,6 +197,7 @@ const TimelineItem: React.FC<{
       className={cnScoped<ClassNames>()(styles._timelineItem, {
         [styles._twoColumns]: hasTwoColumns,
       })}
+      id={itemData.title}
     >
       <div>
         <motion.div
@@ -202,7 +207,13 @@ const TimelineItem: React.FC<{
           ref={ref}
           variants={itemAnimationVariants}
         >
-          <div className={cn("flex w-full justify-between gap-2")}>
+          <div
+            className={cn(
+              "flex w-full gap-2",
+              isOddIndex ? "flex-wrap" : "flex-wrap-reverse",
+              isOddIndex ? "justify-start" : "justify-end"
+            )}
+          >
             <Title data={itemData} isOddIndex={isOddIndex} />
           </div>
           <h4 className={cn("text-main-brand")}>

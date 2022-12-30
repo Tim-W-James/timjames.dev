@@ -7,7 +7,7 @@ import Timeline, { TimelineItemData } from "@components/Timeline";
 import technologies from "@constants/technologies";
 import timelineData, { categories } from "@constants/timelineData";
 import cn from "@styles/cssUtils";
-import { BsGithub } from "react-icons/bs";
+import { BsFillArrowUpCircleFill, BsGithub } from "react-icons/bs";
 
 const technologyOptions: readonly Option[] = Object.keys(technologies)
   .map((technology) => {
@@ -20,6 +20,7 @@ const technologyOptions: readonly Option[] = Object.keys(technologies)
       label: `${technology} (${count})`,
     };
   })
+  .filter((option) => option.count > 0)
   .sort((a, b) => b.count - a.count);
 
 const categoryOptions: readonly Option[] = Object.keys(categories)
@@ -33,6 +34,7 @@ const categoryOptions: readonly Option[] = Object.keys(categories)
       label: `${category} (${count})`,
     };
   })
+  .filter((option) => option.count > 0)
   .sort((a, b) => b.count - a.count);
 
 const sorts = [
@@ -116,6 +118,16 @@ const Projects: React.FC = () => {
           <hr className={cn("radial-border")} />
         </h1>
       </div>
+      <div className={cn("flex justify-center mb-8")}>
+        <Button
+          icon={<BsGithub />}
+          isLight
+          label={"GitHub"}
+          mode="route"
+          to="/projects"
+          tooltip="Find more projects on GitHub"
+        />
+      </div>
       <div
         className={cn(
           "flex mx-auto items-center place-content-center mb-4",
@@ -172,15 +184,14 @@ const Projects: React.FC = () => {
           }}
           sortFunc={sortFuncFromOption(selectedSort.value)}
         />
-
         <div className={cn("flex justify-center")}>
           <Button
-            icon={<BsGithub />}
+            icon={<BsFillArrowUpCircleFill />}
             isLight
-            label={"GitHub"}
-            linkIsRoute
-            to="/projects"
-            tooltip="Find more projects on GitHub"
+            label={"Back to top"}
+            mode="button"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            tooltip="Back to top"
           />
         </div>
       </div>

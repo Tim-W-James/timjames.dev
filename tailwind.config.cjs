@@ -15,6 +15,7 @@ module.exports = {
       },
       flexBasis: {
         content: "content",
+        "min-content": "min-content",
       },
     },
   },

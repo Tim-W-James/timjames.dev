@@ -12,7 +12,14 @@ const NavbarBrand: React.FC<{
   logo: string;
   to: string;
 }> = ({ label, to: route, logo }) => (
-  <Link className={cn("subtitle whitespace-nowrap")} to={route} type="button">
+  <Link
+    className={cn("subtitle whitespace-nowrap")}
+    onClick={() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }}
+    to={route}
+    type="button"
+  >
     <img
       alt={"brand"}
       className={cn("inline-block rounded-full h-8 align-bottom")}

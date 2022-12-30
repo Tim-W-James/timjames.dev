@@ -31,6 +31,11 @@ const NavbarLink: React.FC<{
         },
         inHamburgerMenu ? styles[`_dropdownItem${order}`] : ""
       )}
+      onClick={() =>
+        setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }, 0)
+      }
       onMouseMove={(e) => setMouseHoverCssProperties(e, true, deviceIsTouch)}
       to={route || "/"}
       type="button"
