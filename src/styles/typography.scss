@@ -98,6 +98,10 @@ $type-base-size: 1rem;
 
     border-bottom: 1px dotted colors.$dark-shades;
 
+    &.inverted {
+      border-bottom: 1px dotted colors.$light-shades;
+    }
+
     .tooltip-text {
       @apply absolute z-[1] bottom-full left-2/4 w-32 py-1 -ml-16;
       @apply text-center;
@@ -105,6 +109,12 @@ $type-base-size: 1rem;
       border-radius: 6px;
       background-color: colors.$dark-shades;
       color: colors.$light-shades;
+
+      &.inverted {
+        background-color: colors.$light-shades;
+        color: colors.$dark-shades;
+      }
+
       opacity: 0;
       transition: opacity 300ms;
       visibility: hidden;
@@ -115,9 +125,13 @@ $type-base-size: 1rem;
 
         border-width: 5px;
         border-style: solid;
-        border-color: black transparent transparent;
+        border-color: colors.$dark-shades transparent transparent;
         margin-left: -5px;
         content: " ";
+      }
+
+      &.inverted::after {
+        border-color: colors.$light-shades transparent transparent;
       }
     }
 

@@ -24,7 +24,8 @@ export const categories = {
 
 const timelineData: TimelineItemData[] = [
   {
-    date: "2021 - 2023",
+    startDate: new Date("2022"),
+    endDate: new Date("2023"),
     title: "timjames.dev",
     body: (
       <>
@@ -94,13 +95,17 @@ const timelineData: TimelineItemData[] = [
     ],
   },
   {
-    date: "2022 - 2023",
+    startDate: new Date("2022"),
+    endDate: new Date("2023"),
     title: "Brodburger",
     body: (
       <>
         Online ordering and <Tooltip text="POS" tooltip="Point of Sale" /> app
-        for hospitality. I contributed to a feature upgrade and improved the
-        menu layout. I also performed maintenance and{" "}
+        for a local burger franchise. I contributed to a feature upgrade,
+        improved the menu
+        {/* eslint-disable-next-line max-len */}
+        <Tooltip text="UI" tooltip="User Interface" />, and configured a payment
+        gateway. I also performed maintenance and{" "}
         {/* eslint-disable-next-line max-len */}
         <Tooltip
           text="CVE"
@@ -126,6 +131,7 @@ const timelineData: TimelineItemData[] = [
       "Cypress",
       "Scala",
       "Jenkins",
+      "Fat Zebra",
     ],
     starred: true,
     links: [
@@ -141,11 +147,13 @@ const timelineData: TimelineItemData[] = [
     ],
   },
   {
-    date: "2022",
+    startDate: new Date("2022"),
+    endDate: new Date("2022"),
     title: "Toyota Finance Australia",
     body: (
       <>
-        Identity & access management and authorisation systems. I developed{" "}
+        Identity & access management systems for a car finance and loans
+        application. I developed{" "}
         <Tooltip text="OAuth2" tooltip="Open Authorisation Standard" />{" "}
         authentication journeys with{" "}
         <Tooltip
@@ -159,9 +167,9 @@ const timelineData: TimelineItemData[] = [
           tooltip="Security Assertion Markup Language"
         />{" "}
         federation. I also created a custom{" "}
-        <Tooltip text="JWT" tooltip="JSON Web Token" /> authoriser using Open
-        Policy Agent, that integrates with security definitions in{" "}
-        {/* eslint-disable-next-line max-len */}
+        <Tooltip text="JWT" tooltip="JSON Web Token" /> authoriser with
+        fine-grained policy control, that integrates with security definitions
+        in {/* eslint-disable-next-line max-len */}
         <Tooltip
           text="OpenAPI"
           tooltip="RESTful API Definition Language"
@@ -184,20 +192,25 @@ const timelineData: TimelineItemData[] = [
     starred: true,
     links: [
       {
-        text: "Client website",
+        text: "TFA website",
         url: "https://www.toyota.com.au/car-finance",
+      },
+      {
+        text: "Turo website",
+        url: "https://turo.com/au/en",
       },
     ],
   },
   {
-    date: "2021 - 2022",
+    startDate: new Date("2021"),
+    endDate: new Date("2022"),
     title: "CSIRO Source IP",
     body: (
       <>
-        Maintenance, monitoring and security patching of a legacy system. I
-        implemented processes to monitor system health and vulnerabilities. I
-        also created DevOps infrastructure to continuously track{" "}
-        {/* eslint-disable-next-line max-len */}
+        Maintenance, monitoring and security patching of a legacy system for
+        patent filing. I implemented processes to monitor system health and
+        vulnerabilities. I also created DevOps infrastructure to continuously
+        track {/* eslint-disable-next-line max-len */}
         <Tooltip
           text="CVEs"
           tooltip="Common Vulnerabilities and Exposures"
@@ -219,7 +232,7 @@ const timelineData: TimelineItemData[] = [
     links: [
       {
         text: "Source IP website",
-        url: "https://www.toyota.com.au/car-finance",
+        url: "https://sourceip.csiro.au/",
       },
     ],
   },

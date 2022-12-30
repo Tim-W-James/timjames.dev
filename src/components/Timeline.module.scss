@@ -73,7 +73,7 @@
   }
 
   ._circle {
-    @apply absolute w-5 h-5 rounded-full z-10;
+    @apply absolute w-5 h-5 rounded-full z-[1];
 
     top: calc(50% - 10px);
     right: -10px;

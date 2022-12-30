@@ -138,6 +138,11 @@ const technologies = {
     link: "https://go.dev/",
     isCore: false,
   },
+  "Fat Zebra": {
+    icon: undefined,
+    link: "https://www.fatzebra.com/",
+    isCore: false,
+  },
 } as const satisfies Record<
   string,
   { icon?: JSX.Element; link: string; isCore?: boolean }

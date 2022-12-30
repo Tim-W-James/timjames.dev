@@ -9,7 +9,8 @@ import styles, { ClassNames } from "./Timeline.module.scss";
 // Adapted from: https://www.florin-pop.com/blog/2019/04/how-to-create-a-timeline-with-react/
 
 export type TimelineItemData = {
-  date: string;
+  startDate: Date;
+  endDate: Date;
   title: string;
   body: JSX.Element;
   thumbnailSrc?: string;
@@ -76,7 +77,10 @@ const Title: React.FC<{ isOddIndex: boolean; data: TimelineItemData }> = ({
   ) : (
     <>
       <TitleLink className={cn("text-main-brand text-left")} data={itemData} />
-      <h3 className={cn("text-main-brand uppercase mb-0 leading-snug")}>
+      <h3
+        className={cn("text-main-brand uppercase mb-0 leading-snug")}
+        id={itemData.title}
+      >
         {itemData.title}
       </h3>
     </>
@@ -202,7 +206,13 @@ const TimelineItem: React.FC<{
             <Title data={itemData} isOddIndex={isOddIndex} />
           </div>
           <h4 className={cn("text-main-brand")}>
-            <time>{itemData.date}</time>
+            <time>
+              {itemData.startDate.getFullYear()}
+              {itemData.startDate.getFullYear() !==
+              itemData.endDate.getFullYear()
+                ? ` - ${itemData.endDate.getFullYear()}`
+                : ""}
+            </time>
           </h4>
           <div className={cn("md:flex items-center")}>
             <Thumbnail
@@ -224,12 +234,24 @@ const TimelineItem: React.FC<{
 /**
  * Displays a timeline of items
  *
- * @param {{ data; }} {
+ * @param {{ data; filterFunc; sortFunc; }} {
   data to be displayed in the timeline,
+  filter for timeline data,
+  sort for timeline data
 }
  */
-const Timeline: React.FC<{ data: TimelineItemData[] }> = ({
+const Timeline: React.FC<{
+  data: TimelineItemData[];
+  filterFunc?: (
+    value: TimelineItemData,
+    index: number,
+    array: TimelineItemData[]
+  ) => boolean;
+  sortFunc?: (a: TimelineItemData, b: TimelineItemData) => number;
+}> = ({
   data: timelineData,
+  filterFunc = (value) => value,
+  sortFunc = (a, b) => b.endDate.getFullYear() - a.endDate.getFullYear(),
 }) => {
   const hasTwoColumns = !useMediaQuery("(max-width: 767px)");
 
@@ -241,14 +263,17 @@ const Timeline: React.FC<{ data: TimelineItemData[] }> = ({
           [styles._twoColumns]: hasTwoColumns,
         })}
       >
-        {timelineData.map((itemData, index) => (
-          <TimelineItem
-            data={itemData}
-            hasTwoColumns={hasTwoColumns}
-            index={index}
-            key={index}
-          />
-        ))}
+        {timelineData
+          .filter(filterFunc)
+          .sort(sortFunc)
+          .map((itemData, index) => (
+            <TimelineItem
+              data={itemData}
+              hasTwoColumns={hasTwoColumns}
+              index={index}
+              key={index}
+            />
+          ))}
       </div>
     </>
   ) : null;

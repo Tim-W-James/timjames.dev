@@ -2,6 +2,7 @@ import logo from "@assets/profile.jpg";
 import Button from "@components/Button";
 import Logo from "@components/Logo";
 import Timeline from "@components/Timeline";
+import Tooltip from "@components/Tooltip";
 import technologies from "@constants/technologies";
 import timelineData from "@constants/timelineData";
 import useMediaQuery from "@hooks/useMediaQuery";
@@ -9,10 +10,16 @@ import ParallaxMountains from "@layout/background/ParallaxMountains";
 import cn from "@styles/cssUtils";
 import {
   BsFillArrowRightCircleFill,
+  BsFillFileEarmarkCodeFill,
+  BsFillKanbanFill,
   BsGithub,
   BsLinkedin,
   BsTwitter,
 } from "react-icons/bs";
+import { GiTalk } from "react-icons/gi";
+import { HiMagnifyingGlassCircle } from "react-icons/hi2";
+import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import { ParallaxProvider } from "react-scroll-parallax";
 
 const SocialLinks: React.FC<{ shouldShrinkButtons: boolean }> = ({
@@ -194,7 +201,7 @@ const MajorProjects: React.FC = () => {
           {!hasTwoColumns ? <hr className={cn("radial-border")} /> : null}
         </h2>
       </div>
-      <Timeline data={timelineData} />
+      <Timeline data={timelineData} filterFunc={(item) => !!item.starred} />
 
       <div className={cn("flex justify-center")}>
         <Button
@@ -213,7 +220,7 @@ const MajorProjects: React.FC = () => {
 const Hobbies: React.FC = () => (
   <div
     className={cn(
-      "flex mx-auto items-center place-content-center px-8",
+      "flex mx-auto items-center place-content-center px-8 mt-8",
       "flex-col"
     )}
   >
@@ -271,6 +278,174 @@ const Hobbies: React.FC = () => (
   </div>
 );
 
+const Skill: React.FC<{
+  heading: JSX.Element;
+  icon: JSX.Element;
+  body: JSX.Element;
+}> = ({ heading, icon, body }) => (
+  <div className={cn("mb-4")}>
+    <h3 className={cn("mb-0 text-light-accent inline-flex items-center gap-1")}>
+      {icon}
+      {heading}
+    </h3>
+    <p className={cn("hyphens-none")}>{body}</p>
+  </div>
+);
+
+const Skills: React.FC = () => (
+  <div className={cn("flex mx-auto px-8 mt-8", "flex-col")}>
+    <h2 className={cn("self-center mb-4")} id="skills">
+      Skills
+      <hr className={cn("radial-border")} />
+    </h2>
+    <br />
+    <div className={cn("text-left")}>
+      <Skill
+        body={
+          <>
+            Familiar with{" "}
+            <Tooltip
+              isInverted
+              text="Agile"
+              tooltip="Set of guiding principles for software development"
+            />{" "}
+            principles and{" "}
+            <Tooltip
+              isInverted
+              text="CI/CD"
+              tooltip="Continuous Integration and Delivery"
+            />
+            . At{" "}
+            <a
+              className={cn("link")}
+              // TODO
+              href={"/"}
+              rel="noreferrer"
+              target="_blank"
+              title={"View my projects with Agile Digital"}
+            >
+              Agile Digital
+            </a>
+            , I have project experience working with teams using{" "}
+            <Tooltip isInverted text="Kanban" tooltip="Agile framework" />. I
+            collaborate effectively with other developers, frequently practicing
+            pair programming and reviewing{" "}
+            <Tooltip isInverted text="PR" tooltip="Pull Request" />
+            s. View my contributions on{" "}
+            <a
+              className={cn("link")}
+              href={"https://github.com/Tim-W-James"}
+              rel="noreferrer"
+              target="_blank"
+              title={"View my contributions"}
+            >
+              GitHub
+            </a>
+            .
+          </>
+        }
+        heading={<>Agile Software Development</>}
+        icon={<BsFillKanbanFill />}
+      />
+      <Skill
+        body={
+          <>
+            I strive for a exceptional level of quality in my work and
+            proactively seek to improve my craft. With a background in
+            literature, architecture and graphic design, I apply my creativity
+            when building software.
+          </>
+        }
+        heading={<>Attention to Detail</>}
+        icon={<HiMagnifyingGlassCircle />}
+      />
+      <Skill
+        body={
+          <>
+            I convey ideas clearly in both written and verbal forms, maintaining
+            a{" "}
+            <Link className={cn("link")} title={"View my blog"} to={"/blog"}>
+              blog
+            </Link>{" "}
+            and performing tech talks at{" "}
+            <a
+              className={cn("link")}
+              href={"https://agiledigital.com.au/"}
+              rel="noreferrer"
+              target="_blank"
+              title={"Agile Digital website"}
+            >
+              Agile Digital
+            </a>
+            . On a project with{" "}
+            <HashLink
+              className={cn("link")}
+              rel="noreferrer"
+              title={"View project details"}
+              to={"/#Toyota Finance Australia"}
+            >
+              Toyota Finance Australia
+            </HashLink>
+            , I demonstrated my ability to manage a client of substantial scale.
+            As a spokesperson for an{" "}
+            <HashLink
+              className={cn("link")}
+              rel="noreferrer"
+              title={"View project details"}
+              // TODO
+              to={"/"}
+            >
+              ANU TechLauncher project
+            </HashLink>
+            , I was granted the award for best pitch.
+          </>
+        }
+        heading={<>Concise and Confident Communicator</>}
+        icon={<GiTalk />}
+      />
+      <Skill
+        body={
+          <>
+            I ensure my code is robust and maintainable by adopting a functional
+            programming style. I prefer strict typing across the tech stack,
+            employ code quality tools like{" "}
+            <a
+              className={cn("link")}
+              href={"https://www.npmjs.com/package/@tim-w-james/eslint-config"}
+              rel="noreferrer"
+              target="_blank"
+              title={"View my custom ESLint config"}
+            >
+              ESLint
+            </a>
+            , and take a layered approach to testing. I take care to document my
+            solutions, and continually address technical debt. By taking
+            initiative with{" "}
+            <Tooltip isInverted text="DX" tooltip="Developer Experience" />{" "}
+            tooling and {/* eslint-disable-next-line max-len */}
+            <Tooltip
+              isInverted
+              text="DevOps"
+              tooltip="Developer Operations"
+            />{" "}
+            infrastructure I am able to boost my productivity. See my{" "}
+            <HashLink
+              className={cn("link")}
+              title={"View my tech stack"}
+              to={"/#technologies"}
+            >
+              core tech stack
+            </HashLink>
+            .
+          </>
+        }
+        heading={<>Code Quality</>}
+        icon={<BsFillFileEarmarkCodeFill />}
+      />
+    </div>
+  </div>
+);
+
 const Home: React.FC = () => {
   const shouldShrinkButtons = useMediaQuery("(max-width: 600px)");
   return (
@@ -298,7 +473,18 @@ const Home: React.FC = () => {
           <div className={cn("pt-8 mx-auto container")}>
             <AboutMe />
             <MajorProjects />
+            <Skills />
             <Hobbies />
+            <div className={cn("flex justify-center mt-8")}>
+              <Button
+                icon={<BsFillArrowRightCircleFill />}
+                isLight
+                label={"Contact Me"}
+                linkIsRoute
+                to="/contact"
+                tooltip="Get in touch"
+              />
+            </div>
           </div>
           <div className={cn("pb-16")} />
         </div>

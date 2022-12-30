@@ -1,12 +1,15 @@
 import cn from "@styles/cssUtils";
 
-const Tooltip: React.FC<{ text: string; tooltip: string }> = ({
-  text,
-  tooltip,
-}) => (
-  <span className={cn("tooltip")}>
+const Tooltip: React.FC<{
+  text: string;
+  tooltip: string;
+  isInverted?: boolean;
+}> = ({ text, tooltip, isInverted }) => (
+  <span className={cn("tooltip", { inverted: !!isInverted })}>
     {text}
-    <span className={cn("tooltip-text")}>{tooltip}</span>
+    <span className={cn("tooltip-text", { inverted: !!isInverted })}>
+      {tooltip}
+    </span>
   </span>
 );
 

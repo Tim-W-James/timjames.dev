@@ -13,7 +13,7 @@ import styles, { ClassNames } from "./NavbarLink.module.scss";
  */
 const NavbarLink: React.FC<{
   label: string;
-  to: string;
+  to?: string;
   order: 1 | 2 | 3 | 4 | 5;
   isSelected?: boolean;
   inHamburgerMenu?: boolean;
@@ -32,7 +32,7 @@ const NavbarLink: React.FC<{
         inHamburgerMenu ? styles[`_dropdownItem${order}`] : ""
       )}
       onMouseMove={(e) => setMouseHoverCssProperties(e, true, deviceIsTouch)}
-      to={route}
+      to={route || "/"}
       type="button"
     >
       {label}

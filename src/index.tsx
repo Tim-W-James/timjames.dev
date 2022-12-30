@@ -1,8 +1,10 @@
 import ScrollToTop from "@components/ScrollToTop";
-import { HOME } from "@constants/routes";
+import { CONTACT, HOME, PROJECTS } from "@constants/routes";
 import Page from "@layout/Page";
+import Contact from "@pages/Contact";
 import Home from "@pages/Home";
 import NotFound from "@pages/NotFound";
+import Projects from "@pages/Projects";
 import "@styles/main.scss";
 import App from "App";
 import { StrictMode } from "react";
@@ -18,16 +20,30 @@ createRoot(document.getElementById("root")!).render(
           {/* Alternate routes to the index */}
           {HOME.map((path, index) => (
             <Route
-              element={<Page content={<Home />} />}
+              element={<Page content={<Home />} nonStandardLayout />}
+              index
+              key={index}
+              path={path}
+            />
+          ))}
+          {PROJECTS.map((path, index) => (
+            <Route
+              element={<Page content={<Projects />} />}
+              index
+              key={index}
+              path={path}
+            />
+          ))}
+          {CONTACT.map((path, index) => (
+            <Route
+              element={<Page content={<Contact />} />}
               index
               key={index}
               path={path}
             />
           ))}
           <Route
-            element={
-              <Page content={<NotFound />} isStandardLayout title="Not Found" />
-            }
+            element={<Page content={<NotFound />} title="Not Found" />}
             path="*"
           />
         </Route>
