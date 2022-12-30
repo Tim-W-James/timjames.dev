@@ -43,6 +43,7 @@ export const SingleSelection: React.FC<{
   placeholder?: string;
   options: readonly Option[];
   selectedOption: Option;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   setSelectedOption: React.Dispatch<React.SetStateAction<any>>;
 }> = ({ selectedOption, setSelectedOption, options, placeholder }) => (
   <div className={cn("text-dark-shades scroll-dark z-10 mb-4 w-full")}>

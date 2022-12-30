@@ -88,7 +88,7 @@
 
   html {
     // Need scroll padding to offset the fixed header
-    @apply scroll-smooth scroll-pt-16;
+    @apply scroll-smooth scroll-light scroll-pt-16;
   }
 
   #root {
@@ -129,7 +129,6 @@
 
   * {
     box-sizing: border-box;
-    @apply scroll-light;
 
     // Override browser default focus styles
 
@@ -140,13 +139,6 @@
     &::selection {
       background-color: colors.$light-accent;
       color: colors.$dark-shades;
-    }
-  }
-
-  // Override imported component styles
-  #react-select-3-listbox {
-    * {
-      @apply scroll-dark;
     }
   }
 }

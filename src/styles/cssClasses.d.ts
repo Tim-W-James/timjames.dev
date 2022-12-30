@@ -4,6 +4,7 @@ export type ClassNames =
   | "-z-10"
   | "-z-\[1\]"
   | "-z-\[5\]"
+  | "\!scroll-dark"
   | "_acrylicButton"
   | "_circle"
   | "_dark"
