@@ -1,16 +1,26 @@
 import {
+  SiAdobepremierepro,
   SiAmazonaws,
+  SiArduino,
+  SiCsharp,
   SiCypress,
   SiDocker,
+  SiEclipsemosquitto,
   SiElastic,
   SiFigma,
   SiGithubactions,
   SiGo,
   SiGrafana,
   SiJenkins,
+  SiJupyter,
   SiKubernetes,
   SiLogstash,
   SiNetlify,
+  SiNginx,
+  SiOculus,
+  SiPostgresql,
+  SiPython,
+  SiRaspberrypi,
   SiReact,
   SiRedux,
   SiSass,
@@ -20,6 +30,7 @@ import {
   SiTailwindcss,
   SiTerraform,
   SiTypescript,
+  SiUnity,
 } from "react-icons/si";
 
 const technologies = {
@@ -141,6 +152,66 @@ const technologies = {
   "Fat Zebra": {
     icon: undefined,
     link: "https://www.fatzebra.com/",
+    isCore: false,
+  },
+  Oculus: {
+    icon: <SiOculus aria-label="Oculus" />,
+    link: "https://www.oculus.com/",
+    isCore: false,
+  },
+  Unity: {
+    icon: <SiUnity aria-label="Unity" />,
+    link: "https://unity.com/",
+    isCore: false,
+  },
+  CSharp: {
+    icon: <SiCsharp aria-label="CSharp" />,
+    link: "https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/",
+    isCore: false,
+  },
+  Premiere: {
+    icon: <SiAdobepremierepro aria-label="Premiere" />,
+    link: "https://www.adobe.com/au/products/premiere.html",
+    isCore: false,
+  },
+  Ada: {
+    icon: undefined,
+    link: "https://learn.adacore.com/courses/intro-to-ada/index.html",
+    isCore: false,
+  },
+  Python: {
+    icon: <SiPython aria-label="Python" />,
+    link: "https://www.python.org/",
+    isCore: false,
+  },
+  Jupyter: {
+    icon: <SiJupyter aria-label="Jupyter" />,
+    link: "https://jupyter.org/",
+    isCore: false,
+  },
+  SQL: {
+    icon: <SiPostgresql aria-label="SQL" />,
+    link: "https://www.postgresql.org/",
+    isCore: false,
+  },
+  MQTT: {
+    icon: <SiEclipsemosquitto aria-label="MQTT" />,
+    link: "https://mqtt.org/",
+    isCore: false,
+  },
+  NGINX: {
+    icon: <SiNginx aria-label="NGINX" />,
+    link: "https://www.nginx.com/",
+    isCore: false,
+  },
+  "Raspberry Pi": {
+    icon: <SiRaspberrypi aria-label="Raspberry Pi" />,
+    link: "https://www.raspberrypi.org/",
+    isCore: false,
+  },
+  Arduino: {
+    icon: <SiArduino aria-label="Arduino" />,
+    link: "https://www.arduino.cc/",
     isCore: false,
   },
 } as const satisfies Record<

@@ -93,18 +93,16 @@ const Title: React.FC<{ isOddIndex: boolean; data: TimelineItemData }> = ({
 
 const Thumbnail: React.FC<{
   data: TimelineItemData;
-  hasTwoColumns: boolean;
   isOddIndex: boolean;
-}> = ({ data: itemData, hasTwoColumns, isOddIndex }) =>
+}> = ({ data: itemData, isOddIndex }) =>
   itemData.thumbnailSrc ? (
     <img
       alt={itemData.title}
       className={
-        hasTwoColumns
-          ? isOddIndex
-            ? cn("mr-4", "w-1/3", "basis-content")
-            : cn("order-1", "ml-4", "w-1/3", "basis-content")
-          : cn("w-auto ml-auto mb-4")
+        "2xl:w-1/3 2xl:basis-content " +
+        (isOddIndex
+          ? "2xl:order-1 "
+          : "" + cn("max-2xl:w-auto max-2xl:ml-auto max-2xl:mb-4"))
       }
       src={itemData.thumbnailSrc}
     />
@@ -155,9 +153,7 @@ const LinksList: React.FC<{ data: TimelineItemData; isOddIndex: boolean }> = ({
       <div>
         {itemData.links.map((link, index) => (
           <span key={index}>
-            {index !== itemData.technologies?.length && index !== 0
-              ? " - "
-              : ""}
+            {index !== itemData.links?.length && index !== 0 ? " - " : ""}
             <a
               className={cn("link")}
               href={link.url}
@@ -225,12 +221,8 @@ const TimelineItem: React.FC<{
                 : ""}
             </time>
           </h4>
-          <div className={cn("md:flex items-center")}>
-            <Thumbnail
-              data={itemData}
-              hasTwoColumns={hasTwoColumns}
-              isOddIndex={isOddIndex}
-            />
+          <div className={"2xl:flex 2xl:gap-4 " + cn("items-center")}>
+            <Thumbnail data={itemData} isOddIndex={isOddIndex} />
             <p className={cn("hyphens-none")}>{itemData.body}</p>
           </div>
           <TechnologyList data={itemData} isOddIndex={isOddIndex} />
