@@ -196,12 +196,12 @@ const MajorProjects: React.FC = () => {
           "flex-col"
         )}
       >
-        <h2 className={cn("pt-8 mb-0")} id="timeline">
+        <h2 className={cn("pt-8 mb-0")} id="projects">
           Major Projects
           {!hasTwoColumns ? <hr className={cn("radial-border")} /> : null}
         </h2>
       </div>
-      <Timeline data={timelineData} filterFunc={(item) => !!item.starred} />
+      <Timeline data={timelineData} filterFunc={(item) => !!item.isFeatured} />
 
       <div className={cn("flex justify-center")}>
         <Button
@@ -299,7 +299,7 @@ const Skills: React.FC = () => (
       <hr className={cn("radial-border")} />
     </h2>
     <br />
-    <div className={cn("text-left")}>
+    <div className={cn("text-left text-xl")}>
       <Skill
         body={
           <>
@@ -459,7 +459,7 @@ const Home: React.FC = () => {
           )}
         >
           <Logo imageSrc={logo} />
-          <h1>
+          <h1 id="timjames">
             👋 Hello,
             <br />
             I&apos;m <b className={cn("text-light-accent")}>Tim James</b>

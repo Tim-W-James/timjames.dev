@@ -11,6 +11,7 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  layout: "fullscreen",
   backgrounds: {
     default: "dark",
     values: [

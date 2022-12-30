@@ -75,7 +75,7 @@ const timelineData: TimelineItemData[] = [
       "Netlify",
       "GitHub Actions",
     ],
-    starred: true,
+    isFeatured: true,
     links: [
       {
         text: "Source code",
@@ -102,8 +102,7 @@ const timelineData: TimelineItemData[] = [
       <>
         Online ordering and <Tooltip text="POS" tooltip="Point of Sale" /> app
         for a local burger franchise. I contributed to a feature upgrade,
-        improved the menu
-        {/* eslint-disable-next-line max-len */}
+        improved the menu {/* eslint-disable-next-line max-len */}
         <Tooltip text="UI" tooltip="User Interface" />, and configured a payment
         gateway. I also performed maintenance and{" "}
         {/* eslint-disable-next-line max-len */}
@@ -133,7 +132,7 @@ const timelineData: TimelineItemData[] = [
       "Jenkins",
       "Fat Zebra",
     ],
-    starred: true,
+    isFeatured: true,
     links: [
       {
         text: "Online ordering app",
@@ -189,7 +188,7 @@ const timelineData: TimelineItemData[] = [
       "Open Policy Agent",
       "ElasticSearch",
     ],
-    starred: true,
+    isFeatured: true,
     links: [
       {
         text: "TFA website",
@@ -228,7 +227,7 @@ const timelineData: TimelineItemData[] = [
       "Scala",
       "Jenkins",
     ],
-    starred: true,
+    isFeatured: true,
     links: [
       {
         text: "Source IP website",

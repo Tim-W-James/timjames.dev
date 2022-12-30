@@ -1,4 +1,5 @@
-import logo from "@assets/profile.jpg";
+import logo from "@assets/logo.png";
+import cn from "@styles/cssUtils";
 import LogoComponent from "./Logo";
 
 export default {
@@ -6,4 +7,8 @@ export default {
   component: LogoComponent,
 };
 
-export const Logo = () => <LogoComponent imageSrc={logo} />;
+export const Logo = () => (
+  <div className={cn("p-8")}>
+    <LogoComponent imageSrc={logo} />
+  </div>
+);

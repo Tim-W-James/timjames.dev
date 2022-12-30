@@ -55,6 +55,16 @@
   .hyphens-none {
     hyphens: none;
   }
+
+  .scroll-light {
+    scrollbar-color: colors.$light-shades
+      color.scale(colors.$dark-shades, $alpha: -30%);
+  }
+
+  .scroll-dark {
+    scrollbar-color: colors.$dark-shades
+      color.scale(colors.$light-shades, $alpha: -30%);
+  }
 }
 
 @layer base {
@@ -119,8 +129,7 @@
 
   * {
     box-sizing: border-box;
-    scrollbar-color: colors.$light-shades
-      color.scale(colors.$dark-shades, $alpha: -30%);
+    @apply scroll-light;
 
     // Override browser default focus styles
 
@@ -131,6 +140,13 @@
     &::selection {
       background-color: colors.$light-accent;
       color: colors.$dark-shades;
+    }
+  }
+
+  // Override imported component styles
+  #react-select-3-listbox {
+    * {
+      @apply scroll-dark;
     }
   }
 }

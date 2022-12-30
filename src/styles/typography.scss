@@ -52,11 +52,6 @@ $type-base-size: 1rem;
     @apply heading-4;
   }
 
-  p {
-    // Source: https://hugogiraudel.com/2020/05/18/using-calc-to-figure-out-optimal-line-height/
-    line-height: calc(2px + 2ex + 2px);
-  }
-
   code {
     @apply font-mono;
   }

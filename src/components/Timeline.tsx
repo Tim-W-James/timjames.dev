@@ -16,7 +16,7 @@ export type TimelineItemData = {
   thumbnailSrc?: string;
   category: keyof typeof categories;
   technologies?: (keyof typeof technologies)[];
-  starred?: boolean;
+  isFeatured?: boolean;
   links?: {
     text: string;
     url: string;
@@ -251,11 +251,27 @@ const Timeline: React.FC<{
 }> = ({
   data: timelineData,
   filterFunc = (value) => value,
-  sortFunc = (a, b) => b.endDate.getFullYear() - a.endDate.getFullYear(),
+  sortFunc = () => 0,
 }) => {
   const hasTwoColumns = !useMediaQuery("(max-width: 767px)");
+  const filteredTimelineData = timelineData
+    .filter(filterFunc)
+    .sort((a, b) => {
+      const endComparison = b.endDate.getTime() - a.endDate.getTime();
+      const startComparison = b.startDate.getTime() - a.startDate.getTime();
+      return endComparison !== 0 ? endComparison : startComparison;
+    })
+    .sort(sortFunc)
+    .map((itemData, index) => (
+      <TimelineItem
+        data={itemData}
+        hasTwoColumns={hasTwoColumns}
+        index={index}
+        key={index}
+      />
+    ));
 
-  return timelineData.length > 0 ? (
+  return filteredTimelineData.length > 0 ? (
     <>
       {hasTwoColumns ? <hr className={cn("radial-border border-2")} /> : null}
       <div
@@ -263,20 +279,15 @@ const Timeline: React.FC<{
           [styles._twoColumns]: hasTwoColumns,
         })}
       >
-        {timelineData
-          .filter(filterFunc)
-          .sort(sortFunc)
-          .map((itemData, index) => (
-            <TimelineItem
-              data={itemData}
-              hasTwoColumns={hasTwoColumns}
-              index={index}
-              key={index}
-            />
-          ))}
+        {filteredTimelineData}
       </div>
     </>
-  ) : null;
+  ) : (
+    <div className={cn("text-center mb-8 text-xl ")}>
+      <span className={cn("text-danger")}>No Projects Found</span> - Try a
+      different filter
+    </div>
+  );
 };
 
 export default Timeline;
