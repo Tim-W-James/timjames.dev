@@ -1,5 +1,5 @@
 import logo from "@assets/logo.png";
-import { BLOG, CONTACT, HOME, PROJECTS } from "@constants/routes";
+import { BLOG, HOME, PROJECTS } from "@constants/routes";
 import useMediaQuery from "@hooks/useMediaQuery";
 import cn, { cnScoped } from "@styles/cssUtils";
 import ClickAwayListener from "react-click-away-listener";
@@ -15,7 +15,7 @@ import NavbarLink from "./NavbarLink";
 const Navbar: React.FC = () => {
   const location = useLocation();
   const [hamburgerMenuIsOpen, openHamburgerMenu] = useState(false);
-  const shouldUseHamburgerMenu = useMediaQuery("(max-width: 1050px)");
+  const shouldUseHamburgerMenu = useMediaQuery("(max-width: 900px)");
 
   const navbarItems = (
     <>
@@ -39,13 +39,6 @@ const Navbar: React.FC = () => {
         label="Blog"
         order={3}
         to={BLOG[0]}
-      />
-      <NavbarLink
-        inHamburgerMenu={hamburgerMenuIsOpen}
-        isSelected={CONTACT.includes(location.pathname)}
-        label="Contact"
-        order={3}
-        to={CONTACT[0]}
       />
     </>
   );
