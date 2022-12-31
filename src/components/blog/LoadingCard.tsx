@@ -3,7 +3,7 @@ import cn from "@styles/cssUtils";
 const LoadingCard: React.FC = () => (
   <div
     className={cn(
-      "border p-4 w-96 mx-auto",
+      "border p-4 w-96",
       "border-dark-accent",
       "acrylic-light",
       "rounded-lg"

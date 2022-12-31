@@ -131,7 +131,7 @@ const Contact = () => {
             </div>
           </div>
         </div>
-        <div className={cn("flex gap-4 p-0", "flex-wrap")}>
+        <div className={cn("flex gap-4 p-0 justify-center", "flex-wrap")}>
           {recentArticles.loading
             ? [...Array(6).keys()].map((key) => <LoadingCard key={key} />)
             : recentArticles.articles
