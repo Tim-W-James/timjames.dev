@@ -13,7 +13,7 @@ const ParallaxMountains = () => {
       <div className={cnScoped<ClassNames>()(styles._gradientBackground)} />
       <div
         className={cn(
-          "fixed bg-dark -z-[5] w-screen left-0",
+          "fixed bg-dark-shades -z-[5] w-screen left-0",
           "top-3/4",
           "h-1/4"
         )}

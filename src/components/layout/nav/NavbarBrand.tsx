@@ -22,7 +22,7 @@ const NavbarBrand: React.FC<{
   >
     <img
       alt={"brand"}
-      className={cn("inline-block rounded-full h-8 align-bottom")}
+      className={cn("inline-block", "rounded-full", "h-8 align-bottom")}
       src={logo}
     />{" "}
     {label}

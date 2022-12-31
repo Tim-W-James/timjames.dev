@@ -13,7 +13,7 @@
   }
 
   .solid-background {
-    @apply w-screen h-auto bg-dark;
+    @apply w-screen h-auto bg-dark-shades;
   }
 
   .acrylic-dark {
@@ -36,12 +36,24 @@
 @layer utilities {
   @include typography.utilities;
 
-  .bg-dark {
+  .bg-dark-shades {
     background-color: colors.$dark-shades;
+  }
+
+  .bg-light-shades {
+    background-color: colors.$light-shades;
+  }
+
+  .bg-main-brand {
+    background-color: colors.$main-brand;
   }
 
   .border-main-brand {
     border-color: colors.$main-brand;
+  }
+
+  .border-light-accent {
+    border-color: colors.$light-accent;
   }
 
   .border-dark-accent {
@@ -72,7 +84,7 @@
 
   body {
     @apply font-sans subpixel-antialiased m-0 text-light-shades scroll-smooth;
-    @apply bg-dark bg-fixed bg-top bg-no-repeat overflow-x-hidden;
+    @apply bg-dark-shades bg-fixed bg-top bg-no-repeat overflow-x-hidden;
 
     background-image: url("@assets/bg-aurora.jpg");
     font-display: optional;

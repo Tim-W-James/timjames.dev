@@ -1,4 +1,5 @@
 import ScrollToTop from "@components/ScrollToTop";
+import BlogArticle from "@components/blog/BlogArticle";
 import { BLOG, CONTACT, HOME, PROJECTS } from "@constants/routes";
 import Page from "@layout/Page";
 import Blog from "@pages/Blog";
@@ -41,6 +42,20 @@ createRoot(document.getElementById("root")!).render(
               index
               key={index}
               path={path}
+            />
+          ))}
+          {BLOG.map((path, index) => (
+            <Route
+              element={
+                <Page
+                  content={<BlogArticle />}
+                  nonStandardLayout
+                  title="Blog"
+                />
+              }
+              index
+              key={index}
+              path={`${path}/:slug`}
             />
           ))}
           {CONTACT.map((path, index) => (

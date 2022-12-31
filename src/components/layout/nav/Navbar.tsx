@@ -35,7 +35,7 @@ const Navbar: React.FC = () => {
       />
       <NavbarLink
         inHamburgerMenu={hamburgerMenuIsOpen}
-        isSelected={BLOG.includes(location.pathname)}
+        isSelected={BLOG.some((route) => location.pathname.startsWith(route))}
         label="Blog"
         order={3}
         to={BLOG[0]}

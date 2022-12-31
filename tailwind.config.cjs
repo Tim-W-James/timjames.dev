@@ -2,7 +2,7 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
-  important: "#root",
+  plugins: [require("@tailwindcss/typography")],
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
     extend: {
@@ -13,6 +13,12 @@ module.exports = {
       maxWidth: {
         "1/3": "33%",
         "2/3": "66%",
+      },
+      minWidth: {
+        "1/10": "10%",
+      },
+      lineHeight: {
+        0: "0",
       },
       flexBasis: {
         content: "content",

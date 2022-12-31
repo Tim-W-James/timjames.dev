@@ -25,6 +25,7 @@ const button: React.FC<{
   mode?: "route" | "anchor" | "button";
   isLight?: boolean;
   isLabelHidden?: boolean;
+  iconRight?: boolean;
   onClick?: () => void;
 }> = ({
   to: link,
@@ -34,6 +35,7 @@ const button: React.FC<{
   mode,
   isLight,
   isLabelHidden,
+  iconRight,
   onClick,
 }) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -47,9 +49,18 @@ const button: React.FC<{
   );
 
   const inner = (
-    <span className={cn("flex items-center")}>
-      {!isLabelHidden ? (icon && label ? `${label}\u00A0` : label) : null}
-      {icon}
+    <span className={cn("flex gap-2 items-center")}>
+      {iconRight ? (
+        <>
+          {!isLabelHidden ? label : null}
+          {icon}
+        </>
+      ) : (
+        <>
+          {icon}
+          {!isLabelHidden ? label : null}
+        </>
+      )}
     </span>
   );
 

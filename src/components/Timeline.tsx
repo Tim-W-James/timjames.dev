@@ -121,7 +121,7 @@ const TechnologyList: React.FC<{
           <span key={index}>
             {" "}
             <a
-              className={cn("inline-flex items-center")}
+              className={cn("inline-flex", "items-center")}
               href={technologies[technology].link}
               rel="noreferrer"
               target="_blank"
@@ -276,7 +276,9 @@ const Timeline: React.FC<{
 
   return filteredTimelineData.length > 0 ? (
     <>
-      {hasTwoColumns ? <hr className={cn("radial-border border-2")} /> : null}
+      {hasTwoColumns ? (
+        <hr className={cn("radial-border", "border-2")} />
+      ) : null}
       <div
         className={cnScoped<ClassNames>()(styles._timelineContainer, {
           [styles._twoColumns]: hasTwoColumns,

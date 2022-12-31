@@ -14,10 +14,6 @@
     );
   }
 
-  &:focus {
-    @include mixins.acrylic(var(--mouse-deg, 90deg));
-  }
-
   &:active {
     border: colors.$light-accent 1px solid;
     color: colors.$light-shades;

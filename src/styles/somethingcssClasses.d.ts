@@ -12,7 +12,7 @@ export type ClassNames =
   | "acrylic-light"
   | "align-bottom"
   | "aspect-square"
-  | "bg-dark"
+  | "bg-dark-shades"
   | "block"
   | "border-2"
   | "border-main-brand"

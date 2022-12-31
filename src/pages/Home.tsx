@@ -3,8 +3,11 @@ import Button from "@components/Button";
 import Logo from "@components/Logo";
 import Timeline from "@components/Timeline";
 import Tooltip from "@components/Tooltip";
+import Card from "@components/blog/Card";
+import LoadingCard from "@components/blog/LoadingCard";
 import technologies from "@constants/technologies";
 import timelineData from "@constants/timelineData";
+import useDevdottoArticlesMeta from "@hooks/useDevdottoArticlesMeta";
 import useMediaQuery from "@hooks/useMediaQuery";
 import ParallaxMountains from "@layout/background/ParallaxMountains";
 import cn from "@styles/cssUtils";
@@ -84,7 +87,7 @@ const CoreTechnologies: React.FC = () => (
         .filter((technology) => technology[1].isCore)
         .map((technology, index) => (
           <a
-            className={cn("inline-flex items-center")}
+            className={cn("inline-flex", "items-center")}
             href={technology[1].link}
             key={index}
             rel="noreferrer"
@@ -108,7 +111,7 @@ const AboutMe: React.FC = () => (
   <div
     className={cn(
       // eslint-disable-next-line sonarjs/no-duplicate-string
-      "flex mx-auto items-center place-content-center px-8",
+      "flex mx-auto items-center place-content-center px-8 mb-8",
       "flex-col"
     )}
   >
@@ -214,10 +217,10 @@ const MajorProjects: React.FC = () => {
           data={timelineData}
           filterFunc={(item) => !!item.isFeatured}
         />
-
         <div className={cn("flex justify-center")}>
           <Button
             icon={<BsFillArrowRightCircleFill />}
+            iconRight
             isLight
             label={"More Projects"}
             mode="route"
@@ -299,7 +302,13 @@ const Skill: React.FC<{
   body: JSX.Element;
 }> = ({ heading, icon, body }) => (
   <div className={cn("mb-4")}>
-    <h3 className={cn("mb-0 text-light-accent inline-flex items-center gap-1")}>
+    <h3
+      className={cn(
+        "mb-0 text-light-accent",
+        "inline-flex",
+        "items-center gap-1"
+      )}
+    >
       {icon}
       {heading}
     </h3>
@@ -460,8 +469,42 @@ const Skills: React.FC = () => (
   </div>
 );
 
+const LatestBlogPost: React.FC = () => {
+  const latestArticle = useDevdottoArticlesMeta(2);
+
+  return (
+    <div>
+      <h2 className={cn("self-center mb-4")} id="blog">
+        Latest Blog Posts
+        <hr className={cn("radial-border")} />
+      </h2>
+      <section>
+        <div className={cn("flex gap-4 p-0 justify-center", "flex-wrap")}>
+          {latestArticle.loading
+            ? [...Array(2).keys()].map((key) => <LoadingCard key={key} />)
+            : latestArticle.articles.map((articleMeta, index) => (
+                <Card article={articleMeta} key={index} />
+              ))}
+        </div>
+        <div className={cn("flex justify-center mt-8")}>
+          <Button
+            icon={<BsFillArrowRightCircleFill />}
+            iconRight
+            isLight
+            label={"More Articles"}
+            mode="route"
+            to="/blog"
+            tooltip="View more articles"
+          />
+        </div>
+      </section>
+    </div>
+  );
+};
+
 const Home: React.FC = () => {
   const shouldShrinkButtons = useMediaQuery("(max-width: 600px)");
+
   return (
     <ParallaxProvider>
       <div className={cn("text-center")}>
@@ -486,12 +529,14 @@ const Home: React.FC = () => {
         <div className={cn("solid-background")}>
           <div className={cn("pt-8 mx-auto container")}>
             <AboutMe />
+            <LatestBlogPost />
             <MajorProjects />
             <Skills />
             <Hobbies />
             <div className={cn("flex justify-center mt-8")}>
               <Button
                 icon={<BsFillArrowRightCircleFill />}
+                iconRight
                 isLight
                 label={"Contact Me"}
                 mode="route"
