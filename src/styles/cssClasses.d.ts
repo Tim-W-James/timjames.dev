@@ -163,6 +163,7 @@ export type ClassNames =
   | "w-1"
   | "w-1\/3"
   | "w-auto"
+  | "w-fit"
   | "w-full"
   | "w-screen"
   | "whitespace-nowrap"

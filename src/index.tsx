@@ -1,6 +1,7 @@
 import ScrollToTop from "@components/ScrollToTop";
-import { CONTACT, HOME, PROJECTS } from "@constants/routes";
+import { BLOG, CONTACT, HOME, PROJECTS } from "@constants/routes";
 import Page from "@layout/Page";
+import Blog from "@pages/Blog";
 import Contact from "@pages/Contact";
 import Home from "@pages/Home";
 import NotFound from "@pages/NotFound";
@@ -28,7 +29,15 @@ createRoot(document.getElementById("root")!).render(
           ))}
           {PROJECTS.map((path, index) => (
             <Route
-              element={<Page content={<Projects />} />}
+              element={<Page content={<Projects />} title="Projects" />}
+              index
+              key={index}
+              path={path}
+            />
+          ))}
+          {BLOG.map((path, index) => (
+            <Route
+              element={<Page content={<Blog />} title="Blog" />}
               index
               key={index}
               path={path}
@@ -36,7 +45,7 @@ createRoot(document.getElementById("root")!).render(
           ))}
           {CONTACT.map((path, index) => (
             <Route
-              element={<Page content={<Contact />} />}
+              element={<Page content={<Contact />} title="Contact" />}
               index
               key={index}
               path={path}

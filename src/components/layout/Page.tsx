@@ -22,7 +22,20 @@ const Page: React.FC<{
     <>
       {" "}
       <div className={cn("fixed bg-dark w-screen h-screen -z-10")} />
-      <div className={cn("my-10 mx-auto pt-10 px-8 container")}>{content}</div>
+      <div className={cn("my-10 mx-auto pt-10 px-8 container")}>
+        <header
+          className={cn(
+            "flex mx-auto items-center place-content-center px-8",
+            "flex-col"
+          )}
+        >
+          <h1 className={cn("text-light-accent font-bold")} id={title}>
+            {title}
+            <hr className={cn("radial-border")} />
+          </h1>
+        </header>
+        {content}
+      </div>
     </>
   );
 };

@@ -1018,9 +1018,20 @@ const timelineData: TimelineItemData[] = [
     technologies: ["Vectorworks"],
   },
   {
+    startDate: new Date("2017"),
+    endDate: new Date("2017"),
+    title: "3D Platformer Game",
+    body: (
+      <>A third-person 3D platformer game featuring power-ups and vehicles.</>
+    ),
+    category: "Canberra College",
+    isFeatured: false,
+    technologies: ["Unreal"],
+  },
+  {
     startDate: new Date("2016"),
     endDate: new Date("2016"),
-    title: "Keyboard CAD Model",
+    title: "Logo Design",
     body: <>Graphic design for a seafood restaurant.</>,
     category: "Canberra College",
     isFeatured: false,

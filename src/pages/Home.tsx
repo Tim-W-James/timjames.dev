@@ -73,7 +73,7 @@ const CoreTechnologies: React.FC = () => (
       <hr className={cn("radial-border")} />
     </h2>
     <br />
-    <div
+    <section
       className={cn(
         "flex gap-4 text-xl items-center place-content-center",
         "flex-row",
@@ -100,7 +100,7 @@ const CoreTechnologies: React.FC = () => (
             {technology[0]}
           </a>
         ))}
-    </div>
+    </section>
   </div>
 );
 
@@ -117,78 +117,80 @@ const AboutMe: React.FC = () => (
       <hr className={cn("radial-border")} />
     </h2>
     <br />
-    <ul className={cn("list-disc text-xl text-left")}>
-      <li>
-        💼 <b className={cn("font-bold")}>Software Engineer</b> at{" "}
-        <a
-          className={cn("link")}
-          href="https://github.com/agiledigital"
-          rel="noreferrer"
-          target="_blank"
-          title={"Agile Digital Website"}
-        >
-          Agile Digital
-        </a>{" "}
-        since 2021
-      </li>
-      <li>
-        🎓{" "}
-        <b className={cn("font-bold")}>Bachelor of Information Technology </b>
-        at the{" "}
-        <a
-          className={cn("link")}
-          href="https://www.anu.edu.au/"
-          rel="noreferrer"
-          target="_blank"
-          title={"ANU"}
-        >
-          Australian National University
-        </a>{" "}
-        {/* eslint-disable-next-line max-len */}
-        with a <Tooltip
-          isInverted
-          text="GPA"
-          tooltip="Grade Point Average"
-        />{" "}
-        of 6.3/7
-      </li>
-      <li>
-        📄 View my certifications on{" "}
-        <a
-          className={cn("link")}
-          href="https://www.credly.com/users/timjames/badges"
-          rel="noreferrer"
-          target="_blank"
-          title={"Certifications"}
-        >
-          Credly
-        </a>
-      </li>
-      <li>
-        🗺️ Located in{" "}
-        <a
-          className={cn("link")}
-          href="https://www.google.com.au/maps/place/Canberra+ACT"
-          rel="noreferrer"
-          target="_blank"
-          title={"Location"}
-        >
-          Canberra, Australia
-        </a>
-      </li>
-      <li>
-        📫 How to reach me:{" "}
-        <a
-          className={cn("link")}
-          href="mailto:tim.james.work9800@gmail.com"
-          rel="noreferrer"
-          target="_blank"
-          title={"tim.james.work9800@gmail.com"}
-        >
-          tim.james.work9800@gmail.com
-        </a>
-      </li>
-    </ul>
+    <section>
+      <ul className={cn("list-disc text-xl text-left")}>
+        <li>
+          💼 <b className={cn("font-bold")}>Software Engineer</b> at{" "}
+          <a
+            className={cn("link")}
+            href="https://github.com/agiledigital"
+            rel="noreferrer"
+            target="_blank"
+            title={"Agile Digital Website"}
+          >
+            Agile Digital
+          </a>{" "}
+          since 2021
+        </li>
+        <li>
+          🎓{" "}
+          <b className={cn("font-bold")}>Bachelor of Information Technology </b>
+          at the{" "}
+          <a
+            className={cn("link")}
+            href="https://www.anu.edu.au/"
+            rel="noreferrer"
+            target="_blank"
+            title={"ANU"}
+          >
+            Australian National University
+          </a>{" "}
+          {/* eslint-disable-next-line max-len */}
+          with a <Tooltip
+            isInverted
+            text="GPA"
+            tooltip="Grade Point Average"
+          />{" "}
+          of 6.3/7
+        </li>
+        <li>
+          📄 View my certifications on{" "}
+          <a
+            className={cn("link")}
+            href="https://www.credly.com/users/timjames/badges"
+            rel="noreferrer"
+            target="_blank"
+            title={"Certifications"}
+          >
+            Credly
+          </a>
+        </li>
+        <li>
+          🗺️ Located in{" "}
+          <a
+            className={cn("link")}
+            href="https://www.google.com.au/maps/place/Canberra+ACT"
+            rel="noreferrer"
+            target="_blank"
+            title={"Location"}
+          >
+            Canberra, Australia
+          </a>
+        </li>
+        <li>
+          📫 How to reach me:{" "}
+          <a
+            className={cn("link")}
+            href="mailto:tim.james.work9800@gmail.com"
+            rel="noreferrer"
+            target="_blank"
+            title={"tim.james.work9800@gmail.com"}
+          >
+            tim.james.work9800@gmail.com
+          </a>
+        </li>
+      </ul>
+    </section>
   </div>
 );
 
@@ -207,18 +209,23 @@ const MajorProjects: React.FC = () => {
           {!hasTwoColumns ? <hr className={cn("radial-border")} /> : null}
         </h2>
       </div>
-      <Timeline data={timelineData} filterFunc={(item) => !!item.isFeatured} />
-
-      <div className={cn("flex justify-center")}>
-        <Button
-          icon={<BsFillArrowRightCircleFill />}
-          isLight
-          label={"More Projects"}
-          mode="route"
-          to="/projects"
-          tooltip="View more projects"
+      <section>
+        <Timeline
+          data={timelineData}
+          filterFunc={(item) => !!item.isFeatured}
         />
-      </div>
+
+        <div className={cn("flex justify-center")}>
+          <Button
+            icon={<BsFillArrowRightCircleFill />}
+            isLight
+            label={"More Projects"}
+            mode="route"
+            to="/projects"
+            tooltip="View more projects"
+          />
+        </div>
+      </section>
     </div>
   );
 };
@@ -235,52 +242,54 @@ const Hobbies: React.FC = () => (
       <hr className={cn("radial-border")} />
     </h2>
     <br />
-    <ul className={cn("list-disc text-xl text-left")}>
-      <li>
-        ✨ <b className={cn("font-bold")}>Interests</b>: Hiking, Astronomy,
-        Creative Writing, Philosophy, Guitar, Board Games
-      </li>
-      <li>
-        🎮 <b className={cn("font-bold")}>Video Games</b>: Hollow Knight,
-        Monster Hunter, Subnautica - Find me on{" "}
-        <a
-          className={cn("link")}
-          href="https://steamcommunity.com/id/ExplosiveFridge"
-          rel="noreferrer"
-          target="_blank"
-          title={"ExplosiveFridge"}
-        >
-          Steam
-        </a>
-      </li>
-      <li>
-        🎥 <b className={cn("font-bold")}>Movies</b>: Bladerunner 2049, Mad Max:
-        Fury Road, What We Do in the Shadows
-      </li>
-      <li>
-        📺 <b className={cn("font-bold")}>TV Shows</b>: The Expanse, Breaking
-        Bad, Game of Thrones
-      </li>
-      <li>
-        📚 <b className={cn("font-bold")}>Books</b>: Dune
-      </li>
-      <li>
-        {/* eslint-disable-next-line max-len */}
-        🎵 <b className={cn("font-bold")}>Music</b>: Tame Impala - Find me on{" "}
-        <a
-          className={cn("link")}
-          href="https://open.spotify.com/user/22xzbbohotkdpq5wfipvefk4y"
-          rel="noreferrer"
-          target="_blank"
-          title={"TimJ"}
-        >
-          Spotify
-        </a>
-      </li>
-      <li>
-        🐈 <b className={cn("font-bold")}>Pets</b>: I have a cat called Max
-      </li>
-    </ul>
+    <section>
+      <ul className={cn("list-disc text-xl text-left")}>
+        <li>
+          ✨ <b className={cn("font-bold")}>Interests</b>: Hiking, Astronomy,
+          Creative Writing, Philosophy, Guitar, Board Games
+        </li>
+        <li>
+          🎮 <b className={cn("font-bold")}>Video Games</b>: Hollow Knight,
+          Monster Hunter, Subnautica - Find me on{" "}
+          <a
+            className={cn("link")}
+            href="https://steamcommunity.com/id/ExplosiveFridge"
+            rel="noreferrer"
+            target="_blank"
+            title={"ExplosiveFridge"}
+          >
+            Steam
+          </a>
+        </li>
+        <li>
+          🎥 <b className={cn("font-bold")}>Movies</b>: Bladerunner 2049, Mad
+          Max: Fury Road, What We Do in the Shadows
+        </li>
+        <li>
+          📺 <b className={cn("font-bold")}>TV Shows</b>: The Expanse, Breaking
+          Bad, Game of Thrones
+        </li>
+        <li>
+          📚 <b className={cn("font-bold")}>Books</b>: Dune
+        </li>
+        <li>
+          {/* eslint-disable-next-line max-len */}
+          🎵 <b className={cn("font-bold")}>Music</b>: Tame Impala - Find me on{" "}
+          <a
+            className={cn("link")}
+            href="https://open.spotify.com/user/22xzbbohotkdpq5wfipvefk4y"
+            rel="noreferrer"
+            target="_blank"
+            title={"TimJ"}
+          >
+            Spotify
+          </a>
+        </li>
+        <li>
+          🐈 <b className={cn("font-bold")}>Pets</b>: I have a cat called Max
+        </li>
+      </ul>
+    </section>
   </div>
 );
 
@@ -305,7 +314,7 @@ const Skills: React.FC = () => (
       <hr className={cn("radial-border")} />
     </h2>
     <br />
-    <div className={cn("text-left text-xl")}>
+    <section className={cn("text-left text-xl")}>
       <Skill
         body={
           <>
@@ -447,7 +456,7 @@ const Skills: React.FC = () => (
         heading={<>Code Quality</>}
         icon={<BsFillFileEarmarkCodeFill />}
       />
-    </div>
+    </section>
   </div>
 );
 

@@ -107,24 +107,12 @@ const Projects: React.FC = () => {
 
   return (
     <div>
-      <div
-        className={cn(
-          "flex mx-auto items-center place-content-center px-8",
-          "flex-col"
-        )}
-      >
-        <h1 className={cn("text-light-accent font-bold")} id="projects">
-          Projects
-          <hr className={cn("radial-border")} />
-        </h1>
-      </div>
       <div className={cn("flex justify-center mb-8")}>
         <Button
           icon={<BsGithub />}
           isLight
           label={"GitHub"}
-          mode="route"
-          to="/projects"
+          to="https://github.com/Tim-W-James"
           tooltip="Find more projects on GitHub"
         />
       </div>
@@ -160,7 +148,7 @@ const Projects: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className={cn("mb-8")}>
+      <section className={cn("mb-8")}>
         <Timeline
           data={timelineData}
           filterFunc={(item) => {
@@ -194,7 +182,7 @@ const Projects: React.FC = () => {
             tooltip="Back to top"
           />
         </div>
-      </div>
+      </section>
     </div>
   );
 };

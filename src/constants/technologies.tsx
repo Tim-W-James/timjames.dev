@@ -42,6 +42,7 @@ import {
   SiTerraform,
   SiTypescript,
   SiUnity,
+  SiUnrealengine,
   SiVectorworks,
   SiVite,
 } from "react-icons/si";
@@ -295,6 +296,11 @@ const technologies = {
   AdobeXD: {
     icon: <SiAdobexd aria-label="Adobe XD" />,
     link: "https://www.adobe.com/products/xd/learn/get-started/what-is-adobe-xd-used-for.html",
+    isCore: false,
+  },
+  Unreal: {
+    icon: <SiUnrealengine aria-label="Unreal" />,
+    link: "https://www.unrealengine.com/",
     isCore: false,
   },
 } as const satisfies Record<
