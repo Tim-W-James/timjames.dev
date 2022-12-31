@@ -1,16 +1,25 @@
 import {
   SiAdobepremierepro,
+  SiAdobexd,
   SiAmazonaws,
+  SiAndroid,
   SiArduino,
+  SiBootstrap,
   SiCsharp,
+  SiCss3,
   SiCypress,
   SiDocker,
   SiEclipsemosquitto,
   SiElastic,
   SiFigma,
+  SiFirebase,
   SiGithubactions,
   SiGo,
   SiGrafana,
+  SiHaskell,
+  SiHtml5,
+  SiJava,
+  SiJavascript,
   SiJenkins,
   SiJupyter,
   SiKubernetes,
@@ -18,6 +27,8 @@ import {
   SiNetlify,
   SiNginx,
   SiOculus,
+  SiP5Dotjs,
+  SiPhp,
   SiPostgresql,
   SiPython,
   SiRaspberrypi,
@@ -31,6 +42,8 @@ import {
   SiTerraform,
   SiTypescript,
   SiUnity,
+  SiVectorworks,
+  SiVite,
 } from "react-icons/si";
 
 const technologies = {
@@ -212,6 +225,76 @@ const technologies = {
   Arduino: {
     icon: <SiArduino aria-label="Arduino" />,
     link: "https://www.arduino.cc/",
+    isCore: false,
+  },
+  Vite: {
+    icon: <SiVite aria-label="Vite" />,
+    link: "https://vitejs.dev/",
+    isCore: false,
+  },
+  JavaScript: {
+    icon: <SiJavascript aria-label="JavaScript" />,
+    link: "https://www.javascript.com/",
+    isCore: false,
+  },
+  HTML: {
+    icon: <SiHtml5 aria-label="HTML" />,
+    link: "https://developer.mozilla.org/en-US/docs/Glossary/HTML5",
+    isCore: false,
+  },
+  CSS: {
+    icon: <SiCss3 aria-label="CSS" />,
+    link: "https://developer.mozilla.org/en-US/docs/Web/CSS",
+    isCore: false,
+  },
+  Bootstrap: {
+    icon: <SiBootstrap aria-label="Bootstrap" />,
+    link: "https://getbootstrap.com/",
+    isCore: false,
+  },
+  PHP: {
+    icon: <SiPhp aria-label="PHP" />,
+    link: "https://www.php.net/",
+    isCore: false,
+  },
+  Java: {
+    icon: <SiJava aria-label="Java" />,
+    link: "https://www.java.com/en/",
+    isCore: false,
+  },
+  Android: {
+    icon: <SiAndroid aria-label="Android" />,
+    link: "https://www.android.com/intl/en_au/",
+    isCore: false,
+  },
+  Firebase: {
+    icon: <SiFirebase aria-label="Firebase" />,
+    link: "https://firebase.google.com/",
+    isCore: false,
+  },
+  ARMv7: {
+    icon: undefined,
+    link: "https://developer.arm.com/documentation/ddi0406/latest",
+    isCore: false,
+  },
+  p5js: {
+    icon: <SiP5Dotjs aria-label="p5js" />,
+    link: "https://p5js.org/",
+    isCore: false,
+  },
+  Haskell: {
+    icon: <SiHaskell aria-label="Haskell" />,
+    link: "https://www.haskell.org/",
+    isCore: false,
+  },
+  Vectorworks: {
+    icon: <SiVectorworks aria-label="Vectorworks" />,
+    link: "https://www.vectorworks.net/",
+    isCore: false,
+  },
+  AdobeXD: {
+    icon: <SiAdobexd aria-label="Adobe XD" />,
+    link: "https://www.adobe.com/products/xd/learn/get-started/what-is-adobe-xd-used-for.html",
     isCore: false,
   },
 } as const satisfies Record<

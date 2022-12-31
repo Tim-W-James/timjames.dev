@@ -144,7 +144,13 @@ const AboutMe: React.FC = () => (
         >
           Australian National University
         </a>{" "}
-        with a GPA of 6.3/7
+        {/* eslint-disable-next-line max-len */}
+        with a <Tooltip
+          isInverted
+          text="GPA"
+          tooltip="Grade Point Average"
+        />{" "}
+        of 6.3/7
       </li>
       <li>
         📄 View my certifications on{" "}
@@ -392,8 +398,7 @@ const Skills: React.FC = () => (
               className={cn("link")}
               rel="noreferrer"
               title={"View project details"}
-              // TODO
-              to={"/"}
+              to={"/projects/#Siding Spring Observatory VR Experience"}
             >
               ANU TechLauncher project
             </HashLink>

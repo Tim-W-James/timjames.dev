@@ -65,9 +65,9 @@ const sortByCategoryAlphabetical = (a: TimelineItemData, b: TimelineItemData) =>
 
 const sortByTechnologiesCount = (a: TimelineItemData, b: TimelineItemData) =>
   a.technologies && !b.technologies
-    ? 1
-    : b.technologies && !a.technologies
     ? -1
+    : b.technologies && !a.technologies
+    ? 1
     : a.technologies && b.technologies
     ? b.technologies.length - a.technologies.length
     : 0;
