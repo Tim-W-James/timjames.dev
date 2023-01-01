@@ -36,7 +36,7 @@ const SocialLinks: React.FC<{ shouldShrinkButtons: boolean }> = ({
     )}
   >
     <Button
-      icon={<BsLinkedin />}
+      icon={<BsLinkedin className={cn({ "text-4xl": shouldShrinkButtons })} />}
       isLabelHidden={shouldShrinkButtons}
       isLight
       label={"Linkedin"}
@@ -44,7 +44,7 @@ const SocialLinks: React.FC<{ shouldShrinkButtons: boolean }> = ({
       tooltip="Find me on Linkedin"
     />
     <Button
-      icon={<BsGithub />}
+      icon={<BsGithub className={cn({ "text-4xl": shouldShrinkButtons })} />}
       isLabelHidden={shouldShrinkButtons}
       isLight
       label={"GitHub"}
@@ -52,7 +52,7 @@ const SocialLinks: React.FC<{ shouldShrinkButtons: boolean }> = ({
       tooltip="Find my projects on GitHub"
     />
     <Button
-      icon={<BsTwitter />}
+      icon={<BsTwitter className={cn({ "text-4xl": shouldShrinkButtons })} />}
       isLabelHidden={shouldShrinkButtons}
       isLight
       label={"Twitter"}
@@ -478,7 +478,7 @@ const LatestBlogPost: React.FC = () => {
         <hr className={cn("radial-border")} />
       </h2>
       <section>
-        <div className={cn("flex gap-4 p-0 justify-center", "flex-wrap")}>
+        <div className={cn("flex gap-4 p-0 mx-2 justify-center", "flex-wrap")}>
           {latestArticle.loading
             ? [...Array(2).keys()].map((key) => <LoadingCard key={key} />)
             : latestArticle.articles.map((articleMeta, index) => (
@@ -502,7 +502,7 @@ const LatestBlogPost: React.FC = () => {
 };
 
 const Home: React.FC = () => {
-  const shouldShrinkButtons = useMediaQuery("(max-width: 600px)");
+  const shouldShrinkButtons = useMediaQuery("(max-width: 670px)");
 
   return (
     <ParallaxProvider>

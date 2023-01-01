@@ -52,8 +52,9 @@
       color.scale(colors.$light-shades, $alpha: -30%);
   }
 
-  .z-top {
-    z-index: 99999;
+  .captcha-show {
+    /* stylelint-disable-next-line declaration-no-important */
+    z-index: 99999 !important;
   }
 }
 
@@ -136,4 +137,9 @@
   input[type="text"]:focus {
     box-shadow: none;
   }
+}
+
+// Hide reCAPTCHA badge by default
+.grecaptcha-badge {
+  z-index: -99999;
 }

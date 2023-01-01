@@ -27,8 +27,8 @@ const Page: React.FC<{
     const badge = document.querySelector(".grecaptcha-badge");
     badge &&
       (title === "Contact"
-        ? badge.classList.add("z-top")
-        : badge.classList.remove("z-top"));
+        ? badge.classList.add("captcha-show")
+        : badge.classList.remove("captcha-show"));
   }, [title]);
 
   return nonStandardLayout ? (

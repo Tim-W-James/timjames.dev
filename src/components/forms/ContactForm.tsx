@@ -64,22 +64,28 @@ const formStateDisplay = (
   responseState?: "success" | "error" | "pending"
 ): { message: string; icon: JSX.Element } =>
   !formState.isValid
-    ? { message: "Please complete the Form", icon: <MdInfo /> }
+    ? {
+        message: "Please complete the Form",
+        icon: <MdInfo className={cn("text-4xl")} />,
+      }
     : formState.isSubmitting ||
       (formState.isSubmitSuccessful && responseState === "pending")
     ? {
         message: "Submitting...",
         icon: (
           <span className={cn("inline-block", "leading-0", "animate-spin")}>
-            <CgSpinner />
+            <CgSpinner className={cn("text-4xl")} />
           </span>
         ),
       }
     : formState.isSubmitSuccessful
     ? responseState === "success"
-      ? { message: "Sent!", icon: <MdCheckCircle /> }
-      : { message: "Error", icon: <MdError /> }
-    : { message: "Submit your Message", icon: <MdSend /> };
+      ? { message: "Sent!", icon: <MdCheckCircle className={cn("text-4xl")} /> }
+      : { message: "Error", icon: <MdError className={cn("text-4xl")} /> }
+    : {
+        message: "Submit your Message",
+        icon: <MdSend className={cn("text-4xl")} />,
+      };
 
 // eslint-disable-next-line sonarjs/cognitive-complexity
 const ContactForm: React.FC = () => {
@@ -118,7 +124,7 @@ const ContactForm: React.FC = () => {
   // Ensure reCAPTCHA badge appears on top
   useEffect(() => {
     const badge = document.querySelector(".grecaptcha-badge");
-    badge && badge.classList.add("z-top");
+    badge && badge.classList.add("captcha-show");
   }, [handleReCaptchaVerify]);
 
   const onSubmit = (data: Schema) => {
