@@ -87,6 +87,7 @@ const ContactForm: React.FC = () => {
   const [isResponseSuccess, setIsResponseSuccess] = useState<
     "success" | "error" | "pending"
   >("pending");
+  const [honeypot, setHoneypot] = useState<string | undefined>(undefined);
 
   const {
     register,
@@ -103,7 +104,7 @@ const ContactForm: React.FC = () => {
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...data }),
+      body: encode({ "form-name": "contact", ...data, "bot-field": honeypot }),
     })
       .then(async (response) => {
         if (response.status !== 200) {
@@ -127,7 +128,25 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <form method="post" name="contact" onSubmit={handleSubmit(onSubmit)}>
+    <form
+      data-netlify="true"
+      method="post"
+      name="contact"
+      // eslint-disable-next-line react/no-unknown-property
+      netlify-honeypot="bot-field"
+      onSubmit={handleSubmit(onSubmit)}
+    >
+      {/* Honeypot field for bots */}
+      {/* https://docs.netlify.com/forms/spam-filters/ */}
+      <fieldset className="hidden">
+        <label>
+          Don&apost fill this out if you&aposre human:{" "}
+          <input
+            name="bot-field"
+            onChange={(value) => setHoneypot(value.target.value)}
+          />
+        </label>
+      </fieldset>
       <fieldset className={cn("flex text-lg", "flex-col")}>
         <label htmlFor="name">
           <div className={cn("flex gap-2 justify-between")}>
