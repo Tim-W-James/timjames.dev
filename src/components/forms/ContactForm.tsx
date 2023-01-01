@@ -6,6 +6,8 @@ import { FormState, useForm } from "react-hook-form";
 import { CgSpinner } from "react-icons/cg";
 import { MdCheckCircle, MdError, MdInfo, MdSend } from "react-icons/md";
 import isEmail from "validator/lib/isEmail";
+import normalizeEmail from "validator/lib/normalizeEmail";
+import trim from "validator/lib/trim";
 import { z } from "zod";
 import styles, { ClassNames } from "./ContactForm.module.scss";
 
@@ -32,6 +34,25 @@ const schema = z.object({
     .min(2, { message: "Use at least 2 characters" })
     .max(300, { message: "Use less than 300 characters" }),
 });
+
+const encode = (data: object) => {
+  console.log("data", data);
+  return Object.entries(data)
+    .map(
+      (item) =>
+        encodeURIComponent(item[0]) +
+        "=" +
+        encodeURIComponent(
+          item[1] === undefined
+            ? ""
+            : // Sanitize and format data
+            item[0] === "email"
+            ? normalizeEmail(item[1])
+            : trim(item[1])
+        )
+    )
+    .join("&");
+};
 
 type Schema = z.infer<typeof schema>;
 
@@ -77,21 +98,36 @@ const ContactForm: React.FC = () => {
     mode: "onChange",
   });
 
-  const onSubmit = () => {
-    // Netlify will create an actual submission, so this is a mock to
-    // provide some visual feedback. Note that we can't provide feedback if the
-    // Netlify form fails
-    // https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/
+  const onSubmit = (data: Schema) => {
     setIsResponseSuccess("pending");
-    setTimeout(() => {
-      setIsResponseSuccess("success");
-    }, 500);
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact", ...data }),
+    })
+      .then(async (response) => {
+        if (response.status !== 200) {
+          setIsResponseSuccess("error");
+          console.error(
+            "Failed to submit contact form with non-200 response: " +
+              `[${response.status}] - [${
+                response.statusText
+              }] - [${await response.text()}]`
+          );
+        } else {
+          setIsResponseSuccess("success");
+        }
+      })
+      .catch((error) => {
+        setIsResponseSuccess("error");
+        console.error(
+          `Failed to submit contact form: [${JSON.stringify(error)}]`
+        );
+      });
   };
 
   return (
     <form method="post" name="contact" onSubmit={handleSubmit(onSubmit)}>
-      {/* Needed for Netlify post-processing bots */}
-      <input name="form-name" type="hidden" value="contact" />
       <fieldset className={cn("flex text-lg", "flex-col")}>
         <label htmlFor="name">
           <div className={cn("flex gap-2 justify-between")}>
