@@ -25,16 +25,27 @@
   BASE_URL="https://timjames.dev/"
 
 # plugins
-# ! install plugins directly instead: https://app.netlify.com/plugins
+# can also install plugins here: https://app.netlify.com/plugins
 
-# [[plugins]]
-# package = "@netlify/plugin-sitemap"
+[[plugins]]
+package = "@netlify/plugin-sitemap"
 
-# [[plugins]]
-# package = "netlify-plugin-submit-sitemap"
+[[plugins]]
+package = "netlify-plugin-submit-sitemap"
 
-# [[plugins]]
-# package = "@netlify/plugin-lighthouse"
+[[plugins]]
+package = "@netlify/plugin-lighthouse"
+
+[[plugins]]
+  package = "netlify-plugin-cloudinary"
+
+  [plugins.inputs]
+  cloudName = "timjames"
+
+[[plugins]]
+  package = "@netlify/plugin-a11y"
+  [plugins.inputs]
+    failWithIssues = false
 
 # asset optimization
 

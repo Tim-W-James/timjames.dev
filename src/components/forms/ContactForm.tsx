@@ -36,9 +36,8 @@ const schema = z.object({
     .max(300, { message: "Use less than 300 characters" }),
 });
 
-const encode = (data: object) => {
-  console.log("data", data);
-  return Object.entries(data)
+const encode = (data: object) =>
+  Object.entries(data)
     .map(
       (item) =>
         encodeURIComponent(item[0]) +
@@ -53,7 +52,6 @@ const encode = (data: object) => {
         )
     )
     .join("&");
-};
 
 type Schema = z.infer<typeof schema>;
 
