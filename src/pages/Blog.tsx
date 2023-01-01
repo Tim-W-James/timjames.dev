@@ -50,7 +50,7 @@ const sortFuncFromOption = (
   }
 };
 
-const Contact = () => {
+const Blog = () => {
   const recentArticles = useDevdottoArticlesMeta(100);
   const [selectedTags, setSelectedTags] = useState<readonly Option[]>([]);
   const [selectedSort, setSelectedSort] = useState<SortOption>(sortOptions[0]!);
@@ -155,4 +155,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default Blog;

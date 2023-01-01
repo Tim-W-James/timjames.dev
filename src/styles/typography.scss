@@ -25,11 +25,6 @@ $type-base-size: 1rem;
   @include fluid-header-components;
 }
 
-// Tailwind utilities
-@mixin utilities {
-  @include text-colors;
-}
-
 // Tailwind base
 @mixin base {
   body {
@@ -54,36 +49,6 @@ $type-base-size: 1rem;
 
   code {
     @apply font-mono;
-  }
-}
-
-@mixin text-colors {
-  .text-light-shades {
-    color: colors.$light-shades;
-  }
-
-  .text-dark-accent {
-    color: colors.$dark-accent;
-  }
-
-  .text-dark-shades {
-    color: colors.$dark-shades;
-  }
-
-  .text-light-accent {
-    color: colors.$light-accent;
-  }
-
-  .text-main-brand {
-    color: colors.$main-brand;
-  }
-
-  .text-danger {
-    color: colors.$danger;
-  }
-
-  .text-success {
-    color: colors.$success;
   }
 }
 

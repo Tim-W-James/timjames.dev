@@ -156,10 +156,11 @@ const Projects: React.FC = () => {
               (technology) => technology.value
             );
             const isTechnologySelected =
-              selectedTechnology.length === 0 ||
-              item.technologies?.filter((technology) =>
-                selectedTechnology.includes(technology)
-              )?.length !== 0;
+              item.technologies &&
+              (selectedTechnology.length === 0 ||
+                item.technologies.filter((technology) =>
+                  selectedTechnology.includes(technology)
+                ).length !== 0);
 
             const selectedCategory = selectedCategories.map(
               (technology) => technology.value
@@ -168,7 +169,7 @@ const Projects: React.FC = () => {
               selectedCategory.length === 0 ||
               selectedCategory.includes(item.category);
 
-            return isTechnologySelected && isCategorySelected;
+            return !!(isTechnologySelected && isCategorySelected);
           }}
           sortFunc={sortFuncFromOption(selectedSort.value)}
         />

@@ -34,32 +34,6 @@
 }
 
 @layer utilities {
-  @include typography.utilities;
-
-  .bg-dark-shades {
-    background-color: colors.$dark-shades;
-  }
-
-  .bg-light-shades {
-    background-color: colors.$light-shades;
-  }
-
-  .bg-main-brand {
-    background-color: colors.$main-brand;
-  }
-
-  .border-main-brand {
-    border-color: colors.$main-brand;
-  }
-
-  .border-light-accent {
-    border-color: colors.$light-accent;
-  }
-
-  .border-dark-accent {
-    border-color: colors.$dark-accent;
-  }
-
   .hyphens {
     hyphens: auto;
   }
@@ -152,5 +126,9 @@
       background-color: colors.$light-accent;
       color: colors.$dark-shades;
     }
+  }
+
+  input[type="text"]:focus {
+    box-shadow: none;
   }
 }

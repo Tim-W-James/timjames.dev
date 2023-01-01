@@ -2,7 +2,6 @@ import {
   DevdottoArticleMeta,
   devdottoArticlesMeta,
 } from "@utils/devdottoArticle";
-import { useEffect, useState } from "react";
 
 /**
  * Fetch metadata for all dev.to articles

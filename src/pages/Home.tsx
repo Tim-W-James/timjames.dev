@@ -342,11 +342,10 @@ const Skills: React.FC = () => (
             . At{" "}
             <a
               className={cn("link")}
-              // TODO
-              href={"/"}
+              href={"https://agiledigital.com.au/"}
               rel="noreferrer"
               target="_blank"
-              title={"View my projects with Agile Digital"}
+              title={"Agile Digital website"}
             >
               Agile Digital
             </a>

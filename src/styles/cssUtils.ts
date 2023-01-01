@@ -6,15 +6,20 @@ import ClassName from "./cssClasses";
 /**
  * Wrapper for 'classnames' module with strict typing.
  */
-const cn = <S1, S2, S3, S4, S5>(
+const cn = <S1, S2, S3, S4, S5, S6, S7, S8, S9, S10>(
   // Multiple type parameters are so that TS is able to inference each parameter
   // individually
   c1?: TailwindClassParameterValue<S1, null>,
   c2?: TailwindClassParameterValue<S2, null>,
   c3?: TailwindClassParameterValue<S3, null>,
   c4?: TailwindClassParameterValue<S4, null>,
-  c5?: TailwindClassParameterValue<S5, null>
-): string => classnames(c1, c2, c3, c4, c5);
+  c5?: TailwindClassParameterValue<S5, null>,
+  c6?: TailwindClassParameterValue<S6, null>,
+  c7?: TailwindClassParameterValue<S7, null>,
+  c8?: TailwindClassParameterValue<S8, null>,
+  c9?: TailwindClassParameterValue<S9, null>,
+  c10?: TailwindClassParameterValue<S10, null>
+): string => classnames(c1, c2, c3, c4, c5, c6, c7, c8, c9, c10);
 
 /**
  * Type checking for Tailwind Classes and allows an explicit type for scoped
@@ -24,14 +29,19 @@ const cn = <S1, S2, S3, S4, S5>(
  */
 export const cnScoped =
   <ScopedClassNames extends string>() =>
-  <S1, S2, S3, S4, S5>(
+  <S1, S2, S3, S4, S5, S6, S7, S8, S9, S10>(
     c1?: TailwindClassParameterValue<S1, ScopedClassNames>,
     c2?: TailwindClassParameterValue<S2, ScopedClassNames>,
     c3?: TailwindClassParameterValue<S3, ScopedClassNames>,
     c4?: TailwindClassParameterValue<S4, ScopedClassNames>,
-    c5?: TailwindClassParameterValue<S5, ScopedClassNames>
+    c5?: TailwindClassParameterValue<S5, ScopedClassNames>,
+    c6?: TailwindClassParameterValue<S6, ScopedClassNames>,
+    c7?: TailwindClassParameterValue<S7, ScopedClassNames>,
+    c8?: TailwindClassParameterValue<S8, ScopedClassNames>,
+    c9?: TailwindClassParameterValue<S9, ScopedClassNames>,
+    c10?: TailwindClassParameterValue<S10, ScopedClassNames>
   ): string =>
-    classnames(c1, c2, c3, c4, c5);
+    classnames(c1, c2, c3, c4, c5, c6, c7, c8, c9, c10);
 
 type InstantiationDepthReducingWhitespace = "   " | "  " | " " | "\n";
 

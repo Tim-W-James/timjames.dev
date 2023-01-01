@@ -5,6 +5,7 @@ specifiers:
   "@babel/types": ^7.20.2
   "@commitlint/cli": ^17.3.0
   "@commitlint/config-conventional": ^17.3.0
+  "@hookform/resolvers": ^2.9.10
   "@storybook/addon-a11y": ^7.0.0-beta.16
   "@storybook/addon-essentials": ^7.0.0-beta.16
   "@storybook/addon-interactions": ^7.0.0-beta.16
@@ -12,6 +13,7 @@ specifiers:
   "@storybook/react": ^7.0.0-beta.16
   "@storybook/react-vite": ^7.0.0-beta.16
   "@storybook/testing-library": ^0.0.14-next.1
+  "@tailwindcss/forms": ^0.5.3
   "@tailwindcss/typography": ^0.5.8
   "@tim-w-james/eslint-config": 1.1.1
   "@types/node": ^18.11.9
@@ -19,6 +21,7 @@ specifiers:
   "@types/react-dom": ^18.0.9
   "@types/react-router-hash-link": ^2.4.5
   "@types/react-test-renderer": ^18.0.0
+  "@types/validator": ^13.7.10
   "@typescript-eslint/eslint-plugin": ^5.46.1
   "@typescript-eslint/parser": ^5.46.1
   "@vitejs/plugin-react-swc": ^3.0.1
@@ -54,6 +57,7 @@ specifiers:
   react: ^18.2.0
   react-click-away-listener: ^2.2.2
   react-dom: ^18.2.0
+  react-hook-form: ^7.41.3
   react-icons: ^4.6.0
   react-markdown: ^8.0.4
   react-router-dom: ^6.4.3
@@ -76,19 +80,24 @@ specifiers:
   ts-node: ^10.9.1
   typescript: ^4.9.4
   unplugin-auto-import: ^0.12.0
+  validator: ^13.7.0
   vite: ^4.0.3
   vite-plugin-eslint: ^1.8.1
   vite-plugin-sass-dts: ^1.2.8
   vite-tsconfig-paths: ^4.0.0
   vitest: ^0.26.0
   web-vitals: ^3.1.0
+  zod: ^3.20.2
 
 dependencies:
+  "@hookform/resolvers": 2.9.10_react-hook-form@7.41.3
+  "@types/validator": 13.7.10
   classnames: 2.3.2
   framer-motion: 8.0.2_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
   react-click-away-listener: 2.2.2_biqbaboplfbrettd7655fr4n2y
   react-dom: 18.2.0_react@18.2.0
+  react-hook-form: 7.41.3_react@18.2.0
   react-icons: 4.7.1_react@18.2.0
   react-markdown: 8.0.4_kzbn2opkn2327fwg5yzwzya5o4
   react-router-dom: 6.5.0_biqbaboplfbrettd7655fr4n2y
@@ -97,7 +106,9 @@ dependencies:
   react-select: 5.7.0_bkycudvrb3j3gvocoupj7qjewi
   readonly-types: 3.0.0
   source-map-support: 0.5.21
+  validator: 13.7.0
   web-vitals: 3.1.0
+  zod: 3.20.2
 
 devDependencies:
   "@babel/core": 7.20.5
@@ -111,6 +122,7 @@ devDependencies:
   "@storybook/react": 7.0.0-beta.16_o4scbtliisanygemawej7x2d6i
   "@storybook/react-vite": 7.0.0-beta.16_ihovgb6mdu7ockk7dmct2h2wxa
   "@storybook/testing-library": 0.0.14-next.1
+  "@tailwindcss/forms": 0.5.3_tailwindcss@3.2.4
   "@tailwindcss/typography": 0.5.8_tailwindcss@3.2.4
   "@tim-w-james/eslint-config": 1.1.1_nuzdnq4ofwpkkgo2u4oy2evluy
   "@types/node": 18.11.17
@@ -2699,6 +2711,17 @@ packages:
       }
     dependencies:
       "@floating-ui/core": 1.0.5
+    dev: false
+
+  /@hookform/resolvers/2.9.10_react-hook-form@7.41.3:
+    resolution:
+      {
+        integrity: sha512-JIL1DgJIlH9yuxcNGtyhsWX/PgNltz+5Gr6+8SX9fhXc/hPbEIk6wPI82nhgvp3uUb6ZfAM5mqg/x7KR7NAb+A==,
+      }
+    peerDependencies:
+      react-hook-form: ^7.0.0
+    dependencies:
+      react-hook-form: 7.41.3_react@18.2.0
     dev: false
 
   /@humanwhocodes/config-array/0.11.8:
@@ -5719,6 +5742,18 @@ packages:
       defer-to-connect: 2.0.1
     dev: true
 
+  /@tailwindcss/forms/0.5.3_tailwindcss@3.2.4:
+    resolution:
+      {
+        integrity: sha512-y5mb86JUoiUgBjY/o6FJSFZSEttfb3Q5gllE4xoKjAAD+vBrnIhE4dViwUuow3va8mpH4s9jyUbUbrRGoRdc2Q==,
+      }
+    peerDependencies:
+      tailwindcss: ">=3.0.0 || >= 3.0.0-alpha.1"
+    dependencies:
+      mini-svg-data-uri: 1.4.4
+      tailwindcss: 3.2.4_ra2vnoek4vhbzktaezawwqbin4
+    dev: true
+
   /@tailwindcss/typography/0.5.8_tailwindcss@3.2.4:
     resolution:
       {
@@ -6417,6 +6452,13 @@ packages:
       {
         integrity: sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==,
       }
+
+  /@types/validator/13.7.10:
+    resolution:
+      {
+        integrity: sha512-t1yxFAR2n0+VO6hd/FJ9F2uezAZVWHLmpmlJzm1eX03+H7+HsuTAp7L8QJs+2pQCfWkP1+EXsGK9Z9v7o/qPVQ==,
+      }
+    dev: false
 
   /@types/webpack-env/1.18.0:
     resolution:
@@ -16694,6 +16736,14 @@ packages:
     engines: { node: ">=4" }
     dev: true
 
+  /mini-svg-data-uri/1.4.4:
+    resolution:
+      {
+        integrity: sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==,
+      }
+    hasBin: true
+    dev: true
+
   /minimatch/3.1.2:
     resolution:
       {
@@ -19257,6 +19307,18 @@ packages:
       react-dom: 18.2.0_react@18.2.0
       react-is: 18.1.0
     dev: true
+
+  /react-hook-form/7.41.3_react@18.2.0:
+    resolution:
+      {
+        integrity: sha512-5QNTmqJtDb88WV5n41b6+AmcDMVyaJ3tccPgHAgS215w3jZ3bmJhDO27kNTr8u4YHNYXmS7p1/4/KachBAlUtw==,
+      }
+    engines: { node: ">=12.22.0" }
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /react-icons/4.7.1_react@18.2.0:
     resolution:
@@ -23151,6 +23213,14 @@ packages:
       builtins: 5.0.1
     dev: true
 
+  /validator/13.7.0:
+    resolution:
+      {
+        integrity: sha512-nYXQLCBkpJ8X6ltALua9dRrZDHVYxjJ1wgskNt1lH9fzGjs3tgojGSCBjmEPwkWS1y29+DrizMTW19Pr9uB2nw==,
+      }
+    engines: { node: ">= 0.10" }
+    dev: false
+
   /vary/1.1.2:
     resolution:
       {
@@ -23988,3 +24058,10 @@ packages:
       compress-commons: 4.1.1
       readable-stream: 3.6.0
     dev: true
+
+  /zod/3.20.2:
+    resolution:
+      {
+        integrity: sha512-1MzNQdAvO+54H+EaK5YpyEy0T+Ejo/7YLHS93G3RnYWh5gaotGHwGeN/ZO687qEDU2y4CdStQYXVHIgrUl5UVQ==,
+      }
+    dev: false
