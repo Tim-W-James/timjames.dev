@@ -35,6 +35,7 @@ export type ClassNames =
   | "_timelineItemContent"
   | "_twoColumns"
   | "_videoPlayer"
+  | "absolute"
   | "acrylic-dark"
   | "acrylic-light"
   | "active\:text-dark-accent"
@@ -110,6 +111,7 @@ export type ClassNames =
   | "hidden"
   | "hover\:text-light-accent"
   | "hyphens-none"
+  | "inline"
   | "inline-block"
   | "inline-flex"
   | "inverted"
@@ -225,6 +227,7 @@ export type ClassNames =
   | "z-10"
   | "z-20"
   | "z-30"
-  | "z-50";
+  | "z-50"
+  | "z-top";
 
 export default ClassNames;

@@ -22,6 +22,15 @@ const Page: React.FC<{
       : `${PRIMARY_TITLE}${TITLE_SEPARATOR}${DEFAULT_SUB_TITLE}`
   );
 
+  // Only show the reCaptcha badge on specific routes
+  useEffect(() => {
+    const badge = document.querySelector(".grecaptcha-badge");
+    badge &&
+      (title === "Contact"
+        ? badge.classList.add("z-top")
+        : badge.classList.remove("z-top"));
+  }, [title]);
+
   return nonStandardLayout ? (
     content
   ) : (

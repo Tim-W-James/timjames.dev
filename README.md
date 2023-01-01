@@ -213,9 +213,10 @@ Encrypt](https://img.shields.io/badge/-Let%27s%20Encrypt-black?style=flat-square
   nvm install && nvm use
   ```
 
-- Install the [`pnpm`](https://pnpm.io/installation) package manager. Use
-  [`corepack`](https://nodejs.org/api/corepack.html) for automatic installation,
-  which is an experimental `node` feature that must be enabled using:
+- Install the [`pnpm`](https://pnpm.io/installation) package manager. One option
+  is [`corepack`](https://nodejs.org/api/corepack.html) for automatic
+  installation, which is an experimental `node` feature that must be enabled
+  using:
 
   ```sh
   corepack enable
@@ -233,6 +234,13 @@ Encrypt](https://img.shields.io/badge/-Let%27s%20Encrypt-black?style=flat-square
 
   ```sh
   pnpm i
+  ```
+
+- Create a `.env` file and specify the following:
+
+  ```sh
+  # Get the reCAPTCHA key from https://www.google.com/recaptcha/admin/site/599894418
+  VITE_SITE_RECAPTCHA_KEY=123
   ```
 
 <!-- USAGE -->

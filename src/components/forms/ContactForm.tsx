@@ -2,6 +2,7 @@
 import Button from "@components/Button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import cn, { cnScoped } from "@styles/cssUtils";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { FormState, useForm } from "react-hook-form";
 import { CgSpinner } from "react-icons/cg";
 import { MdCheckCircle, MdError, MdInfo, MdSend } from "react-icons/md";
@@ -87,7 +88,11 @@ const ContactForm: React.FC = () => {
   const [isResponseSuccess, setIsResponseSuccess] = useState<
     "success" | "error" | "pending"
   >("pending");
+
   const [honeypot, setHoneypot] = useState<string | undefined>(undefined);
+
+  const [token, setToken] = useState<string>("");
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const {
     register,
@@ -99,150 +104,179 @@ const ContactForm: React.FC = () => {
     mode: "onChange",
   });
 
+  const handleReCaptchaVerify = useCallback(async () => {
+    if (!executeRecaptcha) {
+      return;
+    }
+
+    setToken(await executeRecaptcha("yourAction"));
+    // Do whatever you want with the token
+  }, [executeRecaptcha]);
+
+  useEffect(() => {
+    handleReCaptchaVerify();
+  }, [handleReCaptchaVerify]);
+
+  // Ensure reCAPTCHA badge appears on top
+  useEffect(() => {
+    const badge = document.querySelector(".grecaptcha-badge");
+    badge && badge.classList.add("z-top");
+  }, [handleReCaptchaVerify]);
+
   const onSubmit = (data: Schema) => {
     setIsResponseSuccess("pending");
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...data, "bot-field": honeypot }),
-    })
-      .then(async (response) => {
-        if (response.status !== 200) {
+    handleReCaptchaVerify().then(() => {
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({
+          "form-name": "contact",
+          ...data,
+          "bot-field": honeypot,
+          "g-recaptcha-response": token,
+        }),
+      })
+        .then(async (response) => {
+          if (response.status !== 200) {
+            setIsResponseSuccess("error");
+            console.error(
+              "Failed to submit contact form with non-200 response: " +
+                `[${response.status}] - [${
+                  response.statusText
+                }] - [${await response.text()}]`
+            );
+          } else {
+            setIsResponseSuccess("success");
+          }
+        })
+        .catch((error) => {
           setIsResponseSuccess("error");
           console.error(
-            "Failed to submit contact form with non-200 response: " +
-              `[${response.status}] - [${
-                response.statusText
-              }] - [${await response.text()}]`
+            `Failed to submit contact form: [${JSON.stringify(error)}]`
           );
-        } else {
-          setIsResponseSuccess("success");
-        }
-      })
-      .catch((error) => {
-        setIsResponseSuccess("error");
-        console.error(
-          `Failed to submit contact form: [${JSON.stringify(error)}]`
-        );
-      });
+        });
+    });
   };
 
   return (
-    <form
-      data-netlify="true"
-      method="post"
-      name="contact"
-      // eslint-disable-next-line react/no-unknown-property
-      netlify-honeypot="bot-field"
-      onSubmit={handleSubmit(onSubmit)}
-    >
-      {/* Honeypot field for bots */}
-      {/* https://docs.netlify.com/forms/spam-filters/ */}
-      <fieldset className="hidden">
-        <label>
-          Don&apost fill this out if you&aposre human:{" "}
+    <>
+      <form
+        data-netlify="true"
+        id="contact-form"
+        method="post"
+        name="contact"
+        // eslint-disable-next-line react/no-unknown-property
+        netlify-honeypot="bot-field"
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        {/* Honeypot field for bots */}
+        {/* https://docs.netlify.com/forms/spam-filters/ */}
+        <fieldset className="hidden">
+          <label>
+            Don&apost fill this out if you&aposre human:{" "}
+            <input
+              name="bot-field"
+              onChange={(value) => setHoneypot(value.target.value)}
+            />
+          </label>
+        </fieldset>
+        <fieldset className={cn("flex text-lg", "flex-col")}>
+          <label htmlFor="name">
+            <div className={cn("flex gap-2 justify-between")}>
+              <p>Name*</p>
+              {formState.errors.name ? (
+                <p className={cn("text-danger text-right")}>
+                  {formState.errors.name.message}
+                </p>
+              ) : null}
+            </div>
+          </label>
           <input
-            name="bot-field"
-            onChange={(value) => setHoneypot(value.target.value)}
+            className={cnScoped<ClassNames>()(
+              "form-input",
+              "text-dark-shades focus:ring mb-2",
+              "disabled:bg-slate-300 disabled:border-dark-shades",
+              "rounded-md",
+              "border-dark-accent",
+              "focus:border-dark-accent",
+              "focus:ring-light-accent",
+              { [styles._errorField]: !!formState.errors.name }
+            )}
+            placeholder="John Doe"
+            required
+            {...register("name")}
+            disabled={formState.isSubmitting || formState.isSubmitSuccessful}
           />
-        </label>
-      </fieldset>
-      <fieldset className={cn("flex text-lg", "flex-col")}>
-        <label htmlFor="name">
-          <div className={cn("flex gap-2 justify-between")}>
-            <p>Name*</p>
-            {formState.errors.name ? (
-              <p className={cn("text-danger text-right")}>
-                {formState.errors.name.message}
-              </p>
-            ) : null}
-          </div>
-        </label>
-        <input
-          className={cnScoped<ClassNames>()(
-            "form-input",
-            "text-dark-shades focus:ring mb-2",
-            "disabled:bg-slate-300 disabled:border-dark-shades",
-            "rounded-md",
-            "border-dark-accent",
-            "focus:border-dark-accent",
-            "focus:ring-light-accent",
-            { [styles._errorField]: !!formState.errors.name }
-          )}
-          placeholder="John Doe"
-          required
-          {...register("name")}
-          disabled={formState.isSubmitting || formState.isSubmitSuccessful}
-        />
 
-        <label htmlFor="email">
-          <div className={cn("flex gap-2 justify-between")}>
-            <p>Email</p>
-            {formState.errors.email ? (
-              <p className={cn("text-danger text-right")}>
-                {formState.errors.email.message}
-              </p>
-            ) : null}
-          </div>
-        </label>
-        <input
-          className={cnScoped<ClassNames>()(
-            "form-input",
-            "text-dark-shades focus:ring mb-2",
-            "disabled:bg-slate-300 disabled:border-dark-shades",
-            "rounded-md",
-            "border-dark-accent",
-            "focus:border-dark-accent",
-            "focus:ring-light-accent",
-            { [styles._errorField]: !!formState.errors.email }
-          )}
-          placeholder="john@gmail.com"
-          {...register("email")}
-          disabled={formState.isSubmitting || formState.isSubmitSuccessful}
-        />
+          <label htmlFor="email">
+            <div className={cn("flex gap-2 justify-between")}>
+              <p>Email</p>
+              {formState.errors.email ? (
+                <p className={cn("text-danger text-right")}>
+                  {formState.errors.email.message}
+                </p>
+              ) : null}
+            </div>
+          </label>
+          <input
+            className={cnScoped<ClassNames>()(
+              "form-input",
+              "text-dark-shades focus:ring mb-2",
+              "disabled:bg-slate-300 disabled:border-dark-shades",
+              "rounded-md",
+              "border-dark-accent",
+              "focus:border-dark-accent",
+              "focus:ring-light-accent",
+              { [styles._errorField]: !!formState.errors.email }
+            )}
+            placeholder="john@gmail.com"
+            {...register("email")}
+            disabled={formState.isSubmitting || formState.isSubmitSuccessful}
+          />
 
-        <label htmlFor="message">
-          <div className={cn("flex gap-2 justify-between")}>
-            <p>Message*</p>
-            {formState.errors.message ? (
-              <p className={cn("text-danger text-right")}>
-                {formState.errors.message.message}
-              </p>
-            ) : null}
-          </div>
-        </label>
-        <textarea
-          className={cnScoped<ClassNames>()(
-            "form-textarea",
-            "text-dark-shades focus:ring mb-4",
-            "disabled:bg-slate-300 disabled:border-dark-shades",
-            "rounded-md",
-            "border-dark-accent",
-            "focus:border-dark-accent",
-            "focus:ring-light-accent",
-            { [styles._errorField]: !!formState.errors.message }
-          )}
-          placeholder="Hello!"
-          required
-          {...register("message")}
-          disabled={formState.isSubmitting || formState.isSubmitSuccessful}
-        />
+          <label htmlFor="message">
+            <div className={cn("flex gap-2 justify-between")}>
+              <p>Message*</p>
+              {formState.errors.message ? (
+                <p className={cn("text-danger text-right")}>
+                  {formState.errors.message.message}
+                </p>
+              ) : null}
+            </div>
+          </label>
+          <textarea
+            className={cnScoped<ClassNames>()(
+              "form-textarea",
+              "text-dark-shades focus:ring mb-4",
+              "disabled:bg-slate-300 disabled:border-dark-shades",
+              "rounded-md",
+              "border-dark-accent",
+              "focus:border-dark-accent",
+              "focus:ring-light-accent",
+              { [styles._errorField]: !!formState.errors.message }
+            )}
+            placeholder="Hello!"
+            required
+            {...register("message")}
+            disabled={formState.isSubmitting || formState.isSubmitSuccessful}
+          />
 
-        <Button
-          disabled={
-            !formState.isValid ||
-            formState.isSubmitting ||
-            formState.isSubmitSuccessful
-          }
-          icon={formStateDisplay(formState, isResponseSuccess).icon}
-          iconRight
-          isLight
-          label={formStateDisplay(formState, isResponseSuccess).message}
-          mode={"button"}
-          type="submit"
-        />
-      </fieldset>
-    </form>
+          <Button
+            disabled={
+              !formState.isValid ||
+              formState.isSubmitting ||
+              formState.isSubmitSuccessful
+            }
+            icon={formStateDisplay(formState, isResponseSuccess).icon}
+            iconRight
+            isLight
+            label={formStateDisplay(formState, isResponseSuccess).message}
+            mode={"button"}
+            type="submit"
+          />
+        </fieldset>
+      </form>
+    </>
   );
 };
 

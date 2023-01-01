@@ -57,6 +57,7 @@ specifiers:
   react: ^18.2.0
   react-click-away-listener: ^2.2.2
   react-dom: ^18.2.0
+  react-google-recaptcha-v3: ^1.10.1
   react-hook-form: ^7.41.3
   react-icons: ^4.6.0
   react-markdown: ^8.0.4
@@ -97,6 +98,7 @@ dependencies:
   react: 18.2.0
   react-click-away-listener: 2.2.2_biqbaboplfbrettd7655fr4n2y
   react-dom: 18.2.0_react@18.2.0
+  react-google-recaptcha-v3: 1.10.1_biqbaboplfbrettd7655fr4n2y
   react-hook-form: 7.41.3_react@18.2.0
   react-icons: 4.7.1_react@18.2.0
   react-markdown: 8.0.4_kzbn2opkn2327fwg5yzwzya5o4
@@ -4731,15 +4733,15 @@ packages:
       telejson: 7.0.4
     dev: true
 
-  /@storybook/channel-postmessage/7.0.0-beta.17:
+  /@storybook/channel-postmessage/7.0.0-beta.19:
     resolution:
       {
-        integrity: sha512-BfZ/wtaS2hDOOdhGEfTDX7cCD6RnpRL8yj8lIoI+zQLij0rnnCGUZI8cNpBlK+6o6w4bOLw83GZfo/gVD8ID2w==,
+        integrity: sha512-F8ksWUuVcLb96DVB0ECvBrZLstqwSYDnP7BKWG6WVrThdDT9G9EJcw/XjW5N0CRVf2JUPmdqeu/Z3N8JE6+EBw==,
       }
     dependencies:
-      "@storybook/channels": 7.0.0-beta.17
-      "@storybook/client-logger": 7.0.0-beta.17
-      "@storybook/core-events": 7.0.0-beta.17
+      "@storybook/channels": 7.0.0-beta.19
+      "@storybook/client-logger": 7.0.0-beta.19
+      "@storybook/core-events": 7.0.0-beta.19
       "@storybook/global": 5.0.0
       qs: 6.11.0
       telejson: 7.0.4
@@ -4777,10 +4779,10 @@ packages:
       }
     dev: true
 
-  /@storybook/channels/7.0.0-beta.17:
+  /@storybook/channels/7.0.0-beta.19:
     resolution:
       {
-        integrity: sha512-apK2kpaj8WFS3A+IOhnS4MvPI7PW6k9FkiKzg9BR9aEmzKXVydll8sjgzva89pwzncXDlVVXUP6A8rWgy3UiMg==,
+        integrity: sha512-tRXZbbNeVpoxSqwpUmp617x5gVgiOHnLuiv/ZSiQrHUfve4T5cOrvP9AfIMxBC7cEqZVzDVjVCcoipWu/vyIEg==,
       }
     dev: true
 
@@ -4859,10 +4861,10 @@ packages:
       "@storybook/global": 5.0.0
     dev: true
 
-  /@storybook/client-logger/7.0.0-beta.17:
+  /@storybook/client-logger/7.0.0-beta.19:
     resolution:
       {
-        integrity: sha512-o7y5XHZJNQOOzgBVY+C5yRb2kREWPbd/crbnIADs58FRI2KwobWP/qFQ66xXnUjGbA7lvYp+BqdLxwsB1vy4CQ==,
+        integrity: sha512-OMANk/LjN+/IFnvGqwRICaiLuA/8mRELswGPRZ2XNEdV/wOL4vdXEAKveBFh4/UxZzf8zW8qD5f1JIOQZt5i2g==,
       }
     dependencies:
       "@storybook/global": 5.0.0
@@ -5005,10 +5007,10 @@ packages:
       }
     dev: true
 
-  /@storybook/core-events/7.0.0-beta.17:
+  /@storybook/core-events/7.0.0-beta.19:
     resolution:
       {
-        integrity: sha512-9QFNijSBKEaksjhHJhH7nDfzUWXvBAgIpdbrVs/qz++TXDJ7uy7airmv+LwtjcjmSkGaK+kg4xSjS/ms/UBjfg==,
+        integrity: sha512-LxSBbhv6fcoNjp9LJ+RdPRkgt6pHD/h3LytXsfyDxmmkI4WZHlq0Ys4sN5HBk3FF/sZgZ9iwbdpGTFKmt5yw8A==,
       }
     dev: true
 
@@ -5175,17 +5177,17 @@ packages:
       - supports-color
     dev: true
 
-  /@storybook/instrumenter/7.0.0-beta.17:
+  /@storybook/instrumenter/7.0.0-beta.19:
     resolution:
       {
-        integrity: sha512-0ZOwj+DWSJPdrV5tJztZO/ZXsWNK/GMwL2DD+odoKJ4fQonL4QMCSsyp3sPDQ0nyjIEHqrwOj6RHLPKAXIo80g==,
+        integrity: sha512-CBf42FzD4cp0ginMBJe4hC0BlLBCWR6dzMlme5uB+lOph77SITozA9JcvYSrROXkruSJ0z4CfNDn8sNQDxxcWA==,
       }
     dependencies:
-      "@storybook/channels": 7.0.0-beta.17
-      "@storybook/client-logger": 7.0.0-beta.17
-      "@storybook/core-events": 7.0.0-beta.17
+      "@storybook/channels": 7.0.0-beta.19
+      "@storybook/client-logger": 7.0.0-beta.19
+      "@storybook/core-events": 7.0.0-beta.19
       "@storybook/global": 5.0.0
-      "@storybook/preview-api": 7.0.0-beta.17
+      "@storybook/preview-api": 7.0.0-beta.19
       core-js: 3.26.1
     transitivePeerDependencies:
       - supports-color
@@ -5280,19 +5282,19 @@ packages:
       - supports-color
     dev: true
 
-  /@storybook/preview-api/7.0.0-beta.17:
+  /@storybook/preview-api/7.0.0-beta.19:
     resolution:
       {
-        integrity: sha512-sJURx9LFePKBe0k/E829Oxwk0yMDHKgl2E26ZcEBeI5lm8/c/jpiN6tcXr5KjAuwQl810tADKkrY/+iCdIoEnQ==,
+        integrity: sha512-vXNiMvB7lAfvGz7G05a9hngbqMtE25nDiyEpDNfsaMNv2rWpmdE3c5ovpTC9puE19nWCigyraBg05/IMF13tjA==,
       }
     dependencies:
-      "@storybook/channel-postmessage": 7.0.0-beta.17
-      "@storybook/channels": 7.0.0-beta.17
-      "@storybook/client-logger": 7.0.0-beta.17
-      "@storybook/core-events": 7.0.0-beta.17
+      "@storybook/channel-postmessage": 7.0.0-beta.19
+      "@storybook/channels": 7.0.0-beta.19
+      "@storybook/client-logger": 7.0.0-beta.19
+      "@storybook/core-events": 7.0.0-beta.19
       "@storybook/csf": 0.0.2-next.8
       "@storybook/global": 5.0.0
-      "@storybook/types": 7.0.0-beta.17
+      "@storybook/types": 7.0.0-beta.19
       "@types/qs": 6.9.7
       dequal: 2.0.3
       lodash: 4.17.21
@@ -5480,8 +5482,8 @@ packages:
         integrity: sha512-1CAl40IKIhcPaCC4pYCG0b9IiYNymktfV/jTrX7ctquRY3akaN7f4A1SippVHosksft0M+rQTFE0ccfWW581fw==,
       }
     dependencies:
-      "@storybook/client-logger": 7.0.0-beta.17
-      "@storybook/instrumenter": 7.0.0-beta.17
+      "@storybook/client-logger": 7.0.0-beta.19
+      "@storybook/instrumenter": 7.0.0-beta.19
       "@testing-library/dom": 8.19.0
       "@testing-library/user-event": 13.5.0_aaq3sbffpfe3jnxzm2zngsddei
       ts-dedent: 2.2.0
@@ -5539,14 +5541,14 @@ packages:
       - supports-color
     dev: true
 
-  /@storybook/types/7.0.0-beta.17:
+  /@storybook/types/7.0.0-beta.19:
     resolution:
       {
-        integrity: sha512-7+BihRo7O4/QKBTopd7sOH8qzf33RiLXmF0T+XDIOk8yd5WGuLeDtGA7tA1jUw6UcrYHiJuYAJbpWbCkZiaojQ==,
+        integrity: sha512-v8hC5wQxWctQHP3G9JMsPrjeG0J3q0hZkImejrgjQmXBEdlLieiHN2wLGdjSaxm+n4fHPpi5c/TpkEmWPdNVlA==,
       }
     dependencies:
       "@babel/core": 7.20.5
-      "@storybook/channels": 7.0.0-beta.17
+      "@storybook/channels": 7.0.0-beta.19
       "@types/babel__core": 7.1.20
       "@types/express": 4.17.15
       express: 4.18.2
@@ -19307,6 +19309,20 @@ packages:
       react-dom: 18.2.0_react@18.2.0
       react-is: 18.1.0
     dev: true
+
+  /react-google-recaptcha-v3/1.10.1_biqbaboplfbrettd7655fr4n2y:
+    resolution:
+      {
+        integrity: sha512-K3AYzSE0SasTn+XvV2tq+6YaxM+zQypk9rbCgG4OVUt7Rh4ze9basIKefoBz9sC0CNslJj9N1uwTTgRMJQbQJQ==,
+      }
+    peerDependencies:
+      react: ^16.3 || ^17.0 || ^18.0
+      react-dom: ^17.0 || ^18.0
+    dependencies:
+      hoist-non-react-statics: 3.3.2
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
 
   /react-hook-form/7.41.3_react@18.2.0:
     resolution:
