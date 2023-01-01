@@ -28,9 +28,6 @@
 # can also install plugins here: https://app.netlify.com/plugins
 
 [[plugins]]
-package = "@netlify/plugin-sitemap"
-
-[[plugins]]
 package = "netlify-plugin-submit-sitemap"
 
 [[plugins]]

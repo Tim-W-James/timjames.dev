@@ -12,7 +12,7 @@ const SocialLink: React.FC<{
   <a href={url} rel="noreferrer" target="_blank" title={tooltip}>
     <div
       className={cn(
-        "text-light-accent hover:text-light-accent active:text-dark-accent",
+        "hover:text-light-accent active:text-dark-accent",
         "inline-flex",
         "items-center gap-1"
       )}
