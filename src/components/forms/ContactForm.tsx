@@ -104,6 +104,24 @@ const formStateDisplay = (
         icon: <MdSend className={cn("text-4xl")} />,
       };
 
+// For local development, don't make an API call and log results
+export const onSubmitDev = ({
+  data,
+  honeypot,
+  setResponseState,
+  captchaToken,
+}: FormSubmitParams) => {
+  console.groupCollapsed("my label");
+  console.dir(data);
+  console.info("captchaToken:", captchaToken);
+  console.info("captchaToken:", honeypot);
+  console.groupEnd();
+
+  setTimeout(() => {
+    setResponseState("success");
+  }, 1000);
+};
+
 /**
  * Contact form with validation for name, email and message. Spam protection
  * with reCAPTCHA and honeypot field

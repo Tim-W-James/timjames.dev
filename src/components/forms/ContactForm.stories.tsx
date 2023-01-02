@@ -1,5 +1,5 @@
 import cn from "@styles/cssUtils";
-import ContactFormComponent from "./ContactForm";
+import ContactFormComponent, { onSubmitDev } from "./ContactForm";
 
 export default {
   title: "Components/Forms/ContactForm",
@@ -8,6 +8,6 @@ export default {
 
 export const ContactForm = () => (
   <div className={cn("p-8")}>
-    <ContactFormComponent />
+    <ContactFormComponent onSubmit={onSubmitDev} />
   </div>
 );

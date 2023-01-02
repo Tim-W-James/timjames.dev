@@ -1,7 +1,23 @@
-export const HOME = ["/", "/home", "/index", "/index.html", "/timjames.dev"];
+export const HOME = {
+  title: undefined,
+  description: undefined,
+  routes: ["/", "/home", "/index", "/index.html", "/timjames.dev"],
+};
 
-export const PROJECTS = ["/projects", "/timeline"];
+export const PROJECTS = {
+  title: "Projects",
+  description: "View my past projects, career events, and more.",
+  routes: ["/projects", "/timeline"],
+};
 
-export const BLOG = ["/blog"];
+export const BLOG = {
+  title: "Blog",
+  description: "View my blog - web development, tech tips, and more.",
+  routes: ["/blog"],
+};
 
-export const CONTACT = ["/contact"];
+export const CONTACT = {
+  title: "Contact",
+  description: "Find me on social media, or send me and email.",
+  routes: ["/contact"],
+};

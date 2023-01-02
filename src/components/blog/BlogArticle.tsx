@@ -1,20 +1,19 @@
-import { PRIMARY_TITLE, TITLE_SEPARATOR } from "@constants/content";
 import useDevdottoArticle from "@hooks/useDevdottoArticle";
-import useDocumentTitle from "@hooks/useDocumentTitle";
+import useDocumentMeta from "@hooks/useDocumentMeta";
 import cn from "@styles/cssUtils";
 import { BsChatLeftTextFill, BsHeart } from "react-icons/bs";
 import ReactMarkdown from "react-markdown";
 import { useParams } from "react-router-dom";
 import BlogArticleLoading from "./BlogArticleLoading";
 import BlogArticleWrapper from "./BlogArticleWrapper";
+
 const BlogArticleContent: React.FC<{ slug: string }> = ({ slug }) => {
   const rawArticle = useDevdottoArticle(slug);
-  useDocumentTitle(
-    rawArticle.loading
-      ? `Blog${TITLE_SEPARATOR}${PRIMARY_TITLE}`
-      : `${
-          rawArticle.article?.title || "Blog"
-        }${TITLE_SEPARATOR}${PRIMARY_TITLE}`
+  useDocumentMeta(
+    rawArticle.loading ? "Blog" : rawArticle.article?.title || "Blog",
+    rawArticle.loading || !rawArticle.article
+      ? "Blog Article"
+      : rawArticle.article.description
   );
 
   return !rawArticle.loading && rawArticle.article ? (

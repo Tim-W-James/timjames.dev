@@ -21,7 +21,6 @@ export type ClassNames =
   | "_dropdownItem3"
   | "_dropdownItem4"
   | "_dropdownItem5"
-  | "_errorField"
   | "_gradientBackground"
   | "_light"
   | "_logoBorder"

@@ -21,33 +21,35 @@ const Navbar: React.FC = () => {
     <>
       <NavbarLink
         inHamburgerMenu={hamburgerMenuIsOpen}
-        isSelected={HOME.includes(location.pathname)}
+        isSelected={HOME.routes.includes(location.pathname)}
         label="Home"
         order={1}
-        to={HOME[0]}
+        to={HOME.routes[0]}
       />
       <NavbarLink
         inHamburgerMenu={hamburgerMenuIsOpen}
-        isSelected={PROJECTS.includes(location.pathname)}
+        isSelected={PROJECTS.routes.includes(location.pathname)}
         label="Projects"
         order={2}
-        to={PROJECTS[0]}
+        to={PROJECTS.routes[0]}
       />
       <NavbarLink
         inHamburgerMenu={hamburgerMenuIsOpen}
-        isSelected={BLOG.some((route) => location.pathname.startsWith(route))}
+        isSelected={BLOG.routes.some((route) =>
+          location.pathname.startsWith(route)
+        )}
         label="Blog"
         order={3}
-        to={BLOG[0]}
+        to={BLOG.routes[0]}
       />
       <NavbarLink
         inHamburgerMenu={hamburgerMenuIsOpen}
-        isSelected={CONTACT.some((route) =>
+        isSelected={CONTACT.routes.some((route) =>
           location.pathname.startsWith(route)
         )}
         label="Contact"
         order={4}
-        to={CONTACT[0]}
+        to={CONTACT.routes[0]}
       />
     </>
   );

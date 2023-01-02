@@ -20,37 +20,58 @@ createRoot(document.getElementById("root")!).render(
       <Routes>
         <Route element={<App />} path="/">
           {/* Alternate routes to the index */}
-          {HOME.map((path, index) => (
+          {HOME.routes.map((path, index) => (
             <Route
-              element={<Page content={<Home />} nonStandardLayout />}
+              element={
+                <Page
+                  content={<Home />}
+                  description={HOME.description}
+                  nonStandardLayout
+                  title={HOME.title}
+                />
+              }
               index
               key={index}
               path={path}
             />
           ))}
-          {PROJECTS.map((path, index) => (
+          {PROJECTS.routes.map((path, index) => (
             <Route
-              element={<Page content={<Projects />} title="Projects" />}
+              element={
+                <Page
+                  content={<Projects />}
+                  description={PROJECTS.description}
+                  title={PROJECTS.title}
+                />
+              }
               index
               key={index}
               path={path}
             />
           ))}
-          {BLOG.map((path, index) => (
+          {BLOG.routes.map((path, index) => (
             <Route
-              element={<Page content={<Blog />} title="Blog" />}
+              element={
+                <Page
+                  content={<Blog />}
+                  description={BLOG.description}
+                  title={BLOG.title}
+                />
+              }
               index
               key={index}
               path={path}
             />
           ))}
-          {BLOG.map((path, index) => (
+          {/* Dynamic blog routes */}
+          {BLOG.routes.map((path, index) => (
             <Route
               element={
                 <Page
                   content={<BlogArticle />}
+                  description={BLOG.description}
                   nonStandardLayout
-                  title="Blog"
+                  title={BLOG.title}
                 />
               }
               index
@@ -58,9 +79,15 @@ createRoot(document.getElementById("root")!).render(
               path={`${path}/:slug`}
             />
           ))}
-          {CONTACT.map((path, index) => (
+          {CONTACT.routes.map((path, index) => (
             <Route
-              element={<Page content={<Contact />} title="Contact" />}
+              element={
+                <Page
+                  content={<Contact />}
+                  description={CONTACT.description}
+                  title={CONTACT.title}
+                />
+              }
               index
               key={index}
               path={path}

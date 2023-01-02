@@ -1,9 +1,4 @@
-import {
-  DEFAULT_SUB_TITLE,
-  PRIMARY_TITLE,
-  TITLE_SEPARATOR,
-} from "@constants/content";
-import useDocumentTitle from "@hooks/useDocumentTitle";
+import useDocumentMeta from "@hooks/useDocumentMeta";
 import cn from "@styles/cssUtils";
 
 /**
@@ -13,16 +8,13 @@ import cn from "@styles/cssUtils";
  */
 const Page: React.FC<{
   title?: string;
+  description?: string;
   nonStandardLayout?: boolean;
   content: JSX.Element;
-}> = ({ title, nonStandardLayout, content }) => {
-  useDocumentTitle(
-    title
-      ? `${title}${TITLE_SEPARATOR}${PRIMARY_TITLE}`
-      : `${PRIMARY_TITLE}${TITLE_SEPARATOR}${DEFAULT_SUB_TITLE}`
-  );
+}> = ({ title, description, nonStandardLayout, content }) => {
+  useDocumentMeta(title, description);
 
-  // Only show the reCaptcha badge on specific routes
+  // Only show the reCAPTCHA badge on specific routes
   useEffect(() => {
     const badge = document.querySelector(".grecaptcha-badge");
     badge &&
@@ -35,7 +27,6 @@ const Page: React.FC<{
     content
   ) : (
     <>
-      {" "}
       <div className={cn("fixed bg-dark-shades w-screen h-screen -z-10")} />
       <div className={cn("my-10 mx-auto pt-10 px-8 container")}>
         <header

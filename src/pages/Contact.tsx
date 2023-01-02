@@ -1,6 +1,7 @@
 import ContactForm, {
   FormSubmitParams,
   encodeContactFormData,
+  onSubmitDev,
 } from "@components/forms/ContactForm";
 import cn from "@styles/cssUtils";
 import { BsFacebook, BsGithub, BsLinkedin, BsTwitter } from "react-icons/bs";
@@ -41,24 +42,6 @@ const onSubmit = ({
         `Failed to submit contact form: [${JSON.stringify(error)}]`
       );
     });
-};
-
-// For local development, don't make an API call and log results
-const onSubmitDev = ({
-  data,
-  honeypot,
-  setResponseState,
-  captchaToken,
-}: FormSubmitParams) => {
-  console.groupCollapsed("my label");
-  console.dir(data);
-  console.info("captchaToken:", captchaToken);
-  console.info("captchaToken:", honeypot);
-  console.groupEnd();
-
-  setTimeout(() => {
-    setResponseState("success");
-  }, 1000);
 };
 
 const SocialLink: React.FC<{

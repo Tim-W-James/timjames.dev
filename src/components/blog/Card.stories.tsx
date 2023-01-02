@@ -2,6 +2,7 @@
 import cn from "@styles/cssUtils";
 import CardComponent from "./Card";
 
+// Example API response
 const article = {
   canonical_url:
     "https://dev.to/timwjames/command-line-tools-for-productive-developers-pph",
@@ -12,7 +13,8 @@ const article = {
   created_at: "2022-04-10T05:28:03Z",
   crossposted_at: null,
   description:
-    "This guide is a compilation of various command line tools that will improve your productivity in...",
+    "This guide is a compilation of various command line tools that will " +
+    "improve your productivity in...",
   edited_at: "2022-05-09T12:08:21Z",
   id: 1050475,
   last_comment_at: "2022-04-23T04:58:24Z",
