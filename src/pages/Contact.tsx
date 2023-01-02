@@ -12,37 +12,41 @@ const onSubmit = ({
   honeypot,
   setResponseState,
   captchaToken,
-}: FormSubmitParams) => {
-  fetch("/", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: encodeContactFormData({
-      "form-name": "contact",
-      ...data,
-      "bot-field": honeypot,
-      "g-recaptcha-response": captchaToken,
-    }),
-  })
-    .then(async (response) => {
-      if (response.status !== 200) {
+}: FormSubmitParams) =>
+  new Promise((resolve, reject) => {
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encodeContactFormData({
+        "form-name": "contact",
+        ...data,
+        "bot-field": honeypot,
+        "g-recaptcha-response": captchaToken,
+      }),
+    })
+      .then(async (response) => {
+        if (response.status !== 200) {
+          setResponseState("error");
+          console.error(
+            "Failed to submit contact form with non-200 response: " +
+              `[${response.status}] - [${
+                response.statusText
+              }] - [${await response.text()}]`
+          );
+          reject("error");
+        } else {
+          setResponseState("success");
+          resolve("success");
+        }
+      })
+      .catch((error) => {
         setResponseState("error");
         console.error(
-          "Failed to submit contact form with non-200 response: " +
-            `[${response.status}] - [${
-              response.statusText
-            }] - [${await response.text()}]`
+          `Failed to submit contact form: [${JSON.stringify(error)}]`
         );
-      } else {
-        setResponseState("success");
-      }
-    })
-    .catch((error) => {
-      setResponseState("error");
-      console.error(
-        `Failed to submit contact form: [${JSON.stringify(error)}]`
-      );
-    });
-};
+        reject("error");
+      });
+  });
 
 const SocialLink: React.FC<{
   icon: JSX.Element;

@@ -158,6 +158,7 @@
     "react-router-hash-link": "^2.4.3",
     "react-scroll-parallax": "^3.3.2",
     "react-select": "^5.7.0",
+    "react-toastify": "^9.1.1",
     "readonly-types": "^3.0.0",
     "source-map-support": "^0.5.21",
     "validator": "^13.7.0",

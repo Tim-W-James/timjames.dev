@@ -72,6 +72,7 @@ specifiers:
   react-scroll-parallax: ^3.3.2
   react-select: ^5.7.0
   react-test-renderer: ^18.2.0
+  react-toastify: ^9.1.1
   readonly-types: ^3.0.0
   sass: ^1.56.1
   source-map-support: ^0.5.21
@@ -114,6 +115,7 @@ dependencies:
   react-router-hash-link: 2.4.3_ulbepgeznukeosiu4vtzv4a4me
   react-scroll-parallax: 3.3.2_biqbaboplfbrettd7655fr4n2y
   react-select: 5.7.0_bkycudvrb3j3gvocoupj7qjewi
+  react-toastify: 9.1.1_biqbaboplfbrettd7655fr4n2y
   readonly-types: 3.0.0
   source-map-support: 0.5.21
   validator: 13.7.0
@@ -9252,6 +9254,14 @@ packages:
       proxy-agent: 5.0.0
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /clsx/1.2.1:
+    resolution:
+      {
+        integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==,
+      }
+    engines: { node: ">=6" }
     dev: false
 
   /code-point-at/1.1.0:
@@ -20573,6 +20583,20 @@ packages:
       react-shallow-renderer: 16.15.0_react@18.2.0
       scheduler: 0.23.0
     dev: true
+
+  /react-toastify/9.1.1_biqbaboplfbrettd7655fr4n2y:
+    resolution:
+      {
+        integrity: sha512-pkFCla1z3ve045qvjEmn2xOJOy4ZciwRXm1oMPULVkELi5aJdHCN/FHnuqXq8IwGDLB7PPk2/J6uP9D8ejuiRw==,
+      }
+    peerDependencies:
+      react: ">=16"
+      react-dom: ">=16"
+    dependencies:
+      clsx: 1.2.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
 
   /react-transition-group/4.4.5_biqbaboplfbrettd7655fr4n2y:
     resolution:

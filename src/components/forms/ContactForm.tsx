@@ -6,6 +6,7 @@ import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { FormState, useForm } from "react-hook-form";
 import { CgSpinner } from "react-icons/cg";
 import { MdCheckCircle, MdError, MdInfo, MdSend } from "react-icons/md";
+import { toast } from "react-toastify";
 import isEmail from "validator/lib/isEmail";
 import normalizeEmail from "validator/lib/normalizeEmail";
 import trim from "validator/lib/trim";
@@ -110,17 +111,19 @@ export const onSubmitDev = ({
   honeypot,
   setResponseState,
   captchaToken,
-}: FormSubmitParams) => {
-  console.groupCollapsed("my label");
-  console.dir(data);
-  console.info("captchaToken:", captchaToken);
-  console.info("captchaToken:", honeypot);
-  console.groupEnd();
+}: FormSubmitParams) =>
+  new Promise((resolve) => {
+    console.groupCollapsed("Contact form content");
+    console.dir(data);
+    console.info("captchaToken:", captchaToken);
+    console.info("honeypot:", honeypot);
+    console.groupEnd();
 
-  setTimeout(() => {
-    setResponseState("success");
-  }, 1000);
-};
+    setTimeout(() => {
+      setResponseState("success");
+      resolve("Success");
+    }, 1000);
+  });
 
 /**
  * Contact form with validation for name, email and message. Spam protection
@@ -129,7 +132,7 @@ export const onSubmitDev = ({
  * @param onSubmit - function to call when the form is submitted
  */
 const ContactForm: React.FC<{
-  onSubmit: (params: FormSubmitParams) => void;
+  onSubmit: (params: FormSubmitParams) => Promise<unknown>;
 }> = ({ onSubmit }) => {
   // State of the response from the server
   const [responseState, setResponseState] = useState<
@@ -176,117 +179,121 @@ const ContactForm: React.FC<{
   // Reverify the CAPTCHA on form submission
   const onFormSubmit = (data: Schema) => {
     handleReCaptchaVerify().then(() => {
-      onSubmit({ data, setResponseState, honeypot, captchaToken });
+      toast.promise(
+        onSubmit({ data, setResponseState, honeypot, captchaToken }),
+        {
+          pending: "Sending message...",
+          success: "Message sent! 🎉",
+          error: "Something went wrong, please try again",
+        }
+      );
     });
   };
 
   return (
-    <>
-      <form
-        data-netlify="true"
-        id="contact-form"
-        method="post"
-        name="contact"
-        // eslint-disable-next-line react/no-unknown-property
-        netlify-honeypot="bot-field"
-        onSubmit={handleSubmit(onFormSubmit)}
-      >
-        {/* Honeypot field for bots */}
-        {/* https://docs.netlify.com/forms/spam-filters/ */}
-        <fieldset className="hidden">
-          <label>
-            Don&apost fill this out if you&aposre human:{" "}
-            <input
-              name="bot-field"
-              onChange={(value) => setHoneypot(value.target.value)}
-            />
-          </label>
-        </fieldset>
-
-        <fieldset className={cn("flex text-lg", "flex-col")}>
-          <label htmlFor="name">
-            <div className={cn("flex gap-2 justify-between")}>
-              <p>Name*</p>
-              {formState.errors.name ? (
-                <p className={cn("text-danger text-right")}>
-                  {formState.errors.name.message}
-                </p>
-              ) : null}
-            </div>
-          </label>
+    <form
+      data-netlify="true"
+      id="contact-form"
+      method="post"
+      name="contact"
+      // eslint-disable-next-line react/no-unknown-property
+      netlify-honeypot="bot-field"
+      onSubmit={handleSubmit(onFormSubmit)}
+    >
+      {/* Honeypot field for bots */}
+      {/* https://docs.netlify.com/forms/spam-filters/ */}
+      <fieldset className="hidden">
+        <label>
+          Don&apost fill this out if you&aposre human:{" "}
           <input
-            className={cn("form-input", "form-field", {
-              ["form-field-error"]: !!formState.errors.name,
-            })}
-            placeholder="John Doe"
-            required
-            {...register("name")}
-            disabled={formState.isSubmitting || formState.isSubmitSuccessful}
+            name="bot-field"
+            onChange={(value) => setHoneypot(value.target.value)}
           />
+        </label>
+      </fieldset>
 
-          <label htmlFor="email">
-            <div className={cn("flex gap-2 justify-between")}>
-              <p>Email</p>
-              {formState.errors.email ? (
-                <p className={cn("text-danger text-right")}>
-                  {formState.errors.email.message}
-                </p>
-              ) : null}
-            </div>
-          </label>
-          <input
-            className={cn("form-input", "form-field", {
-              ["form-field-error"]: !!formState.errors.email,
-            })}
-            placeholder={formState.isSubmitSuccessful ? "" : "john@gmail.com"}
-            {...register("email")}
-            disabled={formState.isSubmitting || formState.isSubmitSuccessful}
-          />
+      <fieldset className={cn("flex text-lg", "flex-col")}>
+        <label htmlFor="name">
+          <div className={cn("flex gap-2 justify-between")}>
+            <p>Name*</p>
+            {formState.errors.name ? (
+              <p className={cn("text-danger text-right")}>
+                {formState.errors.name.message}
+              </p>
+            ) : null}
+          </div>
+        </label>
+        <input
+          className={cn("form-input", "form-field", {
+            ["form-field-error"]: !!formState.errors.name,
+          })}
+          placeholder="John Doe"
+          required
+          {...register("name")}
+          disabled={formState.isSubmitting || formState.isSubmitSuccessful}
+        />
 
-          <label htmlFor="message">
-            <div className={cn("flex gap-2 justify-between")}>
-              <p>Message*</p>
-              {formState.errors.message ? (
-                <p className={cn("text-danger text-right")}>
-                  {formState.errors.message.message}
-                </p>
-              ) : null}
-            </div>
-          </label>
-          <textarea
-            className={cn("form-textarea", "form-field", {
-              ["form-field-error"]: !!formState.errors.message,
-            })}
-            placeholder="Hello!"
-            required
-            {...register("message")}
-            disabled={formState.isSubmitting || formState.isSubmitSuccessful}
-          />
+        <label htmlFor="email">
+          <div className={cn("flex gap-2 justify-between")}>
+            <p>Email</p>
+            {formState.errors.email ? (
+              <p className={cn("text-danger text-right")}>
+                {formState.errors.email.message}
+              </p>
+            ) : null}
+          </div>
+        </label>
+        <input
+          className={cn("form-input", "form-field", {
+            ["form-field-error"]: !!formState.errors.email,
+          })}
+          placeholder={formState.isSubmitSuccessful ? "" : "john@gmail.com"}
+          {...register("email")}
+          disabled={formState.isSubmitting || formState.isSubmitSuccessful}
+        />
 
-          <Button
-            className={
-              formState.isSubmitting ||
-              (formState.isSubmitted && !responseState)
-                ? cn("!cursor-wait")
-                : responseState === "success"
-                ? cn("!cursor-default")
-                : ""
-            }
-            disabled={
-              !formState.isValid ||
-              formState.isSubmitting ||
-              formState.isSubmitSuccessful
-            }
-            icon={formStateDisplay(formState, responseState).icon}
-            iconRight
-            isLight
-            label={formStateDisplay(formState, responseState).message}
-            mode={"button"}
-            type="submit"
-          />
-        </fieldset>
-      </form>
-    </>
+        <label htmlFor="message">
+          <div className={cn("flex gap-2 justify-between")}>
+            <p>Message*</p>
+            {formState.errors.message ? (
+              <p className={cn("text-danger text-right")}>
+                {formState.errors.message.message}
+              </p>
+            ) : null}
+          </div>
+        </label>
+        <textarea
+          className={cn("form-textarea", "form-field", {
+            ["form-field-error"]: !!formState.errors.message,
+          })}
+          placeholder="Hello!"
+          required
+          {...register("message")}
+          disabled={formState.isSubmitting || formState.isSubmitSuccessful}
+        />
+
+        <Button
+          className={
+            formState.isSubmitting || (formState.isSubmitted && !responseState)
+              ? cn("!cursor-wait")
+              : responseState === "success"
+              ? cn("!cursor-default")
+              : ""
+          }
+          disabled={
+            !formState.isValid ||
+            formState.isSubmitting ||
+            formState.isSubmitSuccessful
+          }
+          icon={formStateDisplay(formState, responseState).icon}
+          iconRight
+          isLight
+          label={formStateDisplay(formState, responseState).message}
+          mode={"button"}
+          type="submit"
+        />
+      </fieldset>
+    </form>
   );
 };
 
