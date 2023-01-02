@@ -15,6 +15,7 @@ module.exports = {
         danger: "hsl(4deg 90% 58%)",
         warning: "hsl(40deg 76% 41%)",
         success: "hsl(134deg 42% 41%)",
+        placeholder: "hsl(218deg 22% 30%)",
       },
       fontFamily: {
         sans: ["Outfit", ...defaultTheme.fontFamily.sans],

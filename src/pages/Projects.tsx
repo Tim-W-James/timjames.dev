@@ -3,11 +3,14 @@ import MultiSelection, {
   Option,
   SingleSelection,
 } from "@components/MultiSelection";
+import SearchField from "@components/SearchField";
 import Timeline, { TimelineItemData } from "@components/Timeline";
 import technologies from "@constants/technologies";
 import timelineData, { categories } from "@constants/timelineData";
 import cn from "@styles/cssUtils";
+import Children from "react-children-utilities";
 import { BsFillArrowUpCircleFill, BsGithub } from "react-icons/bs";
+import { RiRefreshFill } from "react-icons/ri";
 
 const technologyOptions: readonly Option[] = Object.keys(technologies)
   .map((technology) => {
@@ -96,6 +99,19 @@ const sortFuncFromOption = (
   }
 };
 
+const searchFilter = (searchText: string, item: TimelineItemData) => {
+  const search = searchText.toLowerCase();
+  return (
+    search.length === 0 ||
+    item.title.toLowerCase().includes(search) ||
+    Children.onlyText(item.body).toLowerCase().includes(search) ||
+    item.technologies?.some((technology) =>
+      technology.toLowerCase().includes(search)
+    ) ||
+    item.category.toLowerCase().includes(search)
+  );
+};
+
 const Projects: React.FC = () => {
   const [selectedTechnologies, setSelectedTechnologies] = useState<
     readonly Option[]
@@ -104,6 +120,25 @@ const Projects: React.FC = () => {
     readonly Option[]
   >([]);
   const [selectedSort, setSelectedSort] = useState<SortOption>(sortOptions[0]!);
+  const [searchText, setSearchText] = useState<string>("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    setSearchText(e.target.value);
+  };
+
+  const [isResetButtonAnimated, setIsResetButtonAnimated] = useState(false);
+
+  const resetOptions = () => {
+    setSelectedTechnologies([]);
+    setSelectedCategories([]);
+    setSelectedSort(sortOptions[0]!);
+    setSearchText("");
+    setIsResetButtonAnimated(true);
+    setTimeout(() => {
+      setIsResetButtonAnimated(false);
+    }, 500);
+  };
 
   return (
     <div>
@@ -118,10 +153,37 @@ const Projects: React.FC = () => {
       </div>
       <div
         className={cn(
-          "flex mx-auto items-center place-content-center mb-4",
+          "flex mx-auto items-center place-content-center mb-4 max-md:mb-8",
           "flex-col"
         )}
       >
+        <div className={cn("w-full flex gap-4")}>
+          <SearchField handleChange={handleChange} searchText={searchText} />
+          <Button
+            className={cn("h-11", "flex")}
+            icon={
+              isResetButtonAnimated ? (
+                <span
+                  className={cn(
+                    "inline-block",
+                    "leading-0",
+                    "motion-safe:animate-spin"
+                  )}
+                >
+                  <RiRefreshFill />
+                </span>
+              ) : (
+                <RiRefreshFill />
+              )
+            }
+            iconRight
+            isLight
+            label={"Reset"}
+            mode="button"
+            onClick={resetOptions}
+            tooltip="Reset search and filters options"
+          />
+        </div>
         <div className={cn("flex gap-4 w-full", "flex-wrap")}>
           <div className={cn("z-30 grow min-w-fit")}>
             <SingleSelection
@@ -156,11 +218,11 @@ const Projects: React.FC = () => {
               (technology) => technology.value
             );
             const isTechnologySelected =
-              item.technologies &&
-              (selectedTechnology.length === 0 ||
-                item.technologies.filter((technology) =>
-                  selectedTechnology.includes(technology)
-                ).length !== 0);
+              selectedTechnology.length === 0 ||
+              !item.technologies ||
+              item.technologies.filter((technology) =>
+                selectedTechnology.includes(technology)
+              ).length !== 0;
 
             const selectedCategory = selectedCategories.map(
               (technology) => technology.value
@@ -169,7 +231,11 @@ const Projects: React.FC = () => {
               selectedCategory.length === 0 ||
               selectedCategory.includes(item.category);
 
-            return !!(isTechnologySelected && isCategorySelected);
+            return !!(
+              isTechnologySelected &&
+              isCategorySelected &&
+              searchFilter(searchText, item)
+            );
           }}
           sortFunc={sortFuncFromOption(selectedSort.value)}
         />

@@ -34,7 +34,7 @@
 
   .form-field {
     @apply text-dark-shades focus:ring mb-4 rounded-md border-dark-accent;
-    @apply focus:border-dark-accent focus:ring-light-accent;
+    @apply bg-light-shades focus:border-dark-accent focus:ring-light-accent;
     @apply disabled:bg-slate-300 disabled:border-dark-shades;
     @apply disabled:cursor-not-allowed;
   }
@@ -199,6 +199,17 @@
     &::selection {
       background-color: colors.$light-accent;
       color: colors.$dark-shades;
+    }
+  }
+
+  div {
+    input,
+    textarea,
+    .form-input,
+    .form-textarea {
+      &::placeholder {
+        @apply text-placeholder;
+      }
     }
   }
 }

@@ -3,11 +3,13 @@ import MultiSelection, {
   Option,
   SingleSelection,
 } from "@components/MultiSelection";
+import SearchField from "@components/SearchField";
 import Card from "@components/blog/Card";
 import LoadingCard from "@components/blog/LoadingCard";
 import useDevdottoArticlesMeta from "@hooks/useDevdottoArticlesMeta";
 import cn from "@styles/cssUtils";
 import { DevdottoArticleMeta } from "@utils/devdottoArticle";
+import { RiRefreshFill } from "react-icons/ri";
 import { SiDevdotto, SiMedium } from "react-icons/si";
 
 const sorts = ["Popularity", "Latest", "Quick Reads"] as const;
@@ -50,11 +52,22 @@ const sortFuncFromOption = (
   }
 };
 
+const searchFilter = (searchText: string, item: DevdottoArticleMeta) => {
+  const search = searchText.toLowerCase();
+  return (
+    search.length === 0 ||
+    item.title.toLowerCase().includes(search) ||
+    item.description.toLowerCase().includes(search) ||
+    item.tag_list.some((tag) => tag.toLowerCase().includes(search))
+  );
+};
+
 const Blog = () => {
   const recentArticles = useDevdottoArticlesMeta(100);
   const [selectedTags, setSelectedTags] = useState<readonly Option[]>([]);
   const [selectedSort, setSelectedSort] = useState<SortOption>(sortOptions[0]!);
   const [tagOptions, setTagOptions] = useState<readonly Option[]>([]);
+  const [searchText, setSearchText] = useState<string>("");
 
   useEffect(() => {
     setTagOptions(
@@ -81,6 +94,42 @@ const Blog = () => {
         : []
     );
   }, [recentArticles.articles, recentArticles.loading]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    setSearchText(e.target.value);
+  };
+
+  const [isResetButtonAnimated, setIsResetButtonAnimated] = useState(false);
+
+  const resetOptions = () => {
+    setSelectedTags([]);
+    setSelectedSort(sortOptions[0]!);
+    setSearchText("");
+    setIsResetButtonAnimated(true);
+    setTimeout(() => {
+      setIsResetButtonAnimated(false);
+    }, 500);
+  };
+
+  const filteredArticles = recentArticles.loading
+    ? []
+    : recentArticles.articles
+        .sort(sortByPopularity)
+        .sort(sortFuncFromOption(selectedSort.value))
+        .filter((articleMeta) => {
+          const tags = selectedTags.map((tag) => tag.value);
+          return (
+            searchFilter(searchText, articleMeta) &&
+            (selectedTags.length === 0 ||
+              articleMeta.tag_list.filter((articleTag) =>
+                tags.includes(articleTag)
+              ).length !== 0)
+          );
+        })
+        .map((articleMeta, index) => (
+          <Card article={articleMeta} key={index} />
+        ));
 
   return (
     <div>
@@ -113,6 +162,33 @@ const Blog = () => {
             "flex-col"
           )}
         >
+          <div className={cn("w-full flex gap-4")}>
+            <SearchField handleChange={handleChange} searchText={searchText} />
+            <Button
+              className={cn("h-11", "flex")}
+              icon={
+                isResetButtonAnimated ? (
+                  <span
+                    className={cn(
+                      "inline-block",
+                      "leading-0",
+                      "motion-safe:animate-spin"
+                    )}
+                  >
+                    <RiRefreshFill />
+                  </span>
+                ) : (
+                  <RiRefreshFill />
+                )
+              }
+              iconRight
+              isLight
+              label={"Reset"}
+              mode="button"
+              onClick={resetOptions}
+              tooltip="Reset search and filters options"
+            />
+          </div>
           <div className={cn("flex gap-4 w-full", "flex-wrap")}>
             <div className={cn("z-30 grow min-w-fit")}>
               <SingleSelection
@@ -132,23 +208,16 @@ const Blog = () => {
           </div>
         </div>
         <div className={cn("flex gap-4 p-0 justify-center", "flex-wrap")}>
-          {recentArticles.loading
-            ? [...Array(6).keys()].map((key) => <LoadingCard key={key} />)
-            : recentArticles.articles
-                .sort(sortByPopularity)
-                .sort(sortFuncFromOption(selectedSort.value))
-                .filter((articleMeta) => {
-                  const tags = selectedTags.map((tag) => tag.value);
-                  return (
-                    selectedTags.length === 0 ||
-                    articleMeta.tag_list.filter((articleTag) =>
-                      tags.includes(articleTag)
-                    ).length !== 0
-                  );
-                })
-                .map((articleMeta, index) => (
-                  <Card article={articleMeta} key={index} />
-                ))}
+          {recentArticles.loading ? (
+            [...Array(6).keys()].map((key) => <LoadingCard key={key} />)
+          ) : filteredArticles.length === 0 ? (
+            <div className={cn("text-center mb-8 text-xl ")}>
+              <span className={cn("text-danger")}>No Articles Found</span> - Try
+              a different filter
+            </div>
+          ) : (
+            filteredArticles
+          )}
         </div>
       </section>
     </div>

@@ -238,7 +238,7 @@ const ContactForm: React.FC<{
             className={cn("form-input", "form-field", {
               ["form-field-error"]: !!formState.errors.email,
             })}
-            placeholder="john@gmail.com"
+            placeholder={formState.isSubmitSuccessful ? "" : "john@gmail.com"}
             {...register("email")}
             disabled={formState.isSubmitting || formState.isSubmitSuccessful}
           />

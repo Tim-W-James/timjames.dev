@@ -147,6 +147,7 @@
     "framer-motion": "^8.0.0",
     "netlify-plugin-cloudinary": "^1.2.0",
     "react": "^18.2.0",
+    "react-children-utilities": "^2.8.0",
     "react-click-away-listener": "^2.2.2",
     "react-dom": "^18.2.0",
     "react-google-recaptcha-v3": "^1.10.1",
