@@ -94,7 +94,13 @@ createRoot(document.getElementById("root")!).render(
             />
           ))}
           <Route
-            element={<Page content={<NotFound />} title="Not Found" />}
+            element={
+              <Page
+                content={<NotFound />}
+                nonStandardLayout
+                title="Not Found"
+              />
+            }
             path="*"
           />
         </Route>

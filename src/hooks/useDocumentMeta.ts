@@ -7,9 +7,10 @@ import {
 import { useEffect, useRef } from "react";
 
 /**
- * Set the document title.
+ * Set the document meta attributes
  *
- * @param {string} title - The title to set.
+ * @param {string} title - meta title
+ * @param {string} description - meta description
  * @param {boolean} [prevailOnUnmount=false] - If true, the title will be set
  * even if the component is unmounted.
  */

@@ -4,7 +4,8 @@ import { BsFillHouseDoorFill } from "react-icons/bs";
 
 const NotFound: React.FC = () => (
   <>
-    <div className={cn("text-center")}>
+    <div className={cn("fixed w-screen h-screen bg-dark-shades -z-10")} />
+    <div className={cn("text-center  mt-8")}>
       <h1 className={cn("text-8xl pt-10 text-light-accent font-bold")}>404</h1>
       <h2>
         <span className={cn("text-danger")}>Oops!</span> Page not found.
