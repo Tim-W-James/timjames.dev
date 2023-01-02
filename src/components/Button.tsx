@@ -14,6 +14,7 @@ export interface ButtonProps extends React.ComponentPropsWithoutRef<"button"> {
   isLabelHidden?: boolean;
   iconRight?: boolean;
   disabled?: boolean;
+  className?: string;
 }
 
 /**
@@ -40,9 +41,9 @@ const Button = (props: ButtonProps) => {
     isLabelHidden,
     iconRight,
     disabled,
+    className: additionalClassName,
     ...buttonProps
   } = props;
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const deviceIsTouch = useTouchInputQuery();
 
   const className = cnScoped<ClassNames>()(
@@ -73,7 +74,7 @@ const Button = (props: ButtonProps) => {
       return (
         <Link
           aria-label={label}
-          className={className}
+          className={className + " " + additionalClassName}
           onMouseMove={(e) =>
             setMouseHoverCssProperties(e, false, deviceIsTouch)
           }
@@ -89,7 +90,7 @@ const Button = (props: ButtonProps) => {
       return (
         <button
           aria-label={label}
-          className={className}
+          className={className + " " + additionalClassName}
           disabled={disabled}
           onMouseMove={(e) =>
             setMouseHoverCssProperties(e, false, deviceIsTouch)
@@ -106,7 +107,7 @@ const Button = (props: ButtonProps) => {
       return (
         <a
           aria-label={label}
-          className={className}
+          className={className + " " + additionalClassName}
           href={link || "/"}
           onMouseMove={(e) =>
             setMouseHoverCssProperties(e, false, deviceIsTouch)

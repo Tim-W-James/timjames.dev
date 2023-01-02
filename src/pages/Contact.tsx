@@ -1,7 +1,65 @@
-import ContactForm from "@components/forms/ContactForm";
+import ContactForm, {
+  FormSubmitParams,
+  encodeContactFormData,
+} from "@components/forms/ContactForm";
 import cn from "@styles/cssUtils";
 import { BsFacebook, BsGithub, BsLinkedin, BsTwitter } from "react-icons/bs";
 import { SiSpotify, SiSteam } from "react-icons/si";
+
+const onSubmit = ({
+  data,
+  honeypot,
+  setResponseState,
+  captchaToken,
+}: FormSubmitParams) => {
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: encodeContactFormData({
+      "form-name": "contact",
+      ...data,
+      "bot-field": honeypot,
+      "g-recaptcha-response": captchaToken,
+    }),
+  })
+    .then(async (response) => {
+      if (response.status !== 200) {
+        setResponseState("error");
+        console.error(
+          "Failed to submit contact form with non-200 response: " +
+            `[${response.status}] - [${
+              response.statusText
+            }] - [${await response.text()}]`
+        );
+      } else {
+        setResponseState("success");
+      }
+    })
+    .catch((error) => {
+      setResponseState("error");
+      console.error(
+        `Failed to submit contact form: [${JSON.stringify(error)}]`
+      );
+    });
+};
+
+// For local development, don't make an API call and log results
+const onSubmitDev = ({
+  data,
+  honeypot,
+  setResponseState,
+  captchaToken,
+}: FormSubmitParams) => {
+  console.groupCollapsed("my label");
+  console.dir(data);
+  console.info("captchaToken:", captchaToken);
+  console.info("captchaToken:", honeypot);
+  console.groupEnd();
+
+  setTimeout(() => {
+    setResponseState("success");
+  }, 1000);
+};
 
 const SocialLink: React.FC<{
   icon: JSX.Element;
@@ -25,8 +83,13 @@ const SocialLink: React.FC<{
 
 const Contact = () => (
   <div>
-    <ContactForm />
-    <h2 className={cn("text-center self-center mt-8 mx-auto w-fit")} id="blog">
+    <ContactForm onSubmit={import.meta.env.DEV ? onSubmitDev : onSubmit} />
+    <h2
+      className={cn(
+        "text-light-accent text-center self-center mt-8 mx-auto w-fit"
+      )}
+      id="blog"
+    >
       Social Links
       <hr className={cn("radial-border mb-4")} />
     </h2>

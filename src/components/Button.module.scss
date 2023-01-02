@@ -1,7 +1,7 @@
 ._acrylicButton {
   @apply subtitle border-0 py-4 rounded-full text-light-accent;
   @apply shadow-inner shadow-main-brand cursor-pointer;
-  @apply disabled:shadow-none disabled:cursor-auto;
+  @apply disabled:shadow-none disabled:cursor-not-allowed;
 
   @keyframes shadow-inset-center {
     from {

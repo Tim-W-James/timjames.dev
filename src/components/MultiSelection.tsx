@@ -46,7 +46,9 @@ export const SingleSelection: React.FC<{
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   setSelectedOption: React.Dispatch<React.SetStateAction<any>>;
 }> = ({ selectedOption, setSelectedOption, options, placeholder }) => (
-  <div className={cn("text-dark-shades scroll-dark z-10 mb-4 w-full")}>
+  <div
+    className={cn("multi-select text-dark-shades scroll-dark z-10 mb-4 w-full")}
+  >
     <Select
       closeMenuOnSelect={false}
       components={animatedComponents}
@@ -78,7 +80,9 @@ const MultiSelection: React.FC<{
     >
   >;
 }> = ({ selectedOptions, setSelectedOptions, options, placeholder }) => (
-  <div className={cn("text-dark-shades scroll-dark z-10 mb-4 w-full")}>
+  <div
+    className={cn("multi-select text-dark-shades scroll-dark z-10 mb-4 w-full")}
+  >
     <Select
       closeMenuOnSelect={false}
       components={animatedComponents}

@@ -1,7 +1,7 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import Button from "@components/Button";
 import { zodResolver } from "@hookform/resolvers/zod";
-import cn, { cnScoped } from "@styles/cssUtils";
+import cn from "@styles/cssUtils";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { FormState, useForm } from "react-hook-form";
 import { CgSpinner } from "react-icons/cg";
@@ -10,8 +10,9 @@ import isEmail from "validator/lib/isEmail";
 import normalizeEmail from "validator/lib/normalizeEmail";
 import trim from "validator/lib/trim";
 import { z } from "zod";
-import styles, { ClassNames } from "./ContactForm.module.scss";
 
+// Form schema, using zod for runtime type checking and validator js for
+// additional validators
 const schema = z.object({
   name: z
     .string()
@@ -36,7 +37,15 @@ const schema = z.object({
     .max(300, { message: "Use less than 300 characters" }),
 });
 
-const encode = (data: object) =>
+type Schema = z.infer<typeof schema>;
+
+/**
+ * Encode a JSON object for the request of a HTTP body using
+ * application/x-www-form-urlencoded
+ *
+ * @param {object} data - JSON object to encode
+ */
+export const encodeContactFormData = (data: object) =>
   Object.entries(data)
     .map(
       (item) =>
@@ -53,23 +62,31 @@ const encode = (data: object) =>
     )
     .join("&");
 
-type Schema = z.infer<typeof schema>;
+export type FormSubmitParams = {
+  data: Schema;
+  setResponseState: (
+    value: React.SetStateAction<"error" | "success" | undefined>
+  ) => void;
+  honeypot: string | undefined;
+  captchaToken: string;
+};
 
+// Instant feedback to display to the user depending on the state of the form
+// and response
 const formStateDisplay = (
   formState: FormState<{
     email?: string | undefined;
     message: string;
     name: string;
   }>,
-  responseState?: "success" | "error" | "pending"
+  responseState?: "success" | "error" | undefined
 ): { message: string; icon: JSX.Element } =>
   !formState.isValid
     ? {
         message: "Please complete the Form",
         icon: <MdInfo className={cn("text-4xl")} />,
       }
-    : formState.isSubmitting ||
-      (formState.isSubmitSuccessful && responseState === "pending")
+    : formState.isSubmitting || (formState.isSubmitSuccessful && !responseState)
     ? {
         message: "Submitting...",
         icon: (
@@ -87,33 +104,44 @@ const formStateDisplay = (
         icon: <MdSend className={cn("text-4xl")} />,
       };
 
-// eslint-disable-next-line sonarjs/cognitive-complexity
-const ContactForm: React.FC = () => {
-  const [isResponseSuccess, setIsResponseSuccess] = useState<
-    "success" | "error" | "pending"
-  >("pending");
-
-  const [honeypot, setHoneypot] = useState<string | undefined>(undefined);
-
-  const [token, setToken] = useState<string>("");
-  const { executeRecaptcha } = useGoogleReCaptcha();
+/**
+ * Contact form with validation for name, email and message. Spam protection
+ * with reCAPTCHA and honeypot field
+ *
+ * @param onSubmit - function to call when the form is submitted
+ */
+const ContactForm: React.FC<{
+  onSubmit: (params: FormSubmitParams) => void;
+}> = ({ onSubmit }) => {
+  // State of the response from the server
+  const [responseState, setResponseState] = useState<
+    "success" | "error" | undefined
+  >(undefined);
 
   const {
     register,
     handleSubmit,
+    // State of client-side form validation
     formState: formState,
-    // eslint-disable-next-line react-hooks/rules-of-hooks
   } = useForm<Schema>({
     resolver: zodResolver(schema),
     mode: "onChange",
   });
 
+  // Honeypot field to catch bots
+  const [honeypot, setHoneypot] = useState<string | undefined>(undefined);
+
+  // Google reCAPTCHA to prevent spam
+  const [captchaToken, setCaptchaToken] = useState<string>("");
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
+  // Reverify so the token doesn't go stale
   const handleReCaptchaVerify = useCallback(async () => {
     if (!executeRecaptcha) {
       return;
     }
 
-    setToken(await executeRecaptcha("yourAction"));
+    setCaptchaToken(await executeRecaptcha("yourAction"));
     // Do whatever you want with the token
   }, [executeRecaptcha]);
 
@@ -121,44 +149,16 @@ const ContactForm: React.FC = () => {
     handleReCaptchaVerify();
   }, [handleReCaptchaVerify]);
 
-  // Ensure reCAPTCHA badge appears on top
+  // Ensure reCAPTCHA badge appears on top and complies with Google's TOS
   useEffect(() => {
     const badge = document.querySelector(".grecaptcha-badge");
     badge && badge.classList.add("captcha-show");
   }, [handleReCaptchaVerify]);
 
-  const onSubmit = (data: Schema) => {
-    setIsResponseSuccess("pending");
+  // Reverify the CAPTCHA on form submission
+  const onFormSubmit = (data: Schema) => {
     handleReCaptchaVerify().then(() => {
-      fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({
-          "form-name": "contact",
-          ...data,
-          "bot-field": honeypot,
-          "g-recaptcha-response": token,
-        }),
-      })
-        .then(async (response) => {
-          if (response.status !== 200) {
-            setIsResponseSuccess("error");
-            console.error(
-              "Failed to submit contact form with non-200 response: " +
-                `[${response.status}] - [${
-                  response.statusText
-                }] - [${await response.text()}]`
-            );
-          } else {
-            setIsResponseSuccess("success");
-          }
-        })
-        .catch((error) => {
-          setIsResponseSuccess("error");
-          console.error(
-            `Failed to submit contact form: [${JSON.stringify(error)}]`
-          );
-        });
+      onSubmit({ data, setResponseState, honeypot, captchaToken });
     });
   };
 
@@ -171,7 +171,7 @@ const ContactForm: React.FC = () => {
         name="contact"
         // eslint-disable-next-line react/no-unknown-property
         netlify-honeypot="bot-field"
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={handleSubmit(onFormSubmit)}
       >
         {/* Honeypot field for bots */}
         {/* https://docs.netlify.com/forms/spam-filters/ */}
@@ -184,6 +184,7 @@ const ContactForm: React.FC = () => {
             />
           </label>
         </fieldset>
+
         <fieldset className={cn("flex text-lg", "flex-col")}>
           <label htmlFor="name">
             <div className={cn("flex gap-2 justify-between")}>
@@ -196,16 +197,9 @@ const ContactForm: React.FC = () => {
             </div>
           </label>
           <input
-            className={cnScoped<ClassNames>()(
-              "form-input",
-              "text-dark-shades focus:ring mb-2",
-              "disabled:bg-slate-300 disabled:border-dark-shades",
-              "rounded-md",
-              "border-dark-accent",
-              "focus:border-dark-accent",
-              "focus:ring-light-accent",
-              { [styles._errorField]: !!formState.errors.name }
-            )}
+            className={cn("form-input", "form-field", {
+              ["form-field-error"]: !!formState.errors.name,
+            })}
             placeholder="John Doe"
             required
             {...register("name")}
@@ -223,16 +217,9 @@ const ContactForm: React.FC = () => {
             </div>
           </label>
           <input
-            className={cnScoped<ClassNames>()(
-              "form-input",
-              "text-dark-shades focus:ring mb-2",
-              "disabled:bg-slate-300 disabled:border-dark-shades",
-              "rounded-md",
-              "border-dark-accent",
-              "focus:border-dark-accent",
-              "focus:ring-light-accent",
-              { [styles._errorField]: !!formState.errors.email }
-            )}
+            className={cn("form-input", "form-field", {
+              ["form-field-error"]: !!formState.errors.email,
+            })}
             placeholder="john@gmail.com"
             {...register("email")}
             disabled={formState.isSubmitting || formState.isSubmitSuccessful}
@@ -249,16 +236,9 @@ const ContactForm: React.FC = () => {
             </div>
           </label>
           <textarea
-            className={cnScoped<ClassNames>()(
-              "form-textarea",
-              "text-dark-shades focus:ring mb-4",
-              "disabled:bg-slate-300 disabled:border-dark-shades",
-              "rounded-md",
-              "border-dark-accent",
-              "focus:border-dark-accent",
-              "focus:ring-light-accent",
-              { [styles._errorField]: !!formState.errors.message }
-            )}
+            className={cn("form-textarea", "form-field", {
+              ["form-field-error"]: !!formState.errors.message,
+            })}
             placeholder="Hello!"
             required
             {...register("message")}
@@ -266,15 +246,23 @@ const ContactForm: React.FC = () => {
           />
 
           <Button
+            className={
+              formState.isSubmitting ||
+              (formState.isSubmitted && !responseState)
+                ? cn("!cursor-wait")
+                : responseState === "success"
+                ? cn("!cursor-default")
+                : ""
+            }
             disabled={
               !formState.isValid ||
               formState.isSubmitting ||
               formState.isSubmitSuccessful
             }
-            icon={formStateDisplay(formState, isResponseSuccess).icon}
+            icon={formStateDisplay(formState, responseState).icon}
             iconRight
             isLight
-            label={formStateDisplay(formState, isResponseSuccess).message}
+            label={formStateDisplay(formState, responseState).message}
             mode={"button"}
             type="submit"
           />
