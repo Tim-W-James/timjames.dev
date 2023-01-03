@@ -67,6 +67,8 @@ jobs:
 
       - name: Run Component Tests 🔧
         run: |
+          pnpm add -g playwright
+          playwright install --with-deps
           pnpm --if-present storybook:build --quiet
           pnpm storybook:test:ci
 
