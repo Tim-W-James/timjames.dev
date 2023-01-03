@@ -51,8 +51,9 @@
     "coverage": "vitest run --coverage",
     "storybook": "export SET DISABLE_CSS_TYPE_GEN=true && storybook dev -p 6006 --no-open",
     "storybook:test": "test-storybook",
+    "storybook:test:ci": "npx concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"pnpm storybook --quiet --ci\" \"wait-on tcp:6006 && pnpm storybook:test --ci --maxWorkers=4\"",
     "storybook:build": "storybook build",
-    "storybook:preview": "http-server storybook-static",
+    "storybook:preview": "serve storybook-static",
     "storybook:smoke-test": "storybook dev --ci --smoke-test"
   },
   "lint-staged": {
@@ -100,6 +101,7 @@
     "@vitest/ui": "^0.26.0",
     "autoprefixer": "^10.4.13",
     "babel-loader": "^9.1.0",
+    "concurrently": "^7.6.0",
     "debug": "^4.3.4",
     "esbuild": "^0.16.12",
     "eslint": "^8.30.0",
@@ -117,7 +119,6 @@
     "eslint-plugin-storybook": "^0.6.8",
     "eslint-plugin-vitest": "^0.0.20",
     "happy-dom": "^8.0.0",
-    "http-server": "^14.1.1",
     "husky": "^8.0.2",
     "jsdom": "^20.0.3",
     "lint-staged": "^13.0.4",
@@ -127,6 +128,7 @@
     "prettier": "^2.8.0",
     "react-test-renderer": "^18.2.0",
     "sass": "^1.56.1",
+    "serve": "^14.1.2",
     "storybook": "^7.0.0-beta.16",
     "stylelint": "^14.15.0",
     "stylelint-config-idiomatic-order": "^9.0.0",
@@ -142,7 +144,8 @@
     "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-sass-dts": "^1.2.8",
     "vite-tsconfig-paths": "^4.0.0",
-    "vitest": "^0.26.3"
+    "vitest": "^0.26.3",
+    "wait-on": "^7.0.1"
   },
   "dependencies": {
     "@hookform/resolvers": "^2.9.10",

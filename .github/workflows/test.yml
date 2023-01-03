@@ -67,10 +67,8 @@ jobs:
 
       - name: Run Storybook Tests 🔧
         run: |
-          pnpm --if-present storybook:build --quiet && \
-          npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
-            "pnpm --if-present storybook:preview --port 6006 --silent" \
-            "npx wait-on tcp:6006 && pnpm --if-present storybook:test --ci"
+          pnpm --if-present storybook:build --quiet
+          pnpm storybook:test:ci
 
       - name: Build 🚀
         run: pnpm --if-present build

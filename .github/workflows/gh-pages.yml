@@ -20,6 +20,9 @@ concurrency:
   group: "pages"
   cancel-in-progress: true
 
+env:
+  NODE_OPTIONS: "--max_old_space_size=4096"
+
 jobs:
   # Build job
   deploy:
