@@ -11,4 +11,9 @@ export default {
     storyStoreV7: true,
     interactionsDebugger: true,
   },
+  // HACK - see https://github.com/storybookjs/storybook/issues/13795
+  managerWebpack: (config, options) => {
+    options.cache.set = () => Promise.resolve();
+    return config;
+  },
 };
