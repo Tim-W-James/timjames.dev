@@ -23,6 +23,11 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+env:
+  NODE_OPTIONS: "--max_old_space_size=4096"
+  STORYBOOK_SITE_RECAPTCHA_KEY: ${{ secrets.STORYBOOK_SITE_RECAPTCHA_KEY }}
+  VITE_SITE_RECAPTCHA_KEY: ${{ secrets.VITE_SITE_RECAPTCHA_KEY }}
+
 jobs:
   test:
     name: Test 🔧
