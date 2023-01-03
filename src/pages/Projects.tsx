@@ -208,10 +208,10 @@ const Projects: React.FC = () => {
             );
             const isTechnologySelected =
               selectedTechnology.length === 0 ||
-              !item.technologies ||
-              item.technologies.filter((technology) =>
-                selectedTechnology.includes(technology)
-              ).length !== 0;
+              (item.technologies &&
+                item.technologies.filter((technology) =>
+                  selectedTechnology.includes(technology)
+                ).length > 0);
 
             const selectedCategory = selectedCategories.map(
               (technology) => technology.value
