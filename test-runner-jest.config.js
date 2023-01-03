@@ -6,5 +6,6 @@ export default {
   // promises which do not resolve, causing Jest to hang. Jest has a force exit
   // option in it's CLI, but the Storybook test runner does not expose it.
   globalTeardown: "./.storybook/teardown.js",
-  testTimeout: 50000,
+  // HACK Long timeout to reduce risk of flaky tests in CI
+  testTimeout: 25000,
 };

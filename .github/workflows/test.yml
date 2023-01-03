@@ -65,6 +65,8 @@ jobs:
       - name: Run Unit Tests 🔧
         run: pnpm --if-present test
 
+      # HACK storybook:test:ci has been modified to reduce flaky tests
+      # https://storybook.js.org/docs/react/writing-tests/test-runner#run-against-non-deployed-storybooks
       - name: Run Component Tests 🔧
         run: |
           pnpm add -g playwright

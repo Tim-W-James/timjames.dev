@@ -216,6 +216,7 @@ export type ClassNames =
   | "p-4"
   | "p-8"
   | "pb-16"
+  | "pb-24"
   | "place-content-center"
   | "pointer-events-none"
   | "prose"

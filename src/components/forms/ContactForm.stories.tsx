@@ -9,7 +9,6 @@ import ContactFormComponent from "./ContactForm";
 
 export default {
   component: ContactFormComponent,
-  tags: ["autodocs"],
   argTypes: {
     onSubmit: {
       table: {
@@ -39,10 +38,10 @@ EmptyForm.decorators = [
       }}
       reCaptchaKey={import.meta.env["STORYBOOK_SITE_RECAPTCHA_KEY"] || ""}
     >
-      <div className={cn("p-8")}>
+      <div className={cn("p-8 pb-24")}>
         <Story />
       </div>
-      <div id="captcha-container" />
+      <div className={cn("captcha-show")} id="captcha-container" />
       <ToastContainer
         autoClose={5000}
         closeOnClick
