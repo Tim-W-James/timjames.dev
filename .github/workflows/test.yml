@@ -62,10 +62,10 @@ jobs:
       - name: Lint 🔧
         run: pnpm --if-present lint
 
-      - name: Run Tests 🔧
+      - name: Run Unit Tests 🔧
         run: pnpm --if-present test
 
-      - name: Run Storybook Tests 🔧
+      - name: Run Component Tests 🔧
         run: |
           pnpm --if-present storybook:build --quiet
           pnpm storybook:test:ci

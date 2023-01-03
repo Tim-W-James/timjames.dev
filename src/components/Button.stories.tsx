@@ -11,7 +11,6 @@ const icons = {
 
 export default {
   component: ButtonComponent,
-  tags: ["autodocs"],
   argTypes: {
     onClick: { action: "clicked", if: { arg: "mode", eq: "button" } },
     to: {
