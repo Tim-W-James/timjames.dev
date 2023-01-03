@@ -18,6 +18,6 @@ export const BLOG = {
 
 export const CONTACT = {
   title: "Contact",
-  description: "Find me on social media, or send me and email.",
+  description: "Find me on social media, or send me an email.",
   routes: ["/contact"],
 };
