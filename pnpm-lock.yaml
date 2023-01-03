@@ -61,6 +61,7 @@ specifiers:
   netlify-cli: ^12.2.7
   netlify-plugin-cloudinary: ^1.2.0
   netlify-plugin-submit-sitemap: ^0.4.0
+  playwright: ^1.29.1
   postcss-ts-classnames: ^0.3.0
   prettier: ^2.8.0
   react: ^18.2.0
@@ -183,6 +184,7 @@ devDependencies:
   lint-staged: 13.1.0
   netlify-cli: 12.4.0_@types+node@18.11.17
   netlify-plugin-submit-sitemap: 0.4.0
+  playwright: 1.29.1
   postcss-ts-classnames: 0.3.0
   prettier: 2.8.1
   react-test-renderer: 18.2.0_react@18.2.0
