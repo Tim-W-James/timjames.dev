@@ -1,5 +1,7 @@
 import { getJestConfig } from "@storybook/test-runner";
 
+// Ejected config for Storybook test runner
+
 export default {
   ...getJestConfig(),
   // HACK Using Storybook's test runner, a React component (react-select) uses
