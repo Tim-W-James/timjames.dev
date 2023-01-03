@@ -1,24 +1,68 @@
+import { Meta, StoryFn } from "@storybook/react";
 import cn from "@styles/cssUtils";
-import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import { BsArrowRightCircleFill, BsMailbox } from "react-icons/bs";
 import ButtonComponent from "./Button";
 
-export default {
-  title: "Components/Button",
-  component: ButtonComponent,
+const icons = {
+  none: undefined,
+  arrow: <BsArrowRightCircleFill />,
+  mailbox: <BsMailbox />,
 };
 
-export const Button = () => (
-  <div className={cn("flex gap-4 items-center p-8", "flex-row")}>
-    <ButtonComponent label="dark" to="https://timjames.dev/" />
-    <ButtonComponent isLight label="light" to="https://timjames.dev/" />
-    <ButtonComponent
-      icon={<BsFillArrowRightCircleFill />}
-      label="icon"
-      to="https://timjames.dev/"
-    />
-    <ButtonComponent
-      icon={<BsFillArrowRightCircleFill />}
-      to="https://timjames.dev/"
-    />
-  </div>
+export default {
+  component: ButtonComponent,
+  tags: ["autodocs"],
+  argTypes: {
+    onClick: { action: "clicked", if: { arg: "mode", eq: "button" } },
+    to: {
+      if: { arg: "mode", neq: "button" },
+    },
+    iconRight: {
+      if: { arg: "icon", truthy: true },
+    },
+    className: {
+      table: {
+        disable: true,
+      },
+    },
+    label: {
+      if: { arg: "isLabelHidden", truthy: false },
+    },
+    icon: {
+      options: Object.keys(icons),
+      mapping: icons,
+      control: {
+        type: "select",
+        labels: {
+          none: "No icon",
+          arrow: "Arrow icon",
+          mailbox: "Mailbox icon",
+        },
+      },
+    },
+  },
+} as Meta<typeof ButtonComponent>;
+
+const Template: StoryFn<typeof ButtonComponent> = (args) => (
+  <ButtonComponent {...args} />
 );
+
+export const Button = Template.bind({});
+Button.args = {
+  label: "Label Text",
+  tooltip: "Tooltip Text",
+  to: "https://timjames.dev/",
+  isLabelHidden: false,
+  isLight: true,
+  disabled: false,
+  mode: "button",
+  icon: icons.arrow,
+  iconRight: true,
+};
+Button.decorators = [
+  (Story) => (
+    <div className={cn("flex p-8")}>
+      <Story />
+    </div>
+  ),
+];

@@ -1,7 +1,7 @@
 export const HOME = {
   title: undefined,
   description: undefined,
-  routes: ["/", "/home", "/index", "/index.html", "/timjames.dev"],
+  routes: ["/", "/home", "/about", "/index", "/index.html", "/timjames.dev"],
 };
 
 export const PROJECTS = {
@@ -13,7 +13,7 @@ export const PROJECTS = {
 export const BLOG = {
   title: "Blog",
   description: "View my blog - web development, tech tips, and more.",
-  routes: ["/blog"],
+  routes: ["/blog", "/articles"],
 };
 
 export const CONTACT = {

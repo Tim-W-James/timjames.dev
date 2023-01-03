@@ -5,10 +5,10 @@ export default {
     "@storybook/addon-links",
     "@storybook/addon-interactions",
     "@storybook/addon-a11y",
-    "storybook-addon-react-router-v6",
   ],
   framework: "@storybook/react-vite",
   features: {
     storyStoreV7: true,
+    interactionsDebugger: true,
   },
 };

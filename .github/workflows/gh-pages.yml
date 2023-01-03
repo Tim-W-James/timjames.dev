@@ -45,7 +45,7 @@ jobs:
         run: pnpm install
 
       - name: Build 🔧
-        run: pnpm storybook:build
+        run: pnpm storybook:build --quiet
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4

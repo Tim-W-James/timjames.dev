@@ -241,6 +241,7 @@ Encrypt](https://img.shields.io/badge/-Let%27s%20Encrypt-black?style=flat-square
   ```sh
   # Get the reCAPTCHA key from https://www.google.com/recaptcha/admin/site/599894418
   VITE_SITE_RECAPTCHA_KEY=123
+  STORYBOOK_SITE_RECAPTCHA_KEY=123
   ```
 
 <!-- USAGE -->

@@ -2,12 +2,21 @@ import Button from "@components/Button";
 import MultiSelection, {
   Option,
   SingleSelection,
-} from "@components/MultiSelection";
-import SearchField from "@components/SearchField";
-import Timeline, { TimelineItemData } from "@components/Timeline";
+} from "@components/input/MultiSelection";
+import SearchField from "@components/input/SearchField";
+import Timeline from "@components/timeline/Timeline";
 import technologies from "@constants/technologies";
-import timelineData, { categories } from "@constants/timelineData";
+import timelineData, {
+  TimelineItemData,
+  categories,
+} from "@constants/timelineData";
 import cn from "@styles/cssUtils";
+import {
+  sortByCategoryAlphabetical,
+  sortByDuration,
+  sortByFeatured,
+  sortByTechnologiesCount,
+} from "@utils/timelineSortFuncs";
 import Children from "react-children-utilities";
 import { BsFillArrowUpCircleFill, BsGithub } from "react-icons/bs";
 import { RiRefreshFill } from "react-icons/ri";
@@ -57,26 +66,6 @@ const sortOptions: readonly SortOption[] = sorts.map((sort) => ({
   value: sort,
   label: sort,
 }));
-
-const sortByDuration = (a: TimelineItemData, b: TimelineItemData) =>
-  b.endDate.getTime() -
-  b.startDate.getTime() -
-  (a.endDate.getTime() - a.startDate.getTime());
-
-const sortByCategoryAlphabetical = (a: TimelineItemData, b: TimelineItemData) =>
-  a.category.toLowerCase().localeCompare(b.category.toLowerCase());
-
-const sortByTechnologiesCount = (a: TimelineItemData, b: TimelineItemData) =>
-  a.technologies && !b.technologies
-    ? -1
-    : b.technologies && !a.technologies
-    ? 1
-    : a.technologies && b.technologies
-    ? b.technologies.length - a.technologies.length
-    : 0;
-
-const sortByFeatured = (a: TimelineItemData, b: TimelineItemData) =>
-  a.isFeatured && !b.isFeatured ? -1 : b.isFeatured && !a.isFeatured ? 1 : 0;
 
 const sortFuncFromOption = (
   sort: typeof sorts[number]

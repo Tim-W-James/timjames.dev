@@ -1,7 +1,5 @@
-import { withRouter } from "storybook-addon-react-router-v6";
+import "react-toastify/dist/ReactToastify.css";
 import "../src/styles/main.scss";
-
-export const decorators = [withRouter];
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },

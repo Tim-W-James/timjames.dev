@@ -2,75 +2,16 @@
 import Button from "@components/Button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import cn from "@styles/cssUtils";
+import {
+  ContactFormSchema,
+  FormSubmitParams,
+  contactFormSchema,
+} from "@utils/contactForm";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { FormState, useForm } from "react-hook-form";
 import { CgSpinner } from "react-icons/cg";
 import { MdCheckCircle, MdError, MdInfo, MdSend } from "react-icons/md";
 import { toast } from "react-toastify";
-import isEmail from "validator/lib/isEmail";
-import normalizeEmail from "validator/lib/normalizeEmail";
-import trim from "validator/lib/trim";
-import { z } from "zod";
-
-// Form schema, using zod for runtime type checking and validator js for
-// additional validators
-const schema = z.object({
-  name: z
-    .string()
-    .min(2, { message: "Use at least 2 characters" })
-    .max(100, { message: "Use less than 100 characters" }),
-  email: z.preprocess(
-    // HACK to get optional fields to work: https://stackoverflow.com/questions/73715295/react-hook-form-with-zod-resolver-optional-field
-    (value) => {
-      if (!value || typeof value !== "string") {
-        return undefined;
-      }
-      return value === "" ? undefined : value;
-    },
-    z
-      .string()
-      .refine(isEmail, { message: "Please enter a valid email" })
-      .optional()
-  ),
-  message: z
-    .string()
-    .min(2, { message: "Use at least 2 characters" })
-    .max(300, { message: "Use less than 300 characters" }),
-});
-
-type Schema = z.infer<typeof schema>;
-
-/**
- * Encode a JSON object for the request of a HTTP body using
- * application/x-www-form-urlencoded
- *
- * @param {object} data - JSON object to encode
- */
-export const encodeContactFormData = (data: object) =>
-  Object.entries(data)
-    .map(
-      (item) =>
-        encodeURIComponent(item[0]) +
-        "=" +
-        encodeURIComponent(
-          item[1] === undefined
-            ? ""
-            : // Sanitize and format data
-            item[0] === "email"
-            ? normalizeEmail(item[1])
-            : trim(item[1])
-        )
-    )
-    .join("&");
-
-export type FormSubmitParams = {
-  data: Schema;
-  setResponseState: (
-    value: React.SetStateAction<"error" | "success" | undefined>
-  ) => void;
-  honeypot: string | undefined;
-  captchaToken: string;
-};
 
 // Instant feedback to display to the user depending on the state of the form
 // and response
@@ -105,26 +46,6 @@ const formStateDisplay = (
         icon: <MdSend className={cn("text-4xl")} />,
       };
 
-// For local development, don't make an API call and log results
-export const onSubmitDev = ({
-  data,
-  honeypot,
-  setResponseState,
-  captchaToken,
-}: FormSubmitParams) =>
-  new Promise((resolve) => {
-    console.groupCollapsed("Contact form content");
-    console.dir(data);
-    console.info("captchaToken:", captchaToken);
-    console.info("honeypot:", honeypot);
-    console.groupEnd();
-
-    setTimeout(() => {
-      setResponseState("success");
-      resolve("Success");
-    }, 1000);
-  });
-
 /**
  * Contact form with validation for name, email and message. Spam protection
  * with reCAPTCHA and honeypot field
@@ -144,8 +65,8 @@ const ContactForm: React.FC<{
     handleSubmit,
     // State of client-side form validation
     formState: formState,
-  } = useForm<Schema>({
-    resolver: zodResolver(schema),
+  } = useForm<ContactFormSchema>({
+    resolver: zodResolver(contactFormSchema),
     mode: "onChange",
   });
 
@@ -177,7 +98,7 @@ const ContactForm: React.FC<{
   }, [handleReCaptchaVerify]);
 
   // Reverify the CAPTCHA on form submission
-  const onFormSubmit = (data: Schema) => {
+  const onFormSubmit = (data: ContactFormSchema) => {
     handleReCaptchaVerify().then(() => {
       toast.promise(
         onSubmit({ data, setResponseState, honeypot, captchaToken }),
@@ -213,7 +134,10 @@ const ContactForm: React.FC<{
       </fieldset>
 
       <fieldset className={cn("flex text-lg", "flex-col")}>
-        <label htmlFor="name">
+        {
+          //#region name
+        }
+        <label htmlFor="name" id="name">
           <div className={cn("flex gap-2 justify-between")}>
             <p>Name*</p>
             {formState.errors.name ? (
@@ -224,16 +148,23 @@ const ContactForm: React.FC<{
           </div>
         </label>
         <input
+          aria-labelledby="name"
           className={cn("form-input", "form-field", {
             ["form-field-error"]: !!formState.errors.name,
           })}
           placeholder="John Doe"
           required
+          type="text"
           {...register("name")}
           disabled={formState.isSubmitting || formState.isSubmitSuccessful}
         />
-
-        <label htmlFor="email">
+        {
+          //#endregion
+        }
+        {
+          //#region email
+        }
+        <label htmlFor="email" id="email">
           <div className={cn("flex gap-2 justify-between")}>
             <p>Email</p>
             {formState.errors.email ? (
@@ -244,15 +175,22 @@ const ContactForm: React.FC<{
           </div>
         </label>
         <input
+          aria-labelledby="email"
           className={cn("form-input", "form-field", {
             ["form-field-error"]: !!formState.errors.email,
           })}
           placeholder={formState.isSubmitSuccessful ? "" : "john@gmail.com"}
           {...register("email")}
           disabled={formState.isSubmitting || formState.isSubmitSuccessful}
+          type="email"
         />
-
-        <label htmlFor="message">
+        {
+          //#endregion
+        }
+        {
+          //#region message
+        }
+        <label htmlFor="message" id="message">
           <div className={cn("flex gap-2 justify-between")}>
             <p>Message*</p>
             {formState.errors.message ? (
@@ -263,6 +201,7 @@ const ContactForm: React.FC<{
           </div>
         </label>
         <textarea
+          aria-labelledby="message"
           className={cn("form-textarea", "form-field", {
             ["form-field-error"]: !!formState.errors.message,
           })}
@@ -271,7 +210,6 @@ const ContactForm: React.FC<{
           {...register("message")}
           disabled={formState.isSubmitting || formState.isSubmitSuccessful}
         />
-
         <Button
           className={
             formState.isSubmitting || (formState.isSubmitted && !responseState)
@@ -292,6 +230,9 @@ const ContactForm: React.FC<{
           mode={"button"}
           type="submit"
         />
+        {
+          //#endregion
+        }
       </fieldset>
     </form>
   );

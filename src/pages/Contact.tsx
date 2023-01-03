@@ -1,52 +1,11 @@
-import ContactForm, {
-  FormSubmitParams,
-  encodeContactFormData,
-  onSubmitDev,
-} from "@components/forms/ContactForm";
+import ContactForm from "@components/forms/ContactForm";
 import cn from "@styles/cssUtils";
+import {
+  contactFormOnSubmit,
+  contactFormOnSubmitDev,
+} from "@utils/contactForm";
 import { BsFacebook, BsGithub, BsLinkedin, BsTwitter } from "react-icons/bs";
 import { SiSpotify, SiSteam } from "react-icons/si";
-
-const onSubmit = ({
-  data,
-  honeypot,
-  setResponseState,
-  captchaToken,
-}: FormSubmitParams) =>
-  new Promise((resolve, reject) => {
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encodeContactFormData({
-        "form-name": "contact",
-        ...data,
-        "bot-field": honeypot,
-        "g-recaptcha-response": captchaToken,
-      }),
-    })
-      .then(async (response) => {
-        if (response.status !== 200) {
-          setResponseState("error");
-          console.error(
-            "Failed to submit contact form with non-200 response: " +
-              `[${response.status}] - [${
-                response.statusText
-              }] - [${await response.text()}]`
-          );
-          reject("error");
-        } else {
-          setResponseState("success");
-          resolve("success");
-        }
-      })
-      .catch((error) => {
-        setResponseState("error");
-        console.error(
-          `Failed to submit contact form: [${JSON.stringify(error)}]`
-        );
-        reject("error");
-      });
-  });
 
 const SocialLink: React.FC<{
   icon: JSX.Element;
@@ -70,7 +29,11 @@ const SocialLink: React.FC<{
 
 const Contact = () => (
   <div>
-    <ContactForm onSubmit={import.meta.env.DEV ? onSubmitDev : onSubmit} />
+    <ContactForm
+      onSubmit={
+        import.meta.env.DEV ? contactFormOnSubmitDev : contactFormOnSubmit
+      }
+    />
     <h2
       className={cn(
         "text-light-accent text-center self-center mt-8 mx-auto w-fit"

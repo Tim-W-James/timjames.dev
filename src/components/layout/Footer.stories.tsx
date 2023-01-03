@@ -1,8 +1,15 @@
+import { Meta, StoryFn } from "@storybook/react";
 import FooterComponent from "./Footer";
 
 export default {
-  title: "Components/Layout/Footer",
   component: FooterComponent,
-};
+} as Meta<typeof FooterComponent>;
 
-export const Footer = () => <FooterComponent />;
+const Template: StoryFn<typeof FooterComponent> = (args) => (
+  <FooterComponent {...args} />
+);
+
+export const Footer = Template.bind({});
+Footer.args = {
+  allowFixed: true,
+};

@@ -1,5 +1,5 @@
-import ScrollToTop from "@components/ScrollToTop";
 import BlogArticle from "@components/blog/BlogArticle";
+import ScrollToTop from "@components/utils/ScrollToTop";
 import { BLOG, CONTACT, HOME, PROJECTS } from "@constants/routes";
 import Page from "@layout/Page";
 import { default as Blog } from "@pages/Blog";

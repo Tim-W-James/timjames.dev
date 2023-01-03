@@ -60,10 +60,13 @@ jobs:
       - name: Run Tests 🔧
         run: pnpm --if-present test
 
-      - name: Run Storybook Smoke Test 🔧
+      - name: Run Storybook Tests 🔧
         run: |
-          pnpm --if-present storybook:smoke-test
-          pnpm --if-present storybook:build
+          npx playwright install --with-deps \
+          pnpm --if-present storybook:build --quiet \
+          npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
+            "pnpm --if-present storybook:preview --port 6006 --silent" \
+            "npx wait-on tcp:6006 && pnpm --if-present storybook:test --ci"
 
       - name: Build 🚀
         run: pnpm --if-present build

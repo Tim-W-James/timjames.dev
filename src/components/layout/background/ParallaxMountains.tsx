@@ -6,7 +6,7 @@ import styles, { ClassNames } from "./ParallaxMountains.module.scss";
 /**
  * Background component with parallax effect.
  */
-const ParallaxMountains = () => {
+const ParallaxMountains: React.FC = () => {
   const deviceIsMobile = useMobileQuery();
   return (
     <>

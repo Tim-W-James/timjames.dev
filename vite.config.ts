@@ -94,7 +94,7 @@ export default defineConfig(() => {
     test: {
       include: ["src/**/*.test.{ts,tsx}"],
       environment: "happy-dom",
-      globals: true,
+      globals: false,
       coverage: {
         reporter: ["text", "json", "html"],
       },

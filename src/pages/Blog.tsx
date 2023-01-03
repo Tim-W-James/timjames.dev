@@ -1,11 +1,11 @@
 import Button from "@components/Button";
+import Card from "@components/blog/Card";
+import LoadingCard from "@components/blog/LoadingCard";
 import MultiSelection, {
   Option,
   SingleSelection,
-} from "@components/MultiSelection";
-import SearchField from "@components/SearchField";
-import Card from "@components/blog/Card";
-import LoadingCard from "@components/blog/LoadingCard";
+} from "@components/input/MultiSelection";
+import SearchField from "@components/input/SearchField";
 import useDevdottoArticlesMeta from "@hooks/useDevdottoArticlesMeta";
 import cn from "@styles/cssUtils";
 import { DevdottoArticleMeta } from "@utils/devdottoArticle";

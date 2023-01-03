@@ -2,26 +2,26 @@ import Footer from "@components/layout/Footer";
 import Page from "@components/layout/Page";
 import Navbar from "@components/layout/nav/Navbar";
 import ScrollToTop from "@components/utils/ScrollToTop";
-import { PROJECTS } from "@constants/routes";
+import { BLOG } from "@constants/routes";
 import { BrowserRouter as Router } from "react-router-dom";
-import ProjectsPage from "./Projects";
+import BlogPage from "./Blog";
 
 export default {
-  component: ProjectsPage,
+  component: BlogPage,
   parameters: {
     backgrounds: { disable: true },
     controls: { hideNoControlsWarning: true },
   },
 };
 
-export const Projects = () => (
+export const Blog = () => (
   <Router>
     <ScrollToTop />
     <Navbar />
     <Page
-      content={<ProjectsPage />}
-      description={PROJECTS.description}
-      title={PROJECTS.title}
+      content={<BlogPage />}
+      description={BLOG.description}
+      title={BLOG.title}
     />
     <Footer allowFixed />
   </Router>

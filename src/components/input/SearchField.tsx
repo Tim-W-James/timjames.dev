@@ -15,7 +15,7 @@ const SearchField: React.FC<{
     )}
     onChange={handleChange}
     placeholder="Search..."
-    type="text"
+    type="search"
     value={searchText}
   />
 );
