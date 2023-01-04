@@ -103,7 +103,7 @@ const timelineData: TimelineItemData[] = [
       "Redux",
       "TypeScript",
       "Vite",
-      "Tailwind",
+      "Tailwind CSS",
       "Sass",
       "Figma",
       "Storybook",

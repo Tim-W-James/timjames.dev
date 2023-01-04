@@ -68,7 +68,7 @@ const technologies = {
     link: "https://www.cypress.io/",
     isCore: false,
   },
-  Tailwind: {
+  "Tailwind CSS": {
     icon: <SiTailwindcss aria-label="Tailwind" />,
     link: "https://tailwindcss.com/",
     isCore: true,
