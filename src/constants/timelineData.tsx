@@ -100,6 +100,7 @@ const timelineData: TimelineItemData[] = [
     category: "Personal Project",
     technologies: [
       "React",
+      "Redux",
       "TypeScript",
       "Vite",
       "Tailwind",
@@ -227,6 +228,34 @@ const timelineData: TimelineItemData[] = [
     ),
     category: "Career Event",
     isFeatured: false,
+  },
+  {
+    startDate: new Date("2022"),
+    endDate: new Date("2022"),
+    title: "ForgeRock Identity Cloud Certified Professional",
+    body: (
+      <>
+        Got certification for{" "}
+        <a
+          className={cn("link")}
+          href="https://www.forgerock.com/platform/identity-cloud"
+          rel="noreferrer"
+          target="_blank"
+          title={"FIDC"}
+        >
+          ForgeRock Identity Cloud
+        </a>
+        , an identity and access management platform.
+      </>
+    ),
+    category: "Career Event",
+    isFeatured: false,
+    links: [
+      {
+        text: "Credly",
+        url: "https://www.credly.com/badges/23372af0-4d55-41e9-a3a3-7d3d55c380fc",
+      },
+    ],
   },
   {
     startDate: new Date("2021"),
