@@ -3,6 +3,7 @@ import technologies from "@constants/technologies";
 import { TimelineItemData, categories } from "@constants/timelineData";
 import cn, { cnScoped } from "@styles/cssUtils";
 import { motion, useAnimation, useInView } from "framer-motion";
+import { HashLink } from "react-router-hash-link";
 import styles, { ClassNames } from "./Timeline.module.scss";
 
 const itemAnimationVariants = {
@@ -51,10 +52,20 @@ const Title: React.FC<{ isOddIndex: boolean; data: TimelineItemData }> = ({
         className={cn(
           "text-main-brand uppercase mb-0 leading-snug",
           "flex-grow",
-          "basis-min-content"
+          "basis-min-content hyphens-none"
         )}
       >
-        {itemData.title}
+        <HashLink
+          className={cn("hash-link-right")}
+          onClick={() =>
+            navigator.clipboard.writeText(
+              `${location.href.split("#")[0]!}#${itemData.title}`
+            )
+          }
+          to={`${location.search}#${itemData.title}`}
+        >
+          {itemData.title}{" "}
+        </HashLink>
       </h3>
       <Category className={cn("text-main-brand text-right")} data={itemData} />
     </>
@@ -64,10 +75,22 @@ const Title: React.FC<{ isOddIndex: boolean; data: TimelineItemData }> = ({
       <h3
         className={cn(
           "text-main-brand uppercase mb-0 leading-snug",
-          "flex-grow"
+          "flex-grow",
+          "hyphens-none"
         )}
       >
-        {itemData.title}
+        <HashLink
+          className={cn("hash-link-left")}
+          onClick={() =>
+            navigator.clipboard.writeText(
+              `${location.href.split("#")[0]!}#${itemData.title}`
+            )
+          }
+          to={`${location.search}#${itemData.title}`}
+        >
+          {" "}
+          {itemData.title}
+        </HashLink>
       </h3>
     </>
   );

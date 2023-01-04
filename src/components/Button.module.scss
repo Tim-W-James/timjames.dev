@@ -14,11 +14,11 @@
   }
 
   &:not(:disabled):active {
-    color: colors.$light-shades;
+    @apply text-light-shades underline;
   }
 
   &:not(:disabled):hover {
-    color: colors.$light-shades;
+    @apply text-light-shades;
   }
 
   &:not(:disabled)._dark:hover {
@@ -53,6 +53,6 @@
   }
 
   &:not(:disabled):active::before {
-    background: colors.$light-accent;
+    @apply bg-light-accent;
   }
 }

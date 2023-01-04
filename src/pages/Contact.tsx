@@ -7,6 +7,7 @@ import {
 import { BsFacebook, BsGithub, BsLinkedin, BsTwitter } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
 import { SiSpotify, SiSteam } from "react-icons/si";
+import { HashLink } from "react-router-hash-link";
 
 const SocialLink: React.FC<{
   icon: JSX.Element;
@@ -17,7 +18,7 @@ const SocialLink: React.FC<{
   <a href={url} rel="noreferrer" target="_blank" title={tooltip}>
     <div
       className={cn(
-        "hover:text-light-accent active:text-dark-accent",
+        "hover:text-light-accent active:text-dark-accent active:underline",
         "inline-flex",
         "items-center gap-1"
       )}
@@ -37,12 +38,18 @@ const Contact = () => (
       showPromptOnClose
     />
     <h2
-      className={cn(
-        "text-light-accent text-center self-center mt-8 mx-auto w-fit"
-      )}
-      id="blog"
+      className={cn("text-center self-center mt-8 mx-auto w-fit")}
+      id="social"
     >
-      Social Links
+      <HashLink
+        className={cn("hash-link")}
+        onClick={() =>
+          navigator.clipboard.writeText(`${location.href}#social-links`)
+        }
+        to={"#social-links"}
+      >
+        Social Links{" "}
+      </HashLink>
       <hr className={cn("radial-border mb-4")} />
     </h2>
     <section

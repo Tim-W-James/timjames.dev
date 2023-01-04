@@ -90,7 +90,7 @@ const CoreTechnologies: React.FC = () => (
             className={cn(
               "inline-flex",
               "items-center",
-              "hover:text-light-accent active:text-dark-accent"
+              "hover:text-light-accent active:text-dark-accent active:underline"
             )}
             key={index}
             title={`View all my projects that use ${key}`}
@@ -120,7 +120,15 @@ const AboutMe: React.FC = () => (
     )}
   >
     <h2 id="about">
-      About Me
+      <HashLink
+        className={cn("hash-link")}
+        onClick={() =>
+          navigator.clipboard.writeText(`${location.href.split("#")[0]!}#about`)
+        }
+        to={"#about"}
+      >
+        About Me{" "}
+      </HashLink>
       <hr className={cn("radial-border")} />
     </h2>
     <br />
@@ -211,8 +219,18 @@ const MajorProjects: React.FC = () => {
           "flex-col"
         )}
       >
-        <h2 className={cn("pt-8 mb-0")} id="projects">
-          Major Projects
+        <h2 className={cn("mt-8 mb-0")} id="projects">
+          <HashLink
+            className={cn("hash-link")}
+            onClick={() =>
+              navigator.clipboard.writeText(
+                `${location.href.split("#")[0]!}#projects`
+              )
+            }
+            to={"#projects"}
+          >
+            Major Projects{" "}
+          </HashLink>
           {!hasTwoColumns ? <hr className={cn("radial-border")} /> : null}
         </h2>
       </div>
@@ -245,7 +263,17 @@ const Hobbies: React.FC = () => (
     )}
   >
     <h2 id="hobbies">
-      What I do When I&apos;m Not Writing Code
+      <HashLink
+        className={cn("hash-link")}
+        onClick={() =>
+          navigator.clipboard.writeText(
+            `${location.href.split("#")[0]!}#hobbies`
+          )
+        }
+        to={"#hobbies"}
+      >
+        What I do When I&apos;m Not Writing Code{" "}
+      </HashLink>
       <hr className={cn("radial-border")} />
     </h2>
     <br />
@@ -323,7 +351,17 @@ const Skill: React.FC<{
 const Skills: React.FC = () => (
   <div className={cn("flex mx-auto px-8 mt-8", "flex-col")}>
     <h2 className={cn("self-center mb-4")} id="skills">
-      Skills
+      <HashLink
+        className={cn("hash-link")}
+        onClick={() =>
+          navigator.clipboard.writeText(
+            `${location.href.split("#")[0]!}#skills`
+          )
+        }
+        to={"#skills"}
+      >
+        Skills{" "}
+      </HashLink>
       <hr className={cn("radial-border")} />
     </h2>
     <br />
@@ -474,7 +512,17 @@ const LatestBlogPost: React.FC = () => {
   return (
     <div>
       <h2 className={cn("self-center mb-4")} id="blog">
-        Latest Blog Posts
+        <HashLink
+          className={cn("hash-link")}
+          onClick={() =>
+            navigator.clipboard.writeText(
+              `${location.href.split("#")[0]!}#blog`
+            )
+          }
+          to={"#blog"}
+        >
+          Latest Blog Posts{" "}
+        </HashLink>
         <hr className={cn("radial-border")} />
       </h2>
       <section>

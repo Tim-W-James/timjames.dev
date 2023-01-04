@@ -49,6 +49,24 @@
     background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
   }
 
+  .hash-link {
+    @apply ml-8 after:invisible hover:after:visible after:text-3xl;
+    @apply after:hover:text-light-accent after:active:text-dark-accent;
+    @apply after:active:underline after:content-['#'];
+  }
+
+  .hash-link-left {
+    @apply before:invisible hover:before:visible before:text-3xl;
+    @apply before:hover:text-light-accent before:active:text-dark-accent;
+    @apply before:active:underline before:content-['#'];
+  }
+
+  .hash-link-right {
+    @apply after:invisible hover:after:visible after:text-3xl;
+    @apply after:hover:text-light-accent after:active:text-dark-accent;
+    @apply after:active:underline after:content-['#'];
+  }
+
   // Override react-select styles
   .multi-select {
     // HACK react-select has dynamic styles, so have to match the tree
@@ -176,8 +194,8 @@
   h4 {
     &::before {
       display: inline-block;
-      height: 75px;
-      margin-top: -75px;
+      height: 30px;
+      margin-top: -30px;
       content: "";
       visibility: hidden;
     }
