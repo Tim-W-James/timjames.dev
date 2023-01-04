@@ -57,6 +57,7 @@ export const SingleSelection: React.FC<{
       options={options}
       placeholder={placeholder || "Select..."}
       theme={theme}
+      value={selectedOption}
     />
   </div>
 );

@@ -84,24 +84,28 @@ const CoreTechnologies: React.FC = () => (
       )}
     >
       {Object.entries(technologies)
-        .filter((technology) => technology[1].isCore)
-        .map((technology, index) => (
-          <a
-            className={cn("inline-flex", "items-center")}
-            href={technology[1].link}
+        .filter(([_, value]) => value.isCore)
+        .map(([key, value], index) => (
+          <HashLink
+            className={cn(
+              "inline-flex",
+              "items-center",
+              "hover:text-light-accent active:text-dark-accent"
+            )}
             key={index}
-            rel="noreferrer"
-            target="_blank"
-            title={technology[0]}
+            title={`View all my projects that use ${key}`}
+            to={`/projects?${new URLSearchParams({
+              technologies: key.toLowerCase(),
+            }).toString()}`}
           >
-            {technology[1].icon ? (
+            {value.icon ? (
               <>
-                {technology[1].icon}
+                {value.icon}
                 {"\u00A0"}
               </>
             ) : null}
-            {technology[0]}
-          </a>
+            {key}
+          </HashLink>
         ))}
     </section>
   </div>
@@ -340,15 +344,13 @@ const Skills: React.FC = () => (
               tooltip="Continuous Integration and Delivery"
             />
             . At{" "}
-            <a
+            <HashLink
               className={cn("link")}
-              href={"https://agiledigital.com.au/"}
-              rel="noreferrer"
-              target="_blank"
-              title={"Agile Digital website"}
+              title={"View my projects with Agile Digital"}
+              to={"projects?categories=Agile%2520Digital"}
             >
               Agile Digital
-            </a>
+            </HashLink>
             , I have project experience working with teams using{" "}
             <Tooltip isInverted text="Kanban" tooltip="Agile framework" />. I
             collaborate effectively with other developers, frequently practicing
@@ -393,21 +395,18 @@ const Skills: React.FC = () => (
               blog
             </Link>{" "}
             and performing tech talks at{" "}
-            <a
+            <HashLink
               className={cn("link")}
-              href={"https://agiledigital.com.au/"}
-              rel="noreferrer"
-              target="_blank"
-              title={"Agile Digital website"}
+              title={"View my projects with Agile Digital"}
+              to={"projects?categories=Agile%2520Digital"}
             >
               Agile Digital
-            </a>
+            </HashLink>
             . On a project with{" "}
             <HashLink
               className={cn("link")}
-              rel="noreferrer"
               title={"View project details"}
-              to={"/projects/#Toyota Finance Australia"}
+              to={"/projects?reset#Toyota Finance Australia"}
             >
               Toyota Finance Australia
             </HashLink>
@@ -415,9 +414,8 @@ const Skills: React.FC = () => (
             scale. As a spokesperson for an{" "}
             <HashLink
               className={cn("link")}
-              rel="noreferrer"
               title={"View project details"}
-              to={"/projects/#Siding Spring Observatory VR Experience"}
+              to={"/projects?reset#Siding Spring Observatory VR Experience"}
             >
               ANU TechLauncher project
             </HashLink>

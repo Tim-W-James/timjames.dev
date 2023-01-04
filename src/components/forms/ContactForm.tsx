@@ -146,6 +146,7 @@ const ContactForm: React.FC<{
     });
   };
 
+  // Prompt the user if they try to close the page with unsaved changes
   useEffect(() => {
     if (!showPromptOnClose) {
       return () => {};
@@ -157,7 +158,10 @@ const ContactForm: React.FC<{
       event.returnValue = "";
     };
 
-    if (formState.isDirty && responseState === "notSent") {
+    if (
+      (formState.isDirty && responseState === "notSent") ||
+      Object.values(formData).some((value) => !!value)
+    ) {
       window.addEventListener("beforeunload", handler);
 
       return () => {
@@ -166,7 +170,7 @@ const ContactForm: React.FC<{
     }
 
     return () => {};
-  }, [formState, responseState, showPromptOnClose]);
+  }, [formData, formState, responseState, showPromptOnClose]);
 
   return (
     <form

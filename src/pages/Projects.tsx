@@ -10,7 +10,10 @@ import timelineData, {
   TimelineItemData,
   categories,
 } from "@constants/timelineData";
+import useLocalStorage from "@hooks/useLocalStorage";
+import { useQueryParams } from "@hooks/useQueryParams";
 import cn from "@styles/cssUtils";
+import { decodeArrayAsCsv, encodeArrayAsCsv } from "@utils/encodeQueryParams";
 import {
   sortByCategoryAlphabetical,
   sortByDuration,
@@ -20,6 +23,7 @@ import {
 import Children from "react-children-utilities";
 import { BsFillArrowUpCircleFill, BsGithub } from "react-icons/bs";
 import { RiRefreshFill } from "react-icons/ri";
+import { useNavigate } from "react-router-dom";
 
 const technologyOptions: readonly Option[] = Object.keys(technologies)
   .map((technology) => {
@@ -101,6 +105,13 @@ const searchFilter = (searchText: string, item: TimelineItemData) => {
   );
 };
 
+type ProjectOptions = {
+  technologies: readonly Option[];
+  categories: readonly Option[];
+  sort: SortOption;
+  searchText: string;
+};
+
 const Projects: React.FC = () => {
   const [selectedTechnologies, setSelectedTechnologies] = useState<
     readonly Option[]
@@ -128,6 +139,102 @@ const Projects: React.FC = () => {
       setIsResetButtonAnimated(false);
     }, 500);
   };
+
+  const navigate = useNavigate();
+
+  const [localStorageProjectOptions, setLocalStorageProjectOptions] =
+    useLocalStorage<ProjectOptions>("projectOptions", {
+      technologies: [],
+      categories: [],
+      sort: sortOptions[0]!,
+      searchText: "",
+    });
+
+  const queryParams = useQueryParams();
+
+  useEffect(() => {
+    if (queryParams.toString()) {
+      // Query params take precedence over local storage on initial load
+      if (queryParams.get("reset")) {
+        resetOptions();
+        navigate({
+          hash: window.location.hash,
+          search: "",
+        });
+        return () => {};
+      }
+      setSelectedTechnologies([]);
+      decodeArrayAsCsv(queryParams.get("technologies") || "").forEach(
+        (value) => {
+          const option = technologyOptions.find(
+            (o) => o.value.toLowerCase() === value.toLowerCase()
+          );
+          if (option) {
+            setSelectedTechnologies((prev) => [...prev, option]);
+          }
+        }
+      );
+      setSelectedCategories([]);
+      decodeArrayAsCsv(queryParams.get("categories") || "").forEach((value) => {
+        const option = categoryOptions.find(
+          (o) => o.value.toLowerCase() === value.toLowerCase()
+        );
+        if (option) {
+          setSelectedCategories((prev) => [...prev, option]);
+        }
+      });
+      setSelectedSort(
+        sortOptions.find(
+          (o) =>
+            o.value.toLowerCase() === queryParams.get("sort")?.toLowerCase()
+        ) || sortOptions[0]!
+      );
+      setSearchText(queryParams.get("searchText") || "");
+    } else {
+      // Populate the options from local storage
+      setSelectedTechnologies(localStorageProjectOptions.technologies);
+      setSelectedCategories(localStorageProjectOptions.categories);
+      setSelectedSort(localStorageProjectOptions.sort);
+      setSearchText(localStorageProjectOptions.searchText);
+    }
+    return () => {};
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    // Update local storage when options change
+    setLocalStorageProjectOptions({
+      technologies: selectedTechnologies,
+      categories: selectedCategories,
+      sort: selectedSort,
+      searchText,
+    });
+    // Update query params
+    navigate({
+      hash: window.location.hash,
+      search:
+        "?" +
+        new URLSearchParams(
+          // Strip any undefined values
+          JSON.parse(
+            JSON.stringify({
+              technologies:
+                encodeArrayAsCsv(selectedTechnologies.map((t) => t.value)) ||
+                undefined,
+              categories:
+                encodeArrayAsCsv(selectedCategories.map((c) => c.value)) ||
+                undefined,
+              sort:
+                selectedSort.value === sortOptions[0]?.value
+                  ? undefined
+                  : selectedSort.value,
+              searchText: searchText || undefined,
+            })
+          )
+        ).toString(),
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchText, selectedCategories, selectedSort, selectedTechnologies]);
 
   return (
     <div>

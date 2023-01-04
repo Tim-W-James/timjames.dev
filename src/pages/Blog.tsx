@@ -7,10 +7,14 @@ import MultiSelection, {
 } from "@components/input/MultiSelection";
 import SearchField from "@components/input/SearchField";
 import useDevdottoArticlesMeta from "@hooks/useDevdottoArticlesMeta";
+import useLocalStorage from "@hooks/useLocalStorage";
+import { useQueryParams } from "@hooks/useQueryParams";
 import cn from "@styles/cssUtils";
 import { DevdottoArticleMeta } from "@utils/devdottoArticle";
+import { decodeArrayAsCsv, encodeArrayAsCsv } from "@utils/encodeQueryParams";
 import { RiRefreshFill } from "react-icons/ri";
 import { SiDevdotto, SiMedium } from "react-icons/si";
+import { useNavigate } from "react-router-dom";
 
 const sorts = ["Popularity", "Latest", "Quick Reads"] as const;
 
@@ -62,6 +66,12 @@ const searchFilter = (searchText: string, item: DevdottoArticleMeta) => {
   );
 };
 
+type BlogOptions = {
+  tags: readonly Option[];
+  sort: SortOption;
+  searchText: string;
+};
+
 const Blog = () => {
   const recentArticles = useDevdottoArticlesMeta(100);
   const [selectedTags, setSelectedTags] = useState<readonly Option[]>([]);
@@ -111,6 +121,86 @@ const Blog = () => {
       setIsResetButtonAnimated(false);
     }, 500);
   };
+
+  const navigate = useNavigate();
+
+  const [localStorageProjectOptions, setLocalStorageProjectOptions] =
+    useLocalStorage<BlogOptions>("blogOptions", {
+      tags: [],
+      sort: sortOptions[0]!,
+      searchText: "",
+    });
+
+  const queryParams = useQueryParams();
+
+  useEffect(() => {
+    if (queryParams.toString()) {
+      // Query params take precedence over local storage on initial load
+      if (queryParams.get("reset")) {
+        resetOptions();
+        navigate({
+          hash: window.location.hash,
+          search: "",
+        });
+        return () => {};
+      }
+      setSelectedTags([]);
+      decodeArrayAsCsv(queryParams.get("technologies") || "").forEach(
+        (value) => {
+          const option = selectedTags.find(
+            (o) => o.value.toLowerCase() === value.toLowerCase()
+          );
+          if (option) {
+            setSelectedTags((prev) => [...prev, option]);
+          }
+        }
+      );
+      setSelectedSort(
+        sortOptions.find(
+          (o) =>
+            o.value.toLowerCase() === queryParams.get("sort")?.toLowerCase()
+        ) || sortOptions[0]!
+      );
+      setSearchText(queryParams.get("searchText") || "");
+    } else {
+      // Populate the options from local storage
+      setSelectedTags(localStorageProjectOptions.tags);
+      setSelectedSort(localStorageProjectOptions.sort);
+      setSearchText(localStorageProjectOptions.searchText);
+    }
+    return () => {};
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    // Update local storage when options change
+    setLocalStorageProjectOptions({
+      tags: selectedTags,
+      sort: selectedSort,
+      searchText,
+    });
+    // Update query params
+    navigate({
+      hash: window.location.hash,
+      search:
+        "?" +
+        new URLSearchParams(
+          // Strip any undefined values
+          JSON.parse(
+            JSON.stringify({
+              tags:
+                encodeArrayAsCsv(selectedTags.map((t) => t.value)) || undefined,
+              sort:
+                selectedSort.value === sortOptions[0]?.value
+                  ? undefined
+                  : selectedSort.value,
+              searchText: searchText || undefined,
+            })
+          )
+        ).toString(),
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchText, selectedSort, selectedTags]);
 
   const filteredArticles = recentArticles.loading
     ? []
