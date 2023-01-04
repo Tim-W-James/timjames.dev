@@ -1,6 +1,9 @@
 /* eslint-disable sonarjs/no-duplicate-string */
+import { store } from "@app/store";
 import Button from "@components/Button";
+import { ContactFormStatus, updateFormData } from "@context/ContactFormSlice";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useAppDispatch, useAppSelector } from "@hooks/redux";
 import cn from "@styles/cssUtils";
 import {
   ContactFormSchema,
@@ -21,14 +24,19 @@ const formStateDisplay = (
     message: string;
     name: string;
   }>,
-  responseState?: "success" | "error" | undefined
+  responseState?: ContactFormStatus
 ): { message: string; icon: JSX.Element } =>
-  !formState.isValid
+  responseState === "success"
+    ? { message: "Sent!", icon: <MdCheckCircle className={cn("text-4xl")} /> }
+    : responseState === "error"
+    ? { message: "Error", icon: <MdError className={cn("text-4xl")} /> }
+    : !formState.isValid
     ? {
         message: "Please complete the Form",
         icon: <MdInfo className={cn("text-4xl")} />,
       }
-    : formState.isSubmitting || (formState.isSubmitSuccessful && !responseState)
+    : formState.isSubmitting ||
+      (formState.isSubmitSuccessful && responseState === "notSent")
     ? {
         message: "Submitting...",
         icon: (
@@ -37,10 +45,6 @@ const formStateDisplay = (
           </span>
         ),
       }
-    : formState.isSubmitSuccessful
-    ? responseState === "success"
-      ? { message: "Sent!", icon: <MdCheckCircle className={cn("text-4xl")} /> }
-      : { message: "Error", icon: <MdError className={cn("text-4xl")} /> }
     : {
         message: "Submit your Message",
         icon: <MdSend className={cn("text-4xl")} />,
@@ -54,21 +58,47 @@ const formStateDisplay = (
  */
 const ContactForm: React.FC<{
   onSubmit: (params: FormSubmitParams) => Promise<unknown>;
-}> = ({ onSubmit }) => {
-  // State of the response from the server
-  const [responseState, setResponseState] = useState<
-    "success" | "error" | undefined
-  >(undefined);
+  showPromptOnClose?: boolean;
+}> = ({ onSubmit, showPromptOnClose }) => {
+  const responseState = useAppSelector((state) => state.contactForm.status);
+  const initialFormData = store.getState().contactForm.formData;
+  const dispatch = useAppDispatch();
 
   const {
     register,
     handleSubmit,
+    watch: watchFormInput,
     // State of client-side form validation
-    formState: formState,
+    formState,
+    setValue: setFormData,
   } = useForm<ContactFormSchema>({
     resolver: zodResolver(contactFormSchema),
     mode: "onChange",
+    defaultValues: { name: "", email: "", message: "" },
   });
+  const formData = watchFormInput();
+
+  useEffect(() => {
+    const formKeys = contactFormSchema.keyof();
+    Object.entries(initialFormData).forEach(([key, value]) => {
+      // Need to verify the key again to keep TypeScript happy
+      const parsedKey = formKeys.parse(key);
+      setFormData(parsedKey, value, {
+        shouldValidate: !!value,
+      });
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Update any changes to the form data in redux
+  useEffect(() => {
+    dispatch(updateFormData(formData));
+  }, [dispatch, formData]);
+
+  const isFormDisabled =
+    formState.isSubmitting ||
+    formState.isSubmitSuccessful ||
+    !(responseState === "notSent");
 
   // Honeypot field to catch bots
   const [honeypot, setHoneypot] = useState<string | undefined>(undefined);
@@ -101,7 +131,12 @@ const ContactForm: React.FC<{
   const onFormSubmit = (data: ContactFormSchema) => {
     handleReCaptchaVerify().then(() => {
       toast.promise(
-        onSubmit({ data, setResponseState, honeypot, captchaToken }),
+        onSubmit({
+          data,
+          dispatch,
+          honeypot,
+          captchaToken,
+        }),
         {
           pending: "Sending message...",
           success: "Message sent! 🎉",
@@ -110,6 +145,28 @@ const ContactForm: React.FC<{
       );
     });
   };
+
+  useEffect(() => {
+    if (!showPromptOnClose) {
+      return () => {};
+    }
+
+    const handler = (event: BeforeUnloadEvent) => {
+      event.preventDefault();
+
+      event.returnValue = "";
+    };
+
+    if (formState.isDirty && responseState === "notSent") {
+      window.addEventListener("beforeunload", handler);
+
+      return () => {
+        window.removeEventListener("beforeunload", handler);
+      };
+    }
+
+    return () => {};
+  }, [formState, responseState, showPromptOnClose]);
 
   return (
     <form
@@ -152,11 +209,11 @@ const ContactForm: React.FC<{
           className={cn("form-input", "form-field", {
             ["form-field-error"]: !!formState.errors.name,
           })}
-          placeholder="John Doe"
+          placeholder="Your name here..."
           required
           type="text"
           {...register("name")}
-          disabled={formState.isSubmitting || formState.isSubmitSuccessful}
+          disabled={isFormDisabled}
         />
         {
           //#endregion
@@ -179,9 +236,9 @@ const ContactForm: React.FC<{
           className={cn("form-input", "form-field", {
             ["form-field-error"]: !!formState.errors.email,
           })}
-          placeholder={formState.isSubmitSuccessful ? "" : "john@gmail.com"}
+          placeholder={formState.isSubmitSuccessful ? "" : "example@gmail.com"}
           {...register("email")}
-          disabled={formState.isSubmitting || formState.isSubmitSuccessful}
+          disabled={isFormDisabled}
           type="email"
         />
         {
@@ -205,24 +262,21 @@ const ContactForm: React.FC<{
           className={cn("form-textarea", "form-field", {
             ["form-field-error"]: !!formState.errors.message,
           })}
-          placeholder="Hello!"
+          placeholder="Your message here..."
           required
           {...register("message")}
-          disabled={formState.isSubmitting || formState.isSubmitSuccessful}
+          disabled={isFormDisabled}
         />
         <Button
           className={
-            formState.isSubmitting || (formState.isSubmitted && !responseState)
+            formState.isSubmitting ||
+            (formState.isSubmitSuccessful && responseState === "notSent")
               ? cn("!cursor-wait")
               : responseState === "success"
               ? cn("!cursor-default")
               : ""
           }
-          disabled={
-            !formState.isValid ||
-            formState.isSubmitting ||
-            formState.isSubmitSuccessful
-          }
+          disabled={!formState.isValid || isFormDisabled}
           icon={formStateDisplay(formState, responseState).icon}
           iconRight
           isLight

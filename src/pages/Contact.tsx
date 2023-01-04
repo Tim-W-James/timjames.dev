@@ -5,6 +5,7 @@ import {
   contactFormOnSubmitDev,
 } from "@utils/contactForm";
 import { BsFacebook, BsGithub, BsLinkedin, BsTwitter } from "react-icons/bs";
+import { MdEmail } from "react-icons/md";
 import { SiSpotify, SiSteam } from "react-icons/si";
 
 const SocialLink: React.FC<{
@@ -33,6 +34,7 @@ const Contact = () => (
       onSubmit={
         import.meta.env.DEV ? contactFormOnSubmitDev : contactFormOnSubmit
       }
+      showPromptOnClose
     />
     <h2
       className={cn(
@@ -86,6 +88,18 @@ const Contact = () => (
         url={"https://open.spotify.com/user/22xzbbohotkdpq5wfipvefk4y"}
       />
     </section>
+    <div className={cn("text-xl text-center mt-4", "basis-min-content")}>
+      <MdEmail /> Send me an email:{" "}
+      <a
+        className={cn("link", "hyphens-none")}
+        href="mailto:tim.james.work9800@gmail.com"
+        rel="noreferrer"
+        target="_blank"
+        title={"tim.james.work9800@gmail.com"}
+      >
+        tim.james.work9800@gmail.com
+      </a>
+    </div>
   </div>
 );
 

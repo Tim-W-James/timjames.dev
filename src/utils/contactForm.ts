@@ -1,3 +1,5 @@
+import { AppDispatch } from "@app/store";
+import { submitError, submitSuccess } from "@context/ContactFormSlice";
 import isEmail from "validator/lib/isEmail";
 import normalizeEmail from "validator/lib/normalizeEmail";
 import trim from "validator/lib/trim";
@@ -33,9 +35,7 @@ export type ContactFormSchema = z.infer<typeof contactFormSchema>;
 
 export type FormSubmitParams = {
   data: ContactFormSchema;
-  setResponseState: (
-    value: React.SetStateAction<"error" | "success" | undefined>
-  ) => void;
+  dispatch: AppDispatch;
   honeypot: string | undefined;
   captchaToken: string;
 };
@@ -69,7 +69,7 @@ const encodeContactFormData = (data: object) =>
 export const contactFormOnSubmit = ({
   data,
   honeypot,
-  setResponseState,
+  dispatch,
   captchaToken,
 }: FormSubmitParams) =>
   new Promise((resolve, reject) => {
@@ -85,7 +85,7 @@ export const contactFormOnSubmit = ({
     })
       .then(async (response) => {
         if (response.status !== 200) {
-          setResponseState("error");
+          dispatch(submitError());
           console.error(
             "Failed to submit contact form with non-200 response: " +
               `[${response.status}] - [${
@@ -94,12 +94,12 @@ export const contactFormOnSubmit = ({
           );
           reject("error");
         } else {
-          setResponseState("success");
+          dispatch(submitSuccess());
           resolve("success");
         }
       })
       .catch((error) => {
-        setResponseState("error");
+        dispatch(submitError());
         console.error(
           `Failed to submit contact form: [${JSON.stringify(error)}]`
         );
@@ -113,7 +113,7 @@ export const contactFormOnSubmit = ({
 export const contactFormOnSubmitDev = ({
   data,
   honeypot,
-  setResponseState,
+  dispatch,
   captchaToken,
 }: FormSubmitParams) =>
   new Promise((resolve) => {
@@ -124,7 +124,7 @@ export const contactFormOnSubmitDev = ({
     console.groupEnd();
 
     setTimeout(() => {
-      setResponseState("success");
+      dispatch(submitSuccess());
       resolve("Success");
     }, 500);
   });

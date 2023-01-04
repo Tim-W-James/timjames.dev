@@ -1,10 +1,13 @@
+import Toast from "@components/utils/Toast";
+import contactFormReducer from "@context/ContactFormSlice";
+import { configureStore } from "@reduxjs/toolkit";
 import { expect } from "@storybook/jest";
 import { Meta, StoryFn } from "@storybook/react";
 import { userEvent, waitFor, within } from "@storybook/testing-library";
 import cn from "@styles/cssUtils";
 import { contactFormOnSubmitDev } from "@utils/contactForm";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
-import { ToastContainer } from "react-toastify";
+import { Provider } from "react-redux";
 import ContactFormComponent from "./ContactForm";
 
 export default {
@@ -16,6 +19,26 @@ export default {
       },
     },
   },
+  decorators: [
+    (Story) => (
+      <GoogleReCaptchaProvider
+        container={{
+          element: "captcha-container",
+          parameters: {
+            badge: "bottomright",
+            theme: "dark",
+          },
+        }}
+        reCaptchaKey={import.meta.env["STORYBOOK_SITE_RECAPTCHA_KEY"] || ""}
+      >
+        <div className={cn("p-8 pb-24")}>
+          <Story />
+        </div>
+        <div className={cn("captcha-show")} id="captcha-container" />
+        <Toast />
+      </GoogleReCaptchaProvider>
+    ),
+  ],
 } as Meta<typeof ContactFormComponent>;
 
 const Template: StoryFn<typeof ContactFormComponent> = (args) => (
@@ -28,33 +51,15 @@ EmptyForm.args = {
 };
 EmptyForm.decorators = [
   (Story) => (
-    <GoogleReCaptchaProvider
-      container={{
-        element: "captcha-container",
-        parameters: {
-          badge: "bottomright",
-          theme: "dark",
+    <Provider
+      store={configureStore({
+        reducer: {
+          contactForm: contactFormReducer,
         },
-      }}
-      reCaptchaKey={import.meta.env["STORYBOOK_SITE_RECAPTCHA_KEY"] || ""}
+      })}
     >
-      <div className={cn("p-8 pb-24")}>
-        <Story />
-      </div>
-      <div className={cn("captcha-show")} id="captcha-container" />
-      <ToastContainer
-        autoClose={5000}
-        closeOnClick
-        draggable
-        hideProgressBar={false}
-        newestOnTop={false}
-        pauseOnFocusLoss
-        pauseOnHover
-        position="top-right"
-        rtl={false}
-        theme="dark"
-      />
-    </GoogleReCaptchaProvider>
+      <Story />
+    </Provider>
   ),
 ];
 EmptyForm.parameters = {
@@ -65,13 +70,27 @@ export const ValidForm = Template.bind({});
 ValidForm.args = {
   ...EmptyForm.args,
 };
-ValidForm.decorators = EmptyForm.decorators;
+ValidForm.decorators = [
+  (Story) => (
+    <Provider
+      store={configureStore({
+        reducer: {
+          contactForm: contactFormReducer,
+        },
+      })}
+    >
+      <Story />
+    </Provider>
+  ),
+];
 ValidForm.parameters = {
   ...EmptyForm.parameters,
 };
 ValidForm.play = async ({ canvasElement }) => {
   // Arrange
   const canvas = within(canvasElement);
+
+  await new Promise((resolve) => setTimeout(resolve, 500));
 
   // Act
   await userEvent.type(
@@ -80,7 +99,7 @@ ValidForm.play = async ({ canvasElement }) => {
     }),
     "John Doe",
     {
-      delay: 10,
+      delay: 50,
     }
   );
 
@@ -90,7 +109,7 @@ ValidForm.play = async ({ canvasElement }) => {
     }),
     "john@gmail.com",
     {
-      delay: 10,
+      delay: 50,
     }
   );
 
@@ -100,7 +119,7 @@ ValidForm.play = async ({ canvasElement }) => {
     }),
     "Hello!",
     {
-      delay: 10,
+      delay: 50,
     }
   );
 
@@ -132,13 +151,27 @@ export const InvalidForm = Template.bind({});
 InvalidForm.args = {
   ...EmptyForm.args,
 };
-InvalidForm.decorators = EmptyForm.decorators;
+InvalidForm.decorators = [
+  (Story) => (
+    <Provider
+      store={configureStore({
+        reducer: {
+          contactForm: contactFormReducer,
+        },
+      })}
+    >
+      <Story />
+    </Provider>
+  ),
+];
 InvalidForm.parameters = {
   ...EmptyForm.parameters,
 };
 InvalidForm.play = async ({ canvasElement }) => {
   // Arrange
   const canvas = within(canvasElement);
+
+  await new Promise((resolve) => setTimeout(resolve, 500));
 
   // Act
   await userEvent.type(
@@ -147,7 +180,7 @@ InvalidForm.play = async ({ canvasElement }) => {
     }),
     "J",
     {
-      delay: 10,
+      delay: 50,
     }
   );
 
@@ -157,7 +190,7 @@ InvalidForm.play = async ({ canvasElement }) => {
     }),
     "john",
     {
-      delay: 10,
+      delay: 50,
     }
   );
 
@@ -167,7 +200,7 @@ InvalidForm.play = async ({ canvasElement }) => {
     }),
     "!",
     {
-      delay: 10,
+      delay: 50,
     }
   );
 

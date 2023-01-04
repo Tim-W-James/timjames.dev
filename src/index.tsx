@@ -11,100 +11,104 @@ import "@styles/main.scss";
 import App from "App";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { Provider } from "react-redux";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { store } from "./app/store";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <Router>
-      <ScrollToTop />
-      <Routes>
-        <Route element={<App />} path="/">
-          {/* Alternate routes to the index */}
-          {HOME.routes.map((path, index) => (
-            <Route
-              element={
-                <Page
-                  content={<Home />}
-                  description={HOME.description}
-                  nonStandardLayout
-                  title={HOME.title}
-                />
-              }
-              index
-              key={index}
-              path={path}
-            />
-          ))}
-          {PROJECTS.routes.map((path, index) => (
-            <Route
-              element={
-                <Page
-                  content={<Projects />}
-                  description={PROJECTS.description}
-                  title={PROJECTS.title}
-                />
-              }
-              index
-              key={index}
-              path={path}
-            />
-          ))}
-          {BLOG.routes.map((path, index) => (
-            <Route
-              element={
-                <Page
-                  content={<Blog />}
-                  description={BLOG.description}
-                  title={BLOG.title}
-                />
-              }
-              index
-              key={index}
-              path={path}
-            />
-          ))}
-          {/* Dynamic blog routes */}
-          {BLOG.routes.map((path, index) => (
-            <Route
-              element={
-                <Page
-                  content={<BlogArticle />}
-                  description={BLOG.description}
-                  nonStandardLayout
-                  title={BLOG.title}
-                />
-              }
-              index
-              key={index}
-              path={`${path}/:slug`}
-            />
-          ))}
-          {CONTACT.routes.map((path, index) => (
-            <Route
-              element={
-                <Page
-                  content={<Contact />}
-                  description={CONTACT.description}
-                  title={CONTACT.title}
-                />
-              }
-              index
-              key={index}
-              path={path}
-            />
-          ))}
-          <Route
-            element={
-              <Page
-                content={<NotFound />}
-                nonStandardLayout
-                title="Not Found"
+    <Provider store={store}>
+      <Router>
+        <ScrollToTop />
+        <Routes>
+          <Route element={<App />} path="/">
+            {/* Alternate routes to the index */}
+            {HOME.routes.map((path, index) => (
+              <Route
+                element={
+                  <Page
+                    content={<Home />}
+                    description={HOME.description}
+                    nonStandardLayout
+                    title={HOME.title}
+                  />
+                }
+                index
+                key={index}
+                path={path}
               />
-            }
-            path="*"
-          />
-        </Route>
-      </Routes>
-    </Router>
+            ))}
+            {PROJECTS.routes.map((path, index) => (
+              <Route
+                element={
+                  <Page
+                    content={<Projects />}
+                    description={PROJECTS.description}
+                    title={PROJECTS.title}
+                  />
+                }
+                index
+                key={index}
+                path={path}
+              />
+            ))}
+            {BLOG.routes.map((path, index) => (
+              <Route
+                element={
+                  <Page
+                    content={<Blog />}
+                    description={BLOG.description}
+                    title={BLOG.title}
+                  />
+                }
+                index
+                key={index}
+                path={path}
+              />
+            ))}
+            {/* Dynamic blog routes */}
+            {BLOG.routes.map((path, index) => (
+              <Route
+                element={
+                  <Page
+                    content={<BlogArticle />}
+                    description={BLOG.description}
+                    nonStandardLayout
+                    title={BLOG.title}
+                  />
+                }
+                index
+                key={index}
+                path={`${path}/:slug`}
+              />
+            ))}
+            {CONTACT.routes.map((path, index) => (
+              <Route
+                element={
+                  <Page
+                    content={<Contact />}
+                    description={CONTACT.description}
+                    title={CONTACT.title}
+                  />
+                }
+                index
+                key={index}
+                path={path}
+              />
+            ))}
+            <Route
+              element={
+                <Page
+                  content={<NotFound />}
+                  nonStandardLayout
+                  title="Not Found"
+                />
+              }
+              path="*"
+            />
+          </Route>
+        </Routes>
+      </Router>
+    </Provider>
   </StrictMode>
 );

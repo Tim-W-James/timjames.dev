@@ -9,6 +9,7 @@
       "@hooks/*": ["hooks/*"],
       "@styles/*": ["styles/*"],
       "@context/*": ["context/*"],
+      "@app/*": ["app/*"],
       "@constants/*": ["constants/*"],
       "@components/*": ["components/*"],
       "@layout/*": ["components/layout/*"]

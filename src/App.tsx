@@ -1,8 +1,8 @@
+import Toast from "@components/utils/Toast";
 import Footer from "@layout/Footer";
 import Navbar from "@layout/nav/Navbar";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import { Outlet } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const App = () => (
@@ -21,18 +21,7 @@ const App = () => (
       <Outlet />
       <Footer allowFixed />
       <div id="captcha-container" />
-      <ToastContainer
-        autoClose={5000}
-        closeOnClick
-        draggable
-        hideProgressBar={false}
-        newestOnTop={false}
-        pauseOnFocusLoss
-        pauseOnHover
-        position="top-right"
-        rtl={false}
-        theme="dark"
-      />
+      <Toast />
     </GoogleReCaptchaProvider>
   </>
 );

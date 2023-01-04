@@ -116,6 +116,10 @@
 
 - **Portfolio**: display and demo past projects
 - **Blog**: display blog posts from [dev.to/timwjames](https://dev.to/timwjames)
+- This project also serves as an environment for me to experiment with new
+  technologies and tools. Many of these tools are overkill of a project of this
+  scale (e.g., Redux), but this project acts as useful reference and
+  proof-of-concept.
 
 <!-- ### Roadmap
 
@@ -140,9 +144,10 @@ list of proposed features (and known issues). -->
 
 **Development**:
 
-- [![React
-17](https://img.shields.io/badge/-React%2017-black?style=flat-square&logo=react)](https://reactjs.org/docs/getting-started.html):
+- [![React](https://img.shields.io/badge/-React-black?style=flat-square&logo=react)](https://reactjs.org/docs/getting-started.html):
   frontend framework
+- [![Redux](https://img.shields.io/badge/-Redux-black?style=flat-square&logo=redux)](https://redux.js.org/):
+  state management for React
 - [![Vite](https://img.shields.io/badge/-Vite-black?style=flat-square&logo=vite)](https://vitejs.dev/config/):
   frontend build tool and dev server. Configured in
   [`vite.config.ts`](./vite.config.ts)

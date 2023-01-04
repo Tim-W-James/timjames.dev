@@ -149,6 +149,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^2.9.10",
+    "@reduxjs/toolkit": "^1.9.1",
     "@types/validator": "^13.7.10",
     "classnames": "^2.3.2",
     "framer-motion": "^8.0.0",
@@ -161,6 +162,7 @@
     "react-hook-form": "^7.41.3",
     "react-icons": "^4.6.0",
     "react-markdown": "^8.0.4",
+    "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.3",
     "react-router-hash-link": "^2.4.3",
     "react-scroll-parallax": "^3.3.2",

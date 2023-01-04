@@ -28,12 +28,18 @@ module.exports = {
       minWidth: {
         "1/10": "10%",
       },
+      minHeight: {
+        10: "2.5rem",
+      },
       lineHeight: {
         0: "0",
       },
       flexBasis: {
         content: "content",
         "min-content": "min-content",
+      },
+      aspectRatio: {
+        wide: "2 / 1",
       },
     },
   },
