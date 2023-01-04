@@ -70,6 +70,7 @@ jobs:
           pnpm add -g playwright
           playwright install --with-deps
           pnpm --if-present storybook:build --quiet
+          rm -rf node_modules/.cache/storybook
           pnpm storybook:test:ci
 
       - name: Build 🚀
