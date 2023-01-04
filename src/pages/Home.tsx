@@ -374,9 +374,11 @@ const Skills: React.FC = () => (
         body={
           <>
             I strive for a exceptional level of quality in my work and
-            proactively seek to improve my craft. With a background in
-            literature, architecture and graphic design, I apply my creativity
-            when building software.
+            proactively seek to improve my craft. I apply my creativity when
+            {/* eslint-disable-next-line max-len */}
+            building software, and enjoy collaborating with clients to deliver
+            the best possible{" "}
+            <Tooltip isInverted text="UX" tooltip="User Experience" />.
           </>
         }
         heading={<>Attention to Detail</>}
@@ -409,8 +411,8 @@ const Skills: React.FC = () => (
             >
               Toyota Finance Australia
             </HashLink>
-            , I demonstrated my ability to manage a client of substantial scale.
-            As a spokesperson for an{" "}
+            , I demonstrated my ability to work with a client of substantial
+            scale. As a spokesperson for an{" "}
             <HashLink
               className={cn("link")}
               rel="noreferrer"

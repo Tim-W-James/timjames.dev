@@ -51,7 +51,7 @@
     "coverage": "vitest run --coverage",
     "storybook": "export SET DISABLE_CSS_TYPE_GEN=true && storybook dev -p 6006 --no-open",
     "storybook:test": "test-storybook",
-    "storybook:test:ci": "npx concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"pnpm storybook --quiet --ci\" \"sleep 15 && wait-on tcp:6006 && pnpm storybook:test --ci --maxWorkers=2\"",
+    "storybook:test:ci": "npx concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"pnpm storybook --quiet --ci --no-manager-cache\" \"sleep 15 && wait-on tcp:6006 && pnpm storybook:test --ci --maxWorkers=2\"",
     "storybook:build": "storybook build",
     "storybook:preview": "serve storybook-static",
     "storybook:smoke-test": "storybook dev --ci --smoke-test"

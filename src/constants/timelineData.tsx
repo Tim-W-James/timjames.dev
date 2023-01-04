@@ -151,16 +151,6 @@ const timelineData: TimelineItemData[] = [
     ),
     thumbnailSrc: brodburgerThumbnail,
     category: "Agile Digital",
-    technologies: [
-      "React",
-      "Redux",
-      "TypeScript",
-      "Sass",
-      "Cypress",
-      "Scala",
-      "Jenkins",
-      "Fat Zebra",
-    ],
     isFeatured: true,
     links: [
       {
@@ -181,35 +171,10 @@ const timelineData: TimelineItemData[] = [
     body: (
       <>
         Identity & access management systems for a car finance and loans
-        application. I developed{" "}
-        <Tooltip text="OAuth2" tooltip="Open Authorisation Standard" />{" "}
-        authentication journeys with{" "}
-        <Tooltip
-          text="WebAuthn"
-          tooltip="Web standard for FIDO client authentication"
-        />{" "}
-        <Tooltip text="MFA" tooltip="Multi-Factor Authentication" />, and
-        configured{" "}
-        <Tooltip text="SAML" tooltip="Security Assertion Markup Language" />{" "}
-        federation. I also created a custom{" "}
-        <Tooltip text="JWT" tooltip="JSON Web Token" /> authoriser with
-        fine-grained policy control, that integrates with security definitions
-        in <Tooltip text="OpenAPI" tooltip="RESTful API Definition Language" />{" "}
-        specs. To assist external integrators, I also created Postman API
-        collections.
+        application.
       </>
     ),
     category: "Agile Digital",
-    technologies: [
-      "ForgeRock Identity Cloud",
-      "Amazon Web Services",
-      "Terraform",
-      "Serverless",
-      "GoLang",
-      "TypeScript",
-      "Open Policy Agent",
-      "ElasticSearch",
-    ],
     isFeatured: true,
     links: [
       {
@@ -228,26 +193,10 @@ const timelineData: TimelineItemData[] = [
     title: "CSIRO Source IP",
     body: (
       <>
-        Maintenance, monitoring and security patching of a legacy system for
-        patent filing. I implemented processes to monitor system health and
-        vulnerabilities. I also created{" "}
-        <Tooltip text="DevOps" tooltip="Developer Operations" /> infrastructure
-        to continuously track{" "}
-        <Tooltip text="CVEs" tooltip="Common Vulnerabilities and Exposures" />{" "}
-        and manage dependencies, including pipelines for automatic alerts.
+        Maintenance, monitoring and security patching of a patent filing system.
       </>
     ),
     category: "Agile Digital",
-    technologies: [
-      "Docker",
-      "Kubernetes",
-      "ELK",
-      "Grafana",
-      "Amazon Web Services",
-      "Scala",
-      "Jenkins",
-      "NGINX",
-    ],
     isFeatured: false,
     links: [
       {
