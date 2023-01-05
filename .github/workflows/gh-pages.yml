@@ -49,7 +49,7 @@ jobs:
         run: pnpm install
 
       - name: Build 🔧
-        run: pnpm storybook:build --quiet
+        run: pnpm storybook:build --quiet --preview-url=/timjames.dev/iframe.html
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
