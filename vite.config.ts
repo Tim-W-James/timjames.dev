@@ -67,7 +67,6 @@ export default defineConfig(() => {
         // Global imports to register
         imports: [
           // presets
-          "vitest",
           "react",
         ],
 
@@ -94,9 +93,13 @@ export default defineConfig(() => {
     test: {
       include: ["src/**/*.test.{ts,tsx}"],
       environment: "happy-dom",
-      globals: false,
+      globals: true,
+      setupFiles: ["src/setupTests.ts"],
+      reporters: ["verbose"],
       coverage: {
         reporter: ["text", "json", "html"],
+        enabled: true,
+        exclude: ["**/styles", "**/*.stories.tsx"],
       },
       passWithNoTests: true,
     },

@@ -1,21 +1,10 @@
 {
   "globals": {
-    "afterAll": true,
-    "afterEach": true,
-    "assert": true,
-    "beforeAll": true,
-    "beforeEach": true,
-    "chai": true,
     "createRef": true,
-    "describe": true,
-    "expect": true,
     "forwardRef": true,
-    "it": true,
     "lazy": true,
     "memo": true,
     "startTransition": true,
-    "suite": true,
-    "test": true,
     "useCallback": true,
     "useContext": true,
     "useDebugValue": true,
@@ -30,8 +19,6 @@
     "useRef": true,
     "useState": true,
     "useSyncExternalStore": true,
-    "useTransition": true,
-    "vi": true,
-    "vitest": true
+    "useTransition": true
   }
 }

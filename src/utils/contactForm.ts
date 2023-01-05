@@ -123,8 +123,6 @@ export const contactFormOnSubmitDev = ({
     console.info("honeypot:", honeypot);
     console.groupEnd();
 
-    setTimeout(() => {
-      dispatch(submitSuccess());
-      resolve("Success");
-    }, 500);
+    dispatch(submitSuccess());
+    resolve("Success");
   });

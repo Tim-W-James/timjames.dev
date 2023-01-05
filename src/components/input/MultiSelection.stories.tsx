@@ -1,3 +1,4 @@
+import selectionOptions, { SelectionOptions } from "@constants/mocks/options";
 import { Meta, StoryFn } from "@storybook/react";
 import cn from "@styles/cssUtils";
 import MultiSelectionComponent, {
@@ -25,33 +26,15 @@ const Template: StoryFn<typeof MultiSelectionComponent> = (args) => (
   <MultiSelectionComponent {...args} />
 );
 
-const options = [
-  "Chocolate",
-  "Vanilla",
-  "Strawberry",
-  "Mint",
-  "Pistachio",
-] as const;
-
-type SelectionOptions = {
-  value: typeof options[number];
-  label: typeof options[number];
-};
-
-const selectionOptions: readonly SelectionOptions[] = options.map((sort) => ({
-  value: sort,
-  label: sort,
-}));
-
 export const MultiSelection = Template.bind({});
 MultiSelection.args = {
   options: selectionOptions,
 };
 MultiSelection.decorators = [
   (Story) => {
-    const [selectedOptions, setSelectedOptions] = useState<readonly Option[]>(
-      []
-    );
+    const [selectedOptions, setSelectedOptions] = useState<
+      readonly SelectionOptions[]
+    >([]);
     return (
       <div className={cn("p-8")}>
         <Story

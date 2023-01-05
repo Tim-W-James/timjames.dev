@@ -281,7 +281,8 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ### Testing
 
-- Run unit tests in watch mode (automatically reruns tests when source code changes):
+- Run unit tests in watch mode (automatically reruns tests when source code
+  changes):
 
   ```sh
   pnpm test
@@ -298,6 +299,47 @@ _For more examples, please refer to the [Documentation](https://example.com)_
   ```sh
   pnpm storybook
   ```
+
+#### Writing New Tests
+
+This repo has several layers of tests:
+
+- **Unit tests for TypeScript utilities** (those in [`src/utils`](./src/utils)): use
+  [Vitest](https://vitest.dev/).
+- **Unit tests for React components**:
+  - First, consider creating a
+    [Storybook](https://storybook.js.org/docs/react/writing-tests/importing-stories-in-tests#example-with-testing-library)
+    story for the component, including decorators, args, etc.
+  - Storybook allows us to document and preview components in insolation, and we
+    can reuse stories in our tests without having to duplicate logic
+  - Use [React Testing
+    Library](https://testing-library.com/docs/react-testing-library/intro/) to
+    render the component from Storybook, then write tests
+  - Tests should use an
+    [arrange-act-assert](https://robertmarshall.dev/blog/arrange-act-and-assert-pattern-the-three-as-of-unit-testing/)
+    pattern and follow the React Testing Library [query
+    priorities](https://testing-library.com/docs/queries/about#priority).
+    [Testing playground](https://testing-playground.com/) is a useful tool for
+    finding good queries
+  - [Storybook interaction
+    tests](https://storybook.js.org/docs/react/writing-tests/interaction-testing)
+    can be used too, as this allows actions to be viewed visually. However,
+    this can result in tests being duplicated. Tests should not be part of
+    interactions where possible, instead they should be used to document complex
+    behaviour of a component (e.g., a form being filled out)
+- **Accessibility tests**:
+  - The [Storybook ally
+    addon](https://storybook.js.org/addons/@storybook/addon-a11y) can be used to
+    check for accessibility issues
+  - The Netlify Lighthouse plugin also run on build to detect further
+    accessibility and performance issues
+- **Visual regression tests**:
+  - [Avoid using snapshot tests](https://medium.com/@sapegin/whats-wrong-with-snapshot-tests-37fbe20dfe8e)
+  - TODO
+- **End-to-end tests**: TODO
+
+**A note on code coverage**: since the component is often exported from Storybook,
+coverage of the component itself will not be tracked correctly.
 
 ### Deployment
 
