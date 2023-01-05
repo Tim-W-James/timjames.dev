@@ -1,6 +1,7 @@
 import timelineData from "@constants/timelineData";
 import { Meta, StoryFn } from "@storybook/react";
 import cn from "@styles/cssUtils";
+import { BrowserRouter as Router } from "react-router-dom";
 import TimelineItemComponent from "./TimelineItem";
 
 export default {
@@ -19,8 +20,10 @@ TimelineItem.args = {
 };
 TimelineItem.decorators = [
   (Story) => (
-    <div className={cn("container mx-auto p-8")}>
-      <Story />
-    </div>
+    <Router>
+      <div className={cn("container mx-auto p-8")}>
+        <Story />
+      </div>
+    </Router>
   ),
 ];

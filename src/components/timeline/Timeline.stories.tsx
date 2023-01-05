@@ -10,6 +10,7 @@ import {
   sortByFeatured,
   sortByTechnologiesCount,
 } from "@utils/timelineSortFuncs";
+import { BrowserRouter as Router } from "react-router-dom";
 import TimelineComponent from "./Timeline";
 
 const sorts = {
@@ -70,9 +71,11 @@ Timeline.args = {
 };
 Timeline.decorators = [
   (Story) => (
-    <div className={cn("container mx-auto p-8")}>
-      <Story />
-    </div>
+    <Router>
+      <div className={cn("container mx-auto p-8")}>
+        <Story />
+      </div>
+    </Router>
   ),
 ];
 

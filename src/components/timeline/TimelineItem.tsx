@@ -59,7 +59,7 @@ const Title: React.FC<{ isOddIndex: boolean; data: TimelineItemData }> = ({
           className={cn("hash-link-right")}
           onClick={() =>
             navigator.clipboard.writeText(
-              `${location.href.split("#")[0]!}#${itemData.title}`
+              `${location.href.split("#")[0] || ""}#${itemData.title}`
             )
           }
           to={`${location.search}#${itemData.title}`}
@@ -83,7 +83,7 @@ const Title: React.FC<{ isOddIndex: boolean; data: TimelineItemData }> = ({
           className={cn("hash-link-left")}
           onClick={() =>
             navigator.clipboard.writeText(
-              `${location.href.split("#")[0]!}#${itemData.title}`
+              `${location.href.split("#")[0] || ""}#${itemData.title}`
             )
           }
           to={`${location.search}#${itemData.title}`}

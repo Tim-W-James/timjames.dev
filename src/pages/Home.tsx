@@ -123,7 +123,9 @@ const AboutMe: React.FC = () => (
       <HashLink
         className={cn("hash-link")}
         onClick={() =>
-          navigator.clipboard.writeText(`${location.href.split("#")[0]!}#about`)
+          navigator.clipboard.writeText(
+            `${location.href.split("#")[0] || ""}#about`
+          )
         }
         to={"#about"}
       >
@@ -224,7 +226,7 @@ const MajorProjects: React.FC = () => {
             className={cn("hash-link")}
             onClick={() =>
               navigator.clipboard.writeText(
-                `${location.href.split("#")[0]!}#projects`
+                `${location.href.split("#")[0] || ""}#projects`
               )
             }
             to={"#projects"}
@@ -267,7 +269,7 @@ const Hobbies: React.FC = () => (
         className={cn("hash-link")}
         onClick={() =>
           navigator.clipboard.writeText(
-            `${location.href.split("#")[0]!}#hobbies`
+            `${location.href.split("#")[0] || ""}#hobbies`
           )
         }
         to={"#hobbies"}
@@ -355,7 +357,7 @@ const Skills: React.FC = () => (
         className={cn("hash-link")}
         onClick={() =>
           navigator.clipboard.writeText(
-            `${location.href.split("#")[0]!}#skills`
+            `${location.href.split("#")[0] || ""}#skills`
           )
         }
         to={"#skills"}
@@ -516,7 +518,7 @@ const LatestBlogPost: React.FC = () => {
           className={cn("hash-link")}
           onClick={() =>
             navigator.clipboard.writeText(
-              `${location.href.split("#")[0]!}#blog`
+              `${location.href.split("#")[0] || ""}#blog`
             )
           }
           to={"#blog"}
