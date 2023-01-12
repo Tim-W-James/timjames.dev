@@ -175,10 +175,13 @@ list of proposed features (and known issues). -->
   view, document and test individual components and pages. Configured in
   [`.storybook/main.cjs`](./.storybook/main.cjs). Automatically deployed to
   [Github Pages](https://tim-w-james.github.io/timjames.dev/)
+- [![Playwright](https://img.shields.io/badge/-Playwright-black?style=flat-square&logo=playwright)](https://playwright.dev/):
+  end-to-end tests. Configured in [`playwright.config.ts`](./playwright.config.ts)
+  and located in [`e2e/`](./e2e/)
 - [![pnpm](https://img.shields.io/badge/-pnpm-black?style=flat-square&logo=pnpm)](https://pnpm.io/):
   configuration for the `pnpm` package manager for better performance, lockfiles
   and monorepo support. See steps <a href="#todo">below</a> if you wish to use a
-  different package manager.
+  different package manager
 - [![Husky](https://img.shields.io/badge/-Husky-black?style=flat-square&logo=git)](https://github.com/typicode/husky):
   pre-commit Git hooks to lint, format and run tests. Configured in
   [`.husky`](./.husky)
@@ -294,10 +297,25 @@ _For more examples, please refer to the [Documentation](https://example.com)_
   pnpm coverage
   ```
 
-- View and test individual components or pages:
+- View individual components or pages and run interaction tests:
 
   ```sh
   pnpm storybook
+  ```
+
+- Run [Storybook](https://storybook.js.org) tests to ensure all stories render
+  and interaction tests pass (requires Storybook to be running, or use `:ci`):
+
+  ```sh
+  pnpm storybook:test
+  ```
+
+- Run End-to-End tests with [Playwright](https://playwright.dev/) (`:headed` to
+  view the tests being executed in the browser) for Firefox, Chromium, and
+  Webkit in both desktop and mobile viewports:
+
+  ```sh
+  pnpm e2e
   ```
 
 #### Writing New Tests
@@ -333,13 +351,15 @@ This repo has several layers of tests:
     check for accessibility issues
   - The Netlify Lighthouse plugin also run on build to detect further
     accessibility and performance issues
+- **End-to-end tests**: [Playwright](https://playwright.dev/) tests in
+  [`e2e/`](./e2e/), with the testing library API
 - **Visual regression tests**:
   - [Avoid using snapshot tests](https://medium.com/@sapegin/whats-wrong-with-snapshot-tests-37fbe20dfe8e)
   - TODO
-- **End-to-end tests**: TODO
 
-**A note on code coverage**: since the component is often exported from Storybook,
-coverage of the component itself will not be tracked correctly.
+**A note on code coverage**: when the component is exported from Storybook,
+coverage of the component itself will not be tracked correctly. For this reason,
+minimum coverage requirements are not enabled.
 
 ### Deployment
 
