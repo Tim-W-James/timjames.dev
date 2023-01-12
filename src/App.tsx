@@ -6,7 +6,7 @@ import { Outlet } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 
 const App = () => (
-  <>
+  <div /* Force Google to use meta description for snippets */ data-nosnippet>
     <GoogleReCaptchaProvider
       container={{
         element: "captcha-container",
@@ -23,7 +23,7 @@ const App = () => (
       <div id="captcha-container" />
       <Toast />
     </GoogleReCaptchaProvider>
-  </>
+  </div>
 );
 
 export default App;
