@@ -54,6 +54,9 @@ jobs:
       - name: Install Dependencies 🔧
         run: pnpm install
 
+      - name: Build 🚀
+        run: pnpm --if-present build
+
       - name: Check for Vulnerabilities 🔧
         run: pnpm audit --production --audit-level=high
 
@@ -83,6 +86,3 @@ jobs:
           pnpm --if-present storybook:build --quiet
           rm -rf node_modules/.cache/storybook
           pnpm storybook:test:ci
-
-      - name: Build 🚀
-        run: pnpm --if-present build
