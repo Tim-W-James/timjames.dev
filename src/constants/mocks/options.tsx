@@ -7,8 +7,8 @@ const options = [
 ] as const;
 
 export type SelectionOptions = {
-  value: typeof options[number];
-  label: typeof options[number];
+  value: (typeof options)[number];
+  label: (typeof options)[number];
 };
 
 const selectionOptions: readonly SelectionOptions[] = options.map((sort) => ({

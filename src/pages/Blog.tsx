@@ -19,8 +19,8 @@ import { useNavigate } from "react-router-dom";
 const sorts = ["Popularity", "Latest", "Quick Reads"] as const;
 
 type SortOption = {
-  value: typeof sorts[number];
-  label: typeof sorts[number];
+  value: (typeof sorts)[number];
+  label: (typeof sorts)[number];
 };
 
 const sortOptions: readonly SortOption[] = sorts.map((sort) => ({
@@ -39,7 +39,7 @@ const sortByLatest = (a: DevdottoArticleMeta, b: DevdottoArticleMeta) =>
   new Date(a.published_timestamp).getTime();
 
 const sortFuncFromOption = (
-  sort: typeof sorts[number]
+  sort: (typeof sorts)[number]
 ): ((a: DevdottoArticleMeta, b: DevdottoArticleMeta) => number) => {
   switch (sort) {
     case "Latest":

@@ -62,8 +62,8 @@ const sorts = [
 ] as const;
 
 type SortOption = {
-  value: typeof sorts[number];
-  label: typeof sorts[number];
+  value: (typeof sorts)[number];
+  label: (typeof sorts)[number];
 };
 
 const sortOptions: readonly SortOption[] = sorts.map((sort) => ({
@@ -72,7 +72,7 @@ const sortOptions: readonly SortOption[] = sorts.map((sort) => ({
 }));
 
 const sortFuncFromOption = (
-  sort: typeof sorts[number]
+  sort: (typeof sorts)[number]
 ): ((a: TimelineItemData, b: TimelineItemData) => number) => {
   switch (sort) {
     case "Duration":
