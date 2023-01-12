@@ -72,7 +72,17 @@ const CoreTechnologies: React.FC = () => (
     )}
   >
     <h2 id="technologies">
-      Core Technologies
+      <HashLink
+        className={cn("hash-link")}
+        onClick={() =>
+          navigator.clipboard.writeText(
+            `${location.href.split("#")[0] || ""}#technologies`
+          )
+        }
+        to={"#technologies"}
+      >
+        Core Technologies{" "}
+      </HashLink>
       {/* eslint-disable-next-line sonarjs/no-duplicate-string */}
       <hr className={cn("radial-border")} />
     </h2>
