@@ -40,7 +40,7 @@ const Page: React.FC<{
             <hr className={cn("radial-border")} />
           </h1>
         </header>
-        {content}
+        <main>{content}</main>
       </div>
     </>
   );

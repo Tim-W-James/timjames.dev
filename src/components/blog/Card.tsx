@@ -4,7 +4,8 @@ import { BsChatLeftTextFill, BsHeart } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 const Card: React.FC<{ article: DevdottoArticleMeta }> = ({ article }) => (
-  <div
+  <section
+    aria-label={article.title}
     className={cn(
       "border p-4 max-w-sm w-full",
       "border-dark-accent",
@@ -13,7 +14,7 @@ const Card: React.FC<{ article: DevdottoArticleMeta }> = ({ article }) => (
     )}
   >
     <div className={cn("flex gap-4", "flex-col")}>
-      <Link title="Read blog" to={`/blog/${article.slug}`}>
+      <Link to={`/blog/${article.slug}`}>
         <img
           alt="Thumbnail"
           className={cn("border", "rounded-lg", "border-dark-accent")}
@@ -28,8 +29,15 @@ const Card: React.FC<{ article: DevdottoArticleMeta }> = ({ article }) => (
         </div>
       </Link>
       <div>
-        <Link title="Read blog" to={`/blog/${article.slug}`}>
-          <h3 className={cn("font-bold text-light-accent mb-0 text-center")}>
+        <Link
+          aria-labelledby={article.title}
+          title="Read blog"
+          to={`/blog/${article.slug}`}
+        >
+          <h3
+            className={cn("font-bold text-light-accent mb-0 text-center")}
+            id={article.title}
+          >
             {article.title}
           </h3>
         </Link>
@@ -70,12 +78,12 @@ const Card: React.FC<{ article: DevdottoArticleMeta }> = ({ article }) => (
             {article.comments_count > 0 ? article.comments_count : ""}
           </a>
         </div>
-        <Link title="Read blog" to={`/blog/${article.slug}`}>
+        <Link to={`/blog/${article.slug}`}>
           <div>{article.reading_time_minutes} min read</div>
         </Link>
       </div>
     </div>
-  </div>
+  </section>
 );
 
 export default Card;

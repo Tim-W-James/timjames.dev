@@ -230,6 +230,21 @@
       }
     }
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      /* stylelint-disable-next-line declaration-no-important */
+      animation-delay: 0 !important;
+      /* stylelint-disable-next-line declaration-no-important */
+      animation-duration: 0.01ms !important;
+      /* stylelint-disable-next-line declaration-no-important */
+      transition-delay: 0 !important;
+      /* stylelint-disable-next-line declaration-no-important */
+      transition-duration: 0.01ms !important;
+    }
+  }
 }
 
 // Hide reCAPTCHA badge by default

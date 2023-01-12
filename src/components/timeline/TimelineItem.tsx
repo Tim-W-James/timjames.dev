@@ -120,7 +120,7 @@ const TechnologyList: React.FC<{
     <>
       <Divider isReversed={!isOddIndex} label="Technologies" />
 
-      <div>
+      <section aria-label="Technologies">
         {itemData.technologies.map((technology, index) => (
           <span key={index}>
             {" "}
@@ -142,7 +142,7 @@ const TechnologyList: React.FC<{
             </a>
           </span>
         ))}
-      </div>
+      </section>
     </>
   ) : null;
 
@@ -154,7 +154,7 @@ const LinksList: React.FC<{ data: TimelineItemData; isOddIndex: boolean }> = ({
     <>
       <Divider isReversed={!isOddIndex} label="Links" />
 
-      <div>
+      <section aria-label="Links">
         {itemData.links.map((link, index) => (
           <span key={index}>
             {index !== itemData.links?.length && index !== 0 ? " - " : ""}
@@ -170,7 +170,7 @@ const LinksList: React.FC<{ data: TimelineItemData; isOddIndex: boolean }> = ({
             </a>
           </span>
         ))}
-      </div>
+      </section>
     </>
   ) : null;
 
@@ -193,7 +193,8 @@ const TimelineItem: React.FC<{
   }, [control, isInView]);
 
   return (
-    <div
+    <section
+      aria-label={itemData.title}
       className={cnScoped<ClassNames>()(styles._timelineItem, {
         [styles._twoColumns]: hasTwoColumns,
       })}
@@ -234,7 +235,7 @@ const TimelineItem: React.FC<{
         </motion.div>
         <span className={cnScoped<ClassNames>()(styles._circle)} />
       </div>
-    </div>
+    </section>
   );
 };
 

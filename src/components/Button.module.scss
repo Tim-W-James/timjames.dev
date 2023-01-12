@@ -34,7 +34,7 @@
       both;
   }
 
-  &:not(:disabled)::before {
+  &:not(._safari, :disabled)::before {
     @apply absolute p-px border-0 rounded-full radial-border-utils -z-[1];
 
     background: radial-gradient(
@@ -44,7 +44,7 @@
     );
   }
 
-  &:not(:disabled):hover::before {
+  &:not(._safari, :disabled):hover::before {
     background: radial-gradient(
       75% 100% at var(--mouse-x, 50%) var(--mouse-y, 50%),
       colors.$light-accent 75%,
@@ -52,7 +52,15 @@
     );
   }
 
-  &:not(:disabled):active::before {
+  &:not(._safari, :disabled):active::before {
     @apply bg-light-accent;
+  }
+
+  &._safari {
+    @apply border-[1px] border-transparent;
+  }
+
+  &._safari:active {
+    @apply border-[1px] border-light-accent;
   }
 }

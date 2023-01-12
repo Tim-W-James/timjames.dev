@@ -11,11 +11,17 @@ import { HashLink } from "react-router-hash-link";
 
 const SocialLink: React.FC<{
   icon: JSX.Element;
-  body: JSX.Element;
+  body: string;
   url: string;
   tooltip: string;
 }> = ({ icon, body, url, tooltip }) => (
-  <a href={url} rel="noreferrer" target="_blank" title={tooltip}>
+  <a
+    aria-label={body}
+    href={url}
+    rel="noreferrer"
+    target="_blank"
+    title={tooltip}
+  >
     <div
       className={cn(
         "hover:text-light-accent active:text-dark-accent active:underline",
@@ -39,7 +45,7 @@ const Contact = () => (
     />
     <h2
       className={cn("text-center self-center mt-8 mx-auto w-fit")}
-      id="social"
+      id="social-links"
     >
       <HashLink
         className={cn("hash-link")}
@@ -53,43 +59,44 @@ const Contact = () => (
       <hr className={cn("radial-border mb-4")} />
     </h2>
     <section
+      aria-labelledby="social-links"
       className={cn(
         "text-center self-center mt-8 mx-auto w-fit text-xl grid gap-4",
         "grid-cols-2"
       )}
     >
       <SocialLink
-        body={<>LinkedIn</>}
+        body={"LinkedIn"}
         icon={<BsLinkedin />}
         tooltip={"timothy-william-james"}
         url={"https://www.linkedin.com/in/timothy-william-james/"}
       />
       <SocialLink
-        body={<>GitHub</>}
+        body={"GitHub"}
         icon={<BsGithub />}
         tooltip={"Tim-W-James"}
         url={"https://github.com/Tim-W-James"}
       />
       <SocialLink
-        body={<>Twitter</>}
+        body={"Twitter"}
         icon={<BsTwitter />}
         tooltip={"@TimWJames"}
         url={"https://twitter.com/TimWJames"}
       />
       <SocialLink
-        body={<>Facebook</>}
+        body={"Facebook"}
         icon={<BsFacebook />}
         tooltip={"TimJames9800"}
         url={"https://www.facebook.com/TimJames9800/"}
       />
       <SocialLink
-        body={<>Steam</>}
+        body={"Steam"}
         icon={<SiSteam />}
         tooltip={"ExplosiveFridge"}
         url={"https://steamcommunity.com/id/ExplosiveFridge"}
       />
       <SocialLink
-        body={<>Spotify</>}
+        body={"Spotify"}
         icon={<SiSpotify />}
         tooltip={"TimJ"}
         url={"https://open.spotify.com/user/22xzbbohotkdpq5wfipvefk4y"}

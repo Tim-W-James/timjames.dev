@@ -73,5 +73,16 @@ jobs:
           rm -rf node_modules/.cache/storybook
           pnpm storybook:test:ci
 
+      - name: Run E2E Tests 🔧
+        run: |
+          pnpm dlx playwright install --with-deps
+          pnpm dlx playwright test
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
+
       - name: Build 🚀
         run: pnpm --if-present build

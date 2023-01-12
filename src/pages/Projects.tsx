@@ -247,7 +247,8 @@ const Projects: React.FC = () => {
           tooltip="Find more projects on GitHub"
         />
       </div>
-      <div
+      <section
+        aria-label="Search Controls"
         className={cn(
           "flex mx-auto items-center place-content-center mb-4 max-md:mb-8",
           "flex-col"
@@ -256,7 +257,7 @@ const Projects: React.FC = () => {
         <div className={cn("w-full flex gap-4")}>
           <SearchField handleChange={handleChange} searchText={searchText} />
           <Button
-            className={cn("h-11", "flex")}
+            className={cn("text-3xl px-2 py-2")}
             icon={
               isResetButtonAnimated ? (
                 <span
@@ -273,11 +274,12 @@ const Projects: React.FC = () => {
               )
             }
             iconRight
+            isLabelHidden
             isLight
             label={"Reset"}
             mode="button"
             onClick={resetOptions}
-            tooltip="Reset search and filters options"
+            tooltip="Reset search and filter options"
           />
         </div>
         <div className={cn("flex gap-4 w-full", "flex-wrap")}>
@@ -305,8 +307,8 @@ const Projects: React.FC = () => {
             />
           </div>
         </div>
-      </div>
-      <section className={cn("mb-8")}>
+      </section>
+      <section aria-label="Timeline" className={cn("mb-8")} id="timeline">
         <Timeline
           data={timelineData}
           filterFunc={(item) => {

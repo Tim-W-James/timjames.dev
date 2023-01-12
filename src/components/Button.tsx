@@ -1,6 +1,7 @@
 import { useTouchInputQuery } from "@hooks/useMediaQuery";
 import cn, { cnScoped } from "@styles/cssUtils";
 import { setMouseHoverCssProperties } from "@utils/mouseHover";
+import { isSafari } from "react-device-detect";
 import { Link } from "react-router-dom";
 import styles, { ClassNames } from "./Button.module.scss";
 
@@ -30,6 +31,7 @@ export interface ButtonProps extends React.ComponentPropsWithoutRef<"button"> {
   hide the label text,
 }
  */
+// eslint-disable-next-line sonarjs/cognitive-complexity
 const Button = (props: ButtonProps) => {
   const {
     to: link,
@@ -50,7 +52,9 @@ const Button = (props: ButtonProps) => {
     styles._acrylicButton,
     label && !isLabelHidden ? "px-8" : "px-4 h-fit",
     isLight && !disabled ? "acrylic-light" : "acrylic-dark",
-    isLight && !disabled ? styles._light : styles._dark
+    isLight && !disabled ? styles._light : styles._dark,
+    // Radial border doesn't work with Safari
+    { [styles._safari]: isSafari }
   );
 
   const inner = (
@@ -74,7 +78,9 @@ const Button = (props: ButtonProps) => {
       return (
         <Link
           aria-label={label}
-          className={className + " " + additionalClassName}
+          className={
+            className + (additionalClassName ? " " + additionalClassName : "")
+          }
           onMouseMove={(e) =>
             setMouseHoverCssProperties(e, false, deviceIsTouch)
           }
@@ -90,7 +96,9 @@ const Button = (props: ButtonProps) => {
       return (
         <button
           aria-label={label}
-          className={className + " " + additionalClassName}
+          className={
+            className + (additionalClassName ? " " + additionalClassName : "")
+          }
           disabled={disabled}
           onMouseMove={(e) =>
             setMouseHoverCssProperties(e, false, deviceIsTouch)

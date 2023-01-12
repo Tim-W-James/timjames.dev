@@ -18,7 +18,11 @@ export default defineConfig(() => {
     server: {
       port: 3000,
       watch: {
-        ignored: ["**/cssClasses.d.ts", "**/*module.scss.d.ts"],
+        ignored: [
+          "**/cssClasses.d.ts",
+          "**/*module.scss.d.ts",
+          "playwright-report",
+        ],
       },
     },
     // Define paths relative to the ./public directory here.

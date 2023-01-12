@@ -223,92 +223,95 @@ const Blog = () => {
 
   return (
     <div>
-      <section>
-        <div
-          className={cn(
-            "flex gap-4 justify-center items-center max-w-2xl mx-auto mb-8",
-            "flex-row",
-            "flex-wrap"
-          )}
-        >
+      <div
+        className={cn(
+          "flex gap-4 justify-center items-center max-w-2xl mx-auto mb-8",
+          "flex-row",
+          "flex-wrap"
+        )}
+      >
+        <Button
+          icon={<SiDevdotto />}
+          isLight
+          label={"DEV.to"}
+          to="https://dev.to/timwjames"
+          tooltip="Find my personal blog @timwjames"
+        />
+        <Button
+          icon={<SiMedium />}
+          isLight
+          label={"Medium"}
+          to="https://medium.com/@twjames"
+          tooltip="Find my professional @twjames"
+        />
+      </div>
+      <section
+        aria-label="Search Controls"
+        className={cn(
+          "flex mx-auto items-center place-content-center mb-4",
+          "flex-col"
+        )}
+      >
+        <div className={cn("w-full flex gap-4")}>
+          <SearchField handleChange={handleChange} searchText={searchText} />
           <Button
-            icon={<SiDevdotto />}
+            className={cn("text-3xl px-2 py-2")}
+            icon={
+              isResetButtonAnimated ? (
+                <span
+                  className={cn(
+                    "inline-block",
+                    "leading-0",
+                    "motion-safe:animate-spin"
+                  )}
+                >
+                  <RiRefreshFill />
+                </span>
+              ) : (
+                <RiRefreshFill />
+              )
+            }
+            iconRight
+            isLabelHidden
             isLight
-            label={"DEV.to"}
-            to="https://dev.to/timwjames"
-            tooltip="Find my personal blog @timwjames"
-          />
-          <Button
-            icon={<SiMedium />}
-            isLight
-            label={"Medium"}
-            to="https://medium.com/@twjames"
-            tooltip="Find my professional @twjames"
+            label={"Reset"}
+            mode="button"
+            onClick={resetOptions}
+            tooltip="Reset search and filter options"
           />
         </div>
-        <div
-          className={cn(
-            "flex mx-auto items-center place-content-center mb-4",
-            "flex-col"
-          )}
-        >
-          <div className={cn("w-full flex gap-4")}>
-            <SearchField handleChange={handleChange} searchText={searchText} />
-            <Button
-              className={cn("h-11", "flex")}
-              icon={
-                isResetButtonAnimated ? (
-                  <span
-                    className={cn(
-                      "inline-block",
-                      "leading-0",
-                      "motion-safe:animate-spin"
-                    )}
-                  >
-                    <RiRefreshFill />
-                  </span>
-                ) : (
-                  <RiRefreshFill />
-                )
-              }
-              iconRight
-              isLight
-              label={"Reset"}
-              mode="button"
-              onClick={resetOptions}
-              tooltip="Reset search and filters options"
+        <div className={cn("flex gap-4 w-full", "flex-wrap")}>
+          <div className={cn("z-30 grow min-w-fit")}>
+            <SingleSelection
+              options={sortOptions}
+              selectedOption={selectedSort}
+              setSelectedOption={setSelectedSort}
             />
           </div>
-          <div className={cn("flex gap-4 w-full", "flex-wrap")}>
-            <div className={cn("z-30 grow min-w-fit")}>
-              <SingleSelection
-                options={sortOptions}
-                selectedOption={selectedSort}
-                setSelectedOption={setSelectedSort}
-              />
-            </div>
-            <div className={cn("z-20 grow")}>
-              <MultiSelection
-                options={tagOptions}
-                placeholder="Filter by tags..."
-                selectedOptions={selectedTags}
-                setSelectedOptions={setSelectedTags}
-              />
-            </div>
+          <div className={cn("z-20 grow")}>
+            <MultiSelection
+              options={tagOptions}
+              placeholder="Filter by tags..."
+              selectedOptions={selectedTags}
+              setSelectedOptions={setSelectedTags}
+            />
           </div>
         </div>
-        <div className={cn("flex gap-4 p-0 justify-center", "flex-wrap")}>
-          {recentArticles.loading ? (
-            [...Array(6).keys()].map((key) => <LoadingCard key={key} />)
-          ) : filteredArticles.length === 0 ? (
-            <div className={cn("text-center mb-8 text-xl ")}>
-              <span className={cn("text-danger")}>No Articles Found</span> - Try
-              a different filter
-            </div>
-          ) : (
-            filteredArticles
-          )}
-        </div>
+      </section>
+      <section
+        aria-label="Blogs"
+        className={cn("flex gap-4 p-0 justify-center", "flex-wrap")}
+      >
+        {recentArticles.loading ? (
+          [...Array(6).keys()].map((key) => <LoadingCard key={key} />)
+        ) : filteredArticles.length === 0 ? (
+          <div className={cn("text-center mb-8 text-xl ")}>
+            <span className={cn("text-danger")}>No Articles Found</span> - Try a
+            different filter
+          </div>
+        ) : (
+          filteredArticles
+        )}
       </section>
     </div>
   );

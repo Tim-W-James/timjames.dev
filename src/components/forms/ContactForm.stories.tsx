@@ -90,6 +90,7 @@ ValidForm.play = async ({ canvasElement }) => {
   // Arrange
   const canvas = within(canvasElement);
 
+  // Only for visual purposes, not required for the test
   await new Promise((resolve) => setTimeout(resolve, 500));
 
   // Act
@@ -171,6 +172,7 @@ InvalidForm.play = async ({ canvasElement }) => {
   // Arrange
   const canvas = within(canvasElement);
 
+  // Only for visual purposes, not required for the test
   await new Promise((resolve) => setTimeout(resolve, 500));
 
   // Act

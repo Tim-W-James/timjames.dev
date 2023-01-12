@@ -159,8 +159,8 @@ const ContactForm: React.FC<{
     };
 
     if (
-      (formState.isDirty && responseState === "notSent") ||
-      Object.values(formData).some((value) => !!value)
+      (formState.isDirty || Object.values(formData).some((value) => !!value)) &&
+      responseState === "notSent"
     ) {
       window.addEventListener("beforeunload", handler);
 
@@ -194,7 +194,10 @@ const ContactForm: React.FC<{
         </label>
       </fieldset>
 
-      <fieldset className={cn("flex text-lg", "flex-col")}>
+      <fieldset
+        aria-label="Contact Form"
+        className={cn("flex text-lg", "flex-col")}
+      >
         {
           //#region name
         }
@@ -209,6 +212,7 @@ const ContactForm: React.FC<{
           </div>
         </label>
         <input
+          aria-invalid={!!formState.errors.name}
           aria-labelledby="name"
           className={cn("form-input", "form-field", {
             ["form-field-error"]: !!formState.errors.name,
@@ -236,6 +240,7 @@ const ContactForm: React.FC<{
           </div>
         </label>
         <input
+          aria-invalid={!!formState.errors.email}
           aria-labelledby="email"
           className={cn("form-input", "form-field", {
             ["form-field-error"]: !!formState.errors.email,
@@ -262,6 +267,7 @@ const ContactForm: React.FC<{
           </div>
         </label>
         <textarea
+          aria-invalid={!!formState.errors.message}
           aria-labelledby="message"
           className={cn("form-textarea", "form-field", {
             ["form-field-error"]: !!formState.errors.message,

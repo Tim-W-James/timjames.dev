@@ -54,7 +54,9 @@
     "storybook:test:ci": "npx concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"pnpm storybook --quiet --ci --no-manager-cache\" \"sleep 15 && wait-on tcp:6006 && pnpm storybook:test --ci --maxWorkers=2\"",
     "storybook:build": "storybook build",
     "storybook:preview": "serve storybook-static",
-    "storybook:smoke-test": "storybook dev --ci --smoke-test"
+    "storybook:smoke-test": "storybook dev --ci --smoke-test",
+    "e2e": "playwright test",
+    "e2e:headed": "playwright test --headed"
   },
   "lint-staged": {
     "./src/**/*.tsx": [
@@ -76,6 +78,7 @@
     "@netlify/plugin-a11y": "1.0.0-beta.1",
     "@netlify/plugin-lighthouse": "^4.0.3",
     "@netlify/plugin-sitemap": "^0.8.1",
+    "@playwright/test": "^1.29.2",
     "@storybook/addon-a11y": "^7.0.0-beta.19",
     "@storybook/addon-essentials": "^7.0.0-beta.19",
     "@storybook/addon-interactions": "^7.0.0-beta.19",
@@ -161,6 +164,7 @@
     "react": "^18.2.0",
     "react-children-utilities": "^2.8.0",
     "react-click-away-listener": "^2.2.2",
+    "react-device-detect": "^2.2.2",
     "react-dom": "^18.2.0",
     "react-google-recaptcha-v3": "^1.10.1",
     "react-hook-form": "^7.41.5",

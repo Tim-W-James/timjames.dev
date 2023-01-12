@@ -28,7 +28,8 @@ import { ParallaxProvider } from "react-scroll-parallax";
 const SocialLinks: React.FC<{ shouldShrinkButtons: boolean }> = ({
   shouldShrinkButtons,
 }) => (
-  <div
+  <section
+    aria-label="Social Links"
     className={cn(
       "flex gap-4 justify-around items-center mt-4 max-w-2xl mx-auto",
       "flex-row",
@@ -59,7 +60,7 @@ const SocialLinks: React.FC<{ shouldShrinkButtons: boolean }> = ({
       to="https://twitter.com/TimWJames"
       tooltip="Follow me on Twitter @TimWJames"
     />
-  </div>
+  </section>
 );
 
 const CoreTechnologies: React.FC = () => (
@@ -77,6 +78,7 @@ const CoreTechnologies: React.FC = () => (
     </h2>
     <br />
     <section
+      aria-labelledby="technologies"
       className={cn(
         "flex gap-4 text-xl items-center place-content-center",
         "flex-row",
@@ -87,6 +89,7 @@ const CoreTechnologies: React.FC = () => (
         .filter(([_, value]) => value.isCore)
         .map(([key, value], index) => (
           <HashLink
+            aria-label={key}
             className={cn(
               "inline-flex",
               "items-center",
@@ -134,11 +137,12 @@ const AboutMe: React.FC = () => (
       <hr className={cn("radial-border")} />
     </h2>
     <br />
-    <section>
+    <section aria-labelledby="about">
       <ul className={cn("list-disc text-xl text-left")}>
         <li>
           💼 <b className={cn("font-bold")}>Software Engineer</b> at{" "}
           <a
+            aria-label="Agile Digital"
             className={cn("link")}
             href="https://github.com/agiledigital"
             rel="noreferrer"
@@ -154,6 +158,7 @@ const AboutMe: React.FC = () => (
           <b className={cn("font-bold")}>Bachelor of Information Technology </b>
           at the{" "}
           <a
+            aria-label="Australian National University"
             className={cn("link")}
             href="https://www.anu.edu.au/"
             rel="noreferrer"
@@ -173,6 +178,7 @@ const AboutMe: React.FC = () => (
         <li>
           📄 View my certifications on{" "}
           <a
+            aria-label="Credly"
             className={cn("link")}
             href="https://www.credly.com/users/timjames/badges"
             rel="noreferrer"
@@ -185,6 +191,7 @@ const AboutMe: React.FC = () => (
         <li>
           🗺️ Located in{" "}
           <a
+            aria-label="Canberra, Australia"
             className={cn("link")}
             href="https://www.google.com.au/maps/place/Canberra+ACT"
             rel="noreferrer"
@@ -236,7 +243,7 @@ const MajorProjects: React.FC = () => {
           {!hasTwoColumns ? <hr className={cn("radial-border")} /> : null}
         </h2>
       </div>
-      <section>
+      <section aria-labelledby="projects">
         <Timeline
           data={timelineData}
           filterFunc={(item) => !!item.isFeatured}
@@ -279,7 +286,7 @@ const Hobbies: React.FC = () => (
       <hr className={cn("radial-border")} />
     </h2>
     <br />
-    <section>
+    <section aria-labelledby="hobbies">
       <ul className={cn("list-disc text-xl text-left")}>
         <li>
           ✨ <b className={cn("font-bold")}>Interests</b>: Hiking, Astronomy,
@@ -289,6 +296,7 @@ const Hobbies: React.FC = () => (
           🎮 <b className={cn("font-bold")}>Video Games</b>: Hollow Knight,
           Monster Hunter, Subnautica - Find me on{" "}
           <a
+            aria-label={"Steam"}
             className={cn("link")}
             href="https://steamcommunity.com/id/ExplosiveFridge"
             rel="noreferrer"
@@ -313,6 +321,7 @@ const Hobbies: React.FC = () => (
           {/* eslint-disable-next-line max-len */}
           🎵 <b className={cn("font-bold")}>Music</b>: Tame Impala - Find me on{" "}
           <a
+            aria-label={"Spotify"}
             className={cn("link")}
             href="https://open.spotify.com/user/22xzbbohotkdpq5wfipvefk4y"
             rel="noreferrer"
@@ -367,7 +376,7 @@ const Skills: React.FC = () => (
       <hr className={cn("radial-border")} />
     </h2>
     <br />
-    <section className={cn("text-left text-xl")}>
+    <section aria-labelledby="skills" className={cn("text-left text-xl")}>
       <Skill
         body={
           <>
@@ -385,6 +394,7 @@ const Skills: React.FC = () => (
             />
             . At{" "}
             <HashLink
+              aria-label={"Agile Digital"}
               className={cn("link")}
               title={"View my projects with Agile Digital"}
               to={"projects?categories=Agile%2520Digital"}
@@ -398,6 +408,7 @@ const Skills: React.FC = () => (
             <Tooltip isInverted text="PR" tooltip="Pull Request" />
             s. View my contributions on{" "}
             <a
+              aria-label={"GitHub"}
               className={cn("link")}
               href={"https://github.com/Tim-W-James"}
               rel="noreferrer"
@@ -431,11 +442,17 @@ const Skills: React.FC = () => (
           <>
             I convey ideas clearly in both written and verbal forms, maintaining
             a{" "}
-            <Link className={cn("link")} title={"View my blog"} to={"/blog"}>
+            <Link
+              aria-label={"blog"}
+              className={cn("link")}
+              title={"View my blog"}
+              to={"/blog"}
+            >
               blog
             </Link>{" "}
             and performing tech talks at{" "}
             <HashLink
+              aria-label={"Agile Digital"}
               className={cn("link")}
               title={"View my projects with Agile Digital"}
               to={"projects?categories=Agile%2520Digital"}
@@ -444,6 +461,7 @@ const Skills: React.FC = () => (
             </HashLink>
             . On a project with{" "}
             <HashLink
+              aria-label={"Toyota Finance Australia"}
               className={cn("link")}
               title={"View project details"}
               to={"/projects?reset#Toyota Finance Australia"}
@@ -453,6 +471,7 @@ const Skills: React.FC = () => (
             , I demonstrated my ability to work with a client of substantial
             scale. As a spokesperson for an{" "}
             <HashLink
+              aria-label={"ANU TechLauncher project"}
               className={cn("link")}
               title={"View project details"}
               to={"/projects?reset#Siding Spring Observatory VR Experience"}
@@ -472,6 +491,7 @@ const Skills: React.FC = () => (
             programming style. I prefer strict typing across the tech stack,
             employ code quality tools like{" "}
             <a
+              aria-label={"ESLint"}
               className={cn("link")}
               href={"https://www.npmjs.com/package/@tim-w-james/eslint-config"}
               rel="noreferrer"
@@ -492,6 +512,7 @@ const Skills: React.FC = () => (
             />{" "}
             infrastructure I am able to boost my productivity. See my{" "}
             <HashLink
+              aria-label={"core tech stack"}
               className={cn("link")}
               title={"View my tech stack"}
               to={"/#technologies"}
@@ -527,7 +548,7 @@ const LatestBlogPost: React.FC = () => {
         </HashLink>
         <hr className={cn("radial-border")} />
       </h2>
-      <section>
+      <section aria-labelledby="blog">
         <div className={cn("flex gap-4 p-0 mx-2 justify-center", "flex-wrap")}>
           {latestArticle.loading
             ? [...Array(2).keys()].map((key) => <LoadingCard key={key} />)
@@ -573,29 +594,31 @@ const Home: React.FC = () => {
             Full-Stack Developer
           </h1>
         </header>
-        <SocialLinks shouldShrinkButtons={shouldShrinkButtons} />
-        <CoreTechnologies />
-        <div className={cn("solid-background")}>
-          <div className={cn("pt-8 mx-auto container")}>
-            <AboutMe />
-            <LatestBlogPost />
-            <MajorProjects />
-            <Skills />
-            <Hobbies />
-            <div className={cn("flex justify-center mt-8")}>
-              <Button
-                icon={<BsFillArrowRightCircleFill />}
-                iconRight
-                isLight
-                label={"Contact Me"}
-                mode="route"
-                to="/contact"
-                tooltip="Get in touch"
-              />
+        <main>
+          <SocialLinks shouldShrinkButtons={shouldShrinkButtons} />
+          <CoreTechnologies />
+          <div className={cn("solid-background")}>
+            <div className={cn("pt-8 mx-auto container")}>
+              <AboutMe />
+              <LatestBlogPost />
+              <MajorProjects />
+              <Skills />
+              <Hobbies />
+              <div className={cn("flex justify-center mt-8")}>
+                <Button
+                  icon={<BsFillArrowRightCircleFill />}
+                  iconRight
+                  isLight
+                  label={"Contact Me"}
+                  mode="route"
+                  to="/contact"
+                  tooltip="Get in touch"
+                />
+              </div>
             </div>
+            <div className={cn("pb-16")} />
           </div>
-          <div className={cn("pb-16")} />
-        </div>
+        </main>
       </div>
     </ParallaxProvider>
   );
