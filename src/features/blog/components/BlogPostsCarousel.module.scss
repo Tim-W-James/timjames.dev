@@ -1,0 +1,64 @@
+._carousel {
+  &::before {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    min-width: 10%;
+    height: 500px;
+    background: linear-gradient(
+      to right,
+      colors.$dark-shades 10%,
+      rgb(255 255 255 / 0%) 100%
+    );
+    content: "";
+    pointer-events: none;
+
+    // HACK align with container correctly
+    @media (min-width: 640px) {
+      left: calc(calc(100% - 640px) / 2);
+    }
+    @media (min-width: 768px) {
+      left: calc(calc(100% - 768px) / 2);
+    }
+    @media (min-width: 1024px) {
+      left: calc(calc(100% - 1024px) / 2);
+    }
+    @media (min-width: 1280px) {
+      left: calc(calc(100% - 1280px) / 2);
+    }
+    @media (min-width: 1536px) {
+      left: calc(calc(100% - 1536px) / 2);
+    }
+  }
+
+  &::after {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    min-width: 10%;
+    height: 500px;
+    background: linear-gradient(
+      to right,
+      rgb(255 255 255 / 0%),
+      colors.$dark-shades 90%
+    );
+    content: "";
+
+    // HACK align with container correctly
+    @media (min-width: 640px) {
+      right: calc(calc(100% - 640px) / 2);
+    }
+    @media (min-width: 768px) {
+      right: calc(calc(100% - 768px) / 2);
+    }
+    @media (min-width: 1024px) {
+      right: calc(calc(100% - 1024px) / 2);
+    }
+    @media (min-width: 1280px) {
+      right: calc(calc(100% - 1280px) / 2);
+    }
+    @media (min-width: 1536px) {
+      right: calc(calc(100% - 1536px) / 2);
+    }
+  }
+}
