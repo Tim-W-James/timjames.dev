@@ -73,17 +73,18 @@ type BlogOptions = {
   searchText: string;
 };
 
-const articlesToDisplay = 100;
+const articlesToDisplay = 30;
 
 const Blog = () => {
-  const { status, data: articles } = useQuery(
-    [`devdotto-meta-${articlesToDisplay}}`],
-    devdottoArticlesMeta(articlesToDisplay)
-  );
   const [selectedTags, setSelectedTags] = useState<readonly Option[]>([]);
   const [selectedSort, setSelectedSort] = useState<SortOption>(sortOptions[0]!);
   const [tagOptions, setTagOptions] = useState<readonly Option[]>([]);
   const [searchText, setSearchText] = useState<string>("");
+
+  const { status, data: articles } = useQuery(
+    ["devdotto", "articlesMeta", articlesToDisplay, 1],
+    devdottoArticlesMeta(articlesToDisplay)
+  );
 
   useEffect(() => {
     setTagOptions(

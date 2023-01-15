@@ -11,7 +11,7 @@ const articlesToDisplay = 2;
 
 const BlogPostsCarousel: React.FC = () => {
   const { status, data: latestArticles } = useQuery(
-    [`devdotto-meta-${articlesToDisplay}}`],
+    ["devdotto", "articlesMeta", articlesToDisplay, 1],
     devdottoArticlesMeta(articlesToDisplay)
   );
 

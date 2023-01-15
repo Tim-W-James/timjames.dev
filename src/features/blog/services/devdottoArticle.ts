@@ -13,19 +13,21 @@ const parseResponse = <T>(response: any): T =>
  * Get all articles from dev.to
  *
  */
-export const devdottoArticlesMeta = (articles: number) => async () =>
-  parseResponse<Array<DevdottoArticleMeta>>(
-    (
-      await fetch(
-        ARTICLES_API +
-          "?" +
-          new URLSearchParams({
-            username: DEV_DOT_TO_USERNAME,
-            per_page: String(articles),
-          })
-      )
-    ).json()
-  );
+export const devdottoArticlesMeta =
+  (articles: number, page?: number) => async () =>
+    parseResponse<Array<DevdottoArticleMeta>>(
+      (
+        await fetch(
+          ARTICLES_API +
+            "?" +
+            new URLSearchParams({
+              username: DEV_DOT_TO_USERNAME,
+              per_page: String(articles),
+              page: String(page || 1),
+            })
+        )
+      ).json()
+    );
 
 /**
  * Get a single dev.to article

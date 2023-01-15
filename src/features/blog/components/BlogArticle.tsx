@@ -15,7 +15,7 @@ import BlogArticleWrapper from "./BlogArticleWrapper";
 
 const BlogArticleContent: React.FC<{ slug: string }> = ({ slug }) => {
   const { status, data: article } = useQuery(
-    [`devdotto-article-${slug}`],
+    ["devdotto", "article", slug],
     devdottoArticle(slug)
   );
 
