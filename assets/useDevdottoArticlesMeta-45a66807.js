@@ -1,2 +1,0 @@
-import{r as s}from"./index-f1f749bf.js";const p="timwjames",o="https://dev.to/api/articles",l=t=>typeof t=="string"?JSON.parse(t):t,u=async t=>l((await fetch(o+"?"+new URLSearchParams({username:p,per_page:String(t)}))).json()),f=(t,e)=>{const[a,c]=s.useState(!0),[i,n]=s.useState([]);return s.useEffect(()=>{(async()=>{try{n(await u(t||1))}catch{e==null||e()}c(!1)})()},[t,e]),{articles:i,loading:a}};export{f as u};
-//# sourceMappingURL=useDevdottoArticlesMeta-45a66807.js.map
