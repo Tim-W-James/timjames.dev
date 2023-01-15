@@ -1,25 +1,25 @@
-import Button from "@components/Button";
+import Button from "@components/buttons/Button";
 import MultiSelection, {
   Option,
   SingleSelection,
 } from "@components/input/MultiSelection";
 import SearchField from "@components/input/SearchField";
-import Timeline from "@components/timeline/Timeline";
-import technologies from "@constants/technologies";
+import technologies from "@data/technologies";
+import Timeline from "@features/timeline/components/Timeline";
 import timelineData, {
   TimelineItemData,
   categories,
-} from "@constants/timelineData";
-import useLocalStorage from "@hooks/useLocalStorage";
-import { useQueryParams } from "@hooks/useQueryParams";
-import cn from "@styles/cssUtils";
-import { decodeArrayAsCsv, encodeArrayAsCsv } from "@utils/encodeQueryParams";
+} from "@features/timeline/data/timelineData";
 import {
   sortByCategoryAlphabetical,
   sortByDuration,
   sortByFeatured,
   sortByTechnologiesCount,
-} from "@utils/timelineSortFuncs";
+} from "@features/timeline/utils/timelineSortFuncs";
+import useLocalStorage from "@hooks/useLocalStorage";
+import { useQueryParams } from "@hooks/useQueryParams";
+import cn from "@styles/cssUtils";
+import { decodeArrayAsCsv, encodeArrayAsCsv } from "@utils/encodeQueryParams";
 import Children from "react-children-utilities";
 import { BsFillArrowUpCircleFill, BsGithub } from "react-icons/bs";
 import { RiRefreshFill } from "react-icons/ri";
@@ -257,7 +257,7 @@ const Projects: React.FC = () => {
         <div className={cn("w-full flex gap-4")}>
           <SearchField handleChange={handleChange} searchText={searchText} />
           <Button
-            className={cn("text-3xl px-2 py-2")}
+            className={cn("text-3xl !px-2 py-2 -mt-1")}
             icon={
               isResetButtonAnimated ? (
                 <span

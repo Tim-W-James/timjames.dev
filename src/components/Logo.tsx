@@ -1,7 +1,7 @@
 import { useTouchInputQuery } from "@hooks/useMediaQuery";
 import cn, { cnScoped } from "@styles/cssUtils";
 import { setMouseHoverCssProperties } from "@utils/mouseHover";
-import styles, { ClassNames } from "./Logo.module.scss";
+import styles from "./Logo.module.scss";
 
 /**
  * Circular logo with hover effects
@@ -16,7 +16,7 @@ const Logo: React.FC<{
 
   return (
     <div
-      className={cnScoped<ClassNames>()(styles._logoBorder)}
+      className={cnScoped(styles)(styles._logoBorder)}
       onMouseMove={(e) => setMouseHoverCssProperties(e, false, deviceIsTouch)}
     >
       <img

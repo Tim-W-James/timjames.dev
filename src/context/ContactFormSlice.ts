@@ -1,6 +1,7 @@
 import type { RootState } from "@app/store";
+// eslint-disable-next-line max-len
+import { ContactFormSchema } from "@features/contactForm/utils/contactFormSchema";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { ContactFormSchema } from "@utils/contactForm";
 
 export type ContactFormStatus = "notSent" | "success" | "error";
 

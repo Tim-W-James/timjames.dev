@@ -1,4 +1,4 @@
-import Button from "@components/Button";
+import Button from "@components/buttons/Button";
 import cn from "@styles/cssUtils";
 import { BsFillHouseDoorFill } from "react-icons/bs";
 

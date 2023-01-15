@@ -5,7 +5,7 @@ import cn, { cnScoped } from "@styles/cssUtils";
 import ClickAwayListener from "react-click-away-listener";
 import { useLocation } from "react-router-dom";
 import MenuToggle from "./MenuToggle";
-import styles, { ClassNames } from "./Navbar.module.scss";
+import styles from "./Navbar.module.scss";
 import NavbarBrand from "./NavbarBrand";
 import NavbarLink from "./NavbarLink";
 
@@ -64,7 +64,7 @@ const Navbar: React.FC = () => {
     <ClickAwayListener onClickAway={() => openHamburgerMenu(false)}>
       <nav className={cn("fixed z-50 top-0 left-0")}>
         <div
-          className={cnScoped<ClassNames>()(
+          className={cnScoped(styles)(
             "flex justify-between w-screen content-center items-center py-2",
             "flex-row",
             styles._navbar
@@ -79,14 +79,14 @@ const Navbar: React.FC = () => {
           />
         </div>
 
-        <div className={cnScoped<ClassNames>()(styles._navbarMenu)}>
+        <div className={cnScoped(styles)(styles._navbarMenu)}>
           {hamburgerMenuIsOpen ? navbarItems : null}
         </div>
       </nav>
     </ClickAwayListener>
   ) : (
     <nav
-      className={cnScoped<ClassNames>()(
+      className={cnScoped(styles)(
         styles._navbar,
         "w-screen fixed top-0 left-0 z-50"
       )}

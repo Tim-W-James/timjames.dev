@@ -3,7 +3,7 @@ import { cnScoped } from "@styles/cssUtils";
 import { setMouseHoverCssProperties } from "@utils/mouseHover";
 import { isSafari } from "react-device-detect";
 import { Link, useLocation } from "react-router-dom";
-import styles, { ClassNames } from "./NavbarLink.module.scss";
+import styles from "./NavbarLink.module.scss";
 
 /**
  * Link in the navbar
@@ -24,7 +24,7 @@ const NavbarLink: React.FC<{
 
   return (
     <Link
-      className={cnScoped<ClassNames>()(
+      className={cnScoped(styles)(
         "subtitle px-8 py-2",
         styles._navbarLink,
         {

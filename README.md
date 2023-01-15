@@ -481,9 +481,9 @@ component. This can be used with the `cnScoped` function, for example:
 
 ```tsx
 import { cnScoped } from "@styles/cssUtils";
-import styles, { ClassNames } from "./component.module.scss";
+import styles from "./component.module.scss";
 ...
-<div className={cnScoped<ClassNames>()(styles._component, "container p-5", {
+<div className={cnScoped(styles)(styles._component, "container p-5", {
   "text-lg": true,
 })}>
 ...
@@ -503,14 +503,25 @@ Some things to note:
 - **Source Code**: [`src`](./src)
   - Entry point and routes: [`index.tsx`](./src/index.tsx)
   - Root component: [`App.tsx`](./src/App.tsx)
-  - Common components: [`components`](./src/components). Has alias
+  - Common components: [`components`](./src/components/). Has alias
     `@components`. Group by type for `layout`, `buttons`, `forms`, etc.
-  - Common hooks: [`hooks`](./src/hooks). Has alias `@hooks`
-  - Common utils: [`utils`](./src/utils). Has alias `@utils`
-  - Pages: [`pages`](./src/pages). Has alias `@pages`. Nest subfolders for
-    `components`, `utils`, `hooks`, etc. depending on the scope they apply to
-- **Unit Tests**: place `tests` adjacent to source code
-- **Storybook Stories**: place `stories` adjacent to source code
+  - Common hooks: [`hooks`](./src/hooks/). Has alias `@hooks`
+  - Common utils: [`utils`](./src/utils/). Has alias `@utils`
+  - Common API functionality: [`services`](./src/services/). Has alias
+    `@services`
+  - Pages: [`pages`](./src/pages/). Has alias `@pages`
+  - Feature specific code: [`features`](./src/features/). Has alias `@features`.
+    Nest subfolders for `components`, `utils`, `hooks`, etc. depending on the
+    scope they apply to
+  - Root Redux State: [`app`](./src/app/)
+  - Context and Redux Slices: [`context`](./src/context/). Has alias `@context`
+  - Constants: [`constants`](./src/constants/). Has alias `@constants`
+  - Data: [`data`](./src/data/). Has alias `@data`
+- **Unit Tests**: place `tests` adjacent to source code. Mock data goes in
+  [`src/mocks`](src/mocks/)
+- **Storybook Stories**: place `stories` adjacent to source code. Config in
+  [`.storybook`](./.storybook/)
+- **End-to-End Tests**: [`e2e`](./e2e)
 - **CSS Styling**:
   - Use [`main.scss`](./src/styles/main.scss) for base styles and custom
     Tailwind

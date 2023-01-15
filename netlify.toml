@@ -41,8 +41,8 @@ package = "netlify-plugin-submit-sitemap"
   [plugins.inputs]
     failWithIssues = false
 
-# [[plugins]]
-# package = "@netlify/plugin-lighthouse"
+[[plugins]]
+package = "@netlify/plugin-lighthouse"
 
 # asset optimization
 

@@ -1,16 +1,17 @@
-import Button from "@components/Button";
-import Card from "@components/blog/Card";
-import LoadingCard from "@components/blog/LoadingCard";
+import Button from "@components/buttons/Button";
 import MultiSelection, {
   Option,
   SingleSelection,
 } from "@components/input/MultiSelection";
 import SearchField from "@components/input/SearchField";
-import useDevdottoArticlesMeta from "@hooks/useDevdottoArticlesMeta";
+import BlogCard from "@features/blog/components/BlogCard";
+import BlogCardLoading from "@features/blog/components/BlogCardLoading";
+// eslint-disable-next-line max-len
+import useDevdottoArticlesMeta from "@features/blog/hooks/useDevdottoArticlesMeta";
+import { DevdottoArticleMeta } from "@features/blog/types/devdottoArticle";
 import useLocalStorage from "@hooks/useLocalStorage";
 import { useQueryParams } from "@hooks/useQueryParams";
 import cn from "@styles/cssUtils";
-import { DevdottoArticleMeta } from "@utils/devdottoArticle";
 import { decodeArrayAsCsv, encodeArrayAsCsv } from "@utils/encodeQueryParams";
 import { RiRefreshFill } from "react-icons/ri";
 import { SiDevdotto, SiMedium } from "react-icons/si";
@@ -218,7 +219,7 @@ const Blog = () => {
           );
         })
         .map((articleMeta, index) => (
-          <Card article={articleMeta} key={index} />
+          <BlogCard article={articleMeta} key={index} />
         ));
 
   return (
@@ -255,7 +256,7 @@ const Blog = () => {
         <div className={cn("w-full flex gap-4")}>
           <SearchField handleChange={handleChange} searchText={searchText} />
           <Button
-            className={cn("text-3xl px-2 py-2")}
+            className={cn("text-3xl !px-2 py-2 -mt-1")}
             icon={
               isResetButtonAnimated ? (
                 <span
@@ -303,7 +304,7 @@ const Blog = () => {
         className={cn("flex gap-4 p-0 justify-center", "flex-wrap")}
       >
         {recentArticles.loading ? (
-          [...Array(6).keys()].map((key) => <LoadingCard key={key} />)
+          [...Array(6).keys()].map((key) => <BlogCardLoading key={key} />)
         ) : filteredArticles.length === 0 ? (
           <div className={cn("text-center mb-8 text-xl ")}>
             <span className={cn("text-danger")}>No Articles Found</span> - Try a

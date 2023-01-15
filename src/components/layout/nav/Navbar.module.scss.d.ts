@@ -3,4 +3,3 @@ declare const classNames: {
   readonly _navbarMenu: "_navbarMenu";
 };
 export = classNames;
-export type ClassNames = "_navbar" | "_navbarMenu";

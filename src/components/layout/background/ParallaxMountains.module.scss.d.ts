@@ -5,8 +5,3 @@ declare const classNames: {
   readonly _gradientBackground: "_gradientBackground";
 };
 export = classNames;
-export type ClassNames =
-  | "_mountainMiddle"
-  | "_mountainLeft"
-  | "_mountainRight"
-  | "_gradientBackground";

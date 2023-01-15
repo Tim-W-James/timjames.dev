@@ -6,7 +6,7 @@ const SearchField: React.FC<{
 }> = ({ handleChange, searchText }) => (
   <input
     className={cn(
-      "w-full rounded text-dark-shades mb-4",
+      "w-full rounded text-dark-shades mb-4 py-[5px] px-[9px]",
       "border-2",
       "border-dark-accent",
       "bg-light-shades",

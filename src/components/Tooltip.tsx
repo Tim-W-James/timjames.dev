@@ -5,7 +5,7 @@ const Tooltip: React.FC<{
   tooltip: string;
   isInverted?: boolean;
 }> = ({ text, tooltip, isInverted }) => (
-  <span className={cn("tooltip", { inverted: !!isInverted })}>
+  <span className={cn("tooltip", { inverted: !!isInverted })} data-nosnippet>
     {text}
     <span className={cn("tooltip-text", { inverted: !!isInverted })}>
       {tooltip}

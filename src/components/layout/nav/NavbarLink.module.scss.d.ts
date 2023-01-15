@@ -9,12 +9,3 @@ declare const classNames: {
   readonly _dropdownItem5: "_dropdownItem5";
 };
 export = classNames;
-export type ClassNames =
-  | "_navbarLink"
-  | "_selected"
-  | "_dropdownItem1"
-  | "_safari"
-  | "_dropdownItem2"
-  | "_dropdownItem3"
-  | "_dropdownItem4"
-  | "_dropdownItem5";

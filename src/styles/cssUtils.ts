@@ -22,13 +22,36 @@ const cn = <S1, S2, S3, S4, S5, S6, S7, S8, S9, S10>(
 ): string => classnames(c1, c2, c3, c4, c5, c6, c7, c8, c9, c10);
 
 /**
+ * Type checking for Tailwind Classes and infers scoped class names from a
+ * record of strings. Is curried to allow the params to be inferred
+ *
+ * @param ScopedClassNames - auto generated record of all scoped classes
+ */
+export const cnScoped = (scopedClassNames: Record<string, string>) => {
+  type ScopedClassNames =
+    (typeof scopedClassNames)[keyof typeof scopedClassNames];
+  return <S1, S2, S3, S4, S5, S6, S7, S8, S9, S10>(
+    c1?: TailwindClassParameterValue<S1, ScopedClassNames>,
+    c2?: TailwindClassParameterValue<S2, ScopedClassNames>,
+    c3?: TailwindClassParameterValue<S3, ScopedClassNames>,
+    c4?: TailwindClassParameterValue<S4, ScopedClassNames>,
+    c5?: TailwindClassParameterValue<S5, ScopedClassNames>,
+    c6?: TailwindClassParameterValue<S6, ScopedClassNames>,
+    c7?: TailwindClassParameterValue<S7, ScopedClassNames>,
+    c8?: TailwindClassParameterValue<S8, ScopedClassNames>,
+    c9?: TailwindClassParameterValue<S9, ScopedClassNames>,
+    c10?: TailwindClassParameterValue<S10, ScopedClassNames>
+  ): string => classnames(c1, c2, c3, c4, c5, c6, c7, c8, c9, c10);
+};
+
+/**
  * Type checking for Tailwind Classes and allows an explicit type for scoped
  * class names to be specified. Is curried to allow the params to be inferred
  *
  * @template ScopedClassNames - auto generated union type of all scoped classes
  */
-export const cnScoped =
-  <ScopedClassNames extends string>() =>
+export const cnScopedUnion =
+  <ScopedClassNames>() =>
   <S1, S2, S3, S4, S5, S6, S7, S8, S9, S10>(
     c1?: TailwindClassParameterValue<S1, ScopedClassNames>,
     c2?: TailwindClassParameterValue<S2, ScopedClassNames>,
@@ -127,10 +150,7 @@ type IsValidString<T extends string, ScopedClassNames> = string extends T
 type ClassNamesObject = Record<string, boolean>;
 
 // See https://stackoverflow.com/questions/65737948/how-to-type-check-if-object-keys-conform-a-conditional-recursive-template-type
-export type TailwindClassNamesObject<
-  T extends ClassNamesObject,
-  ScopedClassNames
-> = {
+type TailwindClassNamesObject<T extends ClassNamesObject, ScopedClassNames> = {
   // `& string` explained at https://github.com/microsoft/TypeScript/pull/40336#issuecomment-717319022
   [K in keyof T & string]: K extends IsValidString<K, ScopedClassNames>
     ? T[K]
@@ -146,7 +166,7 @@ type TailwindClassNamesArray<T, ScopedClassNames> = {
 };
 
 // Parameter can be a string, array or object format
-export type TailwindClassParameterValue<S, ScopedClassNames> = S extends string
+type TailwindClassParameterValue<S, ScopedClassNames> = S extends string
   ? IsValidString<S, ScopedClassNames>
   : // eslint-disable-next-line @typescript-eslint/no-explicit-any
   S extends any[]

@@ -12,7 +12,12 @@
       "@app/*": ["app/*"],
       "@constants/*": ["constants/*"],
       "@components/*": ["components/*"],
-      "@layout/*": ["components/layout/*"]
+      "@layout/*": ["components/layout/*"],
+      "@features/*": ["features/*"],
+      "@services/*": ["services/*"],
+      "@data/*": ["data/*"],
+      "@mocks/*": ["mocks/*"],
+      "@types/*": ["types/*"]
     }
   }
 }

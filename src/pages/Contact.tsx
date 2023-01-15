@@ -1,9 +1,8 @@
-import ContactForm from "@components/forms/ContactForm";
-import cn from "@styles/cssUtils";
-import {
-  contactFormOnSubmit,
+import ContactForm from "@features/contactForm/components/ContactForm";
+import contactFormOnSubmit, {
   contactFormOnSubmitDev,
-} from "@utils/contactForm";
+} from "@features/contactForm/utils/submitFuncs";
+import cn from "@styles/cssUtils";
 import { BsFacebook, BsGithub, BsLinkedin, BsTwitter } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
 import { SiSpotify, SiSteam } from "react-icons/si";

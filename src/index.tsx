@@ -1,6 +1,6 @@
-import BlogArticle from "@components/blog/BlogArticle";
 import ScrollToTop from "@components/utils/ScrollToTop";
 import { BLOG, CONTACT, HOME, PROJECTS } from "@constants/routes";
+import BlogArticle from "@features/blog/components/BlogArticle";
 import Page from "@layout/Page";
 import { default as Blog } from "@pages/Blog";
 import Contact from "@pages/Contact";
