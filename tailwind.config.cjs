@@ -27,6 +27,7 @@ module.exports = {
       },
       minWidth: {
         "1/10": "10%",
+        sm: "24rem",
       },
       minHeight: {
         10: "2.5rem",
@@ -40,6 +41,9 @@ module.exports = {
       },
       aspectRatio: {
         wide: "2 / 1",
+      },
+      padding: {
+        "1/10": "10%",
       },
     },
   },

@@ -1,19 +1,38 @@
 import Button from "@components/buttons/Button";
-import cn from "@styles/cssUtils";
+import cn, { cnScoped } from "@styles/cssUtils";
 import { useQuery } from "@tanstack/react-query";
-import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import {
+  BsFillArrowLeftCircleFill,
+  BsFillArrowRightCircleFill,
+} from "react-icons/bs";
+import { MdArticle } from "react-icons/md";
 import { HashLink } from "react-router-hash-link";
 import { devdottoArticlesMeta } from "../services/devdottoArticle";
-import Card from "./BlogCard";
-import LoadingCard from "./BlogCardLoading";
+import BlogCard from "./BlogCard";
+import BlogCardLoading from "./BlogCardLoading";
+import styles from "./BlogPostsCarousel.module.scss";
 
-const articlesToDisplay = 2;
+const articlesToDisplay = 30;
 
 const BlogPostsCarousel: React.FC = () => {
   const { status, data: latestArticles } = useQuery(
     ["devdotto", "articlesMeta", articlesToDisplay, 1],
     devdottoArticlesMeta(articlesToDisplay)
   );
+
+  const goNext = () => {
+    document.getElementById("carousel")?.scrollBy({
+      left: 384,
+      behavior: "smooth",
+    });
+  };
+
+  const goPrev = () => {
+    document.getElementById("carousel")?.scrollBy({
+      left: -384,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <div>
@@ -32,29 +51,55 @@ const BlogPostsCarousel: React.FC = () => {
         <hr className={cn("radial-border")} />
       </h2>
       <section aria-labelledby="blog">
-        <div className={cn("flex gap-4 p-0 mx-2 justify-center", "flex-wrap")}>
+        <div
+          className={cnScoped(styles)(
+            "p-0 pb-4 mx-2",
+            "px-1/10",
+            "max-sm:px-1",
+            "overflow-auto snap-x",
+            "flex gap-4",
+            styles._carousel
+          )}
+          id="carousel"
+        >
           {status === "loading" ? (
-            [...Array(2).keys()].map((key) => <LoadingCard key={key} />)
+            [...Array(4).keys()].map((key) => (
+              <BlogCardLoading isCarouselItem key={key} />
+            ))
           ) : status === "error" ? (
-            <div className={cn("text-center mb-8 text-xl ")}>
+            <div className={cn("text-center mb-8 text-xl")}>
               <span className={cn("text-danger")}>Something went wrong</span> -
               Try again later
             </div>
           ) : (
             latestArticles.map((articleMeta, index) => (
-              <Card article={articleMeta} key={index} />
+              <BlogCard article={articleMeta} isCarouselItem key={index} />
             ))
           )}
         </div>
-        <div className={cn("flex justify-center mt-8")}>
+        <div
+          className={cn("flex mt-8 gap-4 justify-center items-center mx-auto")}
+        >
           <Button
-            icon={<BsFillArrowRightCircleFill />}
+            icon={<BsFillArrowLeftCircleFill />}
+            isLight
+            mode="button"
+            onClick={goPrev}
+          />
+          <Button
+            icon={<MdArticle />}
             iconRight
             isLight
-            label={"More Articles"}
+            label={"View All"}
             mode="route"
             to="/blog"
             tooltip="View more articles"
+          />
+          <Button
+            icon={<BsFillArrowRightCircleFill />}
+            isLight
+            mode="button"
+            onClick={goNext}
           />
         </div>
       </section>

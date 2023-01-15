@@ -3,14 +3,18 @@ import { BsChatLeftTextFill, BsHeart } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { DevdottoArticleMeta } from "../types/devdottoArticle";
 
-const Card: React.FC<{ article: DevdottoArticleMeta }> = ({ article }) => (
+const Card: React.FC<{
+  article: DevdottoArticleMeta;
+  isCarouselItem?: boolean;
+}> = ({ article, isCarouselItem }) => (
   <section
     aria-label={article.title}
     className={cn(
-      "border p-4 max-w-sm w-full",
+      "border p-4",
       "border-dark-accent",
       "acrylic-light",
-      "rounded-lg"
+      "rounded-lg",
+      isCarouselItem ? "min-w-sm snap-center" : "w-full max-w-sm"
     )}
   >
     <div className={cn("flex gap-4", "flex-col")}>

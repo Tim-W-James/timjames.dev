@@ -1,12 +1,15 @@
 import cn from "@styles/cssUtils";
 
-const LoadingCard: React.FC = () => (
+const LoadingCard: React.FC<{
+  isCarouselItem?: boolean;
+}> = ({ isCarouselItem }) => (
   <div
     className={cn(
-      "border p-4 w-96",
+      "border p-4",
       "border-dark-accent",
       "acrylic-light",
-      "rounded-lg"
+      "rounded-lg",
+      isCarouselItem ? "min-w-sm snap-center" : "w-full max-w-sm"
     )}
   >
     <div className={cn("flex gap-4", "flex-col", "animate-pulse")}>
