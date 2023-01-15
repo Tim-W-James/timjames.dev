@@ -6,12 +6,12 @@ import MultiSelection, {
 import SearchField from "@components/input/SearchField";
 import BlogCard from "@features/blog/components/BlogCard";
 import BlogCardLoading from "@features/blog/components/BlogCardLoading";
-// eslint-disable-next-line max-len
-import useDevdottoArticlesMeta from "@features/blog/hooks/useDevdottoArticlesMeta";
+import { devdottoArticlesMeta } from "@features/blog/services/devdottoArticle";
 import { DevdottoArticleMeta } from "@features/blog/types/devdottoArticle";
 import useLocalStorage from "@hooks/useLocalStorage";
 import { useQueryParams } from "@hooks/useQueryParams";
 import cn from "@styles/cssUtils";
+import { useQuery } from "@tanstack/react-query";
 import { decodeArrayAsCsv, encodeArrayAsCsv } from "@utils/encodeQueryParams";
 import { RiRefreshFill } from "react-icons/ri";
 import { SiDevdotto, SiMedium } from "react-icons/si";
@@ -73,8 +73,13 @@ type BlogOptions = {
   searchText: string;
 };
 
+const articlesToDisplay = 100;
+
 const Blog = () => {
-  const recentArticles = useDevdottoArticlesMeta(100);
+  const { status, data: articles } = useQuery(
+    [`devdotto-meta-${articlesToDisplay}}`],
+    devdottoArticlesMeta(articlesToDisplay)
+  );
   const [selectedTags, setSelectedTags] = useState<readonly Option[]>([]);
   const [selectedSort, setSelectedSort] = useState<SortOption>(sortOptions[0]!);
   const [tagOptions, setTagOptions] = useState<readonly Option[]>([]);
@@ -82,16 +87,11 @@ const Blog = () => {
 
   useEffect(() => {
     setTagOptions(
-      !recentArticles.loading
-        ? [
-            ...new Set(
-              recentArticles.articles.flatMap(
-                (articleMeta) => articleMeta.tag_list
-              )
-            ),
-          ]
+      !articles
+        ? []
+        : [...new Set(articles.flatMap((articleMeta) => articleMeta.tag_list))]
             .map((tag) => {
-              const count = recentArticles.articles.filter((articleMeta) =>
+              const count = articles.filter((articleMeta) =>
                 articleMeta.tag_list.includes(tag)
               ).length;
               return {
@@ -102,9 +102,8 @@ const Blog = () => {
             })
             .filter((option) => option.count > 0)
             .sort((a, b) => b.count - a.count)
-        : []
     );
-  }, [recentArticles.articles, recentArticles.loading]);
+  }, [articles]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -203,24 +202,25 @@ const Blog = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchText, selectedSort, selectedTags]);
 
-  const filteredArticles = recentArticles.loading
-    ? []
-    : recentArticles.articles
-        .sort(sortByPopularity)
-        .sort(sortFuncFromOption(selectedSort.value))
-        .filter((articleMeta) => {
-          const tags = selectedTags.map((tag) => tag.value);
-          return (
-            searchFilter(searchText, articleMeta) &&
-            (selectedTags.length === 0 ||
-              articleMeta.tag_list.filter((articleTag) =>
-                tags.includes(articleTag)
-              ).length !== 0)
-          );
-        })
-        .map((articleMeta, index) => (
-          <BlogCard article={articleMeta} key={index} />
-        ));
+  const filteredArticles =
+    status === "loading" || status === "error"
+      ? []
+      : articles
+          .sort(sortByPopularity)
+          .sort(sortFuncFromOption(selectedSort.value))
+          .filter((articleMeta) => {
+            const tags = selectedTags.map((tag) => tag.value);
+            return (
+              searchFilter(searchText, articleMeta) &&
+              (selectedTags.length === 0 ||
+                articleMeta.tag_list.filter((articleTag) =>
+                  tags.includes(articleTag)
+                ).length !== 0)
+            );
+          })
+          .map((articleMeta, index) => (
+            <BlogCard article={articleMeta} key={index} />
+          ));
 
   return (
     <div>
@@ -303,11 +303,16 @@ const Blog = () => {
         aria-label="Blogs"
         className={cn("flex gap-4 p-0 justify-center", "flex-wrap")}
       >
-        {recentArticles.loading ? (
+        {status === "loading" ? (
           [...Array(6).keys()].map((key) => <BlogCardLoading key={key} />)
+        ) : status === "error" ? (
+          <div className={cn("text-center mb-8 text-xl ")}>
+            <span className={cn("text-danger")}>Something went wrong</span> -
+            Try again later
+          </div>
         ) : filteredArticles.length === 0 ? (
           <div className={cn("text-center mb-8 text-xl ")}>
-            <span className={cn("text-danger")}>No Articles Found</span> - Try a
+            <span className={cn("text-danger")}>No articles found</span> - Try a
             different filter
           </div>
         ) : (

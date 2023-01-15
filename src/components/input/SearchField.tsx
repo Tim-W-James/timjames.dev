@@ -8,6 +8,7 @@ const SearchField: React.FC<{
     className={cn(
       "w-full rounded text-dark-shades mb-4 py-[5px] px-[9px]",
       "border-2",
+      "!ring-0",
       "border-dark-accent",
       "bg-light-shades",
       "hover:border-main-brand",

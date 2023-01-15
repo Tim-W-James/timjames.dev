@@ -37,10 +37,10 @@ const BlogArticleWrapper: React.FC<{
         <Button
           icon={<BsFillArrowLeftCircleFill />}
           isLight
-          label={"Back"}
+          label={"Find More Articles"}
           mode={"route"}
           to="/blog"
-          tooltip="Find more projects on GitHub"
+          tooltip="Back to article list"
         />
       </div>
       {content}

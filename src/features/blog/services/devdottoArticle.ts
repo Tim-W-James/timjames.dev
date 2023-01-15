@@ -13,7 +13,7 @@ const parseResponse = <T>(response: any): T =>
  * Get all articles from dev.to
  *
  */
-export const devdottoArticlesMeta = async (articles: number) =>
+export const devdottoArticlesMeta = (articles: number) => async () =>
   parseResponse<Array<DevdottoArticleMeta>>(
     (
       await fetch(
@@ -32,7 +32,7 @@ export const devdottoArticlesMeta = async (articles: number) =>
  *
  * @param {string} slug - URL slug (title) for the article
  */
-const devdottoArticle = async (slug: string) =>
+const devdottoArticle = (slug: string) => async () =>
   parseResponse<DevdottoArticle>(
     (await fetch(`${ARTICLES_API}/${DEV_DOT_TO_USERNAME}/${slug}`)).json()
   );
