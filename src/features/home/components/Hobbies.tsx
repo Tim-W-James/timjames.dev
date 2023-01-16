@@ -18,7 +18,7 @@ const Hobbies: React.FC = () => (
         }
         to={"#hobbies"}
       >
-        What I do When I&apos;m Not Writing Code{" "}
+        What I do When I&apos;m not Writing Code{" "}
       </HashLink>
       <hr className={cn("radial-border")} />
     </h2>

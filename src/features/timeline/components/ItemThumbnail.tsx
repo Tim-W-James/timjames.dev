@@ -1,7 +1,7 @@
 import cn from "@styles/cssUtils";
 import { TimelineItemData } from "../data/timelineData";
 
-const TimelineItemThumbnail: React.FC<{
+const ItemThumbnail: React.FC<{
   data: TimelineItemData;
   isOddIndex: boolean;
 }> = ({ data: itemData, isOddIndex }) =>
@@ -18,4 +18,4 @@ const TimelineItemThumbnail: React.FC<{
     />
   ) : null;
 
-export default TimelineItemThumbnail;
+export default ItemThumbnail;

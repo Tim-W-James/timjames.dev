@@ -3,7 +3,7 @@ import { HashLink } from "react-router-hash-link";
 import { TimelineItemData } from "../data/timelineData";
 import ItemCategory from "./ItemCategory";
 
-const TimelineItemTitle: React.FC<{
+const ItemTitle: React.FC<{
   isOddIndex: boolean;
   data: TimelineItemData;
 }> = ({ isOddIndex, data: itemData }) =>
@@ -62,4 +62,4 @@ const TimelineItemTitle: React.FC<{
     </>
   );
 
-export default TimelineItemTitle;
+export default ItemTitle;

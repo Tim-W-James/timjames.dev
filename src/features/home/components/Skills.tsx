@@ -1,3 +1,4 @@
+import Accordion from "@components/Accordion";
 import Tooltip from "@components/Tooltip";
 import cn from "@styles/cssUtils";
 import { BsFillFileEarmarkCodeFill, BsFillKanbanFill } from "react-icons/bs";
@@ -5,26 +6,6 @@ import { GiTalk } from "react-icons/gi";
 import { HiMagnifyingGlassCircle } from "react-icons/hi2";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
-
-const Skill: React.FC<{
-  heading: JSX.Element;
-  icon: JSX.Element;
-  body: JSX.Element;
-}> = ({ heading, icon, body }) => (
-  <div className={cn("mb-4")}>
-    <h3
-      className={cn(
-        "mb-0 text-light-accent",
-        "inline-flex",
-        "items-center gap-1"
-      )}
-    >
-      {icon}
-      {heading}
-    </h3>
-    <p className={cn("hyphens-none")}>{body}</p>
-  </div>
-);
 
 const Skills: React.FC = () => (
   <div className={cn("flex mx-auto px-8 mt-8", "flex-col")}>
@@ -44,7 +25,7 @@ const Skills: React.FC = () => (
     </h2>
     <br />
     <section aria-labelledby="skills" className={cn("text-left text-xl")}>
-      <Skill
+      <Accordion
         body={
           <>
             Familiar with{" "}
@@ -87,10 +68,10 @@ const Skills: React.FC = () => (
             .
           </>
         }
-        heading={<>Agile Software Development</>}
+        heading="Agile Software Development"
         icon={<BsFillKanbanFill />}
       />
-      <Skill
+      <Accordion
         body={
           <>
             I strive for a exceptional level of quality in my work and
@@ -101,10 +82,10 @@ const Skills: React.FC = () => (
             <Tooltip isInverted text="UX" tooltip="User Experience" />.
           </>
         }
-        heading={<>Attention to Detail</>}
+        heading="Attention to Detail"
         icon={<HiMagnifyingGlassCircle />}
       />
-      <Skill
+      <Accordion
         body={
           <>
             I convey ideas clearly in both written and verbal forms, maintaining
@@ -148,10 +129,10 @@ const Skills: React.FC = () => (
             , I was granted the award for best pitch.
           </>
         }
-        heading={<>Concise and Confident Communicator</>}
+        heading="Concise Communicator"
         icon={<GiTalk />}
       />
-      <Skill
+      <Accordion
         body={
           <>
             I ensure my code is robust and maintainable by adopting a functional
@@ -189,7 +170,7 @@ const Skills: React.FC = () => (
             .
           </>
         }
-        heading={<>Code Quality</>}
+        heading="Quality Code"
         icon={<BsFillFileEarmarkCodeFill />}
       />
     </section>
