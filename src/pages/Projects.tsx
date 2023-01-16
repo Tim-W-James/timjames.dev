@@ -236,6 +236,34 @@ const Projects: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchText, selectedCategories, selectedSort, selectedTechnologies]);
 
+  const filterFunc = useCallback(
+    (item: TimelineItemData) => {
+      const selectedTechnology = selectedTechnologies.map(
+        (technology) => technology.value
+      );
+      const isTechnologySelected =
+        selectedTechnology.length === 0 ||
+        (item.technologies &&
+          item.technologies.filter((technology) =>
+            selectedTechnology.includes(technology)
+          ).length > 0);
+
+      const selectedCategory = selectedCategories.map(
+        (technology) => technology.value
+      );
+      const isCategorySelected =
+        selectedCategory.length === 0 ||
+        selectedCategory.includes(item.category);
+
+      return !!(
+        isTechnologySelected &&
+        isCategorySelected &&
+        searchFilter(searchText, item)
+      );
+    },
+    [searchText, selectedCategories, selectedTechnologies]
+  );
+
   return (
     <div>
       <div className={cn("flex justify-center mb-8")}>
@@ -311,30 +339,7 @@ const Projects: React.FC = () => {
       <section aria-label="Timeline" className={cn("mb-8")} id="timeline">
         <Timeline
           data={timelineData}
-          filterFunc={(item) => {
-            const selectedTechnology = selectedTechnologies.map(
-              (technology) => technology.value
-            );
-            const isTechnologySelected =
-              selectedTechnology.length === 0 ||
-              (item.technologies &&
-                item.technologies.filter((technology) =>
-                  selectedTechnology.includes(technology)
-                ).length > 0);
-
-            const selectedCategory = selectedCategories.map(
-              (technology) => technology.value
-            );
-            const isCategorySelected =
-              selectedCategory.length === 0 ||
-              selectedCategory.includes(item.category);
-
-            return !!(
-              isTechnologySelected &&
-              isCategorySelected &&
-              searchFilter(searchText, item)
-            );
-          }}
+          filterFunc={filterFunc}
           sortFunc={sortFuncFromOption(selectedSort.value)}
         />
         <div className={cn("flex justify-center")}>

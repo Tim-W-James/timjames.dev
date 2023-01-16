@@ -29,22 +29,26 @@ const Timeline: React.FC<{
   sortFunc = () => 0,
 }) => {
   const hasTwoColumns = !useMediaQuery("(max-width: 767px)");
-  const filteredTimelineData = timelineData
-    .filter(filterFunc)
-    .sort((a, b) => {
-      const endComparison = b.endDate.getTime() - a.endDate.getTime();
-      const startComparison = b.startDate.getTime() - a.startDate.getTime();
-      return endComparison !== 0 ? endComparison : startComparison;
-    })
-    .sort(sortFunc)
-    .map((itemData, index) => (
-      <TimelineItem
-        data={itemData}
-        hasTwoColumns={hasTwoColumns}
-        index={index}
-        key={index}
-      />
-    ));
+  const filteredTimelineData = useMemo(
+    () =>
+      timelineData
+        .filter(filterFunc)
+        .sort((a, b) => {
+          const endComparison = b.endDate.getTime() - a.endDate.getTime();
+          const startComparison = b.startDate.getTime() - a.startDate.getTime();
+          return endComparison !== 0 ? endComparison : startComparison;
+        })
+        .sort(sortFunc)
+        .map((itemData, index) => (
+          <TimelineItem
+            data={itemData}
+            hasTwoColumns={hasTwoColumns}
+            index={index}
+            key={index}
+          />
+        )),
+    [filterFunc, hasTwoColumns, sortFunc, timelineData]
+  );
 
   return filteredTimelineData.length > 0 ? (
     <>

@@ -1,13 +1,15 @@
 ._carousel {
+  // TODO rewrite with container queries
+
   &::before {
     position: absolute;
     z-index: 1;
     left: 0;
-    min-width: 10%;
+    min-width: 5%;
     height: 500px;
     background: linear-gradient(
       to right,
-      colors.$dark-shades 10%,
+      colors.$dark-shades 50%,
       rgb(255 255 255 / 0%) 100%
     );
     content: "";
@@ -35,14 +37,15 @@
     position: absolute;
     z-index: 1;
     right: 0;
-    min-width: 10%;
+    min-width: 5%;
     height: 500px;
     background: linear-gradient(
       to right,
       rgb(255 255 255 / 0%),
-      colors.$dark-shades 90%
+      colors.$dark-shades 50%
     );
     content: "";
+    pointer-events: none;
 
     // HACK align with container correctly
     @media (min-width: 640px) {

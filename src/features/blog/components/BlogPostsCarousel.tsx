@@ -8,6 +8,7 @@ import {
 import { MdArticle } from "react-icons/md";
 import { HashLink } from "react-router-hash-link";
 import { devdottoArticlesMeta } from "../services/devdottoArticle";
+import { sortByLatest } from "../utils/sortFuncs";
 import BlogCard from "./BlogCard";
 import BlogCardLoading from "./BlogCardLoading";
 import styles from "./BlogPostsCarousel.module.scss";
@@ -72,9 +73,11 @@ const BlogPostsCarousel: React.FC = () => {
               Try again later
             </div>
           ) : (
-            latestArticles.map((articleMeta, index) => (
-              <BlogCard article={articleMeta} isCarouselItem key={index} />
-            ))
+            latestArticles
+              .sort(sortByLatest)
+              .map((articleMeta, index) => (
+                <BlogCard article={articleMeta} isCarouselItem key={index} />
+              ))
           )}
         </div>
         <div

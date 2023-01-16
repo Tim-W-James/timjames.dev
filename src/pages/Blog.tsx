@@ -8,6 +8,11 @@ import BlogCard from "@features/blog/components/BlogCard";
 import BlogCardLoading from "@features/blog/components/BlogCardLoading";
 import { devdottoArticlesMeta } from "@features/blog/services/devdottoArticle";
 import { DevdottoArticleMeta } from "@features/blog/types/devdottoArticle";
+import sortFuncFromOption, {
+  SortOption,
+  sortByPopularity,
+  sortOptions,
+} from "@features/blog/utils/sortFuncs";
 import useLocalStorage from "@hooks/useLocalStorage";
 import { useQueryParams } from "@hooks/useQueryParams";
 import cn from "@styles/cssUtils";
@@ -16,46 +21,6 @@ import { decodeArrayAsCsv, encodeArrayAsCsv } from "@utils/encodeQueryParams";
 import { RiRefreshFill } from "react-icons/ri";
 import { SiDevdotto, SiMedium } from "react-icons/si";
 import { useNavigate } from "react-router-dom";
-
-const sorts = ["Popularity", "Latest", "Quick Reads"] as const;
-
-type SortOption = {
-  value: (typeof sorts)[number];
-  label: (typeof sorts)[number];
-};
-
-const sortOptions: readonly SortOption[] = sorts.map((sort) => ({
-  value: sort,
-  label: sort,
-}));
-
-const sortByPopularity = (a: DevdottoArticleMeta, b: DevdottoArticleMeta) =>
-  b.public_reactions_count - a.public_reactions_count;
-
-const sortByQuickReads = (a: DevdottoArticleMeta, b: DevdottoArticleMeta) =>
-  a.reading_time_minutes - b.reading_time_minutes;
-
-const sortByLatest = (a: DevdottoArticleMeta, b: DevdottoArticleMeta) =>
-  new Date(b.published_timestamp).getTime() -
-  new Date(a.published_timestamp).getTime();
-
-const sortFuncFromOption = (
-  sort: (typeof sorts)[number]
-): ((a: DevdottoArticleMeta, b: DevdottoArticleMeta) => number) => {
-  switch (sort) {
-    case "Latest":
-      return sortByLatest;
-
-    case "Quick Reads":
-      return sortByQuickReads;
-
-    case "Popularity":
-      return sortByPopularity;
-
-    default:
-      return () => 0;
-  }
-};
 
 const searchFilter = (searchText: string, item: DevdottoArticleMeta) => {
   const search = searchText.toLowerCase();
@@ -203,25 +168,28 @@ const Blog = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchText, selectedSort, selectedTags]);
 
-  const filteredArticles =
-    status === "loading" || status === "error"
-      ? []
-      : articles
-          .sort(sortByPopularity)
-          .sort(sortFuncFromOption(selectedSort.value))
-          .filter((articleMeta) => {
-            const tags = selectedTags.map((tag) => tag.value);
-            return (
-              searchFilter(searchText, articleMeta) &&
-              (selectedTags.length === 0 ||
-                articleMeta.tag_list.filter((articleTag) =>
-                  tags.includes(articleTag)
-                ).length !== 0)
-            );
-          })
-          .map((articleMeta, index) => (
-            <BlogCard article={articleMeta} key={index} />
-          ));
+  const filteredArticles = useMemo(
+    () =>
+      status === "loading" || status === "error"
+        ? []
+        : articles
+            .sort(sortByPopularity)
+            .sort(sortFuncFromOption(selectedSort.value))
+            .filter((articleMeta) => {
+              const tags = selectedTags.map((tag) => tag.value);
+              return (
+                searchFilter(searchText, articleMeta) &&
+                (selectedTags.length === 0 ||
+                  articleMeta.tag_list.filter((articleTag) =>
+                    tags.includes(articleTag)
+                  ).length !== 0)
+              );
+            })
+            .map((articleMeta, index) => (
+              <BlogCard article={articleMeta} key={index} />
+            )),
+    [articles, searchText, selectedSort.value, selectedTags, status]
+  );
 
   return (
     <div>
