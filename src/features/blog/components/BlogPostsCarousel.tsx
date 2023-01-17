@@ -84,7 +84,6 @@ const BlogPostsCarousel: React.FC = () => {
           className={cn("flex mt-8 gap-4 justify-center items-center mx-auto")}
         >
           <Button
-            aria-hidden
             icon={<BsFillArrowLeftCircleFill />}
             isLabelHidden
             isLight
@@ -103,7 +102,6 @@ const BlogPostsCarousel: React.FC = () => {
             tooltip="View more articles"
           />
           <Button
-            aria-hidden
             icon={<BsFillArrowRightCircleFill />}
             isLabelHidden
             isLight
