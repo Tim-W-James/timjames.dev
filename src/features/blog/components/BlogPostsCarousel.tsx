@@ -84,10 +84,14 @@ const BlogPostsCarousel: React.FC = () => {
           className={cn("flex mt-8 gap-4 justify-center items-center mx-auto")}
         >
           <Button
+            aria-hidden
             icon={<BsFillArrowLeftCircleFill />}
+            isLabelHidden
             isLight
+            label="Scroll carousel left"
             mode="button"
             onClick={goPrev}
+            tooltip="Scroll carousel left"
           />
           <Button
             icon={<MdArticle />}
@@ -99,10 +103,14 @@ const BlogPostsCarousel: React.FC = () => {
             tooltip="View more articles"
           />
           <Button
+            aria-hidden
             icon={<BsFillArrowRightCircleFill />}
+            isLabelHidden
             isLight
+            label="Scroll carousel right"
             mode="button"
             onClick={goNext}
+            tooltip="Scroll carousel right"
           />
         </div>
       </section>

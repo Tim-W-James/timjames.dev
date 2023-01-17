@@ -84,4 +84,6 @@ jobs:
           pnpm --if-present storybook:build
 
       - name: Publish to Chromatic 🔧
-        run: pnpm --if-present chromatic
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}

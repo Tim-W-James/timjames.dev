@@ -13,7 +13,6 @@ const Accordion: React.FC<{
   return (
     <div className={cn("mb-4")}>
       <motion.button
-        aria-controls={`${heading}-content`}
         aria-expanded={isOpen}
         className={cn(
           "mb-2 p-2 text-light-accent cursor-pointer min-w-0",

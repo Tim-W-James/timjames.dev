@@ -50,6 +50,7 @@ export const SingleSelection: React.FC<{
 }> = ({ selectedOption, setSelectedOption, options, placeholder }) => (
   <div className={cn("multi-select text-dark-shades scroll-dark z-10 w-full")}>
     <Select
+      aria-label={placeholder || "Select..."}
       closeMenuOnSelect={false}
       components={animatedComponents}
       defaultValue={selectedOption}
@@ -83,6 +84,7 @@ const MultiSelection: React.FC<{
 }> = ({ selectedOptions, setSelectedOptions, options, placeholder }) => (
   <div className={cn("multi-select text-dark-shades scroll-dark z-10 w-full")}>
     <Select
+      aria-label={placeholder || "Select..."}
       closeMenuOnSelect={false}
       components={animatedComponents}
       defaultValue={selectedOptions}

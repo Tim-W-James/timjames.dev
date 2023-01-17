@@ -9,10 +9,11 @@ import cn from "@styles/cssUtils";
 const Page: React.FC<{
   title?: string;
   description?: string;
+  canonical?: string;
   nonStandardLayout?: boolean;
   content: JSX.Element;
-}> = ({ title, description, nonStandardLayout, content }) => {
-  useDocumentMeta(title, description);
+}> = ({ title, description, canonical, nonStandardLayout, content }) => {
+  useDocumentMeta(title, description, canonical);
 
   // Only show the reCAPTCHA badge on specific routes
   useEffect(() => {

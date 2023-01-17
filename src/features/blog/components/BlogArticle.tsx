@@ -25,7 +25,8 @@ const BlogArticleContent: React.FC<{ slug: string }> = ({ slug }) => {
       : status === "loading"
       ? "Blog"
       : "Article Not Found",
-    article?.description ? article.description : "Blog Article"
+    article?.description ? article.description : "Blog Article",
+    slug
   );
 
   return status === "loading" ? (

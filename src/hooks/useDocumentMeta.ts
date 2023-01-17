@@ -17,6 +17,7 @@ import { useEffect, useRef } from "react";
 const useDocumentMeta = (
   title?: string,
   description?: string,
+  canonical?: string,
   prevailOnUnmount = false
 ) => {
   const defaultTitle = useRef(document.title);
@@ -24,28 +25,41 @@ const useDocumentMeta = (
     // eslint-disable-next-line sonarjs/no-duplicate-string
     document.querySelector("meta[name='description']")?.getAttribute("content")
   );
+  const defaultCanonical = useRef(
+    // eslint-disable-next-line sonarjs/no-duplicate-string
+    document.querySelector("link[rel='canonical']")?.getAttribute("href")
+  );
 
   useEffect(() => {
     document.title = title
       ? `${title}${TITLE_SEPARATOR}${PRIMARY_TITLE}`
       : `${PRIMARY_TITLE}${TITLE_SEPARATOR}${DEFAULT_SUB_TITLE}`;
+
     const descriptionRef = document.querySelector("meta[name='description']");
     descriptionRef &&
       descriptionRef.setAttribute(
         "content",
         description ? description : DEFAULT_DESCRIPTION
       );
-  }, [description, title]);
+
+    const canonicalRef = document.querySelector("link[rel='canonical']");
+    canonicalRef && canonical && canonicalRef.setAttribute("href", canonical);
+  }, [canonical, description, title]);
 
   useEffect(
     () => () => {
       if (!prevailOnUnmount) {
         document.title = defaultTitle.current;
+
         const descriptionRef = document.querySelector(
           "meta[name='description']"
         );
         defaultDescription.current &&
           descriptionRef?.setAttribute("content", defaultDescription.current);
+
+        const canonicalRef = document.querySelector("link[rel='canonical']");
+        defaultCanonical.current &&
+          canonicalRef?.setAttribute("href", defaultCanonical.current);
       }
     },
     [prevailOnUnmount]

@@ -27,6 +27,7 @@ createRoot(document.getElementById("root")!).render(
               <Route
                 element={
                   <Page
+                    canonical={`${window.location.protocol}//${window.location.hostname}`}
                     content={<Home />}
                     description={HOME.description}
                     nonStandardLayout
@@ -42,6 +43,9 @@ createRoot(document.getElementById("root")!).render(
               <Route
                 element={
                   <Page
+                    canonical={`${window.location.protocol}//${
+                      window.location.hostname
+                    }${PROJECTS.routes[0] || ""}`}
                     content={<Projects />}
                     description={PROJECTS.description}
                     title={PROJECTS.title}
@@ -56,6 +60,9 @@ createRoot(document.getElementById("root")!).render(
               <Route
                 element={
                   <Page
+                    canonical={`${window.location.protocol}//${
+                      window.location.hostname
+                    }${BLOG.routes[0] || ""}`}
                     content={<Blog />}
                     description={BLOG.description}
                     title={BLOG.title}
@@ -86,6 +93,9 @@ createRoot(document.getElementById("root")!).render(
               <Route
                 element={
                   <Page
+                    canonical={`${window.location.protocol}//${
+                      window.location.hostname
+                    }${CONTACT.routes[0] || ""}`}
                     content={<Contact />}
                     description={CONTACT.description}
                     title={CONTACT.title}
