@@ -104,10 +104,15 @@ const Blog = () => {
       // Query params take precedence over local storage on initial load
       if (queryParams.get("reset")) {
         resetOptions();
-        navigate({
-          hash: window.location.hash,
-          search: "",
-        });
+        navigate(
+          {
+            hash: window.location.hash,
+            search: "",
+          },
+          {
+            replace: true,
+          }
+        );
         return () => {};
       }
       setSelectedTags([]);
@@ -146,25 +151,31 @@ const Blog = () => {
       searchText,
     });
     // Update query params
-    navigate({
-      hash: window.location.hash,
-      search:
-        "?" +
-        new URLSearchParams(
-          // Strip any undefined values
-          JSON.parse(
-            JSON.stringify({
-              tags:
-                encodeArrayAsCsv(selectedTags.map((t) => t.value)) || undefined,
-              sort:
-                selectedSort.value === sortOptions[0]?.value
-                  ? undefined
-                  : selectedSort.value,
-              searchText: searchText || undefined,
-            })
-          )
-        ).toString(),
-    });
+    navigate(
+      {
+        hash: window.location.hash,
+        search:
+          "?" +
+          new URLSearchParams(
+            // Strip any undefined values
+            JSON.parse(
+              JSON.stringify({
+                tags:
+                  encodeArrayAsCsv(selectedTags.map((t) => t.value)) ||
+                  undefined,
+                sort:
+                  selectedSort.value === sortOptions[0]?.value
+                    ? undefined
+                    : selectedSort.value,
+                searchText: searchText || undefined,
+              })
+            )
+          ).toString(),
+      },
+      {
+        replace: true,
+      }
+    );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchText, selectedSort, selectedTags]);
 
