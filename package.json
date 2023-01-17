@@ -53,10 +53,12 @@
     "storybook:test": "test-storybook",
     "storybook:test:ci": "npx concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"pnpm storybook --quiet --ci --no-manager-cache\" \"sleep 15 && wait-on tcp:6006 && pnpm storybook:test --ci --maxWorkers=2\"",
     "storybook:build": "storybook build",
+    "build-storybook": "pnpm storybook:build",
     "storybook:preview": "serve storybook-static",
     "storybook:smoke-test": "storybook dev --ci --smoke-test",
     "e2e": "playwright test",
-    "e2e:headed": "playwright test --headed"
+    "e2e:headed": "playwright test --headed",
+    "chromatic": "chromatic --exit-zero-on-changes"
   },
   "lint-staged": {
     "./src/**/*.tsx": [
@@ -108,6 +110,7 @@
     "@vitest/ui": "^0.27.1",
     "autoprefixer": "^10.4.13",
     "babel-loader": "^9.1.2",
+    "chromatic": "^6.14.0",
     "concurrently": "^7.6.0",
     "debug": "^4.3.4",
     "esbuild": "^0.17.0",
@@ -192,5 +195,7 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "timjames.dev@0.0.0"
 }

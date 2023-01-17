@@ -3,6 +3,7 @@ import Page from "@components/layout/Page";
 import Navbar from "@components/layout/nav/Navbar";
 import ScrollToTop from "@components/utils/ScrollToTop";
 import { HOME } from "@constants/routes";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter as Router } from "react-router-dom";
 import HomePage from "./Home";
 
@@ -14,16 +15,27 @@ export default {
   },
 };
 
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 10 * (60 * 1000), // 10 mins
+      cacheTime: 60 * (60 * 1000), // 1 hour
+    },
+  },
+});
+
 export const Home = () => (
-  <Router>
-    <ScrollToTop />
-    <Navbar />
-    <Page
-      content={<HomePage />}
-      description={HOME.description}
-      nonStandardLayout
-      title={HOME.title}
-    />
-    <Footer allowFixed />
-  </Router>
+  <QueryClientProvider client={queryClient}>
+    <Router>
+      <ScrollToTop />
+      <Navbar />
+      <Page
+        content={<HomePage />}
+        description={HOME.description}
+        nonStandardLayout
+        title={HOME.title}
+      />
+      <Footer allowFixed />
+    </Router>
+  </QueryClientProvider>
 );

@@ -78,11 +78,10 @@ jobs:
           path: playwright-report/
           retention-days: 30
 
-      - name: Run Component Tests 🔧
-        run:
+      - name: Build Storybook 🔧
+        run: |
+          pnpm --if-present storybook:smoke-test
           pnpm --if-present storybook:build
-          # NOTE - disabled until the test runner is more stable
-          # pnpm add -g playwright
-          # playwright install --with-deps
-          # rm -rf node_modules/.cache/storybook
-          # pnpm storybook:test:ci
+
+      - name: Publish to Chromatic 🔧
+        run: pnpm --if-present chromatic

@@ -318,6 +318,9 @@ _For more examples, please refer to the [Documentation](https://example.com)_
   pnpm e2e
   ```
 
+- View visual regression tests on
+  [Chromatic](https://www.chromatic.com/library?appId=63c678edef0d36c489eee3c1&branch=main)
+
 #### Writing New Tests
 
 This repo has several layers of tests:
@@ -354,8 +357,19 @@ This repo has several layers of tests:
 - **End-to-end tests**: [Playwright](https://playwright.dev/) tests in
   [`e2e/`](./e2e/), with the testing library API
 - **Visual regression tests**:
+
   - [Avoid using snapshot tests](https://medium.com/@sapegin/whats-wrong-with-snapshot-tests-37fbe20dfe8e)
-  - TODO
+  - Visual regression tests are run in CI using
+    [Chromatic](https://www.chromatic.com/), which allows changes to be reviewed
+    and approved
+  - Upload a new build manually using:
+
+    ```sh
+    npx chromatic --project-token <your-project-token>
+    ```
+
+  - Chromatic also publishes Storybook
+    [here](https://main--63c678edef0d36c489eee3c1.chromatic.com)
 
 **A note on code coverage**: when the component is exported from Storybook,
 coverage of the component itself will not be tracked correctly. For this reason,
