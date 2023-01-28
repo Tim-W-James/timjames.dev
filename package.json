@@ -106,8 +106,8 @@
     "@typescript-eslint/eslint-plugin": "^5.48.1",
     "@typescript-eslint/parser": "^5.48.1",
     "@vitejs/plugin-react-swc": "^3.0.1",
-    "@vitest/coverage-c8": "^0.27.1",
-    "@vitest/ui": "^0.27.1",
+    "@vitest/coverage-c8": "^0.28.0",
+    "@vitest/ui": "^0.28.0",
     "autoprefixer": "^10.4.13",
     "babel-loader": "^9.1.2",
     "chromatic": "^6.14.0",
@@ -154,7 +154,7 @@
     "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-sass-dts": "^1.2.13",
     "vite-tsconfig-paths": "^4.0.3",
-    "vitest": "^0.27.1",
+    "vitest": "^0.28.0",
     "wait-on": "^7.0.1"
   },
   "dependencies": {
