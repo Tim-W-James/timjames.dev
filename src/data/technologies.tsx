@@ -1,6 +1,5 @@
 import {
   SiAdobepremierepro,
-  SiAdobexd,
   SiAmazonaws,
   SiAndroid,
   SiArduino,
@@ -291,11 +290,6 @@ const technologies = {
   Vectorworks: {
     icon: <SiVectorworks aria-label="Vectorworks" />,
     link: "https://www.vectorworks.net/",
-    isCore: false,
-  },
-  AdobeXD: {
-    icon: <SiAdobexd aria-label="Adobe XD" />,
-    link: "https://www.adobe.com/products/xd/learn/get-started/what-is-adobe-xd-used-for.html",
     isCore: false,
   },
   Unreal: {

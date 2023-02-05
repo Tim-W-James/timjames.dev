@@ -95,13 +95,14 @@ const sortFuncFromOption = (
 const searchFilter = (searchText: string, item: TimelineItemData) => {
   const search = searchText.toLowerCase();
   return (
-    search.length === 0 ||
-    item.title.toLowerCase().includes(search) ||
-    Children.onlyText(item.body).toLowerCase().includes(search) ||
-    item.technologies?.some((technology) =>
-      technology.toLowerCase().includes(search)
-    ) ||
-    item.category.toLowerCase().includes(search)
+    (search.length === 0 && !item.searchOnly) ||
+    (search.length > 0 &&
+      (item.title.toLowerCase().includes(search) ||
+        Children.onlyText(item.body).toLowerCase().includes(search) ||
+        item.technologies?.some((technology) =>
+          technology.toLowerCase().includes(search)
+        ) ||
+        item.category.toLowerCase().includes(search)))
   );
 };
 

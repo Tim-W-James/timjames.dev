@@ -18,7 +18,7 @@
     &::before {
       @apply absolute -z-50 w-screen;
 
-      height: calc(100vh * 0.50);
+      height: calc(100vh * 0.5);
       background: linear-gradient(
         180deg,
         rgb(0 0 0 / 0%) 0%,
@@ -257,14 +257,14 @@
       transition-duration: 0.01ms !important;
     }
   }
+
+  // Override library styles
+  input[type="text"]:not(.form-field,.form-field-error):focus {
+    box-shadow: none;
+  }
 }
 
 // Hide reCAPTCHA badge by default
 .grecaptcha-badge {
   z-index: -99999;
-}
-
-// Override library styles
-input[type="text"]:focus {
-  box-shadow: none;
 }

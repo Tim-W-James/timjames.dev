@@ -35,6 +35,7 @@ export type TimelineItemData = {
     url: string;
     icon?: JSX.Element;
   }[];
+  searchOnly?: boolean;
 };
 
 export const categories = {
@@ -1029,8 +1030,8 @@ const timelineData: TimelineItemData[] = [
     body: <>Graphic design for a seafood restaurant.</>,
     category: "Canberra College",
     isFeatured: false,
+    searchOnly: true,
     thumbnailSrc: sharkShackThumbnail,
-    technologies: ["AdobeXD"],
   },
   {
     startDate: new Date("2016"),
@@ -1065,6 +1066,7 @@ const timelineData: TimelineItemData[] = [
     ),
     category: "Personal Project",
     isFeatured: false,
+    searchOnly: true,
     links: [
       {
         text: "Map download",
@@ -1124,6 +1126,7 @@ const timelineData: TimelineItemData[] = [
     ),
     category: "Personal Project",
     isFeatured: false,
+    searchOnly: true,
     links: [
       {
         text: "Map download",

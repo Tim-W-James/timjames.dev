@@ -98,7 +98,7 @@ const BlogPostsCarousel: React.FC = () => {
             isLight
             label={"View All"}
             mode="route"
-            to="/blog"
+            to="/blog?reset"
             tooltip="View more articles"
           />
           <Button

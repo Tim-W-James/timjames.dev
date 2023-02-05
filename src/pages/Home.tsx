@@ -4,7 +4,6 @@ import Button from "@components/buttons/Button";
 import BlogPostsCarousel from "@features/blog/components/BlogPostsCarousel";
 import AboutMe from "@features/home/components/AboutMe";
 import CoreTechnologies from "@features/home/components/CoreTechnologies";
-import Hobbies from "@features/home/components/Hobbies";
 import MajorProjects from "@features/home/components/MajorProjects";
 import Skills from "@features/home/components/Skills";
 import SocialLinks from "@features/home/components/SocialLinks";
@@ -42,10 +41,9 @@ const Home: React.FC = () => {
           <div className={cn("solid-background")}>
             <div className={cn("pt-8 mx-auto container")}>
               <AboutMe />
-              <BlogPostsCarousel />
               <MajorProjects />
+              <BlogPostsCarousel />
               <Skills />
-              <Hobbies />
               <div className={cn("flex justify-center mt-8")}>
                 <Button
                   icon={<BsFillArrowRightCircleFill />}
