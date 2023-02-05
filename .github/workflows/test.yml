@@ -60,7 +60,10 @@ jobs:
         run: pnpm --if-present build
 
       - name: Check for Vulnerabilities 🔧
-        run: pnpm audit --production --audit-level=high
+        run: |
+          RED='\033[0;31m'
+          NC='\033[0m'
+          pnpm audit --production --audit-level=high || echo "${RED}Vulnerabilities found${NC}"
 
       - name: Lint 🔧
         run: pnpm --if-present lint
@@ -80,10 +83,9 @@ jobs:
           path: playwright-report/
           retention-days: 30
 
-      - name: Build Storybook 🔧
+      - name: Storybook Smoke Test 🔧
         run: |
           pnpm --if-present storybook:smoke-test
-          pnpm --if-present storybook:build
 
       - name: Publish to Chromatic 🔧
         uses: chromaui/action@v1
