@@ -19161,14 +19161,6 @@ packages:
     engines: { node: ">=6.11.5" }
     dev: true
 
-  /local-pkg/0.4.2:
-    resolution:
-      {
-        integrity: sha512-mlERgSPrbxU3BP4qBqAvvwlgW4MTg78iwJdGGnv7kibKjWcJksrG3t6LB5lXI93wXRDvG4NpUgJFmTG4T6rdrg==,
-      }
-    engines: { node: ">=14" }
-    dev: true
-
   /local-pkg/0.4.3:
     resolution:
       {
@@ -28247,7 +28239,7 @@ packages:
       debug: 4.3.4
       happy-dom: 8.2.6
       jsdom: 21.1.0
-      local-pkg: 0.4.2
+      local-pkg: 0.4.3
       pathe: 1.1.0
       picocolors: 1.0.0
       source-map: 0.6.1

@@ -1,7 +1,7 @@
 import { useTouchInputQuery } from "@hooks/useMediaQuery";
 import cn, { cnScoped } from "@styles/cssUtils";
 import { setMouseHoverCssProperties } from "@utils/mouseHover";
-import { isSafari } from "react-device-detect";
+import { isMobileSafari, isSafari } from "react-device-detect";
 import { Link } from "react-router-dom";
 import styles from "./Button.module.scss";
 
@@ -54,7 +54,7 @@ const Button = (props: ButtonProps) => {
     isLight && !disabled ? "acrylic-light" : "acrylic-dark",
     isLight && !disabled ? styles._light : styles._dark,
     // Radial border doesn't work with Safari
-    { [styles._safari]: isSafari }
+    { [styles._safari]: isSafari || isMobileSafari }
   );
 
   const inner = (

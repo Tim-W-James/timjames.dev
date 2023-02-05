@@ -12,9 +12,9 @@ test("should not be reset after changing routes", async ({
 }) => {
   // Enter content into the form
   await page.goto("http://localhost:3000/contact");
-  await page.getByLabel(/name/iu).fill("John Doe");
-  await page.getByLabel(/email/iu).fill("john@gmail.com");
-  await page.getByLabel(/message/iu).fill("Hello!");
+  await page.getByPlaceholder("Your name here...").fill("John Doe");
+  await page.getByPlaceholder("example@gmail.com").fill("john@gmail.com");
+  await page.getByPlaceholder("Your message here...").fill("Hello!");
 
   // Navigate to some other route, then back again
   openHamburgerNav(isMobile, page);
@@ -29,7 +29,13 @@ test("should not be reset after changing routes", async ({
     .click();
 
   // check form input
-  expect(await page.getByLabel(/name/iu).inputValue()).toBe("John Doe");
-  expect(await page.getByLabel(/email/iu).inputValue()).toBe("john@gmail.com");
-  expect(await page.getByLabel(/message/iu).inputValue()).toBe("Hello!");
+  expect(await page.getByPlaceholder("Your name here...").inputValue()).toBe(
+    "John Doe"
+  );
+  expect(await page.getByPlaceholder("example@gmail.com").inputValue()).toBe(
+    "john@gmail.com"
+  );
+  expect(await page.getByPlaceholder("Your message here...").inputValue()).toBe(
+    "Hello!"
+  );
 });

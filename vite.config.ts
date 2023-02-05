@@ -60,7 +60,7 @@ export default defineConfig(() => {
     },
     plugins: [
       react(),
-      eslintPlugin(),
+      process.env.NODE_ENV !== "test" && eslintPlugin(),
       AutoImport({
         /// Targets to transform
         include: [

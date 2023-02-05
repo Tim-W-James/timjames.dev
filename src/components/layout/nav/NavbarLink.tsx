@@ -1,7 +1,7 @@
 import { useTouchInputQuery } from "@hooks/useMediaQuery";
 import { cnScoped } from "@styles/cssUtils";
 import { setMouseHoverCssProperties } from "@utils/mouseHover";
-import { isSafari } from "react-device-detect";
+import { isMobileSafari, isSafari } from "react-device-detect";
 import { Link, useLocation } from "react-router-dom";
 import styles from "./NavbarLink.module.scss";
 
@@ -32,7 +32,7 @@ const NavbarLink: React.FC<{
         },
         inHamburgerMenu ? styles[`_dropdownItem${order}`] : "",
         // Animation doesn't work with Safari
-        { [styles._safari]: isSafari }
+        { [styles._safari]: isSafari || isMobileSafari }
       )}
       onClick={() =>
         setTimeout(() => {
