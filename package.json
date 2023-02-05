@@ -185,7 +185,7 @@
   },
   "pnpm": {
     "overrides": {
-      "ua-parser-js": "^1.0.32"
+      "ua-parser-js": "^1.0.33"
     }
   },
   "browserslist": {

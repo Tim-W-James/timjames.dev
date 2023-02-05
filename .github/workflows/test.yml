@@ -60,10 +60,7 @@ jobs:
         run: pnpm --if-present build
 
       - name: Check for Vulnerabilities 🔧
-        run: |
-          RED='\033[0;31m'
-          NC='\033[0m'
-          pnpm audit --production --audit-level=high || echo "${RED}Vulnerabilities found${NC}"
+        run: pnpm audit --production --audit-level=high || echo "Vulnerabilities found"
 
       - name: Lint 🔧
         run: pnpm --if-present lint

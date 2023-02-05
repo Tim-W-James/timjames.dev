@@ -9,6 +9,7 @@ import {
 } from "react-icons/bs";
 import ReactMarkdown from "react-markdown";
 import { useParams } from "react-router-dom";
+import escape from "validator/lib/escape";
 import devdottoArticle from "../services/devdottoArticle";
 import BlogArticleLoading from "./BlogArticleLoading";
 import BlogArticleWrapper from "./BlogArticleWrapper";
@@ -124,7 +125,11 @@ const BlogArticleContent: React.FC<{ slug: string }> = ({ slug }) => {
 const BlogArticle: React.FC = () => {
   const { slug } = useParams();
 
-  return slug ? <BlogArticleContent slug={slug} /> : <BlogArticleLoading />;
+  return slug ? (
+    <BlogArticleContent slug={escape(slug)} />
+  ) : (
+    <BlogArticleLoading />
+  );
 };
 
 export default BlogArticle;
