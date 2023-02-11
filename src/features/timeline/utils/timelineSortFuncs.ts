@@ -1,4 +1,4 @@
-import { TimelineItemData } from "../data/timelineData";
+import TimelineItemData from "../types/TimelineData";
 
 export const sortByDuration = (a: TimelineItemData, b: TimelineItemData) =>
   b.endDate.getTime() -

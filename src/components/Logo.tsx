@@ -13,6 +13,7 @@ const Logo: React.FC<{
   altText?: string;
 }> = ({ imageSrc, altText = "logo" }) => {
   const deviceIsTouch = useTouchInputQuery();
+  const [hasImageLoaded, setImageLoaded] = useState(false);
 
   return (
     <div
@@ -26,8 +27,11 @@ const Logo: React.FC<{
           "rounded-full",
           "-z-[1]",
           "h-56",
-          "pointer-events-none"
+          "pointer-events-none",
+          "text-center",
+          { "animate-pulse bg-slate-700": !hasImageLoaded }
         )}
+        onLoad={() => setImageLoaded(true)}
         src={imageSrc}
       />
     </div>

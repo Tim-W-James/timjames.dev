@@ -1,5 +1,6 @@
 import technologies from "@data/technologies";
 import cn from "@styles/cssUtils";
+import FadeIn from "react-fade-in";
 import { HashLink } from "react-router-hash-link";
 
 const CoreTechnologies: React.FC = () => (
@@ -10,56 +11,59 @@ const CoreTechnologies: React.FC = () => (
       "flex-col"
     )}
   >
-    <h2 id="technologies">
-      <HashLink
-        className={cn("hash-link")}
-        onClick={() =>
-          navigator.clipboard.writeText(
-            `${location.href.split("#")[0] || ""}#technologies`
-          )
-        }
-        to={"#technologies"}
+    <FadeIn transitionDuration={200}>
+      <h2 id="technologies">
+        <HashLink
+          className={cn("hash-link")}
+          onClick={() =>
+            navigator.clipboard.writeText(
+              `${location.href.split("#")[0] || ""}#technologies`
+            )
+          }
+          to={"#technologies"}
+        >
+          Core Technologies{" "}
+        </HashLink>
+        {/* eslint-disable-next-line sonarjs/no-duplicate-string */}
+        <hr className={cn("radial-border")} />
+      </h2>
+      <br />
+      <section
+        aria-labelledby="technologies"
+        className={cn(
+          "flex gap-4 text-xl items-center place-content-center",
+          "flex-row",
+          "flex-wrap"
+        )}
       >
-        Core Technologies{" "}
-      </HashLink>
-      {/* eslint-disable-next-line sonarjs/no-duplicate-string */}
-      <hr className={cn("radial-border")} />
-    </h2>
-    <br />
-    <section
-      aria-labelledby="technologies"
-      className={cn(
-        "flex gap-4 text-xl items-center place-content-center",
-        "flex-row",
-        "flex-wrap"
-      )}
-    >
-      {Object.entries(technologies)
-        .filter(([_, value]) => value.isCore)
-        .map(([key, value], index) => (
-          <HashLink
-            aria-label={key}
-            className={cn(
-              "inline-flex",
-              "items-center",
-              "hover:text-light-accent active:text-dark-accent active:underline"
-            )}
-            key={index}
-            title={`View all my projects that use ${key}`}
-            to={`/projects?${new URLSearchParams({
-              technologies: key.toLowerCase(),
-            }).toString()}`}
-          >
-            {value.icon ? (
-              <>
-                {value.icon}
-                {"\u00A0"}
-              </>
-            ) : null}
-            {key}
-          </HashLink>
-        ))}
-    </section>
+        {Object.entries(technologies)
+          .filter(([_, value]) => value.isCore)
+          .map(([key, value], index) => (
+            <HashLink
+              aria-label={key}
+              className={cn(
+                "inline-flex",
+                "items-center",
+                "hover:text-light-accent active:text-dark-accent",
+                "active:underline"
+              )}
+              key={index}
+              title={`View all my projects that use ${key}`}
+              to={`/projects?${new URLSearchParams({
+                technologies: key.toLowerCase(),
+              }).toString()}`}
+            >
+              {value.icon ? (
+                <>
+                  {value.icon}
+                  {"\u00A0"}
+                </>
+              ) : null}
+              {key}
+            </HashLink>
+          ))}
+      </section>
+    </FadeIn>
   </div>
 );
 

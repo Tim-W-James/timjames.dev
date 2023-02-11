@@ -1,5 +1,22 @@
 import useDocumentMeta from "@hooks/useDocumentMeta";
 import cn from "@styles/cssUtils";
+import { Suspense } from "react";
+import { CgSpinner } from "react-icons/cg";
+
+const Spinner: React.FC = () => (
+  <div className={cn("flex justify-center")}>
+    <span
+      className={cn(
+        "inline-block",
+        "leading-0",
+        "animate-spin",
+        "text-light-accent text-7xl"
+      )}
+    >
+      <CgSpinner />
+    </span>
+  </div>
+);
 
 /**
  * Wrapper for page content that sets the title.
@@ -11,8 +28,16 @@ const Page: React.FC<{
   description?: string;
   canonical?: string;
   nonStandardLayout?: boolean;
+  fallback?: JSX.Element;
   content: JSX.Element;
-}> = ({ title, description, canonical, nonStandardLayout, content }) => {
+}> = ({
+  title,
+  description,
+  canonical,
+  nonStandardLayout,
+  content,
+  fallback,
+}) => {
   useDocumentMeta(title, description, canonical);
 
   // Only show the reCAPTCHA badge on specific routes
@@ -25,7 +50,7 @@ const Page: React.FC<{
   }, [title]);
 
   return nonStandardLayout ? (
-    content
+    <Suspense fallback={fallback}>{content}</Suspense>
   ) : (
     <>
       <div className={cn("fixed bg-dark-shades w-screen h-screen -z-10")} />
@@ -41,7 +66,9 @@ const Page: React.FC<{
             <hr className={cn("radial-border")} />
           </h1>
         </header>
-        <main>{content}</main>
+        <main>
+          <Suspense fallback={fallback || <Spinner />}>{content}</Suspense>
+        </main>
       </div>
     </>
   );

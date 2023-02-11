@@ -10,6 +10,7 @@ import SocialLinks from "@features/home/components/SocialLinks";
 import useMediaQuery from "@hooks/useMediaQuery";
 import ParallaxMountains from "@layout/background/ParallaxMountains";
 import cn from "@styles/cssUtils";
+import FadeIn from "react-fade-in";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import { ParallaxProvider } from "react-scroll-parallax";
 
@@ -20,41 +21,47 @@ const Home: React.FC = () => {
     <ParallaxProvider>
       <div className={cn("text-center")}>
         <ParallaxMountains />
-        <header
-          className={cn(
-            "flex mt-56 items-center place-content-center",
-            "flex-col"
-          )}
-        >
-          <Logo imageSrc={logo} />
-          <h1 id="timjames">
-            👋 Hello,
-            <br />
-            I&apos;m <b className={cn("text-light-accent")}>Tim James</b>
-            <hr className={cn("radial-border")} />
-            Full-Stack Developer
-          </h1>
-        </header>
+        <FadeIn transitionDuration={200}>
+          <header
+            className={cn(
+              "flex mt-56 items-center place-content-center",
+              "flex-col"
+            )}
+          >
+            <Logo imageSrc={logo} />
+            <h1 id="timjames">
+              👋 Hello,
+              <br />
+              I&apos;m <b className={cn("text-light-accent")}>Tim James</b>
+              <hr className={cn("radial-border")} />
+              Full-Stack Developer
+            </h1>
+          </header>
+        </FadeIn>
         <main>
-          <SocialLinks shouldShrinkButtons={shouldShrinkButtons} />
+          <FadeIn transitionDuration={200}>
+            <SocialLinks shouldShrinkButtons={shouldShrinkButtons} />
+          </FadeIn>
           <CoreTechnologies />
           <div className={cn("solid-background")}>
             <div className={cn("pt-8 mx-auto container")}>
-              <AboutMe />
-              <MajorProjects />
-              <BlogPostsCarousel />
-              <Skills />
-              <div className={cn("flex justify-center mt-8")}>
-                <Button
-                  icon={<BsFillArrowRightCircleFill />}
-                  iconRight
-                  isLight
-                  label={"Contact Me"}
-                  mode="route"
-                  to="/contact"
-                  tooltip="Get in touch"
-                />
-              </div>
+              <FadeIn transitionDuration={200}>
+                <AboutMe />
+                <MajorProjects />
+                <BlogPostsCarousel />
+                <Skills />
+                <div className={cn("flex justify-center mt-8")}>
+                  <Button
+                    icon={<BsFillArrowRightCircleFill />}
+                    iconRight
+                    isLight
+                    label={"Contact Me"}
+                    mode="route"
+                    to="/contact"
+                    tooltip="Get in touch"
+                  />
+                </div>
+              </FadeIn>
             </div>
             <div className={cn("pb-16")} />
           </div>
