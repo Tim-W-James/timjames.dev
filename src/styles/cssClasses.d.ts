@@ -293,6 +293,7 @@ export type ClassNames =
   | "top-0"
   | "top-3"
   | "top-3\/4"
+  | "transform"
   | "transition"
   | "underline"
   | "uppercase"

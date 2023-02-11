@@ -19,7 +19,7 @@ const ParallaxMountains: React.FC = () => {
           "h-1/4"
         )}
       />
-      <FadeIn transitionDuration={100}>
+      <FadeIn transitionDuration={200}>
         {deviceIsMobile ? (
           <div className={cn("flex justify-center w-screen")}>
             <div className={cnScoped(styles)(styles._mountainMiddle)} />

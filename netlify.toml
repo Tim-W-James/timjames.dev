@@ -19,6 +19,9 @@
   # Default build command.
   command = "npm run build"
 
+[dev]
+  targetPort = 3000
+
 [build.environment]
   # hack to use pnpm instead
   NPM_FLAGS="--version"
@@ -85,6 +88,7 @@ package = "@netlify/plugin-lighthouse"
   for = "/*.js"
   [headers.values]
     Cache-Control = "public, max-age=604800"
+    Content-Type = "application/javascript"
 
 [[headers]]
   for = "/*.css"

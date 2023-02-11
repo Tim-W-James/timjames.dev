@@ -21,7 +21,7 @@ const Home: React.FC = () => {
     <ParallaxProvider>
       <div className={cn("text-center")}>
         <ParallaxMountains />
-        <FadeIn transitionDuration={200}>
+        <FadeIn transitionDuration={400}>
           <header
             className={cn(
               "flex mt-56 items-center place-content-center",
@@ -39,13 +39,13 @@ const Home: React.FC = () => {
           </header>
         </FadeIn>
         <main>
-          <FadeIn transitionDuration={200}>
+          <FadeIn transitionDuration={400}>
             <SocialLinks shouldShrinkButtons={shouldShrinkButtons} />
           </FadeIn>
           <CoreTechnologies />
           <div className={cn("solid-background")}>
             <div className={cn("pt-8 mx-auto container")}>
-              <FadeIn transitionDuration={200}>
+              <FadeIn transitionDuration={400}>
                 <AboutMe />
                 <MajorProjects />
                 <BlogPostsCarousel />
