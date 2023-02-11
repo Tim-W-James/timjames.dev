@@ -142,6 +142,3 @@ vite.config.ts.timestamp-*
 /playwright-report/
 /playwright/.cache/
 salt
-
-# Bundle visualizer
-stats.html

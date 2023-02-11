@@ -14,12 +14,48 @@ import sharkShackThumbnail from "@assets/projects/shark_shack.jpg";
 import townHouseThumbnail from "@assets/projects/town_house.jpg";
 import weatherStationThumbnail from "@assets/projects/weather_station.jpg";
 import Tooltip from "@components/Tooltip";
+import technologies from "@data/technologies";
 import cn, { cnScoped } from "@styles/cssUtils";
 import { BsFillBookFill, BsGithub } from "react-icons/bs";
 import { FaHamburger } from "react-icons/fa";
 import { SiEslint, SiFigma, SiStorybook } from "react-icons/si";
-import TimelineItemData from "../types/TimelineData";
 import styles from "./timelineData.module.scss";
+
+export type TimelineItemData = {
+  startDate: Date;
+  endDate: Date;
+  title: string;
+  body: JSX.Element;
+  thumbnailSrc?: string;
+  category: keyof typeof categories;
+  technologies?: (keyof typeof technologies)[];
+  isFeatured?: boolean;
+  links?: {
+    text: string;
+    url: string;
+    icon?: JSX.Element;
+  }[];
+  searchOnly?: boolean;
+};
+
+export const categories = {
+  "Career Event": {
+    // We need to help type inference here with an explicit undefined
+    link: undefined,
+  },
+  "Agile Digital": {
+    link: "https://agiledigital.com.au/",
+  },
+  "Australian National University": {
+    link: "https://www.anu.edu.au/",
+  },
+  "Personal Project": {
+    link: undefined,
+  },
+  "Canberra College": {
+    link: "https://www.canberrac.act.edu.au/",
+  },
+} as const satisfies Record<string, { link?: string }>;
 
 const timelineData: TimelineItemData[] = [
   {

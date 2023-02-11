@@ -1,5 +1,5 @@
 import cn from "@styles/cssUtils";
-import TimelineItemData from "../types/TimelineData";
+import { TimelineItemData } from "../data/timelineData";
 
 const ItemThumbnail: React.FC<{
   data: TimelineItemData;

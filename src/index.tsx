@@ -1,8 +1,12 @@
-/* eslint-disable react-refresh/only-export-components */
 import ScrollToTop from "@components/utils/ScrollToTop";
 import { BLOG, CONTACT, HOME, PROJECTS } from "@constants/routes";
+import BlogArticle from "@features/blog/components/BlogArticle";
 import Page from "@layout/Page";
-import cn from "@styles/cssUtils";
+import { default as Blog } from "@pages/Blog";
+import Contact from "@pages/Contact";
+import Home from "@pages/Home";
+import NotFound from "@pages/NotFound";
+import Projects from "@pages/Projects";
 import "@styles/main.scss";
 import App from "App";
 import { StrictMode } from "react";
@@ -10,12 +14,6 @@ import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { store } from "./app/store";
-const Home = lazy(() => import("@pages/Home"));
-const Contact = lazy(() => import("@pages/Contact"));
-const NotFound = lazy(() => import("@pages/NotFound"));
-const Projects = lazy(() => import("@pages/Projects"));
-const Blog = lazy(() => import("@pages/Blog"));
-const BlogArticle = lazy(() => import("@features/blog/components/BlogArticle"));
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -32,18 +30,6 @@ createRoot(document.getElementById("root")!).render(
                     canonical={`${window.location.protocol}//${window.location.hostname}`}
                     content={<Home />}
                     description={HOME.description}
-                    fallback={
-                      <>
-                        <div className={cn("gradient-background")} />
-                        <div
-                          className={cn(
-                            "fixed bg-dark-shades -z-[5] w-screen left-0",
-                            "top-3/4",
-                            "h-1/4"
-                          )}
-                        />
-                      </>
-                    }
                     nonStandardLayout
                     title={HOME.title}
                   />
@@ -94,13 +80,6 @@ createRoot(document.getElementById("root")!).render(
                   <Page
                     content={<BlogArticle />}
                     description={BLOG.description}
-                    fallback={
-                      <div
-                        className={cn(
-                          "fixed bg-dark-shades w-screen h-screen -z-10"
-                        )}
-                      />
-                    }
                     nonStandardLayout
                     title={BLOG.title}
                   />

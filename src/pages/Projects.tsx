@@ -6,9 +6,10 @@ import MultiSelection, {
 import SearchField from "@components/input/SearchField";
 import technologies from "@data/technologies";
 import Timeline from "@features/timeline/components/Timeline";
-import categories from "@features/timeline/data/categories";
-import timelineData from "@features/timeline/data/timelineData";
-import TimelineItemData from "@features/timeline/types/TimelineData";
+import timelineData, {
+  TimelineItemData,
+  categories,
+} from "@features/timeline/data/timelineData";
 import {
   sortByCategoryAlphabetical,
   sortByDuration,
@@ -20,7 +21,6 @@ import { useQueryParams } from "@hooks/useQueryParams";
 import cn from "@styles/cssUtils";
 import { decodeArrayAsCsv, encodeArrayAsCsv } from "@utils/encodeQueryParams";
 import Children from "react-children-utilities";
-import FadeIn from "react-fade-in";
 import { BsFillArrowUpCircleFill, BsGithub } from "react-icons/bs";
 import { RiRefreshFill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
@@ -277,95 +277,93 @@ const Projects: React.FC = () => {
 
   return (
     <div>
-      <FadeIn transitionDuration={200}>
-        <div className={cn("flex justify-center mb-8")}>
+      <div className={cn("flex justify-center mb-8")}>
+        <Button
+          icon={<BsGithub />}
+          isLight
+          label={"GitHub"}
+          to="https://github.com/Tim-W-James"
+          tooltip="Find more projects on GitHub"
+        />
+      </div>
+      <section
+        aria-label="Search Controls"
+        className={cn(
+          "flex mx-auto items-center place-content-center mb-4 max-md:mb-8",
+          "flex-col"
+        )}
+      >
+        <div className={cn("w-full flex gap-4")}>
+          <SearchField handleChange={handleChange} searchText={searchText} />
           <Button
-            icon={<BsGithub />}
+            className={cn("text-3xl !px-2 py-2 -mt-1")}
+            icon={
+              isResetButtonAnimated ? (
+                <span
+                  className={cn(
+                    "inline-block",
+                    "leading-0",
+                    "motion-safe:animate-spin"
+                  )}
+                >
+                  <RiRefreshFill />
+                </span>
+              ) : (
+                <RiRefreshFill />
+              )
+            }
+            iconRight
+            isLabelHidden
             isLight
-            label={"GitHub"}
-            to="https://github.com/Tim-W-James"
-            tooltip="Find more projects on GitHub"
+            label={"Reset"}
+            mode="button"
+            onClick={resetOptions}
+            tooltip="Reset search and filter options"
           />
         </div>
-        <section
-          aria-label="Search Controls"
-          className={cn(
-            "flex mx-auto items-center place-content-center mb-4 max-md:mb-8",
-            "flex-col"
-          )}
-        >
-          <div className={cn("w-full flex gap-4")}>
-            <SearchField handleChange={handleChange} searchText={searchText} />
-            <Button
-              className={cn("!text-3xl !px-2 !py-2 !-mt-1")}
-              icon={
-                isResetButtonAnimated ? (
-                  <span
-                    className={cn(
-                      "inline-block",
-                      "leading-0",
-                      "motion-safe:animate-spin"
-                    )}
-                  >
-                    <RiRefreshFill />
-                  </span>
-                ) : (
-                  <RiRefreshFill />
-                )
-              }
-              iconRight
-              isLabelHidden
-              isLight
-              label={"Reset"}
-              mode="button"
-              onClick={resetOptions}
-              tooltip="Reset search and filter options"
+        <div className={cn("flex gap-4 w-full", "flex-wrap")}>
+          <div className={cn("z-30 grow min-w-fit")}>
+            <SingleSelection
+              options={sortOptions}
+              selectedOption={selectedSort}
+              setSelectedOption={setSelectedSort}
             />
           </div>
-          <div className={cn("flex gap-4 w-full", "flex-wrap")}>
-            <div className={cn("z-30 grow min-w-fit")}>
-              <SingleSelection
-                options={sortOptions}
-                selectedOption={selectedSort}
-                setSelectedOption={setSelectedSort}
-              />
-            </div>
-            <div className={cn("z-20 grow")}>
-              <MultiSelection
-                options={categoryOptions}
-                placeholder="Filter by category..."
-                selectedOptions={selectedCategories}
-                setSelectedOptions={setSelectedCategories}
-              />
-            </div>
-            <div className={cn("z-10 grow")}>
-              <MultiSelection
-                options={technologyOptions}
-                placeholder="Filter by technology..."
-                selectedOptions={selectedTechnologies}
-                setSelectedOptions={setSelectedTechnologies}
-              />
-            </div>
+          <div className={cn("z-20 grow")}>
+            <MultiSelection
+              options={categoryOptions}
+              placeholder="Filter by category..."
+              selectedOptions={selectedCategories}
+              setSelectedOptions={setSelectedCategories}
+            />
           </div>
-        </section>
-        <section aria-label="Timeline" className={cn("mb-8")} id="timeline">
-          <Timeline
-            data={timelineData}
-            filterFunc={filterFunc}
-            sortFunc={sortFuncFromOption(selectedSort.value)}
+          <div className={cn("z-10 grow")}>
+            <MultiSelection
+              options={technologyOptions}
+              placeholder="Filter by technology..."
+              selectedOptions={selectedTechnologies}
+              setSelectedOptions={setSelectedTechnologies}
+            />
+          </div>
+        </div>
+      </section>
+      <section aria-label="Timeline" className={cn("mb-8")} id="timeline">
+        <Timeline
+          data={timelineData}
+          filterFunc={filterFunc}
+          sortFunc={sortFuncFromOption(selectedSort.value)}
+        />
+        <div className={cn("flex justify-center")}>
+          <Button
+            icon={<BsFillArrowUpCircleFill />}
+            isLight
+            label={"Back to top"}
+            mode="button"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            tooltip="Back to top"
           />
-          <div className={cn("flex justify-center")}>
-            <Button
-              icon={<BsFillArrowUpCircleFill />}
-              isLight
-              label={"Back to top"}
-              mode="button"
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              tooltip="Back to top"
-            />
-          </div>
-        </section>
-      </FadeIn>
+        </div>
+      </section>
     </div>
   );
 };

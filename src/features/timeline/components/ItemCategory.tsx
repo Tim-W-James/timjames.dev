@@ -1,5 +1,4 @@
-import categories from "../data/categories";
-import TimelineItemData from "../types/TimelineData";
+import { TimelineItemData, categories } from "../data/timelineData";
 
 const ItemCategory: React.FC<{
   data: TimelineItemData;

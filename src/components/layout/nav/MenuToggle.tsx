@@ -1,18 +1,16 @@
 import { useTouchInputQuery } from "@hooks/useMediaQuery";
-import { LazyMotion, domAnimation, m } from "framer-motion";
+import { motion } from "framer-motion";
 
 // Adapted from: https://github.com/ipenywis/react-navbar-responsive
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Path = (props: any) => (
-  <LazyMotion features={domAnimation}>
-    <m.path
-      fill="transparent"
-      strokeLinecap="round"
-      strokeWidth="3"
-      {...props}
-    />
-  </LazyMotion>
+  <motion.path
+    fill="transparent"
+    strokeLinecap="round"
+    strokeWidth="3"
+    {...props}
+  />
 );
 
 const transition = { duration: 0.11 };

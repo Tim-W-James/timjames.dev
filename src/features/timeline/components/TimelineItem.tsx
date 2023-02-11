@@ -1,12 +1,6 @@
 import cn, { cnScoped } from "@styles/cssUtils";
-import {
-  LazyMotion,
-  domAnimation,
-  m,
-  useAnimation,
-  useInView,
-} from "framer-motion";
-import TimelineItemData from "../types/TimelineData";
+import { motion, useAnimation, useInView } from "framer-motion";
+import { TimelineItemData } from "../data/timelineData";
 import ItemLinksList from "./ItemLinksList";
 import ItemTechnologyList from "./ItemTechnologyList";
 import ItemThumbnail from "./ItemThumbnail";
@@ -58,42 +52,38 @@ const TimelineItem: React.FC<{
       id={itemData.title}
     >
       <div>
-        <LazyMotion features={domAnimation}>
-          <m.div
-            animate={control}
-            className={cnScoped(styles)(styles._timelineItemContent)}
-            initial="hidden"
-            ref={ref}
-            variants={itemAnimationVariants}
+        <motion.div
+          animate={control}
+          className={cnScoped(styles)(styles._timelineItemContent)}
+          initial="hidden"
+          ref={ref}
+          variants={itemAnimationVariants}
+        >
+          <div
+            className={cn(
+              "flex w-full gap-2",
+              isOddIndex ? "flex-wrap" : "flex-wrap-reverse",
+              isOddIndex ? "justify-start" : "justify-end"
+            )}
           >
-            <div
-              className={cn(
-                "flex w-full gap-2",
-                isOddIndex ? "flex-wrap" : "flex-wrap-reverse",
-                isOddIndex ? "justify-start" : "justify-end"
-              )}
-            >
-              <ItemTitle data={itemData} isOddIndex={isOddIndex} />
-            </div>
-            <h4 className={cn("text-main-brand")}>
-              <time>
-                {itemData.startDate.getFullYear()}
-                {itemData.startDate.getFullYear() !==
-                itemData.endDate.getFullYear()
-                  ? // eslint-disable-next-line max-len
-                    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-                    ` - ${itemData.endDate.getFullYear()}`
-                  : ""}
-              </time>
-            </h4>
-            <div className={"2xl:flex 2xl:gap-4 " + cn("items-center")}>
-              <ItemThumbnail data={itemData} isOddIndex={isOddIndex} />
-              <p className={cn("hyphens-none")}>{itemData.body}</p>
-            </div>
-            <ItemTechnologyList data={itemData} isOddIndex={isOddIndex} />
-            <ItemLinksList data={itemData} isOddIndex={isOddIndex} />
-          </m.div>
-        </LazyMotion>
+            <ItemTitle data={itemData} isOddIndex={isOddIndex} />
+          </div>
+          <h4 className={cn("text-main-brand")}>
+            <time>
+              {itemData.startDate.getFullYear()}
+              {itemData.startDate.getFullYear() !==
+              itemData.endDate.getFullYear()
+                ? ` - ${itemData.endDate.getFullYear()}`
+                : ""}
+            </time>
+          </h4>
+          <div className={"2xl:flex 2xl:gap-4 " + cn("items-center")}>
+            <ItemThumbnail data={itemData} isOddIndex={isOddIndex} />
+            <p className={cn("hyphens-none")}>{itemData.body}</p>
+          </div>
+          <ItemTechnologyList data={itemData} isOddIndex={isOddIndex} />
+          <ItemLinksList data={itemData} isOddIndex={isOddIndex} />
+        </motion.div>
         <span className={cnScoped(styles)(styles._circle)} />
       </div>
     </section>

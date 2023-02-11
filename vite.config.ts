@@ -3,7 +3,6 @@ import react from "@vitejs/plugin-react-swc";
 import autoprefixer from "autoprefixer";
 import * as path from "path";
 import postCssTsClassnames from "postcss-ts-classnames";
-import { visualizer } from "rollup-plugin-visualizer";
 import tailwind from "tailwindcss";
 import AutoImport from "unplugin-auto-import/vite";
 import { defineConfig } from "vite";
@@ -90,7 +89,6 @@ export default defineConfig(() => {
       }),
       tsconfigPaths(),
       ...(enableCssTypeGen ? [sassDts()] : []),
-      visualizer(),
     ],
     build: {
       sourcemap: true,

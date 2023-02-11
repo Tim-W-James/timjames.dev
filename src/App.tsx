@@ -1,11 +1,11 @@
 import Toast from "@components/utils/Toast";
 import Footer from "@layout/Footer";
+import Navbar from "@layout/nav/Navbar";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import { Outlet } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
-const Navbar = lazy(() => import("@layout/nav/Navbar"));
 
 const queryClient = new QueryClient({
   defaultOptions: {

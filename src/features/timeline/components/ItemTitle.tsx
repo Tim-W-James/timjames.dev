@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/restrict-template-expressions */
 import cn from "@styles/cssUtils";
 import { HashLink } from "react-router-hash-link";
-import TimelineItemData from "../types/TimelineData";
+import { TimelineItemData } from "../data/timelineData";
 import ItemCategory from "./ItemCategory";
 
 const ItemTitle: React.FC<{

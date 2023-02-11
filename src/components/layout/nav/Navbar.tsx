@@ -2,13 +2,12 @@ import logo from "@assets/logo.png";
 import { BLOG, CONTACT, HOME, PROJECTS } from "@constants/routes";
 import useMediaQuery from "@hooks/useMediaQuery";
 import cn, { cnScoped } from "@styles/cssUtils";
-import { Suspense } from "react";
 import ClickAwayListener from "react-click-away-listener";
 import { useLocation } from "react-router-dom";
+import MenuToggle from "./MenuToggle";
 import styles from "./Navbar.module.scss";
 import NavbarBrand from "./NavbarBrand";
 import NavbarLink from "./NavbarLink";
-const MenuToggle = lazy(() => import("./MenuToggle"));
 
 /**
  * Responsive nav bar
@@ -72,14 +71,12 @@ const Navbar: React.FC = () => {
           )}
         >
           {navbarBrand}
-          <Suspense>
-            <MenuToggle
-              baseColor="hsl(185deg 46% 52%)"
-              hoverColor="hsl(180deg 5% 91%)"
-              isOpen={hamburgerMenuIsOpen}
-              toggle={() => openHamburgerMenu(!hamburgerMenuIsOpen)}
-            />
-          </Suspense>
+          <MenuToggle
+            baseColor="hsl(185deg 46% 52%)"
+            hoverColor="hsl(180deg 5% 91%)"
+            isOpen={hamburgerMenuIsOpen}
+            toggle={() => openHamburgerMenu(!hamburgerMenuIsOpen)}
+          />
         </div>
 
         <div className={cnScoped(styles)(styles._navbarMenu)}>

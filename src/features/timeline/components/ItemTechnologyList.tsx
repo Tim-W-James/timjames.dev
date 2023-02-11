@@ -1,7 +1,7 @@
 import Divider from "@components/layout/Divider";
 import technologies from "@data/technologies";
 import cn from "@styles/cssUtils";
-import TimelineItemData from "../types/TimelineData";
+import { TimelineItemData } from "../data/timelineData";
 
 const ItemTechnologyList: React.FC<{
   data: TimelineItemData;

@@ -5,7 +5,7 @@ const BlogArticleLoading = () => (
   <BlogArticleWrapper
     content={
       <div className={cn("flex gap-4", "flex-col", "animate-pulse")}>
-        <div className={cn("aspect-wide", "bg-slate-700 rounded mb-8")} />
+        <div className={cn("aspect-video", "bg-slate-700 rounded mb-8")} />
         {[...Array(20).keys()].map((key) => (
           <div key={key}>
             <div className={cn("flex gap-4", "flex-row")}>

@@ -18,7 +18,6 @@ import { useQueryParams } from "@hooks/useQueryParams";
 import cn from "@styles/cssUtils";
 import { useQuery } from "@tanstack/react-query";
 import { decodeArrayAsCsv, encodeArrayAsCsv } from "@utils/encodeQueryParams";
-import FadeIn from "react-fade-in";
 import { RiRefreshFill } from "react-icons/ri";
 import { SiDevdotto, SiMedium } from "react-icons/si";
 import { useNavigate } from "react-router-dom";
@@ -205,103 +204,101 @@ const Blog = () => {
 
   return (
     <div>
-      <FadeIn transitionDuration={200}>
-        <div
-          className={cn(
-            "flex gap-4 justify-center items-center max-w-2xl mx-auto mb-8",
-            "flex-row",
-            "flex-wrap"
-          )}
-        >
+      <div
+        className={cn(
+          "flex gap-4 justify-center items-center max-w-2xl mx-auto mb-8",
+          "flex-row",
+          "flex-wrap"
+        )}
+      >
+        <Button
+          icon={<SiDevdotto />}
+          isLight
+          label={"DEV.to"}
+          to="https://dev.to/timwjames"
+          tooltip="Find my personal blog @timwjames"
+        />
+        <Button
+          icon={<SiMedium />}
+          isLight
+          label={"Medium"}
+          to="https://medium.com/@twjames"
+          tooltip="Find my professional @twjames"
+        />
+      </div>
+      <section
+        aria-label="Search Controls"
+        className={cn(
+          "flex mx-auto items-center place-content-center mb-4",
+          "flex-col"
+        )}
+      >
+        <div className={cn("w-full flex gap-4")}>
+          <SearchField handleChange={handleChange} searchText={searchText} />
           <Button
-            icon={<SiDevdotto />}
+            className={cn("text-3xl !px-2 py-2 -mt-1")}
+            icon={
+              isResetButtonAnimated ? (
+                <span
+                  className={cn(
+                    "inline-block",
+                    "leading-0",
+                    "motion-safe:animate-spin"
+                  )}
+                >
+                  <RiRefreshFill />
+                </span>
+              ) : (
+                <RiRefreshFill />
+              )
+            }
+            iconRight
+            isLabelHidden
             isLight
-            label={"DEV.to"}
-            to="https://dev.to/timwjames"
-            tooltip="Find my personal blog @timwjames"
-          />
-          <Button
-            icon={<SiMedium />}
-            isLight
-            label={"Medium"}
-            to="https://medium.com/@twjames"
-            tooltip="Find my professional @twjames"
+            label={"Reset"}
+            mode="button"
+            onClick={resetOptions}
+            tooltip="Reset search and filter options"
           />
         </div>
-        <section
-          aria-label="Search Controls"
-          className={cn(
-            "flex mx-auto items-center place-content-center mb-4",
-            "flex-col"
-          )}
-        >
-          <div className={cn("w-full flex gap-4")}>
-            <SearchField handleChange={handleChange} searchText={searchText} />
-            <Button
-              className={cn("!text-3xl !px-2 !py-2 !-mt-1")}
-              icon={
-                isResetButtonAnimated ? (
-                  <span
-                    className={cn(
-                      "inline-block",
-                      "leading-0",
-                      "motion-safe:animate-spin"
-                    )}
-                  >
-                    <RiRefreshFill />
-                  </span>
-                ) : (
-                  <RiRefreshFill />
-                )
-              }
-              iconRight
-              isLabelHidden
-              isLight
-              label={"Reset"}
-              mode="button"
-              onClick={resetOptions}
-              tooltip="Reset search and filter options"
+        <div className={cn("flex gap-4 w-full", "flex-wrap")}>
+          <div className={cn("z-30 grow min-w-fit")}>
+            <SingleSelection
+              options={sortOptions}
+              selectedOption={selectedSort}
+              setSelectedOption={setSelectedSort}
             />
           </div>
-          <div className={cn("flex gap-4 w-full", "flex-wrap")}>
-            <div className={cn("z-30 grow min-w-fit")}>
-              <SingleSelection
-                options={sortOptions}
-                selectedOption={selectedSort}
-                setSelectedOption={setSelectedSort}
-              />
-            </div>
-            <div className={cn("z-20 grow")}>
-              <MultiSelection
-                options={tagOptions}
-                placeholder="Filter by tags..."
-                selectedOptions={selectedTags}
-                setSelectedOptions={setSelectedTags}
-              />
-            </div>
+          <div className={cn("z-20 grow")}>
+            <MultiSelection
+              options={tagOptions}
+              placeholder="Filter by tags..."
+              selectedOptions={selectedTags}
+              setSelectedOptions={setSelectedTags}
+            />
           </div>
-        </section>
-        <section
-          aria-label="Blogs"
-          className={cn("flex gap-4 p-0 justify-center", "flex-wrap")}
-        >
-          {status === "loading" ? (
-            [...Array(6).keys()].map((key) => <BlogCardLoading key={key} />)
-          ) : status === "error" ? (
-            <div className={cn("text-center mb-8 text-xl ")}>
-              <span className={cn("text-danger")}>Something went wrong</span> -
-              Try again later
-            </div>
-          ) : filteredArticles.length === 0 ? (
-            <div className={cn("text-center mb-8 text-xl ")}>
-              <span className={cn("text-danger")}>No articles found</span> - Try
-              a different filter
-            </div>
-          ) : (
-            filteredArticles
-          )}
-        </section>
-      </FadeIn>
+        </div>
+      </section>
+      <section
+        aria-label="Blogs"
+        className={cn("flex gap-4 p-0 justify-center", "flex-wrap")}
+      >
+        {status === "loading" ? (
+          [...Array(6).keys()].map((key) => <BlogCardLoading key={key} />)
+        ) : status === "error" ? (
+          <div className={cn("text-center mb-8 text-xl ")}>
+            <span className={cn("text-danger")}>Something went wrong</span> -
+            Try again later
+          </div>
+        ) : filteredArticles.length === 0 ? (
+          <div className={cn("text-center mb-8 text-xl ")}>
+            <span className={cn("text-danger")}>No articles found</span> - Try a
+            different filter
+          </div>
+        ) : (
+          filteredArticles
+        )}
+      </section>
     </div>
   );
 };

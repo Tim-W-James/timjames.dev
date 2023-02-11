@@ -1,6 +1,6 @@
 import Divider from "@components/layout/Divider";
 import cn from "@styles/cssUtils";
-import TimelineItemData from "../types/TimelineData";
+import { TimelineItemData } from "../data/timelineData";
 
 const ItemLinksList: React.FC<{
   data: TimelineItemData;

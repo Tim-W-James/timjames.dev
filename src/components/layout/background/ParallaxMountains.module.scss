@@ -26,3 +26,13 @@
   border-style: solid;
   border-color: transparent transparent colors.$dark-shades;
 }
+
+._gradientBackground {
+  @apply fixed -z-[5] top-1/2 h-1/4 w-screen left-0;
+
+  background: linear-gradient(
+    180deg,
+    rgb(0 0 0 / 0%) 0%,
+    colors.$dark-shades 100%
+  );
+}
