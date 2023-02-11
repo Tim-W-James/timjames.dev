@@ -35,9 +35,9 @@ package = "netlify-plugin-submit-sitemap"
 
 [[plugins]]
   package = "netlify-plugin-cloudinary"
-
   [plugins.inputs]
-  cloudName = "timjames"
+    cloudName = "timjames"
+    imagesPath = "/assets"
 
 [[plugins]]
   package = "@netlify/plugin-a11y"
@@ -45,7 +45,7 @@ package = "netlify-plugin-submit-sitemap"
     failWithIssues = false
 
 [[plugins]]
-package = "@netlify/plugin-lighthouse"
+  package = "@netlify/plugin-lighthouse"
 
 # asset optimization
 
