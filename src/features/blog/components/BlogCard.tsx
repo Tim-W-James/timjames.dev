@@ -31,8 +31,10 @@ const Card: React.FC<{
               "text-center",
               { "animate-pulse bg-slate-700": !hasImageLoaded }
             )}
+            height={175}
             onLoad={() => setHasImageLoaded(true)}
             src={article.social_image}
+            width={350}
           />
           <div className={cn("text-right mr-2")}>
             {new Date(article.published_timestamp).toLocaleDateString("en-US", {
