@@ -1,10 +1,9 @@
 import { Meta, StoryFn } from "@storybook/react";
 import cn from "@styles/cssUtils";
 import { BrowserRouter as Router } from "react-router-dom";
-import timelineData, {
-  TimelineItemData,
-  categories,
-} from "../data/timelineData";
+import categories from "../data/categories";
+import timelineData from "../data/timelineData";
+import TimelineItemData from "../types/TimelineData";
 import {
   sortByCategoryAlphabetical,
   sortByDuration,

@@ -30,6 +30,8 @@ const BlogArticleContent: React.FC<{ slug: string }> = ({ slug }) => {
     slug
   );
 
+  const [hasImageLoaded, setHasImageLoaded] = useState(false);
+
   return status === "loading" ? (
     <BlogArticleLoading />
   ) : status === "error" || !article.title ? (
@@ -74,7 +76,17 @@ const BlogArticleContent: React.FC<{ slug: string }> = ({ slug }) => {
           </div>
           <img
             alt="Blog cover"
-            className={cn("mb-0 border", "rounded-xl", "border-light-accent")}
+            className={cn(
+              "mb-0 border",
+              "rounded-xl",
+              "border-light-accent",
+              "text-center",
+              {
+                "aspect-wide bg-slate-700 rounded mb-8 animate-pulse":
+                  !hasImageLoaded,
+              }
+            )}
+            onLoad={() => setHasImageLoaded(true)}
             src={article.cover_image}
           />
           <div
