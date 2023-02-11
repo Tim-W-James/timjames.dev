@@ -174,7 +174,7 @@
     @apply font-sans subpixel-antialiased m-0 text-light-shades scroll-smooth;
     @apply bg-dark-shades bg-fixed bg-top bg-no-repeat overflow-x-hidden;
 
-    background-image: url("@assets/bg-aurora.jpg");
+    background-image: url("@images/bg-aurora.jpg");
     font-display: optional;
 
     @media (max-width: 600px) {

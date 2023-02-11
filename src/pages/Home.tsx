@@ -1,4 +1,3 @@
-import logo from "@assets/profile.jpg";
 import Logo from "@components/Logo";
 import Button from "@components/buttons/Button";
 import BlogPostsCarousel from "@features/blog/components/BlogPostsCarousel";
@@ -8,6 +7,7 @@ import MajorProjects from "@features/home/components/MajorProjects";
 import Skills from "@features/home/components/Skills";
 import SocialLinks from "@features/home/components/SocialLinks";
 import useMediaQuery from "@hooks/useMediaQuery";
+import logo from "@images/profile.jpg";
 import ParallaxMountains from "@layout/background/ParallaxMountains";
 import cn from "@styles/cssUtils";
 import FadeIn from "react-fade-in";

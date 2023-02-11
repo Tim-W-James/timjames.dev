@@ -1,19 +1,19 @@
 /* eslint-disable max-len */
 /* eslint-disable sonarjs/no-duplicate-string */
-import adaThumbnail from "@assets/projects/ada.png";
-import brodburgerThumbnail from "@assets/projects/brodburger.png";
-import desktopArtThumbnail from "@assets/projects/desktop_art.png";
-import gpsAndrodiGameThumbnail from "@assets/projects/gps_android_game.png";
-import iqFocusThumbnail from "@assets/projects/iq_focus.png";
-import journeysContinueThumbnail from "@assets/projects/journeyscontinue.png";
-import keyboardThumbnail from "@assets/projects/keyboard_cad.jpg";
-import proceduralTextThumbnail from "@assets/projects/procedural_text.png";
-import pythonThumbnail from "@assets/projects/python.png";
-import roverThumbnail from "@assets/projects/rover.jpeg";
-import sharkShackThumbnail from "@assets/projects/shark_shack.jpg";
-import townHouseThumbnail from "@assets/projects/town_house.jpg";
-import weatherStationThumbnail from "@assets/projects/weather_station.jpg";
 import Tooltip from "@components/Tooltip";
+import adaThumbnail from "@images/projects/ada.png";
+import brodburgerThumbnail from "@images/projects/brodburger.png";
+import desktopArtThumbnail from "@images/projects/desktop_art.png";
+import gpsAndrodiGameThumbnail from "@images/projects/gps_android_game.png";
+import iqFocusThumbnail from "@images/projects/iq_focus.png";
+import journeysContinueThumbnail from "@images/projects/journeyscontinue.png";
+import keyboardThumbnail from "@images/projects/keyboard_cad.jpg";
+import proceduralTextThumbnail from "@images/projects/procedural_text.png";
+import pythonThumbnail from "@images/projects/python.png";
+import roverThumbnail from "@images/projects/rover.jpeg";
+import sharkShackThumbnail from "@images/projects/shark_shack.jpg";
+import townHouseThumbnail from "@images/projects/town_house.jpg";
+import weatherStationThumbnail from "@images/projects/weather_station.jpg";
 import cn, { cnScoped } from "@styles/cssUtils";
 import { BsFillBookFill, BsGithub } from "react-icons/bs";
 import { FaHamburger } from "react-icons/fa";

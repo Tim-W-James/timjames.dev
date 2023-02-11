@@ -1,6 +1,6 @@
-import logo from "@assets/logo.png";
 import { BLOG, CONTACT, HOME, PROJECTS } from "@constants/routes";
 import useMediaQuery from "@hooks/useMediaQuery";
+import logo from "@images/logo.png";
 import cn, { cnScoped } from "@styles/cssUtils";
 import { Suspense } from "react";
 import ClickAwayListener from "react-click-away-listener";
