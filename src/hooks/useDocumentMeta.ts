@@ -11,8 +11,6 @@ import { useEffect } from "react";
  *
  * @param {string} title - meta title
  * @param {string} description - meta description
- * @param {boolean} [prevailOnUnmount=false] - If true, the title will be set
- * even if the component is unmounted.
  */
 const useDocumentMeta = (
   title?: string,

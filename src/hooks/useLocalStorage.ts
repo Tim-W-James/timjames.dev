@@ -1,5 +1,11 @@
 // Adapted from: https://usehooks.com/useLocalStorage/
 
+/**
+ * Get and set a value in browser local storage
+ *
+ * @param {string} key - key for the data
+ * @param {T} initialValue - initial data value
+ */
 const useLocalStorage = <T>(key: string, initialValue: T) => {
   // State to store our value
   // Pass initial state function to useState so logic is only executed once

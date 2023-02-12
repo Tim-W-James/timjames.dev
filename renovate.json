@@ -12,12 +12,22 @@
       "automerge": true
     },
     {
+      "matchDepTypes": ["devDependencies"],
+      "automerge": true
+    },
+    {
       "matchUpdateTypes": ["major"],
       "dependencyDashboardApproval": true
     },
     {
       "matchDatasources": ["npm"],
       "stabilityDays": 3
+    },
+    {
+      "matchPackagePatterns": ["*"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "all non-major dependencies",
+      "groupSlug": "all-minor-patch"
     }
   ]
 }
