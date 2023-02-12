@@ -21,6 +21,18 @@ const NavbarLink: React.FC<{
 }> = ({ label, to: route, order, isSelected, inHamburgerMenu }) => {
   const location = useLocation();
   const deviceIsTouch = useTouchInputQuery();
+  const scrollToTop = useCallback(
+    () =>
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 0),
+    []
+  );
+  const mouseHoverEffects = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>) =>
+      setMouseHoverCssProperties(e, true, deviceIsTouch),
+    [deviceIsTouch]
+  );
 
   return (
     <Link
@@ -28,18 +40,15 @@ const NavbarLink: React.FC<{
         "subtitle px-8 py-2",
         styles._navbarLink,
         {
-          [styles._selected]: location.pathname === route || !!isSelected,
+          [styles._selected]:
+            location.pathname === route || Boolean(isSelected),
         },
         inHamburgerMenu ? styles[`_dropdownItem${order}`] : "",
         // Animation doesn't work with Safari
         { [styles._safari]: isSafari || isMobileSafari }
       )}
-      onClick={() =>
-        setTimeout(() => {
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        }, 0)
-      }
-      onMouseMove={(e) => setMouseHoverCssProperties(e, true, deviceIsTouch)}
+      onClick={scrollToTop}
+      onMouseMove={mouseHoverEffects}
       to={route || "/"}
       type="button"
     >

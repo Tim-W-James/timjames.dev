@@ -71,6 +71,9 @@ const sortOptions: readonly SortOption[] = sorts.map((sort) => ({
   label: sort,
 }));
 
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+const defaultSort = sortOptions[0]!;
+
 const sortFuncFromOption = (
   sort: (typeof sorts)[number]
 ): ((a: TimelineItemData, b: TimelineItemData) => number) => {
@@ -120,26 +123,26 @@ const Projects: React.FC = () => {
   const [selectedCategories, setSelectedCategories] = useState<
     readonly Option[]
   >([]);
-  const [selectedSort, setSelectedSort] = useState<SortOption>(sortOptions[0]!);
+  const [selectedSort, setSelectedSort] = useState<SortOption>(defaultSort);
   const [searchText, setSearchText] = useState<string>("");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     setSearchText(e.target.value);
-  };
+  }, []);
 
   const [isResetButtonAnimated, setIsResetButtonAnimated] = useState(false);
 
-  const resetOptions = () => {
+  const resetOptions = useCallback(() => {
     setSelectedTechnologies([]);
     setSelectedCategories([]);
-    setSelectedSort(sortOptions[0]!);
+    setSelectedSort(defaultSort);
     setSearchText("");
     setIsResetButtonAnimated(true);
     setTimeout(() => {
       setIsResetButtonAnimated(false);
     }, 500);
-  };
+  }, []);
 
   const navigate = useNavigate();
 
@@ -147,7 +150,7 @@ const Projects: React.FC = () => {
     useLocalStorage<ProjectOptions>("projectOptions", {
       technologies: [],
       categories: [],
-      sort: sortOptions[0]!,
+      sort: defaultSort,
       searchText: "",
     });
 
@@ -193,7 +196,7 @@ const Projects: React.FC = () => {
         sortOptions.find(
           (o) =>
             o.value.toLowerCase() === queryParams.get("sort")?.toLowerCase()
-        ) || sortOptions[0]!
+        ) || defaultSort
       );
       setSearchText(queryParams.get("searchText") || "");
     } else {
@@ -219,26 +222,24 @@ const Projects: React.FC = () => {
     navigate(
       {
         hash: window.location.hash,
-        search:
-          "?" +
-          new URLSearchParams(
-            // Strip any undefined values
-            JSON.parse(
-              JSON.stringify({
-                technologies:
-                  encodeArrayAsCsv(selectedTechnologies.map((t) => t.value)) ||
-                  undefined,
-                categories:
-                  encodeArrayAsCsv(selectedCategories.map((c) => c.value)) ||
-                  undefined,
-                sort:
-                  selectedSort.value === sortOptions[0]?.value
-                    ? undefined
-                    : selectedSort.value,
-                searchText: searchText || undefined,
-              })
-            )
-          ).toString(),
+        search: `?${new URLSearchParams(
+          // Strip any undefined values
+          JSON.parse(
+            JSON.stringify({
+              technologies:
+                encodeArrayAsCsv(selectedTechnologies.map((t) => t.value)) ||
+                undefined,
+              categories:
+                encodeArrayAsCsv(selectedCategories.map((c) => c.value)) ||
+                undefined,
+              sort:
+                selectedSort.value === sortOptions[0]?.value
+                  ? undefined
+                  : selectedSort.value,
+              searchText: searchText || undefined,
+            })
+          )
+        ).toString()}`,
       },
       {
         replace: true,
@@ -266,13 +267,18 @@ const Projects: React.FC = () => {
         selectedCategory.length === 0 ||
         selectedCategory.includes(item.category);
 
-      return !!(
+      return Boolean(
         isTechnologySelected &&
-        isCategorySelected &&
-        searchFilter(searchText, item)
+          isCategorySelected &&
+          searchFilter(searchText, item)
       );
     },
     [searchText, selectedCategories, selectedTechnologies]
+  );
+
+  const scrollToTop = useCallback(
+    () => window.scrollTo({ top: 0, behavior: "smooth" }),
+    []
   );
 
   return (
@@ -282,7 +288,7 @@ const Projects: React.FC = () => {
           <Button
             icon={<BsGithub />}
             isLight
-            label={"GitHub"}
+            label="GitHub"
             to="https://github.com/Tim-W-James"
             tooltip="Find more projects on GitHub"
           />
@@ -316,7 +322,7 @@ const Projects: React.FC = () => {
               iconRight
               isLabelHidden
               isLight
-              label={"Reset"}
+              label="Reset"
               mode="button"
               onClick={resetOptions}
               tooltip="Reset search and filter options"
@@ -358,9 +364,9 @@ const Projects: React.FC = () => {
             <Button
               icon={<BsFillArrowUpCircleFill />}
               isLight
-              label={"Back to top"}
+              label="Back to top"
               mode="button"
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              onClick={scrollToTop}
               tooltip="Back to top"
             />
           </div>

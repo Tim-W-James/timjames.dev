@@ -32,6 +32,8 @@ const BlogArticleContent: React.FC<{ slug: string }> = ({ slug }) => {
 
   const [hasImageLoaded, setHasImageLoaded] = useState(false);
 
+  const imageHasLoaded = useCallback(() => setHasImageLoaded(true), []);
+
   return status === "loading" ? (
     <BlogArticleLoading />
   ) : status === "error" || !article.title ? (
@@ -55,8 +57,8 @@ const BlogArticleContent: React.FC<{ slug: string }> = ({ slug }) => {
           <Button
             icon={<BsFillArrowLeftCircleFill />}
             isLight
-            label={"Find More Articles"}
-            mode={"route"}
+            label="Find More Articles"
+            mode="route"
             to="/blog"
             tooltip="Back to article list"
           />
@@ -86,7 +88,7 @@ const BlogArticleContent: React.FC<{ slug: string }> = ({ slug }) => {
                   !hasImageLoaded,
               }
             )}
-            onLoad={() => setHasImageLoaded(true)}
+            onLoad={imageHasLoaded}
             src={article.cover_image}
           />
           <div
@@ -100,7 +102,7 @@ const BlogArticleContent: React.FC<{ slug: string }> = ({ slug }) => {
                 href={article.url}
                 rel="noreferrer"
                 target="_blank"
-                title={"Like on dev.to"}
+                title="Like on dev.to"
               >
                 <BsHeart />{" "}
                 {article.public_reactions_count !== 0
@@ -114,7 +116,7 @@ const BlogArticleContent: React.FC<{ slug: string }> = ({ slug }) => {
                 href={article.url}
                 rel="noreferrer"
                 target="_blank"
-                title={"Comment on dev.to"}
+                title="Comment on dev.to"
               >
                 <BsChatLeftTextFill />{" "}
                 {article.comments_count !== 0 ? article.comments_count : ""}

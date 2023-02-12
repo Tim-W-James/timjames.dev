@@ -31,7 +31,7 @@ specifiers:
   "@testing-library/jest-dom": ^5.16.5
   "@testing-library/react": ^13.4.0
   "@testing-library/user-event": ^14.4.3
-  "@tim-w-james/eslint-config": ^1.3.0
+  "@tim-w-james/eslint-config": ^1.4.1
   "@types/node": ^18.11.19
   "@types/react": ^18.0.27
   "@types/react-dom": ^18.0.10
@@ -169,7 +169,7 @@ devDependencies:
   "@testing-library/jest-dom": 5.16.5
   "@testing-library/react": 13.4.0_biqbaboplfbrettd7655fr4n2y
   "@testing-library/user-event": 14.4.3_aaq3sbffpfe3jnxzm2zngsddei
-  "@tim-w-james/eslint-config": 1.3.0_c3onixoiljubpv3insbi4xr7nm
+  "@tim-w-james/eslint-config": 1.4.1_c3onixoiljubpv3insbi4xr7nm
   "@types/node": 18.11.19
   "@types/react": 18.0.27
   "@types/react-dom": 18.0.10
@@ -7089,28 +7089,28 @@ packages:
       "@testing-library/dom": 8.19.0
     dev: true
 
-  /@tim-w-james/eslint-config/1.3.0_c3onixoiljubpv3insbi4xr7nm:
+  /@tim-w-james/eslint-config/1.4.1_c3onixoiljubpv3insbi4xr7nm:
     resolution:
       {
-        integrity: sha512-JNJcVau6kd8XyQnUpobzLHVZuBr+P+X+c4JavdO80pTIpPos5vgudjfbTOF/5NTVAQRoeV8e8UNmqar15IyCPQ==,
+        integrity: sha512-D3aA8sPMwLGTQpY4yqP9hyRA44OBMGNJahjaRiO3ywfu/0806/wkNpGdQnmYfNqrGiogBcqqeeWUuslvnkNaMQ==,
       }
     peerDependencies:
-      "@typescript-eslint/eslint-plugin": ^5.48.0
-      "@typescript-eslint/parser": ^5.48.0
-      eslint: ^8.31.0
-      eslint-config-airbnb: ^19.0.4
-      eslint-config-airbnb-typescript: ^17.0.0
-      eslint-config-prettier: ^8.6.0
-      eslint-plugin-import: ^2.26.0
-      eslint-plugin-jsx-a11y: ^6.6.1
-      eslint-plugin-prefer-arrow-functions: ^3.1.4
-      eslint-plugin-prettier: ^4.2.1
-      eslint-plugin-react: ^7.31.11
-      eslint-plugin-react-hooks: ^4.6.0
-      eslint-plugin-react-refresh: ^0.3.2
-      eslint-plugin-sonarjs: ^0.17.0
-      eslint-plugin-storybook: ^0.6.8
-      typescript: ^4.9.4
+      "@typescript-eslint/eslint-plugin": ">= 5"
+      "@typescript-eslint/parser": ">= 5"
+      eslint: ">= 8"
+      eslint-config-airbnb: ">= 19"
+      eslint-config-airbnb-typescript: ">= 17"
+      eslint-config-prettier: ">= 8"
+      eslint-plugin-import: ">= 2"
+      eslint-plugin-jsx-a11y: ">= 6"
+      eslint-plugin-prefer-arrow-functions: ">= 3"
+      eslint-plugin-prettier: ">= 4"
+      eslint-plugin-react: ">= 7"
+      eslint-plugin-react-hooks: ">= 4"
+      eslint-plugin-react-refresh: ">= 0.3"
+      eslint-plugin-sonarjs: ">= 0.16"
+      eslint-plugin-storybook: ">= 0.6"
+      typescript: ">= 4"
     dependencies:
       "@typescript-eslint/eslint-plugin": 5.50.0_go4drrxstycfikanvu45pi4vgq
       "@typescript-eslint/parser": 5.50.0_4vsywjlpuriuw3tl5oq6zy5a64

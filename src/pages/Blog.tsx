@@ -39,11 +39,14 @@ type BlogOptions = {
   searchText: string;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+const defaultSort = sortOptions[0]!;
+
 const articlesToDisplay = 30;
 
 const Blog = () => {
   const [selectedTags, setSelectedTags] = useState<readonly Option[]>([]);
-  const [selectedSort, setSelectedSort] = useState<SortOption>(sortOptions[0]!);
+  const [selectedSort, setSelectedSort] = useState<SortOption>(defaultSort);
   const [tagOptions, setTagOptions] = useState<readonly Option[]>([]);
   const [searchText, setSearchText] = useState<string>("");
 
@@ -72,29 +75,29 @@ const Blog = () => {
     );
   }, [articles]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     setSearchText(e.target.value);
-  };
+  }, []);
 
   const [isResetButtonAnimated, setIsResetButtonAnimated] = useState(false);
 
-  const resetOptions = () => {
+  const resetOptions = useCallback(() => {
     setSelectedTags([]);
-    setSelectedSort(sortOptions[0]!);
+    setSelectedSort(defaultSort);
     setSearchText("");
     setIsResetButtonAnimated(true);
     setTimeout(() => {
       setIsResetButtonAnimated(false);
     }, 500);
-  };
+  }, []);
 
   const navigate = useNavigate();
 
   const [localStorageProjectOptions, setLocalStorageProjectOptions] =
     useLocalStorage<BlogOptions>("blogOptions", {
       tags: [],
-      sort: sortOptions[0]!,
+      sort: defaultSort,
       searchText: "",
     });
 
@@ -131,7 +134,7 @@ const Blog = () => {
         sortOptions.find(
           (o) =>
             o.value.toLowerCase() === queryParams.get("sort")?.toLowerCase()
-        ) || sortOptions[0]!
+        ) || defaultSort
       );
       setSearchText(queryParams.get("searchText") || "");
     } else {
@@ -155,23 +158,20 @@ const Blog = () => {
     navigate(
       {
         hash: window.location.hash,
-        search:
-          "?" +
-          new URLSearchParams(
-            // Strip any undefined values
-            JSON.parse(
-              JSON.stringify({
-                tags:
-                  encodeArrayAsCsv(selectedTags.map((t) => t.value)) ||
-                  undefined,
-                sort:
-                  selectedSort.value === sortOptions[0]?.value
-                    ? undefined
-                    : selectedSort.value,
-                searchText: searchText || undefined,
-              })
-            )
-          ).toString(),
+        search: `?${new URLSearchParams(
+          // Strip any undefined values
+          JSON.parse(
+            JSON.stringify({
+              tags:
+                encodeArrayAsCsv(selectedTags.map((t) => t.value)) || undefined,
+              sort:
+                selectedSort.value === sortOptions[0]?.value
+                  ? undefined
+                  : selectedSort.value,
+              searchText: searchText || undefined,
+            })
+          )
+        ).toString()}`,
       },
       {
         replace: true,
@@ -216,14 +216,14 @@ const Blog = () => {
           <Button
             icon={<SiDevdotto />}
             isLight
-            label={"DEV.to"}
+            label="DEV.to"
             to="https://dev.to/timwjames"
             tooltip="Find my personal blog @timwjames"
           />
           <Button
             icon={<SiMedium />}
             isLight
-            label={"Medium"}
+            label="Medium"
             to="https://medium.com/@twjames"
             tooltip="Find my professional @twjames"
           />
@@ -257,7 +257,7 @@ const Blog = () => {
               iconRight
               isLabelHidden
               isLight
-              label={"Reset"}
+              label="Reset"
               mode="button"
               onClick={resetOptions}
               tooltip="Reset search and filter options"

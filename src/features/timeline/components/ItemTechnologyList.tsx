@@ -29,7 +29,7 @@ const ItemTechnologyList: React.FC<{
                 </>
               ) : null}
               {technology}
-              {index < itemData.technologies!.length - 1 ? "," : ""}
+              {index < (itemData.technologies?.length || 0) - 1 ? "," : ""}
             </a>
           </span>
         ))}

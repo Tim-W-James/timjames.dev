@@ -15,7 +15,7 @@ const Footer: React.FC<{ allowFixed?: boolean }> = ({ allowFixed }) => {
         className={cn(
           "text-dark-accent bg-dark-shades p-8 text-center",
           "bottom-0 left-0 w-screen z-50",
-          { fixed: !!allowFixed && !deviceIsMobile }
+          { fixed: Boolean(allowFixed) && !deviceIsMobile }
         )}
       >
         © <time>{new Date().getFullYear()}</time> Tim James

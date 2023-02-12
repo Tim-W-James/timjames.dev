@@ -35,7 +35,7 @@ const timelineData: TimelineItemData[] = [
           href="https://tim-w-james.github.io/timjames.dev/"
           rel="noreferrer"
           target="_blank"
-          title={"View components on Storybook"}
+          title="View components on Storybook"
         >
           custom component library
         </a>
@@ -45,7 +45,7 @@ const timelineData: TimelineItemData[] = [
           href="https://www.figma.com/file/pVOwmsYdIymurR4GmEFry1/Portfolio?node-id=9%3A117&t=c2WxYEnrq61XsoNL-1"
           rel="noreferrer"
           target="_blank"
-          title={"View design on Figma"}
+          title="View design on Figma"
         >
           Figma
         </a>
@@ -55,7 +55,7 @@ const timelineData: TimelineItemData[] = [
           href="https://github.com/Tim-W-James/timjames.dev#typed-css"
           rel="noreferrer"
           target="_blank"
-          title={"Read more"}
+          title="Read more"
         >
           strict typing for CSS classes
         </a>
@@ -183,7 +183,7 @@ const timelineData: TimelineItemData[] = [
           href="https://www.anu.edu.au/"
           rel="noreferrer"
           target="_blank"
-          title={"ANU"}
+          title="ANU"
         >
           Australian National University
         </a>{" "}
@@ -206,7 +206,7 @@ const timelineData: TimelineItemData[] = [
           href="https://www.forgerock.com/platform/identity-cloud"
           rel="noreferrer"
           target="_blank"
-          title={"FIDC"}
+          title="FIDC"
         >
           ForgeRock Identity Cloud
         </a>
@@ -241,7 +241,7 @@ const timelineData: TimelineItemData[] = [
           href="https://comp.anu.edu.au/TechLauncher/"
           rel="noreferrer"
           target="_blank"
-          title={"Industry Networking Program"}
+          title="Industry Networking Program"
         >
           ANU TechLauncher program
         </a>
@@ -251,7 +251,7 @@ const timelineData: TimelineItemData[] = [
           href="https://rsaa.anu.edu.au/"
           rel="noreferrer"
           target="_blank"
-          title={"RSAA Website"}
+          title="RSAA Website"
         >
           ANU Research School of Astronomy and Astrophysics
         </a>
@@ -261,7 +261,7 @@ const timelineData: TimelineItemData[] = [
           href="https://www.oculus.com/experiences/quest/"
           rel="noreferrer"
           target="_blank"
-          title={"Portable VR Headset"}
+          title="Portable VR Headset"
         >
           Oculus Quest
         </a>{" "}
@@ -312,7 +312,7 @@ const timelineData: TimelineItemData[] = [
           href="https://learn.adacore.com/courses/intro-to-ada/index.html"
           rel="noreferrer"
           target="_blank"
-          title={"Strict Concurrent Programming Language"}
+          title="Strict Concurrent Programming Language"
         >
           Ada
         </a>{" "}
@@ -352,10 +352,10 @@ const timelineData: TimelineItemData[] = [
         Started a position at{" "}
         <a
           className={cn("link")}
-          href={"https://agiledigital.com.au/"}
+          href="https://agiledigital.com.au/"
           rel="noreferrer"
           target="_blank"
-          title={"Agile Digital website"}
+          title="Agile Digital website"
         >
           Agile Digital
         </a>{" "}
@@ -363,44 +363,40 @@ const timelineData: TimelineItemData[] = [
         Agile Digital has worked with a variety of{" "}
         <a
           className={cn("link")}
-          href={"https://agiledigital.com.au/clients/"}
+          href="https://agiledigital.com.au/clients/"
           rel="noreferrer"
           target="_blank"
-          title={"Agile Digital clients"}
+          title="Agile Digital clients"
         >
           clients
         </a>{" "}
         including{" "}
         <a
           className={cn("link")}
-          href={
-            "https://agiledigital.com.au/case-studies/working-with-australias-favourite-car-brand-to-scale-online-security/"
-          }
+          href="https://agiledigital.com.au/case-studies/working-with-australias-favourite-car-brand-to-scale-online-security/"
           rel="noreferrer"
           target="_blank"
-          title={"Car finance and loans"}
+          title="Car finance and loans"
         >
           Toyota Finance Australia
         </a>
         ,{" "}
         <a
           className={cn("link")}
-          href={"https://agiledigital.com.au/case-studies/allhomes/"}
+          href="https://agiledigital.com.au/case-studies/allhomes/"
           rel="noreferrer"
           target="_blank"
-          title={"Real estate business"}
+          title="Real estate business"
         >
           Allhomes
         </a>
         , and{" "}
         <a
           className={cn("link")}
-          href={
-            "https://agiledigital.com.au/case-studies/connecting-researchers-to-australian-industry-innovation/"
-          }
+          href="https://agiledigital.com.au/case-studies/connecting-researchers-to-australian-industry-innovation/"
           rel="noreferrer"
           target="_blank"
-          title={"Commonwealth Scientific and Industrial Research Organisation"}
+          title="Commonwealth Scientific and Industrial Research Organisation"
         >
           CSIRO
         </a>
@@ -422,7 +418,7 @@ const timelineData: TimelineItemData[] = [
           href="https://matplotlib.org/"
           rel="noreferrer"
           target="_blank"
-          title={"Data Visualisation Library"}
+          title="Data Visualisation Library"
         >
           Matplotlib
         </a>
@@ -433,7 +429,7 @@ const timelineData: TimelineItemData[] = [
           href="https://scikit-learn.org/stable/"
           rel="noreferrer"
           target="_blank"
-          title={"Machine Learning Library"}
+          title="Machine Learning Library"
         >
           scikit-learn
         </a>
@@ -468,7 +464,7 @@ const timelineData: TimelineItemData[] = [
           href="https://www.firefly-iii.org/"
           rel="noreferrer"
           target="_blank"
-          title={"Finance manager"}
+          title="Finance manager"
         >
           Firefly III
         </a>
@@ -478,7 +474,7 @@ const timelineData: TimelineItemData[] = [
           href="https://www.raspberrypi.org/"
           rel="noreferrer"
           target="_blank"
-          title={"Single-Board Computer"}
+          title="Single-Board Computer"
         >
           Raspberry Pi
         </a>{" "}
@@ -488,7 +484,7 @@ const timelineData: TimelineItemData[] = [
           href="https://www.docker.com/"
           rel="noreferrer"
           target="_blank"
-          title={"Container System"}
+          title="Container System"
         >
           Docker
         </a>
@@ -499,7 +495,7 @@ const timelineData: TimelineItemData[] = [
           href="https://pi-hole.net/"
           rel="noreferrer"
           target="_blank"
-          title={"DNS Server"}
+          title="DNS Server"
         >
           PiHole
         </a>{" "}
@@ -509,7 +505,7 @@ const timelineData: TimelineItemData[] = [
           href="https://www.nginx.com/"
           rel="noreferrer"
           target="_blank"
-          title={"Proxy"}
+          title="Proxy"
         >
           NGINX
         </a>{" "}
@@ -562,7 +558,7 @@ const timelineData: TimelineItemData[] = [
           href="https://journeyscontinue.com.au/"
           rel="noreferrer"
           target="_blank"
-          title={"Website"}
+          title="Website"
         >
           Journeys Continue
         </a>
@@ -604,7 +600,7 @@ const timelineData: TimelineItemData[] = [
           href="https://www.anu.edu.au/"
           rel="noreferrer"
           target="_blank"
-          title={"Australian National University"}
+          title="Australian National University"
         >
           ANU
         </a>{" "}
@@ -779,7 +775,7 @@ const timelineData: TimelineItemData[] = [
           href="https://www.haskell.org/"
           rel="noreferrer"
           target="_blank"
-          title={"Functional programming language"}
+          title="Functional programming language"
         >
           Haskell
         </a>
@@ -820,7 +816,7 @@ const timelineData: TimelineItemData[] = [
           href="https://www.canberrac.act.edu.au/"
           rel="noreferrer"
           target="_blank"
-          title={"Canberra College"}
+          title="Canberra College"
         >
           Canberra College
         </a>{" "}
@@ -830,7 +826,7 @@ const timelineData: TimelineItemData[] = [
           href="https://training.gov.au/training/details/ict20115"
           rel="noreferrer"
           target="_blank"
-          title={"Qualification details"}
+          title="Qualification details"
         >
           Cert. II in Information, Digital Media & Technology
         </a>
@@ -928,7 +924,7 @@ const timelineData: TimelineItemData[] = [
           href="https://www.anu.edu.au/"
           rel="noreferrer"
           target="_blank"
-          title={"Australian National University"}
+          title="Australian National University"
         >
           ANU
         </a>
@@ -1021,7 +1017,7 @@ const timelineData: TimelineItemData[] = [
           href="https://learn.microsoft.com/en-us/minecraft/creator/documents/commandblocks"
           rel="noreferrer"
           target="_blank"
-          title={"Minecraft Command Blocks"}
+          title="Minecraft Command Blocks"
         >
           command block scripting language
         </a>
@@ -1051,7 +1047,7 @@ const timelineData: TimelineItemData[] = [
           href="https://www.youtube.com/@EthosLab"
           rel="noreferrer"
           target="_blank"
-          title={"Youtube Channel"}
+          title="Youtube Channel"
         >
           EthosLab
         </a>
@@ -1061,7 +1057,7 @@ const timelineData: TimelineItemData[] = [
           href="https://www.youtube.com/user/VintageBeef"
           rel="noreferrer"
           target="_blank"
-          title={"Youtube Channel"}
+          title="Youtube Channel"
         >
           VintageBeef
         </a>
@@ -1071,7 +1067,7 @@ const timelineData: TimelineItemData[] = [
           href="https://www.youtube.com/user/PauseUnpause"
           rel="noreferrer"
           target="_blank"
-          title={"Youtube Channel"}
+          title="Youtube Channel"
         >
           PauseUnpause
         </a>
@@ -1081,7 +1077,7 @@ const timelineData: TimelineItemData[] = [
           href="https://learn.microsoft.com/en-us/minecraft/creator/documents/commandblocks"
           rel="noreferrer"
           target="_blank"
-          title={"Minecraft Command Blocks"}
+          title="Minecraft Command Blocks"
         >
           command block scripting language
         </a>

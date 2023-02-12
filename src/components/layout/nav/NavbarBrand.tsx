@@ -11,24 +11,28 @@ const NavbarBrand: React.FC<{
   label: string;
   logo: string;
   to: string;
-}> = ({ label, to: route, logo }) => (
-  <Link
-    className={cn("subtitle whitespace-nowrap")}
-    onClick={() => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }}
-    to={route}
-    type="button"
-  >
-    <img
-      alt={"brand"}
-      className={cn("inline-block", "rounded-full", "h-8 align-bottom")}
-      height={32}
-      src={logo}
-      width={32}
-    />{" "}
-    {label}
-  </Link>
-);
+}> = ({ label, to: route, logo }) => {
+  const scrollToTop = useCallback(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
+  return (
+    <Link
+      className={cn("subtitle whitespace-nowrap")}
+      onClick={scrollToTop}
+      to={route}
+      type="button"
+    >
+      <img
+        alt="brand"
+        className={cn("inline-block", "rounded-full", "h-8 align-bottom")}
+        height={32}
+        src={logo}
+        width={32}
+      />{" "}
+      {label}
+    </Link>
+  );
+};
 
 export default NavbarBrand;

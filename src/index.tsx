@@ -17,6 +17,7 @@ const Projects = lazy(() => import("@pages/Projects"));
 const Blog = lazy(() => import("@pages/Blog"));
 const BlogArticle = lazy(() => import("@features/blog/components/BlogArticle"));
 
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Provider store={store}>

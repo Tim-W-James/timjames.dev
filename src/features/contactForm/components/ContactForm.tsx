@@ -84,7 +84,7 @@ const ContactForm: React.FC<{
       // Need to verify the key again to keep TypeScript happy
       const parsedKey = formKeys.parse(key);
       setFormData(parsedKey, value, {
-        shouldValidate: !!value,
+        shouldValidate: Boolean(value),
       });
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -159,7 +159,8 @@ const ContactForm: React.FC<{
     };
 
     if (
-      (formState.isDirty || Object.values(formData).some((value) => !!value)) &&
+      (formState.isDirty ||
+        Object.values(formData).some((value) => Boolean(value))) &&
       responseState === "notSent"
     ) {
       window.addEventListener("beforeunload", handler);
@@ -171,6 +172,12 @@ const ContactForm: React.FC<{
 
     return () => {};
   }, [formData, formState, responseState, showPromptOnClose]);
+
+  const honeypotFunc = useCallback(
+    (value: React.ChangeEvent<HTMLInputElement>) =>
+      setHoneypot(value.target.value),
+    []
+  );
 
   return (
     <form
@@ -187,10 +194,7 @@ const ContactForm: React.FC<{
       <fieldset className="hidden">
         <label>
           Don&apost fill this out if you&aposre human:{" "}
-          <input
-            name="bot-field"
-            onChange={(value) => setHoneypot(value.target.value)}
-          />
+          <input name="bot-field" onChange={honeypotFunc} />
         </label>
       </fieldset>
 
@@ -212,10 +216,10 @@ const ContactForm: React.FC<{
           </div>
         </label>
         <input
-          aria-invalid={!!formState.errors.name}
+          aria-invalid={Boolean(formState.errors.name)}
           aria-labelledby="name"
           className={cn("form-input", "form-field", {
-            ["form-field-error"]: !!formState.errors.name,
+            ["form-field-error"]: Boolean(formState.errors.name),
           })}
           placeholder="Your name here..."
           required
@@ -240,10 +244,10 @@ const ContactForm: React.FC<{
           </div>
         </label>
         <input
-          aria-invalid={!!formState.errors.email}
+          aria-invalid={Boolean(formState.errors.email)}
           aria-labelledby="email"
           className={cn("form-input", "form-field", {
-            ["form-field-error"]: !!formState.errors.email,
+            ["form-field-error"]: Boolean(formState.errors.email),
           })}
           placeholder={formState.isSubmitSuccessful ? "" : "example@gmail.com"}
           {...register("email")}
@@ -267,10 +271,10 @@ const ContactForm: React.FC<{
           </div>
         </label>
         <textarea
-          aria-invalid={!!formState.errors.message}
+          aria-invalid={Boolean(formState.errors.message)}
           aria-labelledby="message"
           className={cn("form-textarea", "form-field", {
-            ["form-field-error"]: !!formState.errors.message,
+            ["form-field-error"]: Boolean(formState.errors.message),
           })}
           placeholder="Your message here..."
           required
@@ -291,7 +295,7 @@ const ContactForm: React.FC<{
           iconRight
           isLight
           label={formStateDisplay(formState, responseState).message}
-          mode={"button"}
+          mode="button"
           type="submit"
         />
         {

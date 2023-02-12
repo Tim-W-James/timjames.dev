@@ -57,6 +57,12 @@ const Button = (props: ButtonProps) => {
     { [styles._safari]: isSafari || isMobileSafari }
   );
 
+  const setHoverEffects = useCallback(
+    (e: React.MouseEvent<HTMLElement>) =>
+      setMouseHoverCssProperties(e, false, deviceIsTouch),
+    [deviceIsTouch]
+  );
+
   const inner = (
     <span className={cn("flex gap-2 items-center justify-between")}>
       {iconRight ? (
@@ -79,11 +85,9 @@ const Button = (props: ButtonProps) => {
         <Link
           aria-label={label}
           className={
-            className + (additionalClassName ? " " + additionalClassName : "")
+            className + (additionalClassName ? ` ${additionalClassName}` : "")
           }
-          onMouseMove={(e) =>
-            setMouseHoverCssProperties(e, false, deviceIsTouch)
-          }
+          onMouseMove={setHoverEffects}
           title={label && tooltip}
           to={link || "/"}
           type="button"
@@ -97,12 +101,10 @@ const Button = (props: ButtonProps) => {
         <button
           aria-label={label}
           className={
-            className + (additionalClassName ? " " + additionalClassName : "")
+            className + (additionalClassName ? ` ${additionalClassName}` : "")
           }
           disabled={disabled}
-          onMouseMove={(e) =>
-            setMouseHoverCssProperties(e, false, deviceIsTouch)
-          }
+          onMouseMove={setHoverEffects}
           title={label && tooltip}
           type="button"
           {...buttonProps}
@@ -115,11 +117,9 @@ const Button = (props: ButtonProps) => {
       return (
         <a
           aria-label={label}
-          className={className + " " + additionalClassName}
+          className={`${className} ${additionalClassName || ""}`}
           href={link || "/"}
-          onMouseMove={(e) =>
-            setMouseHoverCssProperties(e, false, deviceIsTouch)
-          }
+          onMouseMove={setHoverEffects}
           rel="noreferrer"
           target="_blank"
           title={label && tooltip}

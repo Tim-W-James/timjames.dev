@@ -34,12 +34,15 @@ const MenuToggle: React.FC<{
   const deviceIsTouch = useTouchInputQuery();
   const color = isHovered && !deviceIsTouch ? hoverColor : baseColor;
 
+  const enableHover = useCallback(() => setHovered(true), []);
+  const disableHover = useCallback(() => setHovered(false), []);
+
   return (
     <button
       aria-label="Open Navigation Menu"
       onClick={toggle}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      onMouseEnter={enableHover}
+      onMouseLeave={disableHover}
       type="button"
     >
       <svg height="50" viewBox="-1 -3 25 25" width="50">

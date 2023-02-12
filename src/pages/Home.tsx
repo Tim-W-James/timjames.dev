@@ -55,7 +55,7 @@ const Home: React.FC = () => {
                     icon={<BsFillArrowRightCircleFill />}
                     iconRight
                     isLight
-                    label={"Contact Me"}
+                    label="Contact Me"
                     mode="route"
                     to="/contact"
                     tooltip="Get in touch"

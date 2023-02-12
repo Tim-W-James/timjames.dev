@@ -10,6 +10,8 @@ const Accordion: React.FC<{
 }> = ({ heading, icon, body, startClosed }) => {
   const [isOpen, setIsOpen] = useState(!startClosed);
 
+  const toggleIsOpen = useCallback(() => setIsOpen((prev) => !prev), []);
+
   return (
     <div className={cn("mb-4")}>
       <LazyMotion features={domAnimation}>
@@ -22,7 +24,7 @@ const Accordion: React.FC<{
             "rounded-md",
             "gap-2"
           )}
-          onClick={() => setIsOpen((prev) => !prev)}
+          onClick={toggleIsOpen}
         >
           {icon}
           <h3 className={cn("mb-1 grow text-left")} id={heading}>

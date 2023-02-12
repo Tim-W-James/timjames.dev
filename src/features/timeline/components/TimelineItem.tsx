@@ -86,7 +86,15 @@ const TimelineItem: React.FC<{
                   : ""}
               </time>
             </h4>
-            <div className={"2xl:flex 2xl:gap-4 " + cn("items-center")}>
+            <div
+              className={cn(
+                "items-center",
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore - edge case that the dynamic types can't handle
+                "2xl:flex",
+                "2xl:gap-4"
+              )}
+            >
               <ItemThumbnail data={itemData} isOddIndex={isOddIndex} />
               <p className={cn("hyphens-none")}>{itemData.body}</p>
             </div>

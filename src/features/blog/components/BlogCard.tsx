@@ -8,6 +8,7 @@ const Card: React.FC<{
   isCarouselItem?: boolean;
 }> = ({ article, isCarouselItem }) => {
   const [hasImageLoaded, setHasImageLoaded] = useState(false);
+  const imageHasLoaded = useCallback(() => setHasImageLoaded(true), []);
   return (
     <section
       aria-label={article.title}
@@ -32,7 +33,7 @@ const Card: React.FC<{
               { "animate-pulse bg-slate-700": !hasImageLoaded }
             )}
             height={175}
-            onLoad={() => setHasImageLoaded(true)}
+            onLoad={imageHasLoaded}
             src={article.social_image}
             width={350}
           />
@@ -76,7 +77,7 @@ const Card: React.FC<{
               href={article.url}
               rel="noreferrer"
               target="_blank"
-              title={"Like on dev.to"}
+              title="Like on dev.to"
             >
               <BsHeart />{" "}
               {article.public_reactions_count > 0
@@ -88,7 +89,7 @@ const Card: React.FC<{
               href={article.url}
               rel="noreferrer"
               target="_blank"
-              title={"Comment on dev.to"}
+              title="Comment on dev.to"
             >
               <BsChatLeftTextFill />{" "}
               {article.comments_count > 0 ? article.comments_count : ""}

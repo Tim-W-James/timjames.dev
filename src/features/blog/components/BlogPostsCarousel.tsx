@@ -21,32 +21,32 @@ const BlogPostsCarousel: React.FC = () => {
     devdottoArticlesMeta(articlesToDisplay)
   );
 
-  const goNext = () => {
+  const goNext = useCallback(() => {
     document.getElementById("carousel")?.scrollBy({
       left: 384,
       behavior: "smooth",
     });
-  };
+  }, []);
 
-  const goPrev = () => {
+  const goPrev = useCallback(() => {
     document.getElementById("carousel")?.scrollBy({
       left: -384,
       behavior: "smooth",
     });
-  };
+  }, []);
+
+  const copyFragment = useCallback(
+    () =>
+      navigator.clipboard.writeText(
+        `${location.href.split("#")[0] || ""}#blog`
+      ),
+    []
+  );
 
   return (
     <div>
       <h2 className={cn("self-center mb-4")} id="blog">
-        <HashLink
-          className={cn("hash-link")}
-          onClick={() =>
-            navigator.clipboard.writeText(
-              `${location.href.split("#")[0] || ""}#blog`
-            )
-          }
-          to={"#blog"}
-        >
+        <HashLink className={cn("hash-link")} onClick={copyFragment} to="#blog">
           Latest Blog Posts{" "}
         </HashLink>
         <hr className={cn("radial-border")} />
@@ -96,7 +96,7 @@ const BlogPostsCarousel: React.FC = () => {
             icon={<MdArticle />}
             iconRight
             isLight
-            label={"View All"}
+            label="View All"
             mode="route"
             to="/blog?reset"
             tooltip="View more articles"

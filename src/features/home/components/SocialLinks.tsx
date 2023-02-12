@@ -17,7 +17,7 @@ const SocialLinks: React.FC<{ shouldShrinkButtons: boolean }> = ({
       icon={<BsLinkedin className={cn({ "text-4xl": shouldShrinkButtons })} />}
       isLabelHidden={shouldShrinkButtons}
       isLight
-      label={"Linkedin"}
+      label="Linkedin"
       to="https://www.linkedin.com/in/timothy-william-james/"
       tooltip="Find me on Linkedin"
     />
@@ -25,7 +25,7 @@ const SocialLinks: React.FC<{ shouldShrinkButtons: boolean }> = ({
       icon={<BsGithub className={cn({ "text-4xl": shouldShrinkButtons })} />}
       isLabelHidden={shouldShrinkButtons}
       isLight
-      label={"GitHub"}
+      label="GitHub"
       to="https://github.com/Tim-W-James"
       tooltip="Find my projects on GitHub"
     />
@@ -33,7 +33,7 @@ const SocialLinks: React.FC<{ shouldShrinkButtons: boolean }> = ({
       icon={<BsTwitter className={cn({ "text-4xl": shouldShrinkButtons })} />}
       isLabelHidden={shouldShrinkButtons}
       isLight
-      label={"Twitter"}
+      label="Twitter"
       to="https://twitter.com/TimWJames"
       tooltip="Follow me on Twitter @TimWJames"
     />

@@ -55,14 +55,20 @@ const Navbar: React.FC = () => {
     </>
   );
 
-  const navbarBrand = <NavbarBrand label={"TimJames.dev"} logo={logo} to="/" />;
+  const navbarBrand = <NavbarBrand label="TimJames.dev" logo={logo} to="/" />;
 
   useEffect(() => {
     openHamburgerMenu(false);
   }, [location]);
 
+  const closeHamburgerMenu = useCallback(() => openHamburgerMenu(false), []);
+  const toggleHamburgerMenu = useCallback(
+    () => openHamburgerMenu(!hamburgerMenuIsOpen),
+    [hamburgerMenuIsOpen]
+  );
+
   return shouldUseHamburgerMenu ? (
-    <ClickAwayListener onClickAway={() => openHamburgerMenu(false)}>
+    <ClickAwayListener onClickAway={closeHamburgerMenu}>
       <nav className={cn("fixed z-50 top-0 left-0")}>
         <div
           className={cnScoped(styles)(
@@ -77,7 +83,7 @@ const Navbar: React.FC = () => {
               baseColor="hsl(185deg 46% 52%)"
               hoverColor="hsl(180deg 5% 91%)"
               isOpen={hamburgerMenuIsOpen}
-              toggle={() => openHamburgerMenu(!hamburgerMenuIsOpen)}
+              toggle={toggleHamburgerMenu}
             />
           </Suspense>
         </div>

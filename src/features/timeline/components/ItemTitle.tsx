@@ -7,8 +7,16 @@ import ItemCategory from "./ItemCategory";
 const ItemTitle: React.FC<{
   isOddIndex: boolean;
   data: TimelineItemData;
-}> = ({ isOddIndex, data: itemData }) =>
-  isOddIndex ? (
+}> = ({ isOddIndex, data: itemData }) => {
+  const copyFragment = useCallback(
+    () =>
+      navigator.clipboard.writeText(
+        `${location.href.split("#")[0] || ""}#${itemData.title}`
+      ),
+    [itemData.title]
+  );
+
+  return isOddIndex ? (
     <>
       <h3
         className={cn(
@@ -19,11 +27,7 @@ const ItemTitle: React.FC<{
       >
         <HashLink
           className={cn("hash-link-right")}
-          onClick={() =>
-            navigator.clipboard.writeText(
-              `${location.href.split("#")[0] || ""}#${itemData.title}`
-            )
-          }
+          onClick={copyFragment}
           to={`${location.search}#${itemData.title}`}
         >
           {itemData.title}{" "}
@@ -49,11 +53,7 @@ const ItemTitle: React.FC<{
       >
         <HashLink
           className={cn("hash-link-left")}
-          onClick={() =>
-            navigator.clipboard.writeText(
-              `${location.href.split("#")[0] || ""}#${itemData.title}`
-            )
-          }
+          onClick={copyFragment}
           to={`${location.search}#${itemData.title}`}
         >
           {" "}
@@ -62,5 +62,6 @@ const ItemTitle: React.FC<{
       </h3>
     </>
   );
+};
 
 export default ItemTitle;

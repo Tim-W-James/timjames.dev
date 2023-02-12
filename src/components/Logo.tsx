@@ -15,10 +15,18 @@ const Logo: React.FC<{
   const deviceIsTouch = useTouchInputQuery();
   const [hasImageLoaded, setImageLoaded] = useState(false);
 
+  const imageLoaded = useCallback(() => setImageLoaded(true), []);
+
+  const setHoverEffects = useCallback(
+    (e: React.MouseEvent<HTMLElement>) =>
+      setMouseHoverCssProperties(e, false, deviceIsTouch),
+    [deviceIsTouch]
+  );
+
   return (
     <div
       className={cnScoped(styles)(styles._logoBorder)}
-      onMouseMove={(e) => setMouseHoverCssProperties(e, false, deviceIsTouch)}
+      onMouseMove={setHoverEffects}
     >
       <img
         alt={altText}
@@ -31,7 +39,7 @@ const Logo: React.FC<{
           "text-center",
           { "animate-pulse bg-slate-700": !hasImageLoaded }
         )}
-        onLoad={() => setImageLoaded(true)}
+        onLoad={imageLoaded}
         src={imageSrc}
       />
     </div>
