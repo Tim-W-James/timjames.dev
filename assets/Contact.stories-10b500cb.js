@@ -1,0 +1,23 @@
+import{j as t}from"./jsx-runtime-ccada58e.js";import{F as h}from"./Footer-54aaa8cf.js";import{P as x}from"./Page-397641ad.js";import{N as j,C as s}from"./Navbar-435ef75a.js";import{S as u}from"./ScrollToTop-491c0d1c.js";import{C as f,d as T,P as b,a as g,h as C,T as S,b as k}from"./ContactForm-eb018720.js";import{c as o}from"./cssUtils-1e7dba99.js";import{B as E}from"./index-72f284f9.js";import{F as w}from"./index-963fef9e.js";import{f as O,d as A,g as R,h as F}from"./index.esm-fa6ef5c1.js";import{d as v}from"./index.esm-bd036b60.js";import{W as _,X as y}from"./index.esm-77211171.js";import{H as P}from"./react-router-hash-link.esm-2c818053.js";import{r as N}from"./index-f1f749bf.js";import"./useMediaQuery-f3cc2322.js";import"./index.esm-966ec57a.js";import"./iconBase-4e3618d4.js";import"./iframe-1e0db22d.js";import"../sb-preview/runtime.mjs";import"./logo-7f2f81ce.js";import"./mouseHover-f6e29944.js";import"./lib-32fe9ed5.js";import"./_commonjsHelpers-042e6b4d.js";import"./Button-a81ec639.js";import"./index-7f2f9e92.js";import"./index-96c5f47c.js";import"./hoist-non-react-statics.cjs-691fe6cb.js";const e=({icon:a,body:i,url:p,tooltip:d})=>t.jsx("a",{"aria-label":i,href:p,rel:"noreferrer",target:"_blank",title:d,children:t.jsxs("div",{className:o("hover:text-light-accent active:text-dark-accent active:underline","inline-flex","items-center gap-1"),children:[a,t.jsx("p",{className:o("hyphens-none"),children:i})]})}),J=()=>{const a=N.useCallback(()=>navigator.clipboard.writeText(`${location.href}#social-links`),[]);return t.jsx("div",{children:t.jsxs(w,{transitionDuration:200,children:[t.jsx(f,{onSubmit:T,showPromptOnClose:!0}),t.jsxs("h2",{className:o("text-center self-center mt-8 mx-auto w-fit"),id:"social-links",children:[t.jsxs(P,{className:o("hash-link"),onClick:a,to:"#social-links",children:["Social Links"," "]}),t.jsx("hr",{className:o("radial-border mb-4")})]}),t.jsxs("section",{"aria-labelledby":"social-links",className:o("text-center self-center mt-8 mx-auto w-fit text-xl grid gap-4","grid-cols-2"),children:[t.jsx(e,{body:"LinkedIn",icon:t.jsx(O,{}),tooltip:"timothy-william-james",url:"https://www.linkedin.com/in/timothy-william-james/"}),t.jsx(e,{body:"GitHub",icon:t.jsx(A,{}),tooltip:"Tim-W-James",url:"https://github.com/Tim-W-James"}),t.jsx(e,{body:"Twitter",icon:t.jsx(R,{}),tooltip:"@TimWJames",url:"https://twitter.com/TimWJames"}),t.jsx(e,{body:"Facebook",icon:t.jsx(F,{}),tooltip:"TimJames9800",url:"https://www.facebook.com/TimJames9800/"}),t.jsx(e,{body:"Steam",icon:t.jsx(_,{}),tooltip:"ExplosiveFridge",url:"https://steamcommunity.com/id/ExplosiveFridge"}),t.jsx(e,{body:"Spotify",icon:t.jsx(y,{}),tooltip:"TimJ",url:"https://open.spotify.com/user/22xzbbohotkdpq5wfipvefk4y"})]}),t.jsxs("div",{className:o("text-xl text-center mt-4","basis-min-content"),children:[t.jsx(v,{})," Send me an email:"," ",t.jsx("a",{className:o("link","hyphens-none"),href:"mailto:tim.james.work9800@gmail.com",rel:"noreferrer",target:"_blank",title:"tim.james.work9800@gmail.com",children:"tim.james.work9800@gmail.com"})]})]})})},l=J,mt={component:l,parameters:{backgrounds:{disable:!0},controls:{hideNoControlsWarning:!0}}},r=()=>t.jsx(b,{store:g({reducer:{contactForm:k}}),children:t.jsx(E,{children:t.jsxs(C,{container:{element:"captcha-container",parameters:{badge:"bottomright",theme:"dark"}},reCaptchaKey:"6LeSqcEjAAAAAFql9Z3tRjnKODIneEJoGJzlj0iJ",children:[t.jsx(u,{}),t.jsx(j,{}),t.jsx(x,{content:t.jsx(l,{}),description:s.description,title:s.title}),t.jsx(h,{allowFixed:!0}),t.jsx("div",{className:o("captcha-show"),id:"captcha-container"}),t.jsx(S,{})]})})});var n,c,m;r.parameters={...r.parameters,docs:{...(n=r.parameters)==null?void 0:n.docs,source:{originalSource:`() => <Provider store={configureStore({
+  reducer: {
+    contactForm: contactFormReducer
+  }
+})}>
+    <Router>
+      <GoogleReCaptchaProvider container={{
+      element: "captcha-container",
+      parameters: {
+        badge: "bottomright",
+        theme: "dark"
+      }
+    }} reCaptchaKey={{"STORYBOOK_SITE_RECAPTCHA_KEY":"6LeSqcEjAAAAAFql9Z3tRjnKODIneEJoGJzlj0iJ","BASE_URL":"./","MODE":"production","DEV":false,"PROD":true}["STORYBOOK_SITE_RECAPTCHA_KEY"] || ""}>
+        <ScrollToTop />
+        <Navbar />
+        <Page content={<ContactPage />} description={CONTACT.description} title={CONTACT.title} />
+        <Footer allowFixed />
+        <div className={cn("captcha-show")} id="captcha-container" />
+        <Toast />
+      </GoogleReCaptchaProvider>
+    </Router>
+  </Provider>`,...(m=(c=r.parameters)==null?void 0:c.docs)==null?void 0:m.source}}};const lt=["Contact"];export{r as Contact,lt as __namedExportsOrder,mt as default};
+//# sourceMappingURL=Contact.stories-10b500cb.js.map
