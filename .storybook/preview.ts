@@ -1,5 +1,6 @@
 import "react-toastify/dist/ReactToastify.css";
 import "../src/styles/main.scss";
+import "./main.scss";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
