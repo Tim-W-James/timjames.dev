@@ -1,4 +1,3 @@
-import Tooltip from "@components/Tooltip";
 import cn from "@styles/cssUtils";
 import FadeIn from "react-fade-in";
 import { HashLink } from "react-router-hash-link";
@@ -62,23 +61,6 @@ const AboutMe: React.FC = () => {
                 title="ANU"
               >
                 Australian National University
-              </a>{" "}
-              {/* eslint-disable-next-line max-len */}
-              with a{" "}
-              <Tooltip isInverted text="GPA" tooltip="Grade Point Average" /> of
-              6.3/7
-            </li>
-            <li>
-              📄 View my certifications on{" "}
-              <a
-                aria-label="Credly"
-                className={cn("link")}
-                href="https://www.credly.com/users/timjames/badges"
-                rel="noreferrer"
-                target="_blank"
-                title="Certifications"
-              >
-                Credly
               </a>
             </li>
             <li>
@@ -104,6 +86,31 @@ const AboutMe: React.FC = () => {
                 title="tim.james.work9800@gmail.com"
               >
                 tim.james.work9800@gmail.com
+              </a>
+            </li>
+            <li>
+              📄{" "}
+              <a
+                className={cn("link")}
+                href={`${location.href}assets/pdfs/tim_james_cv.pdf`}
+                rel="noreferrer"
+                target="_blank"
+                title="CV / Resume"
+              >
+                CV / Resume
+              </a>
+            </li>
+            <li>
+              🏆 View my certifications on{" "}
+              <a
+                aria-label="Credly"
+                className={cn("link")}
+                href="https://www.credly.com/users/timjames/badges"
+                rel="noreferrer"
+                target="_blank"
+                title="Certifications"
+              >
+                Credly
               </a>
             </li>
           </ul>

@@ -47,8 +47,8 @@ const Home: React.FC = () => {
             <div className={cn("pt-8 mx-auto container")}>
               <FadeIn transitionDuration={400}>
                 <AboutMe />
-                <MajorProjects />
                 <BlogPostsCarousel />
+                <MajorProjects />
                 <Skills />
                 <div className={cn("flex justify-center mt-8")}>
                   <Button

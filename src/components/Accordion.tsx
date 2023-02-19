@@ -5,9 +5,9 @@ import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md";
 const Accordion: React.FC<{
   heading: string;
   icon: JSX.Element;
-  body: JSX.Element;
+  children: JSX.Element;
   startClosed?: boolean;
-}> = ({ heading, icon, body, startClosed }) => {
+}> = ({ heading, icon, children, startClosed }) => {
   const [isOpen, setIsOpen] = useState(!startClosed);
 
   const toggleIsOpen = useCallback(() => setIsOpen((prev) => !prev), []);
@@ -58,7 +58,7 @@ const Accordion: React.FC<{
               id={`${heading}-content`}
               initial={{ opacity: 0, y: "-10%" }}
             >
-              {body}
+              {children}
             </m.section>
           ) : (
             ""

@@ -32,6 +32,7 @@ export default defineConfig(() => {
       alias: {
         "@assets": path.resolve(__dirname, "/assets"),
         "@images": path.resolve(__dirname, "/assets/images"),
+        "@pdfs": path.resolve(__dirname, "/assets/pdfs"),
       },
     },
     css: {
