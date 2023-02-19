@@ -5,6 +5,6 @@ export const TITLE_SEPARATOR = " | ";
 export const DEFAULT_SUB_TITLE = "Full-Stack Software Engineer 🚀";
 
 export const DEFAULT_DESCRIPTION =
-  "Hi, I'm TJ, a full-stack software engineer from Canberra, Australia. " +
-  "I use TypeScript, React, Tailwind, and AWS. I'm a developer, cat lover, " +
-  "and nerd.";
+  "Hi, I'm Tim William James, a full-stack developer from Canberra, Australia" +
+  ". My core technologies include TypeScript, React, Tailwind, AWS, and " +
+  "ForgeRock.";
