@@ -61,6 +61,7 @@ const BlogPostsCarousel: React.FC = () => {
             "flex gap-4",
             styles._carousel
           )}
+          data-chromatic="ignore"
           id="carousel"
         >
           {status === "loading" ? (

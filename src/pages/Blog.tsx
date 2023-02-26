@@ -284,6 +284,7 @@ const Blog = () => {
         <section
           aria-label="Blogs"
           className={cn("flex gap-4 p-0 justify-center", "flex-wrap")}
+          data-chromatic="ignore"
         >
           {status === "loading" ? (
             [...Array(6).keys()].map((key) => <BlogCardLoading key={key} />)
