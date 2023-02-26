@@ -7,15 +7,23 @@ import "@styles/main.scss";
 import App from "App";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import lazyWithPreload from "react-lazy-with-preload";
 import { Provider } from "react-redux";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { store } from "./app/store";
-const Home = lazy(() => import("@pages/Home"));
-const Contact = lazy(() => import("@pages/Contact"));
-const NotFound = lazy(() => import("@pages/NotFound"));
-const Projects = lazy(() => import("@pages/Projects"));
-const Blog = lazy(() => import("@pages/Blog"));
+// Code splitting for routes to reduce bundle size
+const Home = lazyWithPreload(() => import("@pages/Home"));
+const Contact = lazyWithPreload(() => import("@pages/Contact"));
+const NotFound = lazyWithPreload(() => import("@pages/NotFound"));
+const Projects = lazyWithPreload(() => import("@pages/Projects"));
+const Blog = lazyWithPreload(() => import("@pages/Blog"));
 const BlogArticle = lazy(() => import("@features/blog/components/BlogArticle"));
+// Start preloading other routes in the background
+Home.preload();
+Contact.preload();
+NotFound.preload();
+Projects.preload();
+Blog.preload();
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 createRoot(document.getElementById("root")!).render(
