@@ -70,8 +70,8 @@ jobs:
 
       - name: Run E2E Tests 🔧
         run: |
-          pnpm dlx playwright install --with-deps
-          pnpm dlx playwright test
+          pnpm exec playwright install --with-deps
+          pnpm playwright test
       - name: Save E2E Test Report 🔧
         uses: actions/upload-artifact@v3
         if: always()

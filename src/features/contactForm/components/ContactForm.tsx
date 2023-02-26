@@ -205,9 +205,9 @@ const ContactForm: React.FC<{
         {
           //#region name
         }
-        <label htmlFor="name" id="name">
+        <label htmlFor="name">
           <div className={cn("flex gap-2 justify-between")}>
-            <p>Name*</p>
+            <p id="nameLabel">Name*</p>
             {formState.errors.name ? (
               <p className={cn("text-danger text-right")}>
                 {formState.errors.name.message}
@@ -217,10 +217,10 @@ const ContactForm: React.FC<{
         </label>
         <input
           aria-invalid={Boolean(formState.errors.name)}
-          aria-labelledby="name"
           className={cn("form-input", "form-field", {
             ["form-field-error"]: Boolean(formState.errors.name),
           })}
+          id="name"
           placeholder="Your name here..."
           required
           type="text"
@@ -233,9 +233,9 @@ const ContactForm: React.FC<{
         {
           //#region email
         }
-        <label htmlFor="email" id="email">
+        <label htmlFor="email">
           <div className={cn("flex gap-2 justify-between")}>
-            <p>Email</p>
+            <p id="emailLabel">Email</p>
             {formState.errors.email ? (
               <p className={cn("text-danger text-right")}>
                 {formState.errors.email.message}
@@ -245,10 +245,10 @@ const ContactForm: React.FC<{
         </label>
         <input
           aria-invalid={Boolean(formState.errors.email)}
-          aria-labelledby="email"
           className={cn("form-input", "form-field", {
             ["form-field-error"]: Boolean(formState.errors.email),
           })}
+          id="email"
           placeholder={formState.isSubmitSuccessful ? "" : "example@gmail.com"}
           {...register("email")}
           disabled={isFormDisabled}
@@ -260,7 +260,7 @@ const ContactForm: React.FC<{
         {
           //#region message
         }
-        <label htmlFor="message" id="message">
+        <label htmlFor="message">
           <div className={cn("flex gap-2 justify-between")}>
             <p>Message*</p>
             {formState.errors.message ? (
@@ -272,10 +272,10 @@ const ContactForm: React.FC<{
         </label>
         <textarea
           aria-invalid={Boolean(formState.errors.message)}
-          aria-labelledby="message"
           className={cn("form-textarea", "form-field", {
             ["form-field-error"]: Boolean(formState.errors.message),
           })}
+          id="message"
           placeholder="Your message here..."
           required
           {...register("message")}
