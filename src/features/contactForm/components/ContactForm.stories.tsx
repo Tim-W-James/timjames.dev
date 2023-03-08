@@ -210,5 +210,7 @@ InvalidForm.play = async ({ canvasElement }) => {
   userEvent.click(canvas.getByRole("button"));
 
   // Assert
-  expect(canvas.getByRole("button")).toBeDisabled();
+  expect(canvas.getByRole("button")).toHaveTextContent(
+    /please complete the form/iu
+  );
 };

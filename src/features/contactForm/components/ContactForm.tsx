@@ -187,6 +187,7 @@ const ContactForm: React.FC<{
       name="contact"
       // eslint-disable-next-line react/no-unknown-property
       netlify-honeypot="bot-field"
+      noValidate
       onSubmit={handleSubmit(onFormSubmit)}
     >
       {/* Honeypot field for bots */}
@@ -207,7 +208,7 @@ const ContactForm: React.FC<{
         }
         <label htmlFor="name">
           <div className={cn("flex gap-2 justify-between")}>
-            <p id="nameLabel">Name*</p>
+            <p id="nameLabel">Name</p>
             {formState.errors.name ? (
               <p className={cn("text-danger text-right")}>
                 {formState.errors.name.message}
@@ -262,7 +263,7 @@ const ContactForm: React.FC<{
         }
         <label htmlFor="message">
           <div className={cn("flex gap-2 justify-between")}>
-            <p>Message*</p>
+            <p>Message</p>
             {formState.errors.message ? (
               <p className={cn("text-danger text-right")}>
                 {formState.errors.message.message}
@@ -282,6 +283,7 @@ const ContactForm: React.FC<{
           disabled={isFormDisabled}
         />
         <Button
+          appearInactive={!formState.isValid || isFormDisabled}
           className={
             formState.isSubmitting ||
             (formState.isSubmitSuccessful && responseState === "notSent")
@@ -290,7 +292,7 @@ const ContactForm: React.FC<{
               ? cn("!cursor-default")
               : ""
           }
-          disabled={!formState.isValid || isFormDisabled}
+          disabled={isFormDisabled}
           icon={formStateDisplay(formState, responseState).icon}
           iconRight
           isLight

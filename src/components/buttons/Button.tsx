@@ -15,6 +15,7 @@ export interface ButtonProps extends React.ComponentPropsWithoutRef<"button"> {
   isLabelHidden?: boolean;
   iconRight?: boolean;
   disabled?: boolean;
+  appearInactive?: boolean;
   className?: string;
 }
 
@@ -43,6 +44,7 @@ const Button = (props: ButtonProps) => {
     isLabelHidden,
     iconRight,
     disabled,
+    appearInactive,
     className: additionalClassName,
     ...buttonProps
   } = props;
@@ -54,7 +56,8 @@ const Button = (props: ButtonProps) => {
     isLight && !disabled ? "acrylic-light" : "acrylic-dark",
     isLight && !disabled ? styles._light : styles._dark,
     // Radial border doesn't work with Safari
-    { [styles._safari]: isSafari || isMobileSafari }
+    { [styles._safari]: isSafari || isMobileSafari },
+    { [styles._appearInactive]: Boolean(appearInactive) }
   );
 
   const setHoverEffects = useCallback(

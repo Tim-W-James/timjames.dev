@@ -21,20 +21,20 @@
     @apply text-light-shades;
   }
 
-  &:not(:disabled)._dark:hover {
+  &:not(:disabled, ._appearInactive)._dark:hover {
     @include mixins.acrylic(var(--mouse-deg, 90deg));
   }
 
-  &:not(:disabled)._light:hover {
+  &:not(:disabled, ._appearInactive)._light:hover {
     @include mixins.acrylic-light(var(--mouse-deg, 90deg));
   }
 
-  &:not(:disabled):focus {
+  &:not(:disabled, ._appearInactive):focus {
     animation: shadow-inset-center 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94)
       both;
   }
 
-  &:not(._safari, :disabled)::before {
+  &:not(._safari, :disabled, ._appearInactive)::before {
     @apply absolute p-px border-0 rounded-full radial-border-utils -z-[1];
 
     background: radial-gradient(
@@ -44,7 +44,7 @@
     );
   }
 
-  &:not(._safari, :disabled):hover::before {
+  &:not(._safari, :disabled, ._appearInactive):hover::before {
     background: radial-gradient(
       75% 100% at var(--mouse-x, 50%) var(--mouse-y, 50%),
       colors.$light-accent 75%,
@@ -52,7 +52,7 @@
     );
   }
 
-  &:not(._safari, :disabled):active::before {
+  &:not(._safari, :disabled, ._appearInactive):active::before {
     @apply bg-light-accent;
   }
 
