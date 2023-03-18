@@ -18,7 +18,5 @@ it("selection dropdown contains search term", async () => {
   );
 
   // Assert
-  expect(getByText(/option/iu)).toHaveTextContent(
-    /1 result available for search term/iu
-  );
+  expect(getByText(/option/iu)).toHaveTextContent(/option Chocolate focused/iu);
 });
