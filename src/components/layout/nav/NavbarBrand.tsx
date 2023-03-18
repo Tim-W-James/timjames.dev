@@ -26,6 +26,7 @@ const NavbarBrand: React.FC<{
       <img
         alt="brand"
         className={cn("inline-block", "rounded-full", "h-8 align-bottom")}
+        data-chromatic="ignore"
         height={32}
         src={logo}
         width={32}

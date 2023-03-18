@@ -1,6 +1,6 @@
 // Adapted from: https://kimmo.blog/posts/6-advanced-typescript-the-ultimate-tailwind-typings
 
-import classnames from "classnames";
+import clsx from "clsx";
 import ClassName from "./cssClasses";
 
 /**
@@ -19,7 +19,7 @@ const cn = <S1, S2, S3, S4, S5, S6, S7, S8, S9, S10>(
   c8?: TailwindClassParameterValue<S8, null>,
   c9?: TailwindClassParameterValue<S9, null>,
   c10?: TailwindClassParameterValue<S10, null>
-): string => classnames(c1, c2, c3, c4, c5, c6, c7, c8, c9, c10);
+): string => clsx(c1, c2, c3, c4, c5, c6, c7, c8, c9, c10);
 
 /**
  * Type checking for Tailwind Classes and infers scoped class names from a
@@ -41,7 +41,7 @@ export const cnScoped = (scopedClassNames: Record<string, string>) => {
     c8?: TailwindClassParameterValue<S8, ScopedClassNames>,
     c9?: TailwindClassParameterValue<S9, ScopedClassNames>,
     c10?: TailwindClassParameterValue<S10, ScopedClassNames>
-  ): string => classnames(c1, c2, c3, c4, c5, c6, c7, c8, c9, c10);
+  ): string => clsx(c1, c2, c3, c4, c5, c6, c7, c8, c9, c10);
 };
 
 /**
@@ -64,7 +64,7 @@ export const cnScopedUnion =
     c9?: TailwindClassParameterValue<S9, ScopedClassNames>,
     c10?: TailwindClassParameterValue<S10, ScopedClassNames>
   ): string =>
-    classnames(c1, c2, c3, c4, c5, c6, c7, c8, c9, c10);
+    clsx(c1, c2, c3, c4, c5, c6, c7, c8, c9, c10);
 
 type InstantiationDepthReducingWhitespace = "   " | "  " | " " | "\n";
 

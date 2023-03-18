@@ -54,16 +54,21 @@ jobs:
           cache: "pnpm"
 
       - name: Install Dependencies 🔧
-        run: pnpm install
+        # --ignore-scripts for security
+        run: pnpm install --frozen-lockfile --ignore-scripts
 
       - name: Build 🚀
         run: pnpm --if-present build
 
       - name: Check for Vulnerabilities 🔧
+        # Don't fail CI if vulnerabilities are found
         run: pnpm audit --production --audit-level=high || echo "Vulnerabilities found"
 
       - name: Lint 🔧
         run: pnpm --if-present lint
+
+      - name: Type Coverage 🔧
+        run: pnpm --if-present type-coverage
 
       - name: Run Unit Tests 🔧
         run: pnpm --if-present test

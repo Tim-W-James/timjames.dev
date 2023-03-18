@@ -1,7 +1,6 @@
 // This file is auto-generated with postcss-ts-classnames.
 
 export type ClassNames =
-  | "-mt-1"
   | "-z-10"
   | "-z-\[1\]"
   | "-z-\[5\]"
@@ -115,7 +114,6 @@ export type ClassNames =
   | "animate-pulse"
   | "animate-spin"
   | "aspect-square"
-  | "aspect-video"
   | "aspect-wide"
   | "basis-content"
   | "basis-min-content"
@@ -229,7 +227,6 @@ export type ClassNames =
   | "mx-4"
   | "mx-auto"
   | "my-10"
-  | "my-6"
   | "my-8"
   | "object-cover"
   | "order-1"
@@ -274,7 +271,6 @@ export type ClassNames =
   | "solid-background"
   | "subtitle"
   | "table"
-  | "text-2xl"
   | "text-3xl"
   | "text-4xl"
   | "text-7xl"
@@ -296,7 +292,6 @@ export type ClassNames =
   | "top-0"
   | "top-3"
   | "top-3\/4"
-  | "transform"
   | "transition"
   | "underline"
   | "uppercase"

@@ -326,6 +326,7 @@ const Projects: React.FC = () => {
               mode="button"
               onClick={resetOptions}
               tooltip="Reset search and filter options"
+              type="reset"
             />
           </div>
           <div className={cn("flex gap-4 w-full", "flex-wrap")}>

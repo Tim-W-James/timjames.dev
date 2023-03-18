@@ -1,5 +1,6 @@
 import Accordion from "@components/Accordion";
 import Tooltip from "@components/Tooltip";
+import useMediaQuery from "@hooks/useMediaQuery";
 import cv from "@pdfs/tim_james_cv.pdf";
 import cn from "@styles/cssUtils";
 import {
@@ -13,6 +14,7 @@ import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
 const Skills: React.FC = () => {
+  const shouldScalePdf = useMediaQuery("(max-width: 1050px)");
   const copyFragment = useCallback(
     () =>
       navigator.clipboard.writeText(
@@ -179,7 +181,12 @@ const Skills: React.FC = () => {
           icon={<BsFileEarmarkPdfFill />}
           startClosed
         >
-          <iframe height="1000px" src={cv} title="CV" width="100%" />
+          <iframe
+            height={shouldScalePdf ? "500px" : "1000px"}
+            src={cv}
+            title="CV"
+            width="100%"
+          />
         </Accordion>
         <hr className={cn("radial-border mt-6")} />
       </section>

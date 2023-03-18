@@ -1,3 +1,4 @@
+import { FaJava } from "react-icons/fa";
 import {
   SiAdobepremierepro,
   SiAmazonaws,
@@ -17,7 +18,6 @@ import {
   SiGrafana,
   SiHaskell,
   SiHtml5,
-  SiJava,
   SiJavascript,
   SiJenkins,
   SiJupyter,
@@ -258,7 +258,7 @@ const technologies = {
     isCore: false,
   },
   Java: {
-    icon: <SiJava aria-label="Java" />,
+    icon: <FaJava aria-label="Java" />,
     link: "https://www.java.com/en/",
     isCore: false,
   },
