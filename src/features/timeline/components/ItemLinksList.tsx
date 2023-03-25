@@ -1,5 +1,6 @@
 import Divider from "@components/layout/Divider";
 import cn from "@styles/cssUtils";
+
 import TimelineItemData from "../types/TimelineData";
 
 const ItemLinksList: React.FC<{

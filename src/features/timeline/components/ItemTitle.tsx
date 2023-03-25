@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 import cn from "@styles/cssUtils";
 import { HashLink } from "react-router-hash-link";
+
 import TimelineItemData from "../types/TimelineData";
 import ItemCategory from "./ItemCategory";
 
@@ -11,7 +12,7 @@ const ItemTitle: React.FC<{
   const copyFragment = useCallback(
     () =>
       navigator.clipboard.writeText(
-        `${location.href.split("#")[0] || ""}#${itemData.title}`
+        `${location.href.split("#")[0] ?? ""}#${itemData.title}`
       ),
     [itemData.title]
   );

@@ -7,6 +7,7 @@ import {
 } from "react-icons/bs";
 import { MdArticle } from "react-icons/md";
 import { HashLink } from "react-router-hash-link";
+
 import { devdottoArticlesMeta } from "../services/devdottoArticle";
 import { sortByLatest } from "../utils/sortFuncs";
 import BlogCard from "./BlogCard";
@@ -38,7 +39,7 @@ const BlogPostsCarousel: React.FC = () => {
   const copyFragment = useCallback(
     () =>
       navigator.clipboard.writeText(
-        `${location.href.split("#")[0] || ""}#blog`
+        `${location.href.split("#")[0] ?? ""}#blog`
       ),
     []
   );

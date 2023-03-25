@@ -173,7 +173,7 @@ const Projects: React.FC = () => {
         return () => {};
       }
       setSelectedTechnologies([]);
-      decodeArrayAsCsv(queryParams.get("technologies") || "").forEach(
+      decodeArrayAsCsv(queryParams.get("technologies") ?? "").forEach(
         (value) => {
           const option = technologyOptions.find(
             (o) => o.value.toLowerCase() === value.toLowerCase()
@@ -184,7 +184,7 @@ const Projects: React.FC = () => {
         }
       );
       setSelectedCategories([]);
-      decodeArrayAsCsv(queryParams.get("categories") || "").forEach((value) => {
+      decodeArrayAsCsv(queryParams.get("categories") ?? "").forEach((value) => {
         const option = categoryOptions.find(
           (o) => o.value.toLowerCase() === value.toLowerCase()
         );
@@ -196,9 +196,9 @@ const Projects: React.FC = () => {
         sortOptions.find(
           (o) =>
             o.value.toLowerCase() === queryParams.get("sort")?.toLowerCase()
-        ) || defaultSort
+        ) ?? defaultSort
       );
-      setSearchText(queryParams.get("searchText") || "");
+      setSearchText(queryParams.get("searchText") ?? "");
     } else {
       // Populate the options from local storage
       setSelectedTechnologies(localStorageProjectOptions.technologies);

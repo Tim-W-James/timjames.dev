@@ -5,6 +5,7 @@ import cn, { cnScoped } from "@styles/cssUtils";
 import { Suspense } from "react";
 import ClickAwayListener from "react-click-away-listener";
 import { useLocation } from "react-router-dom";
+
 import styles from "./Navbar.module.scss";
 import NavbarBrand from "./NavbarBrand";
 import NavbarLink from "./NavbarLink";

@@ -1,6 +1,7 @@
 // Adapted from: https://kimmo.blog/posts/6-advanced-typescript-the-ultimate-tailwind-typings
 
 import clsx from "clsx";
+
 import ClassName from "./cssClasses";
 
 /**

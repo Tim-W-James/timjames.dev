@@ -1,6 +1,6 @@
 import Footer from "@components/layout/Footer";
-import Page from "@components/layout/Page";
 import Navbar from "@components/layout/nav/Navbar";
+import Page from "@components/layout/Page";
 import ScrollToTop from "@components/utils/ScrollToTop";
 import Toast from "@components/utils/Toast";
 import { CONTACT } from "@constants/routes";
@@ -10,6 +10,7 @@ import cn from "@styles/cssUtils";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
+
 import ContactPage from "./Contact";
 
 export default {

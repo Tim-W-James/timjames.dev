@@ -1,5 +1,5 @@
 import cn from "@styles/cssUtils";
-import { AnimatePresence, LazyMotion, domAnimation, m } from "framer-motion";
+import { AnimatePresence, domAnimation, LazyMotion, m } from "framer-motion";
 import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md";
 
 const Accordion: React.FC<{

@@ -1,4 +1,5 @@
 import cn from "@styles/cssUtils";
+
 import TimelineItemData from "../types/TimelineData";
 
 const ItemThumbnail: React.FC<{
@@ -10,7 +11,7 @@ const ItemThumbnail: React.FC<{
       alt={itemData.title}
       className={cn(
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore - edge case that the dynamic types can't handle
+        // @ts-expect-error - edge case that the dynamic types can't handle
         "2xl:w-1/3",
         "2xl:basis-content",
         isOddIndex

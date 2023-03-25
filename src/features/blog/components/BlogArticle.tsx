@@ -10,6 +10,7 @@ import {
 import ReactMarkdown from "react-markdown";
 import { useParams } from "react-router-dom";
 import escape from "validator/lib/escape";
+
 import devdottoArticle from "../services/devdottoArticle";
 import BlogArticleLoading from "./BlogArticleLoading";
 import BlogArticleWrapper from "./BlogArticleWrapper";

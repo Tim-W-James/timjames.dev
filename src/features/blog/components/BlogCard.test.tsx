@@ -1,6 +1,7 @@
 import mockArticle from "@mocks/article";
 import { composeStories } from "@storybook/testing-react";
 import { render } from "@testing-library/react";
+
 import * as stories from "./BlogCard.stories";
 
 const { BlogCard } = composeStories(stories);

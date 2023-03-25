@@ -1,4 +1,5 @@
 import cn from "@styles/cssUtils";
+
 import BlogArticleWrapper from "./BlogArticleWrapper";
 
 const BlogArticleLoading = () => (

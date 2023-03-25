@@ -18,6 +18,7 @@ import cn, { cnScoped } from "@styles/cssUtils";
 import { BsFillBookFill, BsGithub } from "react-icons/bs";
 import { FaHamburger } from "react-icons/fa";
 import { SiEslint, SiFigma, SiStorybook } from "react-icons/si";
+
 import TimelineItemData from "../types/TimelineData";
 import styles from "./timelineData.module.scss";
 

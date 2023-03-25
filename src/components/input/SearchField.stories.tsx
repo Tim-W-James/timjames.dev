@@ -1,5 +1,6 @@
 import { Meta, StoryFn } from "@storybook/react";
 import cn from "@styles/cssUtils";
+
 import SearchFieldComponent from "./SearchField";
 
 export default {

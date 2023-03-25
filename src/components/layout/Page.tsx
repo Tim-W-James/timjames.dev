@@ -76,7 +76,7 @@ const Page: React.FC<{
               </h1>
             </header>
             <main>
-              <Suspense fallback={fallback || <Spinner />}>{content}</Suspense>
+              <Suspense fallback={fallback ?? <Spinner />}>{content}</Suspense>
             </main>
           </div>
         </>

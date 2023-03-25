@@ -1,9 +1,10 @@
 import Footer from "@components/layout/Footer";
-import Page from "@components/layout/Page";
 import Navbar from "@components/layout/nav/Navbar";
+import Page from "@components/layout/Page";
 import ScrollToTop from "@components/utils/ScrollToTop";
 import { PROJECTS } from "@constants/routes";
 import { BrowserRouter as Router } from "react-router-dom";
+
 import ProjectsPage from "./Projects";
 
 export default {

@@ -3,6 +3,7 @@ import { cnScoped } from "@styles/cssUtils";
 import { setMouseHoverCssProperties } from "@utils/mouseHover";
 import { isMobileSafari, isSafari } from "react-device-detect";
 import { Link, useLocation } from "react-router-dom";
+
 import styles from "./NavbarLink.module.scss";
 
 /**
@@ -49,7 +50,7 @@ const NavbarLink: React.FC<{
       )}
       onClick={scrollToTop}
       onMouseMove={mouseHoverEffects}
-      to={route || "/"}
+      to={route ?? "/"}
       type="button"
     >
       {label}

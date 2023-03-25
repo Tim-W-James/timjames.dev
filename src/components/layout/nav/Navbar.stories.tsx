@@ -1,5 +1,6 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { BrowserRouter as Router } from "react-router-dom";
+
 import NavbarComponent from "./Navbar";
 
 export default {

@@ -1,6 +1,7 @@
 import selectionOptions, { SelectionOptions } from "@mocks/options";
 import { Meta, StoryFn } from "@storybook/react";
 import cn from "@styles/cssUtils";
+
 import MultiSelectionComponent, {
   Option,
   SingleSelection as SingleSelectionComponent,

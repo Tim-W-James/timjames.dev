@@ -23,7 +23,7 @@ export const devdottoArticlesMeta =
           `${ARTICLES_API}?${new URLSearchParams({
             username: DEV_DOT_TO_USERNAME,
             per_page: String(articles),
-            page: String(page || 1),
+            page: String(page ?? 1),
           })}`
         )
       ).json()

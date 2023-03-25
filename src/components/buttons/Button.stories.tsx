@@ -1,6 +1,7 @@
 import { Meta, StoryFn } from "@storybook/react";
 import cn from "@styles/cssUtils";
 import { BsArrowRightCircleFill, BsMailbox } from "react-icons/bs";
+
 import ButtonComponent from "./Button";
 
 const icons = {

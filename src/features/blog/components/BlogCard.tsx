@@ -1,6 +1,7 @@
 import cn from "@styles/cssUtils";
 import { BsChatLeftTextFill, BsHeart } from "react-icons/bs";
 import { Link } from "react-router-dom";
+
 import { DevdottoArticleMeta } from "../types/devdottoArticle";
 
 const Card: React.FC<{

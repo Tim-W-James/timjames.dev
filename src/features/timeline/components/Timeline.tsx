@@ -1,5 +1,6 @@
 import useMediaQuery from "@hooks/useMediaQuery";
 import cn, { cnScoped } from "@styles/cssUtils";
+
 import TimelineItemData from "../types/TimelineData";
 import styles from "./Timeline.module.scss";
 import TimelineItem from "./TimelineItem";

@@ -1,6 +1,7 @@
 import { useTouchInputQuery } from "@hooks/useMediaQuery";
 import cn, { cnScoped } from "@styles/cssUtils";
 import { setMouseHoverCssProperties } from "@utils/mouseHover";
+
 import styles from "./Logo.module.scss";
 
 /**

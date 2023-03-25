@@ -7,7 +7,7 @@ const CoreTechnologies: React.FC = () => {
   const copyFragment = useCallback(
     () =>
       navigator.clipboard.writeText(
-        `${location.href.split("#")[0] || ""}#technologies`
+        `${location.href.split("#")[0] ?? ""}#technologies`
       ),
     []
   );

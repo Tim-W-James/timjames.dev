@@ -1,5 +1,5 @@
-import Logo from "@components/Logo";
 import Button from "@components/buttons/Button";
+import Logo from "@components/Logo";
 import BlogPostsCarousel from "@features/blog/components/BlogPostsCarousel";
 import AboutMe from "@features/home/components/AboutMe";
 import CoreTechnologies from "@features/home/components/CoreTechnologies";

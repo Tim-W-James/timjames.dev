@@ -1,10 +1,11 @@
 import Footer from "@components/layout/Footer";
-import Page from "@components/layout/Page";
 import Navbar from "@components/layout/nav/Navbar";
+import Page from "@components/layout/Page";
 import ScrollToTop from "@components/utils/ScrollToTop";
 import { HOME } from "@constants/routes";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter as Router } from "react-router-dom";
+
 import HomePage from "./Home";
 
 export default {

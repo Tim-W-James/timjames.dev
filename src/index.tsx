@@ -1,15 +1,17 @@
 /* eslint-disable react-refresh/only-export-components */
+import "@styles/main.scss";
+
 import ScrollToTop from "@components/utils/ScrollToTop";
 import { BLOG, CONTACT, HOME, PROJECTS } from "@constants/routes";
 import Page from "@layout/Page";
 import cn from "@styles/cssUtils";
-import "@styles/main.scss";
 import App from "App";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import lazyWithPreload from "react-lazy-with-preload";
 import { Provider } from "react-redux";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 import { store } from "./app/store";
 // Code splitting for routes to reduce bundle size
 const Home = lazyWithPreload(() => import("@pages/Home"));
@@ -68,7 +70,7 @@ createRoot(document.getElementById("root")!).render(
                   <Page
                     canonical={`${window.location.protocol}//${
                       window.location.hostname
-                    }${PROJECTS.routes[0] || ""}`}
+                    }${PROJECTS.routes[0] ?? ""}`}
                     content={<Projects />}
                     description={PROJECTS.description}
                     title={PROJECTS.title}
@@ -85,7 +87,7 @@ createRoot(document.getElementById("root")!).render(
                   <Page
                     canonical={`${window.location.protocol}//${
                       window.location.hostname
-                    }${BLOG.routes[0] || ""}`}
+                    }${BLOG.routes[0] ?? ""}`}
                     content={<Blog />}
                     description={BLOG.description}
                     title={BLOG.title}
@@ -125,7 +127,7 @@ createRoot(document.getElementById("root")!).render(
                   <Page
                     canonical={`${window.location.protocol}//${
                       window.location.hostname
-                    }${CONTACT.routes[0] || ""}`}
+                    }${CONTACT.routes[0] ?? ""}`}
                     content={<Contact />}
                     description={CONTACT.description}
                     title={CONTACT.title}

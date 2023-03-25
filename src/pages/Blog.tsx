@@ -9,8 +9,8 @@ import BlogCardLoading from "@features/blog/components/BlogCardLoading";
 import { devdottoArticlesMeta } from "@features/blog/services/devdottoArticle";
 import { DevdottoArticleMeta } from "@features/blog/types/devdottoArticle";
 import sortFuncFromOption, {
-  SortOption,
   sortByPopularity,
+  SortOption,
   sortOptions,
 } from "@features/blog/utils/sortFuncs";
 import useLocalStorage from "@hooks/useLocalStorage";
@@ -120,7 +120,7 @@ const Blog = () => {
         return () => {};
       }
       setSelectedTags([]);
-      decodeArrayAsCsv(queryParams.get("technologies") || "").forEach(
+      decodeArrayAsCsv(queryParams.get("technologies") ?? "").forEach(
         (value) => {
           const option = selectedTags.find(
             (o) => o.value.toLowerCase() === value.toLowerCase()
@@ -134,9 +134,9 @@ const Blog = () => {
         sortOptions.find(
           (o) =>
             o.value.toLowerCase() === queryParams.get("sort")?.toLowerCase()
-        ) || defaultSort
+        ) ?? defaultSort
       );
-      setSearchText(queryParams.get("searchText") || "");
+      setSearchText(queryParams.get("searchText") ?? "");
     } else {
       // Populate the options from local storage
       setSelectedTags(localStorageProjectOptions.tags);

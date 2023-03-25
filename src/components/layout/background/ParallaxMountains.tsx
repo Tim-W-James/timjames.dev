@@ -2,6 +2,7 @@ import { useMobileQuery } from "@hooks/useMediaQuery";
 import cn, { cnScoped } from "@styles/cssUtils";
 import FadeIn from "react-fade-in";
 import { Parallax } from "react-scroll-parallax";
+
 import styles from "./ParallaxMountains.module.scss";
 
 /**

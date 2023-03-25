@@ -1,11 +1,12 @@
 import cn, { cnScoped } from "@styles/cssUtils";
 import {
-  LazyMotion,
   domAnimation,
+  LazyMotion,
   m,
   useAnimation,
   useInView,
 } from "framer-motion";
+
 import TimelineItemData from "../types/TimelineData";
 import ItemLinksList from "./ItemLinksList";
 import ItemTechnologyList from "./ItemTechnologyList";
@@ -90,7 +91,7 @@ const TimelineItem: React.FC<{
               className={cn(
                 "items-center",
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore - edge case that the dynamic types can't handle
+                // @ts-expect-error - edge case the dynamic types can't handle
                 "2xl:flex",
                 "2xl:gap-4"
               )}

@@ -1,5 +1,5 @@
 import { useTouchInputQuery } from "@hooks/useMediaQuery";
-import { LazyMotion, domAnimation, m } from "framer-motion";
+import { domAnimation, LazyMotion, m } from "framer-motion";
 
 // Adapted from: https://github.com/ipenywis/react-navbar-responsive
 

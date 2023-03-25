@@ -6,7 +6,7 @@ const AboutMe: React.FC = () => {
   const copyFragment = useCallback(
     () =>
       navigator.clipboard.writeText(
-        `${location.href.split("#")[0] || ""}#about`
+        `${location.href.split("#")[0] ?? ""}#about`
       ),
     []
   );

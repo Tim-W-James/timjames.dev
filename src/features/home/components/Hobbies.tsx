@@ -5,7 +5,7 @@ const Hobbies: React.FC = () => {
   const copyFragment = useCallback(
     () =>
       navigator.clipboard.writeText(
-        `${location.href.split("#")[0] || ""}#hobbies`
+        `${location.href.split("#")[0] ?? ""}#hobbies`
       ),
     []
   );

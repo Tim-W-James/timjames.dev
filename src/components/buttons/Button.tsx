@@ -3,6 +3,7 @@ import cn, { cnScoped } from "@styles/cssUtils";
 import { setMouseHoverCssProperties } from "@utils/mouseHover";
 import { isMobileSafari, isSafari } from "react-device-detect";
 import { Link } from "react-router-dom";
+
 import styles from "./Button.module.scss";
 
 export interface ButtonProps extends React.ComponentPropsWithoutRef<"button"> {
@@ -92,7 +93,7 @@ const Button = (props: ButtonProps) => {
           }
           onMouseMove={setHoverEffects}
           title={label && tooltip}
-          to={link || "/"}
+          to={link ?? "/"}
           type="button"
         >
           {inner}
@@ -120,8 +121,8 @@ const Button = (props: ButtonProps) => {
       return (
         <a
           aria-label={label}
-          className={`${className} ${additionalClassName || ""}`}
-          href={link || "/"}
+          className={`${className} ${additionalClassName ?? ""}`}
+          href={link ?? "/"}
           onMouseMove={setHoverEffects}
           rel="noreferrer"
           target="_blank"

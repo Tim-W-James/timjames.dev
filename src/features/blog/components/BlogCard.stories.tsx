@@ -3,6 +3,7 @@ import mockArticle from "@mocks/article";
 import { Meta, StoryFn } from "@storybook/react";
 import cn from "@styles/cssUtils";
 import { BrowserRouter as Router } from "react-router-dom";
+
 import BlogCardComponent from "./BlogCard";
 import BlogCardLoadingComponent from "./BlogCardLoading";
 

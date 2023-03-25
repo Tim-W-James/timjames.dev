@@ -2,6 +2,7 @@ import logo from "@images/logo.png";
 import profile from "@images/profile.jpg";
 import { Meta, StoryFn } from "@storybook/react";
 import cn from "@styles/cssUtils";
+
 import LogoComponent from "./Logo";
 
 const images = {

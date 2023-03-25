@@ -12,7 +12,7 @@ const MajorProjects: React.FC = () => {
   const copyFragment = useCallback(
     () =>
       navigator.clipboard.writeText(
-        `${location.href.split("#")[0] || ""}#projects`
+        `${location.href.split("#")[0] ?? ""}#projects`
       ),
     []
   );
