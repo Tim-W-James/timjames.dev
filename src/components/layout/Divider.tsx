@@ -13,20 +13,20 @@ const Divider: React.FC<{ label: string; isReversed?: boolean }> = ({
   label,
   isReversed,
 }) => (
-  <div className={cn("relative flex py-5 items-center w-full")}>
+  <div className={cn("relative flex w-full items-center py-5")}>
     {isReversed ? (
       <>
-        <div className={`flex-grow ${cn("border-t", "border-main-brand")}`} />
-        <span className={`flex-shrink ${cn("ml-4 font-bold text-main-brand")}`}>
+        <div className={`grow ${cn("border-t", "border-main-brand")}`} />
+        <span className={`shrink ${cn("text-main-brand ml-4 font-bold")}`}>
           {label}
         </span>
       </>
     ) : (
       <>
-        <span className={`flex-shrink ${cn("mr-4 font-bold text-main-brand")}`}>
+        <span className={`shrink ${cn("text-main-brand mr-4 font-bold")}`}>
           {label}
         </span>
-        <div className={`flex-grow ${cn("border-t", "border-main-brand")}`} />
+        <div className={`grow ${cn("border-t", "border-main-brand")}`} />
       </>
     )}
   </div>

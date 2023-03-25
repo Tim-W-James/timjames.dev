@@ -17,11 +17,11 @@ const BlogArticleWrapper: React.FC<{
 
   return (
     <>
-      <div className={cn("fixed bg-dark-shades w-screen h-screen -z-10")} />
-      <div className={cn("my-10 mx-auto pt-10 px-8 container")}>
+      <div className={cn("bg-dark-shades fixed -z-10 h-screen w-screen")} />
+      <div className={cn("container my-10 mx-auto px-8 pt-10")}>
         <header
           className={cn(
-            "flex mx-auto items-center place-content-center px-8 text-center",
+            "mx-auto flex place-content-center items-center px-8 text-center",
             "flex-col"
           )}
         >
@@ -39,7 +39,7 @@ const BlogArticleWrapper: React.FC<{
             )}
           </h1>
         </header>
-        <div className={cn("flex justify-center mb-8")}>
+        <div className={cn("mb-8 flex justify-center")}>
           <Button
             icon={<BsFillArrowLeftCircleFill />}
             isLight
@@ -50,7 +50,7 @@ const BlogArticleWrapper: React.FC<{
           />
         </div>
         {content}
-        <div className={cn("flex justify-center mt-8")}>
+        <div className={cn("mt-8 flex justify-center")}>
           <Button
             icon={<BsFillArrowUpCircleFill />}
             isLight

@@ -284,7 +284,7 @@ const Projects: React.FC = () => {
   return (
     <div>
       <FadeIn transitionDuration={200}>
-        <div className={cn("flex justify-center mb-8")}>
+        <div className={cn("mb-8 flex justify-center")}>
           <Button
             icon={<BsGithub />}
             isLight
@@ -296,14 +296,14 @@ const Projects: React.FC = () => {
         <section
           aria-label="Search Controls"
           className={cn(
-            "flex mx-auto items-center place-content-center mb-4 max-md:mb-8",
+            "mx-auto mb-4 flex place-content-center items-center max-md:mb-8",
             "flex-col"
           )}
         >
-          <div className={cn("w-full flex gap-4")}>
+          <div className={cn("flex w-full gap-4")}>
             <SearchField handleChange={handleChange} searchText={searchText} />
             <Button
-              className={cn("!text-3xl !px-2 !py-2 !-mt-1")}
+              className={cn("!-mt-1 !px-2 !py-2 !text-3xl")}
               icon={
                 isResetButtonAnimated ? (
                   <span
@@ -329,8 +329,8 @@ const Projects: React.FC = () => {
               type="reset"
             />
           </div>
-          <div className={cn("flex gap-4 w-full", "flex-wrap")}>
-            <div className={cn("z-30 grow min-w-fit")}>
+          <div className={cn("flex w-full gap-4", "flex-wrap")}>
+            <div className={cn("z-30 min-w-fit grow")}>
               <SingleSelection
                 options={sortOptions}
                 selectedOption={selectedSort}

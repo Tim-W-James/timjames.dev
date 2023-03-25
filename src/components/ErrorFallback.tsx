@@ -13,10 +13,10 @@ export const ErrorFallback = (props: FallbackProps): JSX.Element => {
 
   return (
     <>
-      <div className={cn("fixed w-screen h-screen bg-dark-shades -z-10")} />
-      <div className={cn("text-center  mt-8")}>
+      <div className={cn("bg-dark-shades fixed -z-10 h-screen w-screen")} />
+      <div className={cn("mt-8  text-center")}>
         <h1
-          className={cn("text-8xl pt-10 text-light-accent font-bold")}
+          className={cn("text-light-accent pt-10 text-8xl font-bold")}
           id="error"
         >
           Error
@@ -26,7 +26,7 @@ export const ErrorFallback = (props: FallbackProps): JSX.Element => {
         </h2>
         <h3>Please reload the page and try again.</h3>
         <br />
-        <div className="flex justify-center items-center">
+        <div className={cn("flex items-center justify-center")}>
           <Button
             icon={<RiRefreshFill />}
             isLight

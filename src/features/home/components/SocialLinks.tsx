@@ -8,7 +8,7 @@ const SocialLinks: React.FC<{ shouldShrinkButtons: boolean }> = ({
   <section
     aria-label="Social Links"
     className={cn(
-      "flex gap-4 justify-around items-center mt-4 max-w-2xl mx-auto",
+      "mx-auto mt-4 flex max-w-2xl items-center justify-around gap-4",
       "flex-row",
       "flex-wrap"
     )}

@@ -46,7 +46,7 @@ createRoot(document.getElementById("root")!).render(
                         <div className={cn("gradient-background")} />
                         <div
                           className={cn(
-                            "fixed bg-dark-shades -z-[5] w-screen left-0",
+                            "bg-dark-shades fixed left-0 -z-[5] w-screen",
                             "top-3/4",
                             "h-1/4"
                           )}
@@ -106,7 +106,7 @@ createRoot(document.getElementById("root")!).render(
                     fallback={
                       <div
                         className={cn(
-                          "fixed bg-dark-shades w-screen h-screen -z-10"
+                          "bg-dark-shades fixed -z-10 h-screen w-screen"
                         )}
                       />
                     }

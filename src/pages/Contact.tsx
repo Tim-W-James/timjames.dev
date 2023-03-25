@@ -51,7 +51,7 @@ const Contact = () => {
           showPromptOnClose
         />
         <h2
-          className={cn("text-center self-center mt-8 mx-auto w-fit")}
+          className={cn("mx-auto mt-8 w-fit self-center text-center")}
           id="social-links"
         >
           <HashLink
@@ -66,7 +66,7 @@ const Contact = () => {
         <section
           aria-labelledby="social-links"
           className={cn(
-            "text-center self-center mt-8 mx-auto w-fit text-xl grid gap-4",
+            "mx-auto mt-8 grid w-fit gap-4 self-center text-center text-xl",
             "grid-cols-2"
           )}
         >
@@ -107,7 +107,7 @@ const Contact = () => {
             url="https://open.spotify.com/user/22xzbbohotkdpq5wfipvefk4y"
           />
         </section>
-        <div className={cn("text-xl text-center mt-4", "basis-min-content")}>
+        <div className={cn("mt-4 text-center text-xl", "basis-min-content")}>
           <MdEmail /> Send me an email:{" "}
           <a
             className={cn("link", "hyphens-none")}

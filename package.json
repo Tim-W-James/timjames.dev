@@ -1,63 +1,58 @@
 {
   "name": "timjames.dev",
   "version": "0.0.0",
+  "private": "true",
   "description": "Personal site for Tim W James - Portfolio, Blog, and more :rocket:",
+  "keywords": [
+    "Tim-W-James, Portfolio, Blog"
+  ],
+  "homepage": "https://github.com/Tim-W-James/timjames.dev#readme",
+  "bugs": {
+    "url": "https://github.com/Tim-W-James/timjames.dev/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tim-W-James/timjames.dev.git"
+  },
+  "license": "MIT",
   "author": {
     "name": "Tim W James",
     "email": "tim.jameswork9800@gmail.com",
     "url": "https://timjames.dev"
   },
-  "license": "MIT",
-  "homepage": "https://github.com/Tim-W-James/timjames.dev#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Tim-W-James/timjames.dev.git"
-  },
-  "keywords": [
-    "Tim-W-James, Portfolio, Blog"
-  ],
-  "bugs": {
-    "url": "https://github.com/Tim-W-James/timjames.dev/issues"
-  },
   "type": "module",
-  "engines": {
-    "node": ">=18",
-    "pnpm": ">=7"
-  },
-  "packageManager": "pnpm@7.29.1",
   "main": "src/main.ts",
-  "private": "true",
   "scripts": {
-    "prepare": "husky install",
-    "init:netlify": "netlify init",
-    "dev": "vite",
-    "dev:netlify": "netlify dev",
-    "dev:live": "netlify dev --live",
-    "dev:open": "vite --open",
-    "dev:https": "vite --https",
-    "start": "pnpm dev",
-    "build": "tsc && vite build",
     "prebuild": "test \"$CI\" = true && npx pnpm install --store=node_modules/.pnpm-store || echo skipping pnpm install",
+    "build": "tsc && vite build",
+    "build-storybook": "pnpm storybook:build",
     "build:netlify": "netlify build",
-    "preview": "vite preview --host",
+    "chromatic": "chromatic --exit-zero-on-changes",
+    "coverage": "vitest run --coverage",
     "deploy": "netlify deploy",
     "deploy:prod": "netlify deploy -p",
-    "lint": "eslint src && stylelint './src/**/*.{css,scss}'",
-    "format": "eslint src --fix && stylelint './src/**/*.{css,scss}' --fix",
-    "format:all": "pnpm format && prettier --write './**/*.{json,yaml,yml,ts,js,cjs,md}'",
-    "test": "vitest",
-    "test:ui": "vitest --ui",
-    "test:run": "vitest run",
-    "coverage": "vitest run --coverage",
-    "storybook": "export SET DISABLE_CSS_TYPE_GEN=true && storybook dev -p 6006 --no-open",
-    "storybook:test": "test-storybook",
-    "storybook:build": "storybook build",
-    "build-storybook": "pnpm storybook:build",
-    "storybook:preview": "serve storybook-static",
-    "storybook:smoke-test": "storybook dev --ci --smoke-test",
+    "dev": "vite",
+    "dev:https": "vite --https",
+    "dev:live": "netlify dev --live",
+    "dev:netlify": "netlify dev",
+    "dev:open": "vite --open",
     "e2e": "playwright test",
     "e2e:headed": "playwright test --headed",
-    "chromatic": "chromatic --exit-zero-on-changes",
+    "format": "eslint src --fix && stylelint './src/**/*.{css,scss}' --fix",
+    "format:all": "pnpm format && prettier --write './**/*.{json,yaml,yml,ts,js,cjs,md}'",
+    "init:netlify": "netlify init",
+    "lint": "eslint src && stylelint './src/**/*.{css,scss}'",
+    "prepare": "husky install",
+    "preview": "vite preview --host",
+    "start": "pnpm dev",
+    "storybook": "export SET DISABLE_CSS_TYPE_GEN=true && storybook dev -p 6006 --no-open",
+    "storybook:build": "storybook build",
+    "storybook:preview": "serve storybook-static",
+    "storybook:smoke-test": "storybook dev --ci --smoke-test",
+    "storybook:test": "test-storybook",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:ui": "vitest --ui",
     "type-coverage": "type-coverage"
   },
   "lint-staged": {
@@ -71,6 +66,48 @@
     ],
     "./**/*.md": "prettier --write",
     "./**/*.{json,yaml,yml,ts,js,cjs}": "prettier --write"
+  },
+  "browserslist": {
+    "production": [
+      "defaults"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^2.9.11",
+    "@reduxjs/toolkit": "^1.9.3",
+    "@tanstack/react-query": "^4.27.0",
+    "@tanstack/react-query-devtools": "^4.27.0",
+    "@types/validator": "^13.7.14",
+    "clsx": "^1.2.1",
+    "framer-motion": "^10.6.0",
+    "netlify-plugin-cloudinary": "^1.2.0",
+    "react": "^18.2.0",
+    "react-children-utilities": "^2.9.0",
+    "react-click-away-listener": "^2.2.3",
+    "react-device-detect": "^2.2.3",
+    "react-dom": "^18.2.0",
+    "react-error-boundary": "^3.1.4",
+    "react-fade-in": "^2.0.1",
+    "react-google-recaptcha-v3": "^1.10.1",
+    "react-hook-form": "^7.43.6",
+    "react-icons": "^4.8.0",
+    "react-lazy-with-preload": "^2.2.1",
+    "react-markdown": "^8.0.5",
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^6.9.0",
+    "react-router-hash-link": "^2.4.3",
+    "react-scroll-parallax": "^3.3.2",
+    "react-select": "^5.7.0",
+    "react-toastify": "^9.1.1",
+    "source-map-support": "^0.5.21",
+    "validator": "^13.9.0",
+    "web-vitals": "^3.3.0",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
     "@babel/core": "^7.21.3",
@@ -126,6 +163,7 @@
     "eslint-plugin-react-refresh": "^0.3.4",
     "eslint-plugin-sonarjs": "^0.18.0",
     "eslint-plugin-storybook": "^0.6.11",
+    "eslint-plugin-tailwindcss": "^3.10.1",
     "eslint-plugin-vitest": "^0.0.54",
     "happy-dom": "^8.9.0",
     "husky": "^8.0.3",
@@ -135,6 +173,7 @@
     "netlify-plugin-submit-sitemap": "^0.4.0",
     "postcss-ts-classnames": "^0.3.0",
     "prettier": "^2.8.4",
+    "prettier-plugin-packagejson": "^2.4.3",
     "react-test-renderer": "^18.2.0",
     "rollup-plugin-visualizer": "^5.9.0",
     "sass": "^1.59.3",
@@ -157,37 +196,10 @@
     "vite-tsconfig-paths": "^4.0.7",
     "vitest": "^0.29.3"
   },
-  "dependencies": {
-    "@hookform/resolvers": "^2.9.11",
-    "@reduxjs/toolkit": "^1.9.3",
-    "@tanstack/react-query": "^4.27.0",
-    "@tanstack/react-query-devtools": "^4.27.0",
-    "@types/validator": "^13.7.14",
-    "clsx": "^1.2.1",
-    "framer-motion": "^10.6.0",
-    "netlify-plugin-cloudinary": "^1.2.0",
-    "react": "^18.2.0",
-    "react-children-utilities": "^2.9.0",
-    "react-click-away-listener": "^2.2.3",
-    "react-device-detect": "^2.2.3",
-    "react-dom": "^18.2.0",
-    "react-error-boundary": "^3.1.4",
-    "react-fade-in": "^2.0.1",
-    "react-google-recaptcha-v3": "^1.10.1",
-    "react-hook-form": "^7.43.6",
-    "react-icons": "^4.8.0",
-    "react-lazy-with-preload": "^2.2.1",
-    "react-markdown": "^8.0.5",
-    "react-redux": "^8.0.5",
-    "react-router-dom": "^6.9.0",
-    "react-router-hash-link": "^2.4.3",
-    "react-scroll-parallax": "^3.3.2",
-    "react-select": "^5.7.0",
-    "react-toastify": "^9.1.1",
-    "source-map-support": "^0.5.21",
-    "validator": "^13.9.0",
-    "web-vitals": "^3.3.0",
-    "zod": "^3.21.4"
+  "packageManager": "pnpm@7.29.1",
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=7"
   },
   "pnpm": {
     "overrides": {
@@ -199,16 +211,6 @@
     "ignoreCatch": false,
     "strict": true,
     "detail": true
-  },
-  "browserslist": {
-    "production": [
-      "defaults"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
   },
   "_id": "timjames.dev@0.0.0"
 }

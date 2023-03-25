@@ -14,7 +14,7 @@ const AboutMe: React.FC = () => {
     <div
       className={cn(
         // eslint-disable-next-line sonarjs/no-duplicate-string
-        "flex mx-auto items-center place-content-center px-8 mb-8",
+        "mx-auto mb-8 flex place-content-center items-center px-8",
         "flex-col"
       )}
     >
@@ -31,7 +31,7 @@ const AboutMe: React.FC = () => {
         </h2>
         <br />
         <section aria-labelledby="about">
-          <ul className={cn("list-disc text-xl text-left")}>
+          <ul className={cn("list-disc text-left text-xl")}>
             <li>
               💼 <b className={cn("font-bold")}>Software Engineer</b> at{" "}
               <a

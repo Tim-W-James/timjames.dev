@@ -15,7 +15,7 @@ const ItemThumbnail: React.FC<{
         "2xl:basis-content",
         isOddIndex
           ? "2xl:order-1"
-          : "max-2xl:w-auto max-2xl:ml-auto max-2xl:mb-4"
+          : "max-2xl:ml-auto max-2xl:mb-4 max-2xl:w-auto"
       )}
       src={itemData.thumbnailSrc}
     />

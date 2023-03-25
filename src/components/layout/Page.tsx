@@ -61,11 +61,11 @@ const Page: React.FC<{
         <Suspense fallback={fallback}>{content}</Suspense>
       ) : (
         <>
-          <div className={cn("fixed bg-dark-shades w-screen h-screen -z-10")} />
-          <div className={cn("my-10 mx-auto pt-10 px-8 container")}>
+          <div className={cn("bg-dark-shades fixed -z-10 h-screen w-screen")} />
+          <div className={cn("container my-10 mx-auto px-8 pt-10")}>
             <header
               className={cn(
-                "flex mx-auto items-center place-content-center",
+                "mx-auto flex place-content-center items-center",
                 "px-8 text-center",
                 "flex-col"
               )}

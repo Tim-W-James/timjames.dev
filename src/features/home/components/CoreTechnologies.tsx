@@ -14,7 +14,7 @@ const CoreTechnologies: React.FC = () => {
   return (
     <div
       className={cn(
-        "flex mt-8 mx-auto max-w-2xl items-center place-content-center",
+        "mx-auto mt-8 flex max-w-2xl place-content-center items-center",
         "solid-background",
         "flex-col"
       )}
@@ -35,7 +35,7 @@ const CoreTechnologies: React.FC = () => {
         <section
           aria-labelledby="technologies"
           className={cn(
-            "flex gap-4 text-xl items-center place-content-center",
+            "flex place-content-center items-center gap-4 text-xl",
             "flex-row",
             "flex-wrap"
           )}

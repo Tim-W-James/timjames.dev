@@ -24,8 +24,8 @@ const Skills: React.FC = () => {
   );
 
   return (
-    <div className={cn("flex mx-auto px-8 mt-8", "flex-col")}>
-      <h2 className={cn("self-center mb-4")} id="skills">
+    <div className={cn("mx-auto mt-8 flex px-8", "flex-col")}>
+      <h2 className={cn("mb-4 self-center")} id="skills">
         <HashLink
           className={cn("hash-link")}
           onClick={copyFragment}

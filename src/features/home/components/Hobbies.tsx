@@ -12,7 +12,7 @@ const Hobbies: React.FC = () => {
   return (
     <div
       className={cn(
-        "flex mx-auto items-center place-content-center px-8 mt-8",
+        "mx-auto mt-8 flex place-content-center items-center px-8",
         "flex-col"
       )}
     >
@@ -28,7 +28,7 @@ const Hobbies: React.FC = () => {
       </h2>
       <br />
       <section aria-labelledby="hobbies">
-        <ul className={cn("list-disc text-xl text-left")}>
+        <ul className={cn("list-disc text-left text-xl")}>
           <li>
             ✨ <b className={cn("font-bold")}>Interests</b>: Hiking, Astronomy,
             Creative Writing, Philosophy, Guitar, Board Games

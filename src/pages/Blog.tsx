@@ -208,7 +208,7 @@ const Blog = () => {
       <FadeIn transitionDuration={200}>
         <div
           className={cn(
-            "flex gap-4 justify-center items-center max-w-2xl mx-auto mb-8",
+            "mx-auto mb-8 flex max-w-2xl items-center justify-center gap-4",
             "flex-row",
             "flex-wrap"
           )}
@@ -231,14 +231,14 @@ const Blog = () => {
         <section
           aria-label="Search Controls"
           className={cn(
-            "flex mx-auto items-center place-content-center mb-4",
+            "mx-auto mb-4 flex place-content-center items-center",
             "flex-col"
           )}
         >
-          <div className={cn("w-full flex gap-4")}>
+          <div className={cn("flex w-full gap-4")}>
             <SearchField handleChange={handleChange} searchText={searchText} />
             <Button
-              className={cn("!text-3xl !px-2 !py-2 !-mt-1")}
+              className={cn("!-mt-1 !px-2 !py-2 !text-3xl")}
               icon={
                 isResetButtonAnimated ? (
                   <span
@@ -264,8 +264,8 @@ const Blog = () => {
               type="reset"
             />
           </div>
-          <div className={cn("flex gap-4 w-full", "flex-wrap")}>
-            <div className={cn("z-30 grow min-w-fit")}>
+          <div className={cn("flex w-full gap-4", "flex-wrap")}>
+            <div className={cn("z-30 min-w-fit grow")}>
               <SingleSelection
                 options={sortOptions}
                 selectedOption={selectedSort}
@@ -284,18 +284,18 @@ const Blog = () => {
         </section>
         <section
           aria-label="Blogs"
-          className={cn("flex gap-4 p-0 justify-center", "flex-wrap")}
+          className={cn("flex justify-center gap-4 p-0", "flex-wrap")}
           data-chromatic="ignore"
         >
           {status === "loading" ? (
             [...Array(6).keys()].map((key) => <BlogCardLoading key={key} />)
           ) : status === "error" ? (
-            <div className={cn("text-center mb-8 text-xl ")}>
+            <div className={cn("mb-8 text-center text-xl ")}>
               <span className={cn("text-danger")}>Something went wrong</span> -
               Try again later
             </div>
           ) : filteredArticles.length === 0 ? (
-            <div className={cn("text-center mb-8 text-xl ")}>
+            <div className={cn("mb-8 text-center text-xl ")}>
               <span className={cn("text-danger")}>No articles found</span> - Try
               a different filter
             </div>

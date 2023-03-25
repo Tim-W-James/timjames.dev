@@ -20,7 +20,7 @@ const ItemTitle: React.FC<{
     <>
       <h3
         className={cn(
-          "text-main-brand uppercase mb-0 leading-snug",
+          "text-main-brand mb-0 uppercase leading-snug",
           "flex-grow",
           "basis-min-content hyphens-none"
         )}
@@ -46,7 +46,7 @@ const ItemTitle: React.FC<{
       />
       <h3
         className={cn(
-          "text-main-brand uppercase mb-0 leading-snug",
+          "text-main-brand mb-0 uppercase leading-snug",
           "flex-grow",
           "hyphens-none"
         )}

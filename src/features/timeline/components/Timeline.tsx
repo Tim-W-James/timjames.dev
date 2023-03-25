@@ -64,7 +64,7 @@ const Timeline: React.FC<{
       </div>
     </>
   ) : (
-    <div className={cn("text-center mb-8 text-xl ")}>
+    <div className={cn("mb-8 text-center text-xl ")}>
       <span className={cn("text-danger")}>No Projects Found</span> - Try a
       different filter
     </div>

@@ -38,11 +38,11 @@ const BlogArticleContent: React.FC<{ slug: string }> = ({ slug }) => {
     <BlogArticleLoading />
   ) : status === "error" || !article.title ? (
     <>
-      <div className={cn("fixed bg-dark-shades w-screen h-screen -z-10")} />
-      <div className={cn("my-10 mx-auto pt-10 px-8 container")}>
+      <div className={cn("bg-dark-shades fixed -z-10 h-screen w-screen")} />
+      <div className={cn("container my-10 mx-auto px-8 pt-10")}>
         <header
           className={cn(
-            "flex mx-auto items-center place-content-center px-8 text-center",
+            "mx-auto flex place-content-center items-center px-8 text-center",
             "flex-col"
           )}
         >
@@ -53,7 +53,7 @@ const BlogArticleContent: React.FC<{ slug: string }> = ({ slug }) => {
             </>
           </h1>
         </header>
-        <div className={cn("flex justify-center mb-8")}>
+        <div className={cn("mb-8 flex justify-center")}>
           <Button
             icon={<BsFillArrowLeftCircleFill />}
             isLight
@@ -68,8 +68,8 @@ const BlogArticleContent: React.FC<{ slug: string }> = ({ slug }) => {
   ) : (
     <BlogArticleWrapper
       content={
-        <div className={cn("flex mx-auto", "flex-col")}>
-          <div className={cn("text-right text-lg mr-4")}>
+        <div className={cn("mx-auto flex", "flex-col")}>
+          <div className={cn("mr-4 text-right text-lg")}>
             {new Date(article.published_timestamp).toLocaleDateString("en-US", {
               year: "numeric",
               month: "short",
@@ -92,9 +92,9 @@ const BlogArticleContent: React.FC<{ slug: string }> = ({ slug }) => {
             src={article.cover_image}
           />
           <div
-            className={cn("flex gap-4 justify-between mx-4 mb-8", "flex-wrap")}
+            className={cn("mx-4 mb-8 flex justify-between gap-4", "flex-wrap")}
           >
-            <div className={cn("flex gap-4 mt-4 text-xl", "flex-wrap")}>
+            <div className={cn("mt-4 flex gap-4 text-xl", "flex-wrap")}>
               <a
                 className={cn(
                   "hover:text-light-accent active:text-dark-accent"

@@ -14,18 +14,18 @@ const ParallaxMountains: React.FC = () => {
       <div className={cn("gradient-background")} />
       <div
         className={cn(
-          "fixed bg-dark-shades -z-[5] w-screen left-0",
+          "bg-dark-shades fixed left-0 -z-[5] w-screen",
           "top-3/4",
           "h-1/4"
         )}
       />
       <FadeIn transitionDuration={200}>
         {deviceIsMobile ? (
-          <div className={cn("flex justify-center w-screen")}>
+          <div className={cn("flex w-screen justify-center")}>
             <div className={cnScoped(styles)(styles._mountainMiddle)} />
           </div>
         ) : (
-          <div className={cn("flex justify-center w-screen")}>
+          <div className={cn("flex w-screen justify-center")}>
             <div className={cnScoped(styles)(styles._mountainMiddle)} />
             <Parallax speed={-13} style={{ zIndex: -2 }}>
               <div className={cnScoped(styles)(styles._mountainLeft)} />

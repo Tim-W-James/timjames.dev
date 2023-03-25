@@ -207,7 +207,7 @@ const ContactForm: React.FC<{
           //#region name
         }
         <label htmlFor="name">
-          <div className={cn("flex gap-2 justify-between")}>
+          <div className={cn("flex justify-between gap-2")}>
             <p id="nameLabel">Name</p>
             {formState.errors.name ? (
               <p className={cn("text-danger text-right")}>
@@ -235,7 +235,7 @@ const ContactForm: React.FC<{
           //#region email
         }
         <label htmlFor="email">
-          <div className={cn("flex gap-2 justify-between")}>
+          <div className={cn("flex justify-between gap-2")}>
             <p id="emailLabel">Email</p>
             {formState.errors.email ? (
               <p className={cn("text-danger text-right")}>
@@ -262,7 +262,7 @@ const ContactForm: React.FC<{
           //#region message
         }
         <label htmlFor="message">
-          <div className={cn("flex gap-2 justify-between")}>
+          <div className={cn("flex justify-between gap-2")}>
             <p>Message</p>
             {formState.errors.message ? (
               <p className={cn("text-danger text-right")}>

@@ -67,7 +67,7 @@ const Button = (props: ButtonProps) => {
   );
 
   const inner = (
-    <span className={cn("flex gap-2 items-center justify-between")}>
+    <span className={cn("flex items-center justify-between gap-2")}>
       {iconRight ? (
         <>
           {!isLabelHidden ? label : null}

@@ -25,7 +25,7 @@ const MajorProjects: React.FC = () => {
     <div className={cn("mb-8")}>
       <div
         className={cn(
-          "flex mx-auto items-center place-content-center px-8",
+          "mx-auto flex place-content-center items-center px-8",
           "flex-col"
         )}
       >

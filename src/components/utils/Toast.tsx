@@ -9,7 +9,7 @@ const Toast: React.FC = () => {
         "relative flex p-1",
         "min-h-10",
         "rounded-md",
-        "justify-between overflow-hidden cursor-pointer",
+        "cursor-pointer justify-between overflow-hidden",
         "border-[1px]",
         "border-light-shades"
       ),
@@ -17,7 +17,7 @@ const Toast: React.FC = () => {
   );
 
   const toastBodyStyles = useCallback(
-    () => cn("text-sm block p-3 flex", "text-light-shades bg-dark-shades"),
+    () => cn("block flex p-3 text-sm", "text-light-shades bg-dark-shades"),
     []
   );
 

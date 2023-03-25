@@ -45,7 +45,7 @@ const BlogPostsCarousel: React.FC = () => {
 
   return (
     <div>
-      <h2 className={cn("self-center mb-4")} id="blog">
+      <h2 className={cn("mb-4 self-center")} id="blog">
         <HashLink className={cn("hash-link")} onClick={copyFragment} to="#blog">
           Latest Blog Posts{" "}
         </HashLink>
@@ -69,7 +69,7 @@ const BlogPostsCarousel: React.FC = () => {
               <BlogCardLoading isCarouselItem key={key} />
             ))
           ) : status === "error" ? (
-            <div className={cn("text-center mb-8 text-xl")}>
+            <div className={cn("mb-8 text-center text-xl")}>
               <span className={cn("text-danger")}>Something went wrong</span> -
               Try again later
             </div>
@@ -82,7 +82,7 @@ const BlogPostsCarousel: React.FC = () => {
           )}
         </div>
         <div
-          className={cn("flex mt-8 gap-4 justify-center items-center mx-auto")}
+          className={cn("mx-auto mt-8 flex items-center justify-center gap-4")}
         >
           <Button
             icon={<BsFillArrowLeftCircleFill />}

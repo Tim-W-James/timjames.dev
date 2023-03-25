@@ -37,7 +37,7 @@ const Card: React.FC<{
             src={article.social_image}
             width={350}
           />
-          <div className={cn("text-right mr-2")}>
+          <div className={cn("mr-2 text-right")}>
             {new Date(article.published_timestamp).toLocaleDateString("en-US", {
               year: "numeric",
               month: "short",
@@ -52,7 +52,7 @@ const Card: React.FC<{
             to={`/blog/${article.slug}`}
           >
             <h3
-              className={cn("font-bold text-light-accent mb-0 text-center")}
+              className={cn("text-light-accent mb-0 text-center font-bold")}
               id={article.title}
             >
               {article.title}
@@ -60,7 +60,7 @@ const Card: React.FC<{
           </Link>
           <hr className={cn("radial-border")} />
         </div>
-        <div className={cn("flex gap-2 justify-center", "flex-wrap")}>
+        <div className={cn("flex justify-center gap-2", "flex-wrap")}>
           {article.tag_list.map((tag, index) => (
             <div
               className={cn("bg-main-brand px-2 font-bold", "rounded-md")}
@@ -70,7 +70,7 @@ const Card: React.FC<{
             </div>
           ))}
         </div>
-        <div className={cn("flex gap-4 justify-between mx-2", "flex-wrap")}>
+        <div className={cn("mx-2 flex justify-between gap-4", "flex-wrap")}>
           <div className={cn("flex gap-4 text-xl", "flex-wrap")}>
             <a
               className={cn("hover:text-light-accent active:text-dark-accent")}

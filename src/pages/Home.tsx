@@ -24,7 +24,7 @@ const Home: React.FC = () => {
         <FadeIn transitionDuration={400}>
           <header
             className={cn(
-              "flex mt-56 items-center place-content-center",
+              "mt-56 flex place-content-center items-center",
               "flex-col"
             )}
           >
@@ -44,13 +44,13 @@ const Home: React.FC = () => {
           </FadeIn>
           <CoreTechnologies />
           <div className={cn("solid-background")}>
-            <div className={cn("pt-8 mx-auto container")}>
+            <div className={cn("container mx-auto pt-8")}>
               <FadeIn transitionDuration={400}>
                 <AboutMe />
                 <BlogPostsCarousel />
                 <MajorProjects />
                 <Skills />
-                <div className={cn("flex justify-center mt-8")}>
+                <div className={cn("mt-8 flex justify-center")}>
                   <Button
                     icon={<BsFillArrowRightCircleFill />}
                     iconRight
