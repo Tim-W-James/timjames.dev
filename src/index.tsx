@@ -1,4 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
+// eslint-disable-next-line filename-rules/match
 import "@styles/main.scss";
 
 import ScrollToTop from "@components/utils/ScrollToTop";

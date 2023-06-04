@@ -23,11 +23,10 @@ const useDocumentMeta = (
       : `${PRIMARY_TITLE}${TITLE_SEPARATOR}${DEFAULT_SUB_TITLE}`;
 
     const descriptionRef = document.querySelector("meta[name='description']");
-    descriptionRef &&
-      descriptionRef.setAttribute(
-        "content",
-        description ? description : DEFAULT_DESCRIPTION
-      );
+    descriptionRef?.setAttribute(
+      "content",
+      description ? description : DEFAULT_DESCRIPTION
+    );
 
     const canonicalRef = document.querySelector("link[rel='canonical']");
     canonicalRef && canonical && canonicalRef.setAttribute("href", canonical);

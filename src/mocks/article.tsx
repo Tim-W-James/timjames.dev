@@ -1,4 +1,5 @@
 /* eslint-disable sonarjs/no-duplicate-string */
+// eslint-disable-next-line filename-rules/match
 const mockArticle = {
   canonical_url:
     "https://dev.to/timwjames/command-line-tools-for-productive-developers-pph",

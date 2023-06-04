@@ -15,7 +15,7 @@ const parseResponse = <T>(response: any): T =>
  */
 export const devdottoArticlesMeta =
   (articles: number, page?: number) => async () =>
-    parseResponse<Array<DevdottoArticleMeta>>(
+    parseResponse<DevdottoArticleMeta[]>(
       (
         await fetch(
           // eslint-disable-next-line max-len

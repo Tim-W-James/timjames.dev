@@ -125,7 +125,7 @@ const ContactForm: React.FC<{
   // Ensure reCAPTCHA badge appears on top and complies with Google's TOS
   useEffect(() => {
     const badge = document.querySelector(".grecaptcha-badge");
-    badge && badge.classList.add("captcha-show");
+    badge?.classList.add("captcha-show");
   }, [handleReCaptchaVerify]);
 
   // Reverify the CAPTCHA on form submission

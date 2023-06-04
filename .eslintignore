@@ -3,3 +3,4 @@ types
 storybook-static
 **/*module.scss.d.ts
 **/cssClasses.d.ts
+**/vite-env.d.ts

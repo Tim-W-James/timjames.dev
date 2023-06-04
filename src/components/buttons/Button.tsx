@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 import styles from "./Button.module.scss";
 
-export interface ButtonProps extends React.ComponentPropsWithoutRef<"button"> {
+export type ButtonProps = {
   to?: string;
   label?: string;
   tooltip?: string;
@@ -18,7 +18,7 @@ export interface ButtonProps extends React.ComponentPropsWithoutRef<"button"> {
   disabled?: boolean;
   appearInactive?: boolean;
   className?: string;
-}
+} & React.ComponentPropsWithoutRef<"button">;
 
 /**
  * Custom button component
@@ -34,21 +34,21 @@ export interface ButtonProps extends React.ComponentPropsWithoutRef<"button"> {
 }
  */
 // eslint-disable-next-line sonarjs/cognitive-complexity
-const Button = (props: ButtonProps) => {
-  const {
-    to: link,
-    label,
-    tooltip,
-    icon,
-    mode,
-    isLight,
-    isLabelHidden,
-    iconRight,
-    disabled,
-    appearInactive,
-    className: additionalClassName,
-    ...buttonProps
-  } = props;
+const Button = ({
+  to: link,
+  label,
+  tooltip,
+  icon,
+  mode,
+  isLight,
+  isLabelHidden,
+  iconRight,
+  disabled,
+  appearInactive,
+  className: additionalClassName,
+  ...buttonProps
+}: // eslint-disable-next-line sonarjs/cognitive-complexity
+ButtonProps) => {
   const deviceIsTouch = useTouchInputQuery();
 
   const className = cnScoped(styles)(

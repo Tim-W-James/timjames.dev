@@ -1,3 +1,4 @@
+// eslint-disable-next-line filename-rules/match
 import { FaJava } from "react-icons/fa";
 import {
   SiAdobepremierepro,

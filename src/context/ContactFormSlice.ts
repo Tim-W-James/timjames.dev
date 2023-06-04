@@ -1,3 +1,4 @@
+// eslint-disable-next-line filename-rules/match
 import type { RootState } from "@app/store";
 // eslint-disable-next-line max-len
 import { ContactFormSchema } from "@features/contactForm/utils/contactFormSchema";

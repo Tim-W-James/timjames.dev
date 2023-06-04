@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 /* eslint-disable sonarjs/no-duplicate-string */
+// eslint-disable-next-line filename-rules/match
 import Tooltip from "@components/Tooltip";
 import adaThumbnail from "@images/projects/ada.png";
 import brodburgerThumbnail from "@images/projects/brodburger.png";

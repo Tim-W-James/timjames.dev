@@ -7,10 +7,13 @@ import Button from "./buttons/Button";
 /**
  * Fallback error display for any unrecoverable errors.
  */
-export const ErrorFallback = (props: FallbackProps): JSX.Element => {
+export const ErrorFallback = ({
+  error,
+  resetErrorBoundary,
+}: FallbackProps): JSX.Element => {
   useEffect(() => {
-    console.error(new Error("Error loading page:", { cause: props.error }));
-  }, [props.error]);
+    console.error(new Error("Error loading page:", { cause: error }));
+  }, [error]);
 
   return (
     <>
@@ -33,7 +36,7 @@ export const ErrorFallback = (props: FallbackProps): JSX.Element => {
             isLight
             label="Reload"
             mode="button"
-            onClick={props.resetErrorBoundary}
+            onClick={resetErrorBoundary}
             tooltip="Reload the page"
           />
         </div>
