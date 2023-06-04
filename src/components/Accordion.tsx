@@ -18,7 +18,7 @@ const Accordion: React.FC<{
         <m.button
           aria-expanded={isOpen}
           className={cn(
-            "text-light-accent mb-2 min-w-0 cursor-pointer p-2",
+            "mb-2 min-w-0 cursor-pointer p-2 text-light-accent",
             "hover:text-dark-accent active:text-main-brand",
             "acrylic-dark inline-flex w-full items-center",
             "rounded-md",

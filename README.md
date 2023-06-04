@@ -590,7 +590,7 @@ information.
 
 ## Contact
 
-Email: [tim.jameswork9800@gmail.com](mailto:tim.jameswork9800@gmail.com "tim.jameswork9800@gmail.com")
+Email: [tim.james.work9800@gmail.com](mailto:tim.james.work9800@gmail.com "tim.james.work9800@gmail.com")
 
 Project Link:
 [https://github.com/Tim-W-James/timjames.dev](https://github.com/Tim-W-James/timjames.dev)

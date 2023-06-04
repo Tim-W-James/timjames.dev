@@ -16,19 +16,19 @@
     pointer-events: none;
 
     // HACK align with container correctly
-    @media (min-width: 640px) {
+    @media (width >= 640px) {
       left: calc(calc(100% - 640px) / 2);
     }
-    @media (min-width: 768px) {
+    @media (width >= 768px) {
       left: calc(calc(100% - 768px) / 2);
     }
-    @media (min-width: 1024px) {
+    @media (width >= 1024px) {
       left: calc(calc(100% - 1024px) / 2);
     }
-    @media (min-width: 1280px) {
+    @media (width >= 1280px) {
       left: calc(calc(100% - 1280px) / 2);
     }
-    @media (min-width: 1536px) {
+    @media (width >= 1536px) {
       left: calc(calc(100% - 1536px) / 2);
     }
   }
@@ -48,19 +48,19 @@
     pointer-events: none;
 
     // HACK align with container correctly
-    @media (min-width: 640px) {
+    @media (width >= 640px) {
       right: calc(calc(100% - 640px) / 2);
     }
-    @media (min-width: 768px) {
+    @media (width >= 768px) {
       right: calc(calc(100% - 768px) / 2);
     }
-    @media (min-width: 1024px) {
+    @media (width >= 1024px) {
       right: calc(calc(100% - 1024px) / 2);
     }
-    @media (min-width: 1280px) {
+    @media (width >= 1280px) {
       right: calc(calc(100% - 1280px) / 2);
     }
-    @media (min-width: 1536px) {
+    @media (width >= 1536px) {
       right: calc(calc(100% - 1536px) / 2);
     }
   }

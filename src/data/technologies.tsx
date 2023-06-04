@@ -24,6 +24,7 @@ import {
   SiKubernetes,
   SiLogstash,
   SiNetlify,
+  SiNextdotjs,
   SiNginx,
   SiOculus,
   SiP5Dotjs,
@@ -45,6 +46,7 @@ import {
   SiVectorworks,
   SiVite,
 } from "react-icons/si";
+import { TbCircleLetterS } from "react-icons/tb";
 
 const technologies = {
   TypeScript: {
@@ -295,6 +297,16 @@ const technologies = {
   Unreal: {
     icon: <SiUnrealengine aria-label="Unreal" />,
     link: "https://www.unrealengine.com/",
+    isCore: false,
+  },
+  NextJS: {
+    icon: <SiNextdotjs aria-label="NextJS" />,
+    link: "https://nextjs.org/",
+    isCore: false,
+  },
+  SanityCMS: {
+    icon: <TbCircleLetterS aria-label="SanityCMS" />,
+    link: "https://www.sanity.io/",
     isCore: false,
   },
 } as const satisfies Record<

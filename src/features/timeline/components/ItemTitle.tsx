@@ -21,7 +21,7 @@ const ItemTitle: React.FC<{
     <>
       <h3
         className={cn(
-          "text-main-brand mb-0 uppercase leading-snug",
+          "mb-0 uppercase leading-snug text-main-brand",
           "flex-grow",
           "basis-min-content hyphens-none"
         )}
@@ -35,19 +35,19 @@ const ItemTitle: React.FC<{
         </HashLink>
       </h3>
       <ItemCategory
-        className={cn("text-main-brand text-right")}
+        className={cn("text-right text-main-brand")}
         data={itemData}
       />
     </>
   ) : (
     <>
       <ItemCategory
-        className={cn("text-main-brand text-left")}
+        className={cn("text-left text-main-brand")}
         data={itemData}
       />
       <h3
         className={cn(
-          "text-main-brand mb-0 uppercase leading-snug",
+          "mb-0 uppercase leading-snug text-main-brand",
           "flex-grow",
           "hyphens-none"
         )}

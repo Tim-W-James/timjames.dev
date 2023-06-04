@@ -15,7 +15,7 @@ const ParallaxMountains: React.FC = () => {
       <div className={cn("gradient-background")} />
       <div
         className={cn(
-          "bg-dark-shades fixed left-0 -z-[5] w-screen",
+          "fixed left-0 -z-[5] w-screen bg-dark-shades",
           "top-3/4",
           "h-1/4"
         )}

@@ -211,7 +211,7 @@ const ContactForm: React.FC<{
           <div className={cn("flex justify-between gap-2")}>
             <p id="nameLabel">Name</p>
             {formState.errors.name ? (
-              <p className={cn("text-danger text-right")}>
+              <p className={cn("text-right text-danger")}>
                 {formState.errors.name.message}
               </p>
             ) : null}
@@ -239,7 +239,7 @@ const ContactForm: React.FC<{
           <div className={cn("flex justify-between gap-2")}>
             <p id="emailLabel">Email</p>
             {formState.errors.email ? (
-              <p className={cn("text-danger text-right")}>
+              <p className={cn("text-right text-danger")}>
                 {formState.errors.email.message}
               </p>
             ) : null}
@@ -266,7 +266,7 @@ const ContactForm: React.FC<{
           <div className={cn("flex justify-between gap-2")}>
             <p>Message</p>
             {formState.errors.message ? (
-              <p className={cn("text-danger text-right")}>
+              <p className={cn("text-right text-danger")}>
                 {formState.errors.message.message}
               </p>
             ) : null}

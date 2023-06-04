@@ -14,19 +14,19 @@ const BlogArticleLoading = () => (
                 // eslint-disable-next-line tailwindcss/no-custom-classname
                 className={`basis-${(key % 3) + 1} ${cn(
                   // eslint-disable-next-line sonarjs/no-duplicate-string
-                  "min-w-1/10 h-4 w-full rounded bg-slate-700"
+                  "h-4 w-full min-w-1/10 rounded bg-slate-700"
                 )}`}
               />
               <div
                 // eslint-disable-next-line tailwindcss/no-custom-classname
                 className={`basis-${(key % 6) + 1} ${cn(
-                  "min-w-1/10 h-4 w-full rounded bg-slate-700"
+                  "h-4 w-full min-w-1/10 rounded bg-slate-700"
                 )}`}
               />
               <div
                 // eslint-disable-next-line tailwindcss/no-custom-classname
                 className={`basis-${5 - ((key % 3) + (key % 6))} ${cn(
-                  "min-w-1/10 h-4 w-full rounded bg-slate-700"
+                  "h-4 w-full min-w-1/10 rounded bg-slate-700"
                 )}`}
               />
             </div>

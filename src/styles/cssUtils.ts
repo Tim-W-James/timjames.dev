@@ -2,6 +2,8 @@
 
 import clsx from "clsx";
 
+// eslint-disable-next-line max-len
+// eslint-disable-next-line import/namespace, import/default, import/no-named-as-default
 import ClassName from "./cssClasses";
 
 /**

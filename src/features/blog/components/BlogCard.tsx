@@ -53,7 +53,7 @@ const Card: React.FC<{
             to={`/blog/${article.slug}`}
           >
             <h3
-              className={cn("text-light-accent mb-0 text-center font-bold")}
+              className={cn("mb-0 text-center font-bold text-light-accent")}
               id={article.title}
             >
               {article.title}

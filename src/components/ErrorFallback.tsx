@@ -14,10 +14,10 @@ export const ErrorFallback = (props: FallbackProps): JSX.Element => {
 
   return (
     <>
-      <div className={cn("bg-dark-shades fixed -z-10 h-screen w-screen")} />
+      <div className={cn("fixed -z-10 h-screen w-screen bg-dark-shades")} />
       <div className={cn("mt-8  text-center")}>
         <h1
-          className={cn("text-light-accent pt-10 text-8xl font-bold")}
+          className={cn("pt-10 text-8xl font-bold text-light-accent")}
           id="error"
         >
           Error

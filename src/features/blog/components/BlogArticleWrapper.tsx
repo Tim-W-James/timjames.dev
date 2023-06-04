@@ -17,15 +17,15 @@ const BlogArticleWrapper: React.FC<{
 
   return (
     <>
-      <div className={cn("bg-dark-shades fixed -z-10 h-screen w-screen")} />
-      <div className={cn("container my-10 mx-auto px-8 pt-10")}>
+      <div className={cn("fixed -z-10 h-screen w-screen bg-dark-shades")} />
+      <div className={cn("container mx-auto my-10 px-8 pt-10")}>
         <header
           className={cn(
             "mx-auto flex place-content-center items-center px-8 text-center",
             "flex-col"
           )}
         >
-          <h1 className={cn("text-light-accent font-bold")} id={title}>
+          <h1 className={cn("font-bold text-light-accent")} id={title}>
             {title ? (
               <>
                 {title}

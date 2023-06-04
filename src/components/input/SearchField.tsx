@@ -7,7 +7,7 @@ const SearchField: React.FC<{
   <input
     aria-label="Search..."
     className={cn(
-      "text-dark-shades mb-4 w-full rounded py-[5px] px-[9px]",
+      "mb-4 w-full rounded px-[9px] py-[5px] text-dark-shades",
       "border-2",
       "!ring-0",
       "border-dark-accent",

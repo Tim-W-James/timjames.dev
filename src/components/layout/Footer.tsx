@@ -13,7 +13,7 @@ const Footer: React.FC<{ allowFixed?: boolean }> = ({ allowFixed }) => {
     <>
       <footer
         className={cn(
-          "text-dark-accent bg-dark-shades p-8 text-center",
+          "bg-dark-shades p-8 text-center text-dark-accent",
           "bottom-0 left-0 z-50 w-screen",
           { fixed: Boolean(allowFixed) && !deviceIsMobile }
         )}

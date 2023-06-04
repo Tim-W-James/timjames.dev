@@ -29,7 +29,7 @@ const MajorProjects: React.FC = () => {
           "flex-col"
         )}
       >
-        <h2 className={cn("mt-8 mb-0")} id="projects">
+        <h2 className={cn("mb-0 mt-8")} id="projects">
           <HashLink
             className={cn("hash-link")}
             onClick={copyFragment}

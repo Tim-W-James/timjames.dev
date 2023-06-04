@@ -176,11 +176,11 @@
 
     font-display: swap;
 
-    @media (max-width: 600px) {
+    @media (width <= 600px) {
       background-size: auto 600px;
     }
 
-    @media (min-width: 600px) {
+    @media (width >= 600px) {
       background-size: cover;
     }
   }

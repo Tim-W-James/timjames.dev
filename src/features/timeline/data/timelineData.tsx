@@ -569,14 +569,26 @@ const timelineData: TimelineItemData[] = [
         <Tooltip text="HTML" tooltip="HyperText Markup Language" />,{" "}
         <Tooltip text="CSS" tooltip="Cascading Style Sheets" />, and{" "}
         <Tooltip text="Bootstrap" tooltip="Component Library" />. Later
-        rewritten in{" "}
-        <Tooltip text="React" tooltip="Frontend JavaScript Framework" />.
+        rewritten to in{" "}
+        <Tooltip text="NextJS" tooltip="SSR Framework for React" /> and{" "}
+        <Tooltip text="Sanity CMS" tooltip="Headless CMS" />, making the site
+        <Tooltip text="SEO" tooltip="Search Engine Optimisation" /> optimised
+        and allowing the client to manage their own content.
       </>
     ),
     category: "Personal Project",
     isFeatured: false,
     thumbnailSrc: journeysContinueThumbnail,
-    technologies: ["HTML", "CSS", "Bootstrap", "PHP", "TypeScript", "React"],
+    technologies: [
+      "HTML",
+      "CSS",
+      "Bootstrap",
+      "PHP",
+      "TypeScript",
+      "React",
+      "NextJS",
+      "SanityCMS",
+    ],
     links: [
       {
         text: "Source code",
@@ -586,6 +598,11 @@ const timelineData: TimelineItemData[] = [
       {
         text: "JourneysContinue.com.au",
         url: "https://journeyscontinue.com.au/",
+      },
+      {
+        text: "CMS Site Builder",
+        url: "https://github.com/Tim-W-James/cms-site-builder",
+        icon: <BsGithub aria-label="GitHub" />,
       },
     ],
   },

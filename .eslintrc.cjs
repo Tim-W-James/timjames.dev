@@ -2,6 +2,7 @@ module.exports = {
   extends: [
     "@tim-w-james",
     "plugin:tailwindcss/recommended",
+    "plugin:vitest/recommended",
     "./.eslintrc-auto-import.json",
   ],
   plugins: ["vitest"],
@@ -17,15 +18,6 @@ module.exports = {
           "cnScoped",
           "cnScopedUnion",
         ],
-      },
-    ],
-    "vitest/prefer-lowercase-title": "warn",
-    "vitest/no-identical-title": "warn",
-    "vitest/no-skipped-tests": "warn",
-    "vitest/max-nested-describe": [
-      "warn",
-      {
-        max: 3,
       },
     ],
   },

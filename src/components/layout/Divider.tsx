@@ -17,13 +17,13 @@ const Divider: React.FC<{ label: string; isReversed?: boolean }> = ({
     {isReversed ? (
       <>
         <div className={`grow ${cn("border-t", "border-main-brand")}`} />
-        <span className={`shrink ${cn("text-main-brand ml-4 font-bold")}`}>
+        <span className={`shrink ${cn("ml-4 font-bold text-main-brand")}`}>
           {label}
         </span>
       </>
     ) : (
       <>
-        <span className={`shrink ${cn("text-main-brand mr-4 font-bold")}`}>
+        <span className={`shrink ${cn("mr-4 font-bold text-main-brand")}`}>
           {label}
         </span>
         <div className={`grow ${cn("border-t", "border-main-brand")}`} />
