@@ -1,2 +1,0 @@
-import{r as a}from"./index-f1f749bf.js";const r=n=>{const[o,t]=a.useState(!1);return a.useEffect(()=>{const e=window.matchMedia(n);t(e.matches);const s=c=>t(c.matches);return e.addEventListener("change",s),()=>e.removeEventListener("change",s)},[]),o},h=()=>r("(hover: none) and (pointer: coarse)"),i=()=>r("(pointer: coarse)");export{h as a,i as b,r as u};
-//# sourceMappingURL=useMediaQuery-750cbce2.js.map
