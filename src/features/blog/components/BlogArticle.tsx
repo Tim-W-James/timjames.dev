@@ -39,7 +39,7 @@ const BlogArticleContent: React.FC<BlogArticleContentProps> = ({ slug }) => {
 
   return status === "loading" ? (
     <BlogArticleLoading />
-  ) : status === "error" || !article.title ? (
+  ) : status === "error" || !article?.title ? (
     <>
       <div
         className={cn("fixed -z-10 -mt-5  h-screen w-screen bg-dark-shades")}
@@ -51,12 +51,12 @@ const BlogArticleContent: React.FC<BlogArticleContentProps> = ({ slug }) => {
             "flex-col"
           )}
         >
-          <h1 className={cn("font-bold text-light-accent")} id="Blog Not Found">
-            <>
-              Article Not Found
-              <hr className={cn("radial-border")} />
-            </>
+          <h1 className={cn("text-8xl font-bold text-light-accent")} id="error">
+            Error
           </h1>
+          <h2>
+            <span className={cn("text-danger")}>Oops!</span> Article not found.
+          </h2>
         </header>
         <div className={cn("mb-8 flex justify-center")}>
           <Button

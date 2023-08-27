@@ -29,7 +29,8 @@ const searchFilter = (searchText: string, item: DevdottoArticleMeta) => {
     search.length === 0 ||
     item.title.toLowerCase().includes(search) ||
     item.description.toLowerCase().includes(search) ||
-    item.tag_list.some((tag) => tag.toLowerCase().includes(search))
+    (typeof item.tag_list !== "string" &&
+      item.tag_list.some((tag) => tag.toLowerCase().includes(search)))
   );
 };
 
@@ -182,7 +183,7 @@ const Blog = () => {
 
   const filteredArticles = useMemo(
     () =>
-      status === "loading" || status === "error"
+      status === "loading" || status === "error" || !articles
         ? []
         : articles
             .sort(sortByPopularity)
@@ -192,9 +193,10 @@ const Blog = () => {
               return (
                 searchFilter(searchText, articleMeta) &&
                 (selectedTags.length === 0 ||
-                  articleMeta.tag_list.filter((articleTag) =>
-                    tags.includes(articleTag)
-                  ).length !== 0)
+                  (typeof articleMeta.tag_list !== "string" &&
+                    articleMeta.tag_list.filter((articleTag) =>
+                      tags.includes(articleTag)
+                    ).length !== 0))
               );
             })
             .map((articleMeta, index) => (
@@ -288,7 +290,7 @@ const Blog = () => {
         >
           {status === "loading" ? (
             [...Array(6).keys()].map((key) => <BlogCardLoading key={key} />)
-          ) : status === "error" ? (
+          ) : status === "error" || !articles ? (
             <div className={cn("mb-8 text-center text-xl ")}>
               <span className={cn("text-danger")}>Something went wrong</span> -
               Try again later

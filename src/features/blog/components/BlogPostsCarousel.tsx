@@ -72,7 +72,7 @@ const BlogPostsCarousel: React.FC = () => {
             [...Array(4).keys()].map((key) => (
               <BlogCardLoading isCarouselItem key={key} />
             ))
-          ) : status === "error" ? (
+          ) : status === "error" || !latestArticles ? (
             <div className={cn("mb-8 text-center text-xl")}>
               <span className={cn("text-danger")}>Something went wrong</span> -
               Try again later

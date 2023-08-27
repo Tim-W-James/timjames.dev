@@ -67,14 +67,16 @@ const BlogCard: React.FC<BlogCardProps> = ({ article, isCarouselItem }) => {
           <hr className={cn("radial-border")} />
         </div>
         <div className={cn("flex justify-center gap-2", "flex-wrap")}>
-          {article.tag_list.map((tag, index) => (
-            <div
-              className={cn("bg-main-brand px-2 font-bold", "rounded-md")}
-              key={index}
-            >
-              {tag}
-            </div>
-          ))}
+          {typeof article.tag_list !== "string"
+            ? article.tag_list.map((tag, index) => (
+                <div
+                  className={cn("bg-main-brand px-2 font-bold", "rounded-md")}
+                  key={index}
+                >
+                  {tag}
+                </div>
+              ))
+            : null}
         </div>
         <div className={cn("mx-2 flex justify-between gap-4", "flex-wrap")}>
           <div className={cn("flex gap-4 text-xl", "flex-wrap")}>
