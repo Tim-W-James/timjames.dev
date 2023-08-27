@@ -42,7 +42,6 @@ createRoot(document.getElementById("root")!).render(
                 element={
                   <Page
                     canonical={`${window.location.protocol}//${window.location.hostname}`}
-                    content={<Home />}
                     description={HOME.description}
                     fallback={
                       <>
@@ -58,7 +57,9 @@ createRoot(document.getElementById("root")!).render(
                     }
                     nonStandardLayout
                     title={HOME.title}
-                  />
+                  >
+                    <Home />
+                  </Page>
                 }
                 index
                 key={index}
@@ -72,10 +73,11 @@ createRoot(document.getElementById("root")!).render(
                     canonical={`${window.location.protocol}//${
                       window.location.hostname
                     }${PROJECTS.routes[0] ?? ""}`}
-                    content={<Projects />}
                     description={PROJECTS.description}
                     title={PROJECTS.title}
-                  />
+                  >
+                    <Projects />
+                  </Page>
                 }
                 index
                 key={index}
@@ -89,10 +91,11 @@ createRoot(document.getElementById("root")!).render(
                     canonical={`${window.location.protocol}//${
                       window.location.hostname
                     }${BLOG.routes[0] ?? ""}`}
-                    content={<Blog />}
                     description={BLOG.description}
                     title={BLOG.title}
-                  />
+                  >
+                    <Blog />
+                  </Page>
                 }
                 index
                 key={index}
@@ -104,18 +107,19 @@ createRoot(document.getElementById("root")!).render(
               <Route
                 element={
                   <Page
-                    content={<BlogArticle />}
                     description={BLOG.description}
                     fallback={
                       <div
                         className={cn(
-                          "fixed -z-10 h-screen w-screen bg-dark-shades"
+                          "fixed -z-10 -mt-5 h-screen w-screen bg-dark-shades"
                         )}
                       />
                     }
                     nonStandardLayout
                     title={BLOG.title}
-                  />
+                  >
+                    <BlogArticle />
+                  </Page>
                 }
                 index
                 key={index}
@@ -129,10 +133,11 @@ createRoot(document.getElementById("root")!).render(
                     canonical={`${window.location.protocol}//${
                       window.location.hostname
                     }${CONTACT.routes[0] ?? ""}`}
-                    content={<Contact />}
                     description={CONTACT.description}
                     title={CONTACT.title}
-                  />
+                  >
+                    <Contact />
+                  </Page>
                 }
                 index
                 key={index}
@@ -141,11 +146,9 @@ createRoot(document.getElementById("root")!).render(
             ))}
             <Route
               element={
-                <Page
-                  content={<NotFound />}
-                  nonStandardLayout
-                  title="Not Found"
-                />
+                <Page nonStandardLayout title="Not Found">
+                  <NotFound />
+                </Page>
               }
               path="*"
             />

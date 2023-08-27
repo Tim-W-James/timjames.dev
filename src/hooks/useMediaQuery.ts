@@ -1,7 +1,7 @@
 /**
  * Hook to check if a css media query is true
  *
- * @param {string} query
+ * @param query
  * @example useMediaQuery("(min-width: 1280px)")
  */
 const useMediaQuery = (query: string) => {

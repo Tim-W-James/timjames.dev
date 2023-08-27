@@ -4,9 +4,9 @@ import { BsFillHouseDoorFill } from "react-icons/bs";
 
 const NotFound: React.FC = () => (
   <>
-    <div className={cn("fixed -z-10 h-screen w-screen bg-dark-shades")} />
+    <div className={cn("fixed -z-10 -mt-5 h-screen w-screen bg-dark-shades")} />
     <div className={cn("mt-8  text-center")}>
-      <h1 className={cn("pt-10 text-8xl font-bold text-light-accent")} id="404">
+      <h1 className={cn("text-8xl font-bold text-light-accent")} id="404">
         404
       </h1>
       <h2>

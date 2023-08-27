@@ -7,16 +7,7 @@ import TimelineItem from "./TimelineItem";
 
 // Adapted from: https://www.florin-pop.com/blog/2019/04/how-to-create-a-timeline-with-react/
 
-/**
- * Displays a timeline of items
- *
- * @param {{ data; filterFunc; sortFunc; }} {
-  data to be displayed in the timeline,
-  filter for timeline data,
-  sort for timeline data
-}
- */
-const Timeline: React.FC<{
+type TimelineProps = {
   data: TimelineItemData[];
   filterFunc?: (
     value: TimelineItemData,
@@ -24,7 +15,12 @@ const Timeline: React.FC<{
     array: TimelineItemData[]
   ) => boolean;
   sortFunc?: (a: TimelineItemData, b: TimelineItemData) => number;
-}> = ({
+};
+
+/**
+ * Displays a timeline of items
+ */
+const Timeline: React.FC<TimelineProps> = ({
   data: timelineData,
   filterFunc = (value) => value,
   sortFunc = () => 0,

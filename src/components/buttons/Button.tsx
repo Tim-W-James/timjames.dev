@@ -7,48 +7,80 @@ import { Link } from "react-router-dom";
 import styles from "./Button.module.scss";
 
 export type ButtonProps = {
-  to?: string;
+  /**
+   * Label display text
+   */
   label?: string;
+  /**
+   * Title to display on hover
+   */
   tooltip?: string;
+  /**
+   * Icon element to display next to the label
+   */
   icon?: JSX.Element;
-  mode?: "route" | "anchor" | "button";
+  /**
+   * Whether to use the light or dark theme
+   */
   isLight?: boolean;
+  /**
+   * Conditionally hide the label
+   */
   isLabelHidden?: boolean;
+  /**
+   * Position the icon to the right, left by default
+   */
   iconRight?: boolean;
+  /**
+   * Disable the button
+   */
   disabled?: boolean;
+  /**
+   * Appear disabled, but still interactive for accessibility reasons
+   */
   appearInactive?: boolean;
+  /**
+   * Custom class names to append to the defaults
+   */
   className?: string;
-} & React.ComponentPropsWithoutRef<"button">;
+} & (
+  | {
+      /**
+       * Whether to route to a SPA route or an external link
+       */
+      mode?: "route" | "anchor";
+      /**
+       * href or link for the anchor or route respectively
+       */
+      to?: string;
+    }
+  | {
+      /**
+       * Treat as a primitive HTML button with an onClick
+       */
+      mode: "button";
+      /**
+       * Props to pass to the HTML button
+       */
+      childProps: React.ComponentPropsWithoutRef<"button">;
+    }
+);
 
 /**
  * Custom button component
- *
- * @param {{ to; label; tooltip; icon; linkIsRoute; isLight; isLabelHidden; }} {
-  link,
-  label text,
-  tooltip text when hovering over button,
-  icon,
-  mode is a route or anchor or button,
-  use light theme,
-  hide the label text,
-}
  */
-// eslint-disable-next-line sonarjs/cognitive-complexity
 const Button = ({
-  to: link,
   label,
   tooltip,
   icon,
-  mode,
   isLight,
   isLabelHidden,
   iconRight,
   disabled,
   appearInactive,
   className: additionalClassName,
-  ...buttonProps
-}: // eslint-disable-next-line sonarjs/cognitive-complexity
-ButtonProps) => {
+  ...otherProps // eslint-disable-next-line sonarjs/cognitive-complexity
+}: ButtonProps) => {
   const deviceIsTouch = useTouchInputQuery();
 
   const className = cnScoped(styles)(
@@ -83,7 +115,7 @@ ButtonProps) => {
     </span>
   );
 
-  switch (mode) {
+  switch (otherProps.mode) {
     case "route":
       return (
         <Link
@@ -93,7 +125,7 @@ ButtonProps) => {
           }
           onMouseMove={setHoverEffects}
           title={label && tooltip}
-          to={link ?? "/"}
+          to={otherProps.to ?? "/"}
           type="button"
         >
           {inner}
@@ -111,7 +143,7 @@ ButtonProps) => {
           onMouseMove={setHoverEffects}
           title={label && tooltip}
           type="button"
-          {...buttonProps}
+          {...otherProps.childProps}
         >
           {inner}
         </button>
@@ -122,7 +154,7 @@ ButtonProps) => {
         <a
           aria-label={label}
           className={`${className} ${additionalClassName ?? ""}`}
-          href={link ?? "/"}
+          href={otherProps.to ?? "/"}
           onMouseMove={setHoverEffects}
           rel="noreferrer"
           target="_blank"

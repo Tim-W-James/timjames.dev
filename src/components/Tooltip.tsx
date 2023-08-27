@@ -1,10 +1,15 @@
 import cn from "@styles/cssUtils";
 
-const Tooltip: React.FC<{
+type TooltipProps = {
   text: string;
   tooltip: string;
   isInverted?: boolean;
-}> = ({ text, tooltip, isInverted }) => (
+};
+
+/**
+ * Tooltip to display additional information on hover
+ */
+const Tooltip: React.FC<TooltipProps> = ({ text, tooltip, isInverted }) => (
   <span
     className={cn("tooltip", { inverted: Boolean(isInverted) })}
     data-nosnippet

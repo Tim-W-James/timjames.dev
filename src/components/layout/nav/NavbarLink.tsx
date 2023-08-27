@@ -6,20 +6,21 @@ import { Link, useLocation } from "react-router-dom";
 
 import styles from "./NavbarLink.module.scss";
 
-/**
- * Link in the navbar
- *
- * @param {{ label; to; order; isSelected; inHamburgerMenu; }} { label text,
- * route, order for sorting, whether the link is selected, use a dropdown menu
- * style }
- */
-const NavbarLink: React.FC<{
+type NavbarLinkProps = {
   label: string;
   to?: string;
   order: 1 | 2 | 3 | 4 | 5;
   isSelected?: boolean;
   inHamburgerMenu?: boolean;
-}> = ({ label, to: route, order, isSelected, inHamburgerMenu }) => {
+};
+
+const NavbarLink: React.FC<NavbarLinkProps> = ({
+  label,
+  to: route,
+  order,
+  isSelected,
+  inHamburgerMenu,
+}) => {
   const location = useLocation();
   const deviceIsTouch = useTouchInputQuery();
   const scrollToTop = useCallback(

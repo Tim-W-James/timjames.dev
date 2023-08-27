@@ -20,24 +20,42 @@ const Spinner: React.FC = () => (
   </div>
 );
 
+type PageProps = {
+  /**
+   * Meta title
+   */
+  title?: string;
+  /**
+   * Meta description
+   */
+  description?: string;
+  /**
+   * Meta canonical URL
+   */
+  canonical?: string;
+  /**
+   * Allow the content to determine it's own layout
+   */
+  nonStandardLayout?: boolean;
+  /**
+   * Override the fallback spinner
+   */
+  fallback?: JSX.Element;
+  /**
+   * Content to display on the page
+   */
+  children: JSX.Element;
+};
+
 /**
  * Wrapper for page content that sets the title.
- *
- * @param {{ title; content; }} { page title, inner content }
  */
-const Page: React.FC<{
-  title?: string;
-  description?: string;
-  canonical?: string;
-  nonStandardLayout?: boolean;
-  fallback?: JSX.Element;
-  content: JSX.Element;
-}> = ({
+const Page: React.FC<PageProps> = ({
   title,
   description,
   canonical,
   nonStandardLayout,
-  content,
+  children,
   fallback,
 }) => {
   useDocumentMeta(title, description, canonical);
@@ -54,15 +72,16 @@ const Page: React.FC<{
   return (
     <ErrorBoundary
       FallbackComponent={ErrorFallback}
-      // eslint-disable-next-line react/jsx-no-bind
       onReset={() => window.location.reload()}
     >
       {nonStandardLayout ? (
-        <Suspense fallback={fallback}>{content}</Suspense>
+        <Suspense fallback={fallback}>{children}</Suspense>
       ) : (
         <>
-          <div className={cn("fixed -z-10 h-screen w-screen bg-dark-shades")} />
-          <div className={cn("container mx-auto my-10 px-8 pt-10")}>
+          <div
+            className={cn("fixed -z-10 -mt-5 h-screen w-screen bg-dark-shades")}
+          />
+          <div className={cn("container mx-auto my-10 px-8")}>
             <header
               className={cn(
                 "mx-auto flex place-content-center items-center",
@@ -76,7 +95,7 @@ const Page: React.FC<{
               </h1>
             </header>
             <main>
-              <Suspense fallback={fallback ?? <Spinner />}>{content}</Suspense>
+              <Suspense fallback={fallback ?? <Spinner />}>{children}</Suspense>
             </main>
           </div>
         </>

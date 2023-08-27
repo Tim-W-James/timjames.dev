@@ -59,7 +59,6 @@ const Hobbies: React.FC = () => {
             📚 <b className={cn("font-bold")}>Books</b>: Dune
           </li>
           <li>
-            {/* eslint-disable-next-line max-len */}
             🎵 <b className={cn("font-bold")}>Music</b>: Tame Impala - Find me
             on{" "}
             <a

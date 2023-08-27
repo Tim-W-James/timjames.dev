@@ -1,4 +1,5 @@
 import cn from "@styles/cssUtils";
+import { Dispatch } from "react";
 import Select, { Theme } from "react-select";
 import makeAnimated from "react-select/animated";
 
@@ -17,7 +18,6 @@ const theme = (theme: Theme) => ({
     primary: "hsl(185deg 46% 52%)",
     primary75: "hsl(185deg 46% 62%)",
     primary50: "hsl(185deg 46% 72%)",
-    // eslint-disable-next-line sonarjs/no-duplicate-string
     primary25: "hsl(193deg 22% 60%)",
     neutral0: "hsl(180deg 5% 91%)",
     neutral5: "hsl(180deg 5% 81%)",
@@ -35,19 +35,23 @@ const theme = (theme: Theme) => ({
   },
 });
 
-/**
- * Single Selection component with dropdown
- *
- * @param {{ selectedOptions; setSelectedOptions; options; placeholder; }} {
- * default options, on change function, options, placeholder text }
- */
-export const SingleSelection: React.FC<{
+type SingleSelectionProps = {
   placeholder?: string;
   options: readonly Option[];
   selectedOption: Option;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  setSelectedOption: React.Dispatch<React.SetStateAction<any>>;
-}> = ({ selectedOption, setSelectedOption, options, placeholder }) => (
+  setSelectedOption: Dispatch<React.SetStateAction<any>>;
+};
+
+/**
+ * Single Selection component with dropdown
+ */
+export const SingleSelection: React.FC<SingleSelectionProps> = ({
+  selectedOption,
+  setSelectedOption,
+  options,
+  placeholder,
+}) => (
   <div className={cn("multi-select scroll-dark z-10 w-full text-dark-shades")}>
     <Select
       aria-label={placeholder ?? "Select..."}
@@ -63,13 +67,7 @@ export const SingleSelection: React.FC<{
   </div>
 );
 
-/**
- * Multi Selection component with dropdown
- *
- * @param {{ selectedOptions; setSelectedOptions; options; placeholder; }} {
- * default options, on change function, options, placeholder text }
- */
-const MultiSelection: React.FC<{
+type MultiSelectionProps = {
   placeholder?: string;
   options: readonly Option[];
   selectedOptions: readonly Option[];
@@ -81,7 +79,17 @@ const MultiSelection: React.FC<{
       }[]
     >
   >;
-}> = ({ selectedOptions, setSelectedOptions, options, placeholder }) => (
+};
+
+/**
+ * Multi Selection component with dropdown
+ */
+const MultiSelection: React.FC<MultiSelectionProps> = ({
+  selectedOptions,
+  setSelectedOptions,
+  options,
+  placeholder,
+}) => (
   <div className={cn("multi-select scroll-dark z-10 w-full text-dark-shades")}>
     <Select
       aria-label={placeholder ?? "Select..."}

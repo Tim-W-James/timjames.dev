@@ -20,23 +20,25 @@ const itemAnimationVariants = {
     rotateX: 0,
     "--rotation-offset": "0deg",
     transition: { duration: 0.25 },
-    // https://www.framer.com/docs/component/###animating-css-variables
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  } as any,
+  },
   hidden: {
     opacity: 0,
     rotateX: -50,
     "--rotation-offset": "180deg",
-    // https://www.framer.com/docs/component/###animating-css-variables
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  } as any,
+  },
 };
 
-const TimelineItem: React.FC<{
+type TimelineItemProps = {
   data: TimelineItemData;
   index: number;
   hasTwoColumns: boolean;
-}> = ({ data: itemData, index, hasTwoColumns }) => {
+};
+
+const TimelineItem: React.FC<TimelineItemProps> = ({
+  data: itemData,
+  index,
+  hasTwoColumns,
+}) => {
   const control = useAnimation();
   const ref = useRef(null);
   const isInView = useInView(ref);
@@ -81,21 +83,11 @@ const TimelineItem: React.FC<{
                 {itemData.startDate.getFullYear()}
                 {itemData.startDate.getFullYear() !==
                 itemData.endDate.getFullYear()
-                  ? // eslint-disable-next-line max-len
-                    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-                    ` - ${itemData.endDate.getFullYear()}`
+                  ? ` - ${itemData.endDate.getFullYear()}`
                   : ""}
               </time>
             </h4>
-            <div
-              className={cn(
-                "items-center",
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-expect-error - edge case the dynamic types can't handle
-                "2xl:flex",
-                "2xl:gap-4"
-              )}
-            >
+            <div className={cn("items-center", "xl:flex", "xl:gap-4")}>
               <ItemThumbnail data={itemData} isOddIndex={isOddIndex} />
               <p className={cn("hyphens-none")}>{itemData.body}</p>
             </div>

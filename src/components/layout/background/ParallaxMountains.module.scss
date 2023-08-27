@@ -1,16 +1,16 @@
 ._mountainMiddle {
   @apply absolute w-0 h-0 -z-[1];
 
-  top: 80px;
   border-width: 0 clamp(450px, 25vw, 25vw) clamp(800px, 75vh, 75vh);
   border-style: solid;
   border-color: transparent transparent colors.$dark-shades;
+  margin-top: 40px;
 }
 
 ._mountainLeft {
   @apply absolute w-0 h-0;
 
-  top: clamp(125px, 18vh, 18vh);
+  top: clamp(85px, 18vh, 18vh);
   right: -275px;
   border-width: 0 clamp(450px, 25vw, 25vw) clamp(800px, 75vh, 75vh);
   border-style: solid;
@@ -20,9 +20,25 @@
 ._mountainRight {
   @apply absolute w-0 h-0;
 
-  top: clamp(75px, 10vh, 10vh);
+  top: clamp(35px, 10vh, 10vh);
   left: -325px;
   border-width: 0 clamp(450px, 25vw, 25vw) clamp(800px, 75vh, 75vh);
   border-style: solid;
   border-color: transparent transparent colors.$dark-shades;
+}
+
+._mountainMiddleMobile {
+  @apply absolute w-0 h-0 -z-[1];
+
+  border-width: 0 min(50vw, 350px) 40vh;
+  border-style: solid;
+  border-color: transparent transparent colors.$dark-shades;
+  margin-top: 10px;
+}
+
+._mountainBackgroundFiller {
+  @apply absolute -z-[5] w-screen bg-dark-shades;
+  
+  height: 100vh;
+  margin-top: 40vh;
 }

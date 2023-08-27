@@ -1,5 +1,4 @@
 import Button from "@components/buttons/Button";
-import Logo from "@components/Logo";
 import BlogPostsCarousel from "@features/blog/components/BlogPostsCarousel";
 import AboutMe from "@features/home/components/AboutMe";
 import CoreTechnologies from "@features/home/components/CoreTechnologies";
@@ -7,13 +6,13 @@ import MajorProjects from "@features/home/components/MajorProjects";
 import Skills from "@features/home/components/Skills";
 import SocialLinks from "@features/home/components/SocialLinks";
 import useMediaQuery from "@hooks/useMediaQuery";
-import logo from "@images/profile.jpg";
 import ParallaxMountains from "@layout/background/ParallaxMountains";
-import cn from "@styles/cssUtils";
+import cn, { cnScoped } from "@styles/cssUtils";
 import FadeIn from "react-fade-in";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import { ParallaxProvider } from "react-scroll-parallax";
 
+import styles from "./Home.module.scss";
 const Home: React.FC = () => {
   const shouldShrinkButtons = useMediaQuery("(max-width: 670px)");
 
@@ -23,13 +22,13 @@ const Home: React.FC = () => {
         <ParallaxMountains />
         <FadeIn transitionDuration={400}>
           <header
-            className={cn(
-              "mt-56 flex place-content-center items-center",
-              "flex-col"
+            className={cnScoped(styles)(
+              "flex place-content-center items-center",
+              "flex-col",
+              styles._textAlignment
             )}
           >
-            <Logo imageSrc={logo} />
-            <h1 id="timjames">
+            <h1 className={cn("mt-40")} id="timjames">
               👋 Hello,
               <br />
               I&apos;m <b className={cn("text-light-accent")}>Tim James</b>

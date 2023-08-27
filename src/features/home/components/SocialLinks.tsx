@@ -2,9 +2,9 @@ import Button from "@components/buttons/Button";
 import cn from "@styles/cssUtils";
 import { BsGithub, BsLinkedin, BsTwitter } from "react-icons/bs";
 
-const SocialLinks: React.FC<{ shouldShrinkButtons: boolean }> = ({
-  shouldShrinkButtons,
-}) => (
+type SocialLinksProps = { shouldShrinkButtons: boolean };
+
+const SocialLinks: React.FC<SocialLinksProps> = ({ shouldShrinkButtons }) => (
   <section
     aria-label="Social Links"
     className={cn(

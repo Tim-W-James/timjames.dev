@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import Accordion from "@components/Accordion";
 import Tooltip from "@components/Tooltip";
 import useMediaQuery from "@hooks/useMediaQuery";
@@ -89,8 +90,8 @@ const Skills: React.FC = () => {
           <>
             I strive for a exceptional level of quality in my work and
             proactively seek to improve my craft. I apply my creativity when
-            {/* eslint-disable-next-line max-len */} building software, and
-            enjoy collaborating with clients to deliver the best possible{" "}
+            building software, and enjoy collaborating with clients to deliver
+            the best possible{" "}
             <Tooltip isInverted text="UX" tooltip="User Experience" />. To
             ensure my work is inclusive, I place an emphasis on accessibility.
           </>
@@ -155,14 +156,10 @@ const Skills: React.FC = () => {
             </a>
             , and take a layered approach to testing. I take care to document my
             solutions, and continually address technical debt. By taking
-            initiative with {/* // eslint-disable-next-line max-len */}
+            initiative with{" "}
             <Tooltip isInverted text="DX" tooltip="Developer Experience" />{" "}
-            tooling and {/* eslint-disable-next-line max-len */}
-            <Tooltip
-              isInverted
-              text="DevOps"
-              tooltip="Developer Operations"
-            />{" "}
+            tooling and{" "}
+            <Tooltip isInverted text="DevOps" tooltip="Developer Operations" />{" "}
             infrastructure I am able to boost my productivity. See my{" "}
             <HashLink
               aria-label="core tech stack"

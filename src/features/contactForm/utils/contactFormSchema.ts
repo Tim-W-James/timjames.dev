@@ -6,7 +6,7 @@ import { z } from "zod";
 export const contactFormSchema = z.object({
   name: z
     .string()
-    .min(2, { message: "Use at least 2 characters" })
+    .nonempty("Please enter a name")
     .max(100, { message: "Use less than 100 characters" }),
   email: z.preprocess(
     // HACK to get optional fields to work: https://stackoverflow.com/questions/73715295/react-hook-form-with-zod-resolver-optional-field
@@ -23,7 +23,7 @@ export const contactFormSchema = z.object({
   ),
   message: z
     .string()
-    .min(2, { message: "Use at least 2 characters" })
+    .nonempty("Please enter a message")
     .max(300, { message: "Use less than 300 characters" }),
 });
 

@@ -5,6 +5,7 @@ import {
   SiAmazonaws,
   SiAndroid,
   SiArduino,
+  SiAuth0,
   SiBootstrap,
   SiCsharp,
   SiCss3,
@@ -18,6 +19,7 @@ import {
   SiGo,
   SiGrafana,
   SiHaskell,
+  SiHasura,
   SiHtml5,
   SiJavascript,
   SiJenkins,
@@ -73,7 +75,7 @@ const technologies = {
   "Tailwind CSS": {
     icon: <SiTailwindcss aria-label="Tailwind" />,
     link: "https://tailwindcss.com/",
-    isCore: true,
+    isCore: false,
   },
   Sass: {
     icon: <SiSass aria-label="Sass" />,
@@ -308,6 +310,16 @@ const technologies = {
   SanityCMS: {
     icon: <TbCircleLetterS aria-label="SanityCMS" />,
     link: "https://www.sanity.io/",
+    isCore: false,
+  },
+  Hasura: {
+    icon: <SiHasura aria-label="Hasura" />,
+    link: "https://hasura.io/",
+    isCore: false,
+  },
+  Auth0: {
+    icon: <SiAuth0 aria-label="Auth0" />,
+    link: "https://auth0.com/",
     isCore: false,
   },
 } as const satisfies Record<

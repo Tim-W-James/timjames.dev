@@ -238,6 +238,7 @@ const Blog = () => {
           <div className={cn("flex w-full gap-4")}>
             <SearchField handleChange={handleChange} searchText={searchText} />
             <Button
+              childProps={{ onClick: resetOptions, type: "reset" }}
               className={cn("!-mt-1 !px-2 !py-2 !text-3xl")}
               icon={
                 isResetButtonAnimated ? (
@@ -259,9 +260,7 @@ const Blog = () => {
               isLight
               label="Reset"
               mode="button"
-              onClick={resetOptions}
               tooltip="Reset search and filter options"
-              type="reset"
             />
           </div>
           <div className={cn("flex w-full gap-4", "flex-wrap")}>

@@ -16,7 +16,12 @@
     @apply w-screen h-auto bg-dark-shades;
 
     &::before {
-      @apply absolute -z-50 w-screen;
+      @apply absolute -z-50;
+
+      width: 100vw;
+      @media (hover: none) and (pointer: coarse) {
+        width: 50vw;
+      }
 
       height: calc(100vh * 0.5);
       background: linear-gradient(
@@ -39,7 +44,9 @@
   .radial-border-utils {
     content: "";
     inset: 0;
-    mask: linear-gradient(white 0 0) content-box, linear-gradient(white 0 0);
+    mask:
+      linear-gradient(white 0 0) content-box,
+      linear-gradient(white 0 0);
     mask-composite: xor;
     mask-composite: exclude;
   }
@@ -80,12 +87,12 @@
   }
 
   .gradient-background {
-    @apply fixed -z-[5] top-1/2 h-1/4 w-screen left-0;
+    @apply fixed -z-[5] top-1/2 h-1/2 w-screen left-0;
 
     background: linear-gradient(
       180deg,
       rgb(0 0 0 / 0%) 0%,
-      colors.$dark-shades 100%
+      colors.$dark-shades 25%
     );
   }
 
@@ -188,16 +195,6 @@
   html {
     // Need scroll padding to offset the fixed header
     @apply scroll-smooth scroll-light scroll-pt-16;
-  }
-
-  #root {
-    // HACK to fix the nav and background scrolling on mobile
-    @media (hover: none) and (pointer: coarse) {
-      @apply relative overflow-x-hidden;
-
-      -webkit-overflow-scrolling: touch;
-      overflow-y: scroll;
-    }
   }
 
   p,

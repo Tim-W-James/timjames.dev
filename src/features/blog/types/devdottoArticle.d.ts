@@ -1,5 +1,6 @@
 // Adapted from: https://dev.to/matjones/how-to-embed-your-dev-to-blog-in-your-personal-website-4l81
 
+// TODO convert to zod
 export interface DevdottoArticleMeta {
   type_of: string;
   id: number;

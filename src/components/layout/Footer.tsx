@@ -1,12 +1,17 @@
 import { useMobileQuery } from "@hooks/useMediaQuery";
 import cn from "@styles/cssUtils";
 
+type FooterProps = {
+  /**
+   * Whether the footer should be fixed on desktop
+   */
+  allowFixed?: boolean;
+};
+
 /**
- * Description placeholder
- *
- * @param {{ allowFixed; }} { whether the footer should be fixed on desktop }
+ * Footer at the bottom of the page
  */
-const Footer: React.FC<{ allowFixed?: boolean }> = ({ allowFixed }) => {
+const Footer: React.FC<FooterProps> = ({ allowFixed }) => {
   const deviceIsMobile = useMobileQuery();
 
   return (

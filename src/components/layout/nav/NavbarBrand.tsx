@@ -1,17 +1,20 @@
 import cn from "@styles/cssUtils";
 import { Link } from "react-router-dom";
 
-/**
- * Brand for the navbar with a logo
- *
- * @param {{ label; to; logo; }} { label text, route, logo
- * component }
- */
-const NavbarBrand: React.FC<{
+type NavbarBrandProps = {
   label: string;
   logo: string;
   to: string;
-}> = ({ label, to: route, logo }) => {
+};
+
+/**
+ * Brand for the navbar with a logo
+ */
+const NavbarBrand: React.FC<NavbarBrandProps> = ({
+  label,
+  to: route,
+  logo,
+}) => {
   const scrollToTop = useCallback(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);

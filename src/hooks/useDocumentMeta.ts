@@ -9,8 +9,8 @@ import { useEffect } from "react";
 /**
  * Set the document meta attributes
  *
- * @param {string} title - meta title
- * @param {string} description - meta description
+ * @param title meta title
+ * @param description meta description
  */
 const useDocumentMeta = (
   title?: string,

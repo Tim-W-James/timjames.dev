@@ -1,18 +1,20 @@
 import cn from "@styles/cssUtils";
 
+type DividerProps = {
+  /**
+   * Text to display in the middle of the divider
+   */
+  label: string;
+  /**
+   * Whether the text should be on the left or right side of the divider
+   */
+  isReversed?: boolean;
+};
+
 /**
  * Divider horizontal line with header
- *
- * @param {{ label; isReversed; }} {
-  text to display in the middle of the divider,
-  whether the text should be on the left or right side of the
-  divider
-}
  */
-const Divider: React.FC<{ label: string; isReversed?: boolean }> = ({
-  label,
-  isReversed,
-}) => (
+const Divider: React.FC<DividerProps> = ({ label, isReversed }) => (
   <div className={cn("relative flex w-full items-center py-5")}>
     {isReversed ? (
       <>

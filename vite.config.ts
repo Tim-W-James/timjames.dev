@@ -7,7 +7,6 @@ import { visualizer } from "rollup-plugin-visualizer";
 import tailwind from "tailwindcss";
 import AutoImport from "unplugin-auto-import/vite";
 import { defineConfig } from "vite";
-import eslintPlugin from "vite-plugin-eslint";
 import sassDts from "vite-plugin-sass-dts";
 import tsconfigPaths from "vite-tsconfig-paths";
 
@@ -63,7 +62,6 @@ export default defineConfig(() => {
     },
     plugins: [
       react(),
-      process.env.NODE_ENV !== "test" && eslintPlugin(),
       AutoImport({
         /// Targets to transform
         include: [
@@ -104,11 +102,6 @@ export default defineConfig(() => {
       globals: true,
       setupFiles: ["src/setupTests.ts"],
       reporters: ["verbose"],
-      coverage: {
-        reporter: ["text", "json", "html"],
-        enabled: true,
-        exclude: ["**/styles", "**/*.stories.tsx"],
-      },
       passWithNoTests: true,
     },
   };

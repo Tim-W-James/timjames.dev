@@ -3,7 +3,6 @@
 // eslint-disable-next-line filename-rules/match
 import Tooltip from "@components/Tooltip";
 import adaThumbnail from "@images/projects/ada.png";
-import brodburgerThumbnail from "@images/projects/brodburger.png";
 import desktopArtThumbnail from "@images/projects/desktop_art.png";
 import gpsAndrodiGameThumbnail from "@images/projects/gps_android_game.png";
 import iqFocusThumbnail from "@images/projects/iq_focus.png";
@@ -24,6 +23,31 @@ import TimelineItemData from "../types/TimelineData";
 import styles from "./timelineData.module.scss";
 
 const timelineData: TimelineItemData[] = [
+  {
+    startDate: new Date("2023"),
+    endDate: new Date("2023"),
+    title: "Meals on Wheels",
+    body: (
+      <>
+        Full-stack{" "}
+        <Tooltip
+          text="ERP"
+          tooltip="
+      Enterprise Resource Planning"
+        />{" "}
+        application used to coordinate staff and mange deliveries providing
+        meals to those in need.
+      </>
+    ),
+    category: "Agile Digital",
+    isFeatured: true,
+    links: [
+      {
+        text: "Client website",
+        url: "https://mealsonwheels.org.au/",
+      },
+    ],
+  },
   {
     startDate: new Date("2022"),
     endDate: new Date("2023"),
@@ -54,7 +78,7 @@ const timelineData: TimelineItemData[] = [
         , and robust tooling such as{" "}
         <a
           className={cn("link")}
-          href="https://github.com/Tim-W-James/timjames.dev#typed-css"
+          href="/blog/type-safe-tailwind-and-scss-modules-20mj"
           rel="noreferrer"
           target="_blank"
           title="Read more"
@@ -107,19 +131,13 @@ const timelineData: TimelineItemData[] = [
     title: "Brodburger",
     body: (
       <>
-        Online ordering and <Tooltip text="POS" tooltip="Point of Sale" /> app
-        for a local burger franchise. I contributed to a feature upgrade,
-        improved the menu <Tooltip text="UI" tooltip="User Interface" />, and
-        configured a payment gateway. I also performed maintenance and{" "}
-        <Tooltip text="CVE" tooltip="Common Vulnerabilities and Exposures" />{" "}
-        patching of the system, and overhauled{" "}
-        <Tooltip text="CI/CD" tooltip="Continuous Integration and Delivery" />{" "}
-        pipelines.
+        Feature upgrade for an online ordering and{" "}
+        <Tooltip text="POS" tooltip="Point of Sale" /> app used by a local
+        burger franchise.
       </>
     ),
-    thumbnailSrc: brodburgerThumbnail,
     category: "Agile Digital",
-    isFeatured: true,
+    isFeatured: false,
     links: [
       {
         text: "Online ordering app",
@@ -166,12 +184,6 @@ const timelineData: TimelineItemData[] = [
     ),
     category: "Agile Digital",
     isFeatured: false,
-    links: [
-      {
-        text: "Source IP website",
-        url: "https://sourceip.csiro.au/",
-      },
-    ],
   },
   {
     startDate: new Date("2022"),
@@ -572,7 +584,7 @@ const timelineData: TimelineItemData[] = [
         <Tooltip text="Bootstrap" tooltip="Component Library" />. Later
         rewritten to in{" "}
         <Tooltip text="NextJS" tooltip="SSR Framework for React" /> and{" "}
-        <Tooltip text="Sanity CMS" tooltip="Headless CMS" />, making the site
+        <Tooltip text="Sanity CMS" tooltip="Headless CMS" />, making the site{" "}
         <Tooltip text="SEO" tooltip="Search Engine Optimisation" /> optimised
         and allowing the client to manage their own content.
       </>
@@ -592,6 +604,10 @@ const timelineData: TimelineItemData[] = [
     ],
     links: [
       {
+        text: "CMS Site Builder Blog",
+        url: "/blog/creating-a-site-builder-with-nextjs-and-sanity-cms-1e61",
+      },
+      {
         text: "Source code",
         url: "https://github.com/Tim-W-James/Journeys-Continue",
         icon: <BsGithub aria-label="GitHub" />,
@@ -599,11 +615,6 @@ const timelineData: TimelineItemData[] = [
       {
         text: "JourneysContinue.com.au",
         url: "https://journeyscontinue.com.au/",
-      },
-      {
-        text: "CMS Site Builder",
-        url: "https://github.com/Tim-W-James/cms-site-builder",
-        icon: <BsGithub aria-label="GitHub" />,
       },
     ],
   },

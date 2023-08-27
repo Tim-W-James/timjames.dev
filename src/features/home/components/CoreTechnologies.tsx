@@ -28,7 +28,6 @@ const CoreTechnologies: React.FC = () => {
           >
             Core Technologies{" "}
           </HashLink>
-          {/* eslint-disable-next-line sonarjs/no-duplicate-string */}
           <hr className={cn("radial-border")} />
         </h2>
         <br />

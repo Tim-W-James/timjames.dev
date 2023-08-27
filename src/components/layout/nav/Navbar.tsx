@@ -70,7 +70,7 @@ const Navbar: React.FC = () => {
 
   return shouldUseHamburgerMenu ? (
     <ClickAwayListener onClickAway={closeHamburgerMenu}>
-      <nav className={cn("fixed left-0 top-0 z-50")}>
+      <nav className={cn("sticky left-0 top-0 z-50")}>
         <div
           className={cnScoped(styles)(
             "flex justify-between w-screen content-center items-center py-2",
@@ -98,7 +98,7 @@ const Navbar: React.FC = () => {
     <nav
       className={cnScoped(styles)(
         styles._navbar,
-        "w-screen fixed top-0 left-0 z-50"
+        "w-screen sticky top-0 left-0 z-50"
       )}
     >
       <div className={cn("container mx-auto")}>

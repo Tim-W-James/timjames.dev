@@ -1,14 +1,18 @@
-/* eslint-disable @typescript-eslint/restrict-template-expressions */
 import cn from "@styles/cssUtils";
 import { HashLink } from "react-router-hash-link";
 
 import TimelineItemData from "../types/TimelineData";
 import ItemCategory from "./ItemCategory";
 
-const ItemTitle: React.FC<{
+type ItemTitleProps = {
   isOddIndex: boolean;
   data: TimelineItemData;
-}> = ({ isOddIndex, data: itemData }) => {
+};
+
+const ItemTitle: React.FC<ItemTitleProps> = ({
+  isOddIndex,
+  data: itemData,
+}) => {
   const copyFragment = useCallback(
     () =>
       navigator.clipboard.writeText(

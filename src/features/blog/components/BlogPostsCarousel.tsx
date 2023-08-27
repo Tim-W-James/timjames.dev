@@ -14,8 +14,11 @@ import BlogCard from "./BlogCard";
 import BlogCardLoading from "./BlogCardLoading";
 import styles from "./BlogPostsCarousel.module.scss";
 
-const articlesToDisplay = 30;
+const articlesToDisplay = 10;
 
+/**
+ * Carousel to display latest blog posts
+ */
 const BlogPostsCarousel: React.FC = () => {
   const { status, data: latestArticles } = useQuery(
     ["devdotto", "articlesMeta", articlesToDisplay, 1],
@@ -86,12 +89,12 @@ const BlogPostsCarousel: React.FC = () => {
           className={cn("mx-auto mt-8 flex items-center justify-center gap-4")}
         >
           <Button
+            childProps={{ onClick: goPrev }}
             icon={<BsFillArrowLeftCircleFill />}
             isLabelHidden
             isLight
             label="Scroll carousel left"
             mode="button"
-            onClick={goPrev}
             tooltip="Scroll carousel left"
           />
           <Button
@@ -104,12 +107,12 @@ const BlogPostsCarousel: React.FC = () => {
             tooltip="View more articles"
           />
           <Button
+            childProps={{ onClick: goNext }}
             icon={<BsFillArrowRightCircleFill />}
             isLabelHidden
             isLight
             label="Scroll carousel right"
             mode="button"
-            onClick={goNext}
             tooltip="Scroll carousel right"
           />
         </div>

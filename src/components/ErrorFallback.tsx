@@ -17,12 +17,11 @@ export const ErrorFallback = ({
 
   return (
     <>
-      <div className={cn("fixed -z-10 h-screen w-screen bg-dark-shades")} />
+      <div
+        className={cn("fixed -z-10 -mt-5 h-screen w-screen bg-dark-shades")}
+      />
       <div className={cn("mt-8  text-center")}>
-        <h1
-          className={cn("pt-10 text-8xl font-bold text-light-accent")}
-          id="error"
-        >
+        <h1 className={cn("text-8xl font-bold text-light-accent")} id="error">
           Error
         </h1>
         <h2>
@@ -32,11 +31,11 @@ export const ErrorFallback = ({
         <br />
         <div className={cn("flex items-center justify-center")}>
           <Button
+            childProps={{ onClick: resetErrorBoundary }}
             icon={<RiRefreshFill />}
             isLight
             label="Reload"
             mode="button"
-            onClick={resetErrorBoundary}
             tooltip="Reload the page"
           />
         </div>

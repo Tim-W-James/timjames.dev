@@ -617,6 +617,6 @@ Project Link:
 * https://connoratherton.com/loaders
 * https://kenwheeler.github.io/slick
 * https://github.com/cferdinandi/smooth-scroll
-* http://leafo.net/sticky-kit
+* http://leafo.net/fixed-kit
 * http://jvectormap.com
 * https://fontawesome.com -->

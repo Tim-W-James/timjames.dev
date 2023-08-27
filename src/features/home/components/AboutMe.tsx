@@ -13,7 +13,6 @@ const AboutMe: React.FC = () => {
   return (
     <div
       className={cn(
-        // eslint-disable-next-line sonarjs/no-duplicate-string
         "mx-auto mb-8 flex place-content-center items-center px-8",
         "flex-col"
       )}

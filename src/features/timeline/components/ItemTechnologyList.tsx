@@ -4,10 +4,15 @@ import cn from "@styles/cssUtils";
 
 import TimelineItemData from "../types/TimelineData";
 
-const ItemTechnologyList: React.FC<{
+type ItemTechnologyListProps = {
   data: TimelineItemData;
   isOddIndex: boolean;
-}> = ({ data: itemData, isOddIndex }) =>
+};
+
+const ItemTechnologyList: React.FC<ItemTechnologyListProps> = ({
+  data: itemData,
+  isOddIndex,
+}) =>
   itemData.technologies ? (
     <>
       <Divider isReversed={!isOddIndex} label="Technologies" />
@@ -30,7 +35,7 @@ const ItemTechnologyList: React.FC<{
                 </>
               ) : null}
               {technology}
-              {index < (itemData.technologies?.length || 0) - 1 ? "," : ""}
+              {index < (itemData.technologies?.length ?? 0) - 1 ? "," : ""}
             </a>
           </span>
         ))}

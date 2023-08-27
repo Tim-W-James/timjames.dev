@@ -4,15 +4,15 @@ import { setMouseHoverCssProperties } from "@utils/mouseHover";
 
 import styles from "./Logo.module.scss";
 
-/**
- * Circular logo with hover effects
- *
- * @param {{ imageSrc; altText?; }} { image link, optional alt text }
- */
-const Logo: React.FC<{
+type LogoProps = {
   imageSrc: string;
   altText?: string;
-}> = ({ imageSrc, altText = "logo" }) => {
+};
+
+/**
+ * Circular logo with hover effects
+ */
+const Logo: React.FC<LogoProps> = ({ imageSrc, altText = "logo" }) => {
   const deviceIsTouch = useTouchInputQuery();
   const [hasImageLoaded, setImageLoaded] = useState(false);
 

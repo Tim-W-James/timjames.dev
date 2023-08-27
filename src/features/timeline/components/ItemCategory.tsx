@@ -1,10 +1,15 @@
 import categories from "../data/categories";
 import TimelineItemData from "../types/TimelineData";
 
-const ItemCategory: React.FC<{
+type ItemCategoryProps = {
   data: TimelineItemData;
   className: string;
-}> = ({ data: itemData, className }) =>
+};
+
+const ItemCategory: React.FC<ItemCategoryProps> = ({
+  data: itemData,
+  className,
+}) =>
   categories[itemData.category].link ? (
     <a
       className={className}

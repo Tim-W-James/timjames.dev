@@ -1,5 +1,5 @@
 module.exports = {
-  plugins: [require("prettier-plugin-packagejson")],
+  plugins: [require.resolve("prettier-plugin-packagejson")],
   semi: true,
   singleQuote: false,
   trailingComma: "es5",

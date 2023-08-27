@@ -3,10 +3,15 @@ import cn from "@styles/cssUtils";
 
 import TimelineItemData from "../types/TimelineData";
 
-const ItemLinksList: React.FC<{
+type ItemLinksListProps = {
   data: TimelineItemData;
   isOddIndex: boolean;
-}> = ({ data: itemData, isOddIndex }) =>
+};
+
+const ItemLinksList: React.FC<ItemLinksListProps> = ({
+  data: itemData,
+  isOddIndex,
+}) =>
   itemData.links ? (
     <>
       <Divider isReversed={!isOddIndex} label="Links" />

@@ -2,8 +2,6 @@
 
 import clsx from "clsx";
 
-// eslint-disable-next-line max-len
-// eslint-disable-next-line import/namespace, import/default, import/no-named-as-default
 import ClassName from "./cssClasses";
 
 /**
@@ -93,7 +91,7 @@ type ScopedClassNamePrefix = "_";
 // Narrow the type to exclude scoped classes
 type IsValidClass<
   T extends string,
-  ScopedClassNames
+  ScopedClassNames,
 > = T extends `${ScopedClassNamePrefix}${infer _Tail}`
   ? T extends ScopedClassNames
     ? ScopedClassNames extends string

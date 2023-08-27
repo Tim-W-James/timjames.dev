@@ -1,6 +1,9 @@
 import cn from "@styles/cssUtils";
 import { ToastContainer } from "react-toastify";
 
+/**
+ * Toast container for displaying notifications
+ */
 const Toast: React.FC = () => {
   const toastStyles = useCallback(
     () =>
@@ -23,7 +26,8 @@ const Toast: React.FC = () => {
 
   return (
     <ToastContainer
-      autoClose={3000}
+      // Auto close disabled for accessibility
+      autoClose={false}
       bodyClassName={toastBodyStyles}
       position="top-right"
       style={{ top: "80px" }}

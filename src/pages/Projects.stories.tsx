@@ -19,11 +19,9 @@ export const Projects = () => (
   <Router>
     <ScrollToTop />
     <Navbar />
-    <Page
-      content={<ProjectsPage />}
-      description={PROJECTS.description}
-      title={PROJECTS.title}
-    />
+    <Page description={PROJECTS.description} title={PROJECTS.title}>
+      <ProjectsPage />
+    </Page>
     <Footer allowFixed />
   </Router>
 );

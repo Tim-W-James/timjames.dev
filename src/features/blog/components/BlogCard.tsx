@@ -4,10 +4,15 @@ import { Link } from "react-router-dom";
 
 import { DevdottoArticleMeta } from "../types/devdottoArticle";
 
-const Card: React.FC<{
+type BlogCardProps = {
   article: DevdottoArticleMeta;
   isCarouselItem?: boolean;
-}> = ({ article, isCarouselItem }) => {
+};
+
+/**
+ * Card to preview a blog article
+ */
+const BlogCard: React.FC<BlogCardProps> = ({ article, isCarouselItem }) => {
   const [hasImageLoaded, setHasImageLoaded] = useState(false);
   const imageHasLoaded = useCallback(() => setHasImageLoaded(true), []);
   return (
@@ -105,4 +110,4 @@ const Card: React.FC<{
   );
 };
 
-export default Card;
+export default BlogCard;

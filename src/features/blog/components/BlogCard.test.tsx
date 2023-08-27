@@ -1,5 +1,5 @@
 import mockArticle from "@mocks/article";
-import { composeStories } from "@storybook/testing-react";
+import { composeStories } from "@storybook/react";
 import { render } from "@testing-library/react";
 
 import * as stories from "./BlogCard.stories";

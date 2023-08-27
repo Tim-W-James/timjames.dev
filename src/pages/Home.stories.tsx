@@ -30,12 +30,9 @@ export const Home = () => (
     <Router>
       <ScrollToTop />
       <Navbar />
-      <Page
-        content={<HomePage />}
-        description={HOME.description}
-        nonStandardLayout
-        title={HOME.title}
-      />
+      <Page description={HOME.description} nonStandardLayout title={HOME.title}>
+        <HomePage />
+      </Page>
       <Footer allowFixed />
     </Router>
   </QueryClientProvider>

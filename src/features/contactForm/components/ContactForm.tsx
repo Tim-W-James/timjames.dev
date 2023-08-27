@@ -33,7 +33,7 @@ const formStateDisplay = (
     ? { message: "Error", icon: <MdError className={cn("text-4xl")} /> }
     : !formState.isValid
     ? {
-        message: "Please complete the Form",
+        message: "Submit your Message",
         icon: <MdInfo className={cn("text-4xl")} />,
       }
     : formState.isSubmitting ||
@@ -74,7 +74,8 @@ const ContactForm: React.FC<{
     setValue: setFormData,
   } = useForm<ContactFormSchema>({
     resolver: zodResolver(contactFormSchema),
-    mode: "onChange",
+    mode: "onBlur",
+    reValidateMode: "onBlur",
     defaultValues: { name: "", email: "", message: "" },
   });
   const formData = watchFormInput();
@@ -209,7 +210,7 @@ const ContactForm: React.FC<{
         }
         <label htmlFor="name">
           <div className={cn("flex justify-between gap-2")}>
-            <p id="nameLabel">Name</p>
+            <p id="nameLabel">Name *</p>
             {formState.errors.name ? (
               <p className={cn("text-right text-danger")}>
                 {formState.errors.name.message}
@@ -264,7 +265,7 @@ const ContactForm: React.FC<{
         }
         <label htmlFor="message">
           <div className={cn("flex justify-between gap-2")}>
-            <p>Message</p>
+            <p>Message *</p>
             {formState.errors.message ? (
               <p className={cn("text-right text-danger")}>
                 {formState.errors.message.message}
@@ -285,6 +286,7 @@ const ContactForm: React.FC<{
         />
         <Button
           appearInactive={!formState.isValid || isFormDisabled}
+          childProps={{ type: "submit" }}
           className={
             formState.isSubmitting ||
             (formState.isSubmitSuccessful && responseState === "notSent")
@@ -299,7 +301,6 @@ const ContactForm: React.FC<{
           isLight
           label={formStateDisplay(formState, responseState).message}
           mode="button"
-          type="submit"
         />
         {
           //#endregion

@@ -6,10 +6,18 @@ import {
 } from "react-icons/bs";
 import { CgSpinner } from "react-icons/cg";
 
-const BlogArticleWrapper: React.FC<{
+type BlogArticleWrapperProps = {
   title?: string;
-  content: JSX.Element;
-}> = ({ title, content }) => {
+  children: JSX.Element;
+};
+
+/**
+ * Creates the layout for a blog article
+ */
+const BlogArticleWrapper: React.FC<BlogArticleWrapperProps> = ({
+  title,
+  children,
+}) => {
   const scrollToTop = useCallback(
     () => window.scrollTo({ top: 0, behavior: "smooth" }),
     []
@@ -17,8 +25,10 @@ const BlogArticleWrapper: React.FC<{
 
   return (
     <>
-      <div className={cn("fixed -z-10 h-screen w-screen bg-dark-shades")} />
-      <div className={cn("container mx-auto my-10 px-8 pt-10")}>
+      <div
+        className={cn("fixed -z-10 -mt-5 h-screen w-screen bg-dark-shades")}
+      />
+      <div className={cn("container mx-auto my-10 px-8")}>
         <header
           className={cn(
             "mx-auto flex place-content-center items-center px-8 text-center",
@@ -49,14 +59,14 @@ const BlogArticleWrapper: React.FC<{
             tooltip="Back to article list"
           />
         </div>
-        {content}
+        {children}
         <div className={cn("mt-8 flex justify-center")}>
           <Button
+            childProps={{ onClick: scrollToTop }}
             icon={<BsFillArrowUpCircleFill />}
             isLight
             label="Back to top"
             mode="button"
-            onClick={scrollToTop}
             tooltip="Back to top"
           />
         </div>

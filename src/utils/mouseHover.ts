@@ -1,10 +1,9 @@
 /**
  * Calculates the % the mouse is within an element for the given dimension
  *
- * @param {React.MouseEvent<HTMLElement>} e - mouse event for the element
- * @param {("X" | "Y")} coordinate - coordinate to find the mouse position
- * @param {?boolean} [isFixed] - if the element uses fixed positioning
- * @returns {number}
+ * @param e mouse event for the element
+ * @param coordinate coordinate to find the mouse position
+ * @param [isFixed] if the element uses fixed positioning
  */
 const mousePercent = (
   e: React.MouseEvent<HTMLElement>,
@@ -20,9 +19,9 @@ const mousePercent = (
 /**
  * Sets CSS variables for a the mouse hover position relative to that element
  *
- * @param {React.MouseEvent<HTMLElement>} e - mouse event for the element
- * @param {?boolean} [isFixed] - if the element uses fixed positioning
- * @param {?boolean} [deviceIsTouch] - if the input of the device is touch
+ * @param e mouse event for the element
+ * @param [isFixed] if the element uses fixed positioning
+ * @param [deviceIsTouch] if the input of the device is touch
  */
 export const setMouseHoverCssProperties = (
   e: React.MouseEvent<HTMLElement>,

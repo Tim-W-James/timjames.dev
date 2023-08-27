@@ -1,8 +1,13 @@
 import cn from "@styles/cssUtils";
 
-const LoadingCard: React.FC<{
+type LoadingCardProps = {
   isCarouselItem?: boolean;
-}> = ({ isCarouselItem }) => (
+};
+
+/**
+ * Card to preview a blog article in a loading state
+ */
+const LoadingCard: React.FC<LoadingCardProps> = ({ isCarouselItem }) => (
   <div
     className={cn(
       "border p-4",

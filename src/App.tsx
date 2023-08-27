@@ -1,6 +1,8 @@
 import "react-toastify/dist/ReactToastify.css";
 
 import Toast from "@components/utils/Toast";
+import { useAnnounceNavigation } from "@hooks/useAnnounceNavigation";
+import { useResetFocusNavigation } from "@hooks/useFocusElement";
 import background from "@images/bg-aurora.jpg";
 import Footer from "@layout/Footer";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -18,12 +20,19 @@ const queryClient = new QueryClient({
   },
 });
 
-const App = () => {
+const App: React.FC = () => {
   // HACK to ensure Netlify can inject the Cloudinary URL
   document.body.style.backgroundImage = `url(${background})`;
 
+  // Accessibility hooks
+  useAnnounceNavigation();
+  useResetFocusNavigation();
+
   return (
-    <div /* Force Google to use meta description for snippets */ data-nosnippet>
+    <div
+      /* Force Google to use custom meta description for snippets */
+      data-nosnippet
+    >
       <QueryClientProvider client={queryClient}>
         <GoogleReCaptchaProvider
           container={{

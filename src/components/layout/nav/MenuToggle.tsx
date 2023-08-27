@@ -1,10 +1,9 @@
 import { useTouchInputQuery } from "@hooks/useMediaQuery";
-import { domAnimation, LazyMotion, m } from "framer-motion";
+import { domAnimation, LazyMotion, m, SVGMotionProps } from "framer-motion";
 
 // Adapted from: https://github.com/ipenywis/react-navbar-responsive
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Path = (props: any) => (
+const Path = (props: SVGMotionProps<SVGPathElement>) => (
   <LazyMotion features={domAnimation}>
     <m.path
       fill="transparent"
@@ -17,19 +16,22 @@ const Path = (props: any) => (
 
 const transition = { duration: 0.11 };
 
-/**
- * Description placeholder
- *
- * @param {{ toggle; isOpen; baseColor; hoverColor; }} {
- * function to run on toggle, whether the menu is open, base color, hover color
- * }
- */
-const MenuToggle: React.FC<{
+type MenuToggleProps = {
   toggle: () => void;
   isOpen: boolean;
   baseColor: string;
   hoverColor: string;
-}> = ({ toggle, isOpen, baseColor, hoverColor }) => {
+};
+
+/**
+ * Hamburger menu toggle button
+ */
+const MenuToggle: React.FC<MenuToggleProps> = ({
+  toggle,
+  isOpen,
+  baseColor,
+  hoverColor,
+}) => {
   const [isHovered, setHovered] = useState(false);
   const deviceIsTouch = useTouchInputQuery();
   const color = isHovered && !deviceIsTouch ? hoverColor : baseColor;

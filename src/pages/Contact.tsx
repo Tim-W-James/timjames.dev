@@ -9,12 +9,19 @@ import { MdEmail } from "react-icons/md";
 import { SiSpotify, SiSteam } from "react-icons/si";
 import { HashLink } from "react-router-hash-link";
 
-const SocialLink: React.FC<{
+type SocialLinkProps = {
   icon: JSX.Element;
   body: string;
   url: string;
   tooltip: string;
-}> = ({ icon, body, url, tooltip }) => (
+};
+
+const SocialLink: React.FC<SocialLinkProps> = ({
+  icon,
+  body,
+  url,
+  tooltip,
+}) => (
   <a
     aria-label={body}
     href={url}

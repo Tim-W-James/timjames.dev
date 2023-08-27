@@ -55,7 +55,7 @@ Button.args = {
   isLabelHidden: false,
   isLight: true,
   disabled: false,
-  mode: "button",
+  mode: "anchor",
   icon: icons.arrow,
   iconRight: true,
 };

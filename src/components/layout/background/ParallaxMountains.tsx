@@ -15,7 +15,7 @@ const ParallaxMountains: React.FC = () => {
       <div className={cn("gradient-background")} />
       <div
         className={cn(
-          "fixed left-0 -z-[5] w-screen bg-dark-shades",
+          "sticky left-0 -z-[5] w-screen bg-dark-shades",
           "top-3/4",
           "h-1/4"
         )}
@@ -23,7 +23,10 @@ const ParallaxMountains: React.FC = () => {
       <FadeIn transitionDuration={200}>
         {deviceIsMobile ? (
           <div className={cn("flex w-screen justify-center")}>
-            <div className={cnScoped(styles)(styles._mountainMiddle)} />
+            <div className={cnScoped(styles)(styles._mountainMiddleMobile)} />
+            <div
+              className={cnScoped(styles)(styles._mountainBackgroundFiller)}
+            />
           </div>
         ) : (
           <div className={cn("flex w-screen justify-center")}>

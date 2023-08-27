@@ -27,8 +27,9 @@ import { useNavigate } from "react-router-dom";
 
 const technologyOptions: readonly Option[] = Object.keys(technologies)
   .map((technology) => {
-    const count = timelineData.filter((item) =>
-      item.technologies?.includes(technology as keyof typeof technologies)
+    const count = timelineData.filter(
+      (item) =>
+        item.technologies?.includes(technology as keyof typeof technologies)
     ).length;
     return {
       value: technology,
@@ -100,11 +101,11 @@ const searchFilter = (searchText: string, item: TimelineItemData) => {
   return (
     (search.length === 0 && !item.searchOnly) ||
     (search.length > 0 &&
-      (item.title.toLowerCase().includes(search) ||
+      ((item.title.toLowerCase().includes(search) ||
         Children.onlyText(item.body).toLowerCase().includes(search) ||
         item.technologies?.some((technology) =>
           technology.toLowerCase().includes(search)
-        ) ||
+        )) ??
         item.category.toLowerCase().includes(search)))
   );
 };
@@ -303,6 +304,7 @@ const Projects: React.FC = () => {
           <div className={cn("flex w-full gap-4")}>
             <SearchField handleChange={handleChange} searchText={searchText} />
             <Button
+              childProps={{ onClick: resetOptions, type: "reset" }}
               className={cn("!-mt-1 !px-2 !py-2 !text-3xl")}
               icon={
                 isResetButtonAnimated ? (
@@ -324,9 +326,7 @@ const Projects: React.FC = () => {
               isLight
               label="Reset"
               mode="button"
-              onClick={resetOptions}
               tooltip="Reset search and filter options"
-              type="reset"
             />
           </div>
           <div className={cn("flex w-full gap-4", "flex-wrap")}>
@@ -363,11 +363,11 @@ const Projects: React.FC = () => {
           />
           <div className={cn("flex justify-center")}>
             <Button
+              childProps={{ onClick: scrollToTop }}
               icon={<BsFillArrowUpCircleFill />}
               isLight
               label="Back to top"
               mode="button"
-              onClick={scrollToTop}
               tooltip="Back to top"
             />
           </div>

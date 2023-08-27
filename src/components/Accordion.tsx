@@ -2,12 +2,22 @@ import cn from "@styles/cssUtils";
 import { AnimatePresence, domAnimation, LazyMotion, m } from "framer-motion";
 import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md";
 
-const Accordion: React.FC<{
+type AccordionProps = {
   heading: string;
   icon: JSX.Element;
   children: JSX.Element;
   startClosed?: boolean;
-}> = ({ heading, icon, children, startClosed }) => {
+};
+
+/**
+ * Togglable accordion
+ */
+const Accordion: React.FC<AccordionProps> = ({
+  heading,
+  icon,
+  children,
+  startClosed,
+}) => {
   const [isOpen, setIsOpen] = useState(!startClosed);
 
   const toggleIsOpen = useCallback(() => setIsOpen((prev) => !prev), []);

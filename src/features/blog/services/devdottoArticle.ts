@@ -5,6 +5,7 @@ const DEV_DOT_TO_USERNAME = "timwjames";
 const ARTICLES_API = "https://dev.to/api/articles";
 
 // Helper method to type responses
+// TODO validate with zod
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const parseResponse = <T>(response: any): T =>
   (typeof response === "string" ? JSON.parse(response) : response) as T;

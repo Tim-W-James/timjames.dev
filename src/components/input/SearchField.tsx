@@ -1,9 +1,17 @@
 import cn from "@styles/cssUtils";
 
-const SearchField: React.FC<{
+type SearchFieldProps = {
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   searchText: string;
-}> = ({ handleChange, searchText }) => (
+};
+
+/**
+ * Controlled search box
+ */
+const SearchField: React.FC<SearchFieldProps> = ({
+  handleChange,
+  searchText,
+}) => (
   <input
     aria-label="Search..."
     className={cn(

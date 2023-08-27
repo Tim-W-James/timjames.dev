@@ -1,4 +1,3 @@
-/* eslint-disable sonarjs/no-duplicate-string */
 import mockArticle from "@mocks/article";
 import { Meta, StoryFn } from "@storybook/react";
 import cn from "@styles/cssUtils";

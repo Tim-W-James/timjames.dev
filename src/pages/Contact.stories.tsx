@@ -42,11 +42,9 @@ export const Contact = () => (
       >
         <ScrollToTop />
         <Navbar />
-        <Page
-          content={<ContactPage />}
-          description={CONTACT.description}
-          title={CONTACT.title}
-        />
+        <Page description={CONTACT.description} title={CONTACT.title}>
+          <ContactPage />
+        </Page>
         <Footer allowFixed />
         <div className={cn("captcha-show")} id="captcha-container" />
         <Toast />
