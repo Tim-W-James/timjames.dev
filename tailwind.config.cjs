@@ -16,11 +16,35 @@ module.exports = {
         warning: "hsl(40deg 76% 41%)",
         success: "hsl(134deg 42% 41%)",
         placeholder: "hsl(218deg 22% 30%)",
+        "inline-code-bg": "hsl(216, 20%, 5%)",
       },
       fontFamily: {
         sans: ["Outfit", ...defaultTheme.fontFamily.sans],
         mono: ["source-code-pro", ...defaultTheme.fontFamily.mono],
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            maxWidth: "100%",
+            pre: {
+              backgroundColor: theme("colors.dark-shades"),
+            },
+            code: {
+              backgroundColor: theme("colors.inline-code-bg"),
+              fontWeight: "400",
+              "border-radius": "0.25rem",
+            },
+            "code::before": {
+              content: '""',
+              "padding-left": "0.25rem",
+            },
+            "code::after": {
+              content: '""',
+              "padding-right": "0.25rem",
+            },
+          },
+        },
+      }),
       maxWidth: {
         "1/3": "33%",
         "2/3": "66%",

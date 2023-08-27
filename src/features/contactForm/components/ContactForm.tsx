@@ -33,7 +33,7 @@ const formStateDisplay = (
     ? { message: "Error", icon: <MdError className={cn("text-4xl")} /> }
     : !formState.isValid
     ? {
-        message: "Submit your Message",
+        message: "Please complete the form",
         icon: <MdInfo className={cn("text-4xl")} />,
       }
     : formState.isSubmitting ||
@@ -47,7 +47,7 @@ const formStateDisplay = (
         ),
       }
     : {
-        message: "Submit your Message",
+        message: "Submit your message",
         icon: <MdSend className={cn("text-4xl")} />,
       };
 

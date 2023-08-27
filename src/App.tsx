@@ -29,10 +29,7 @@ const App: React.FC = () => {
   useResetFocusNavigation();
 
   return (
-    <div
-      /* Force Google to use custom meta description for snippets */
-      data-nosnippet
-    >
+    <div>
       <QueryClientProvider client={queryClient}>
         <GoogleReCaptchaProvider
           container={{

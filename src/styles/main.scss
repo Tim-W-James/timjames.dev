@@ -203,7 +203,7 @@
   h2,
   h3,
   h4 {
-    @apply mt-0 break-words hyphens;
+    @apply mt-0;
   }
 
   h1,
@@ -247,6 +247,12 @@
         @apply text-placeholder;
       }
     }
+  }
+
+  // Override prismjs styles
+  pre {
+    /* stylelint-disable-next-line declaration-no-important */
+    padding: 0 !important;
   }
 
   @media (prefers-reduced-motion: reduce) {

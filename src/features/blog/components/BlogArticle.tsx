@@ -7,13 +7,13 @@ import {
   BsFillArrowLeftCircleFill,
   BsHeart,
 } from "react-icons/bs";
-import ReactMarkdown from "react-markdown";
 import { useParams } from "react-router-dom";
 import escape from "validator/lib/escape";
 
 import devdottoArticle from "../services/devdottoArticle";
 import BlogArticleLoading from "./BlogArticleLoading";
 import BlogArticleWrapper from "./BlogArticleWrapper";
+import MarkdownRenderer from "./MarkdownRenderer";
 
 type BlogArticleContentProps = { slug: string };
 
@@ -126,9 +126,7 @@ const BlogArticleContent: React.FC<BlogArticleContentProps> = ({ slug }) => {
             {article.reading_time_minutes} min read
           </div>
         </div>
-        <article className={cn("prose", "prose-invert", "prose-lg")}>
-          <ReactMarkdown>{article.body_markdown || ""}</ReactMarkdown>
-        </article>
+        <MarkdownRenderer markdown={article.body_markdown} />
       </div>
     </BlogArticleWrapper>
   );

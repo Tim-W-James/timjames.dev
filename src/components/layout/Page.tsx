@@ -81,7 +81,11 @@ const Page: React.FC<PageProps> = ({
           <div
             className={cn("fixed -z-10 -mt-5 h-screen w-screen bg-dark-shades")}
           />
-          <div className={cn("container mx-auto my-10 px-8")}>
+          <div
+            className={cn("container mx-auto my-10 px-8")}
+            /* Force Google to use custom meta description for snippets */
+            data-nosnippet
+          >
             <header
               className={cn(
                 "mx-auto flex place-content-center items-center",

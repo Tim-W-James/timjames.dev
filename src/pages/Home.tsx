@@ -18,7 +18,11 @@ const Home: React.FC = () => {
 
   return (
     <ParallaxProvider>
-      <div className={cn("text-center")}>
+      <div
+        className={cn("text-center")}
+        /* Force Google to use custom meta description for snippets */
+        data-nosnippet
+      >
         <ParallaxMountains />
         <FadeIn transitionDuration={400}>
           <header

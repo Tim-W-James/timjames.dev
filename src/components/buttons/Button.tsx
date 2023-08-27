@@ -60,9 +60,13 @@ export type ButtonProps = {
        */
       mode: "button";
       /**
+       * Click event
+       */
+      onClick?: React.MouseEventHandler<HTMLButtonElement>;
+      /**
        * Props to pass to the HTML button
        */
-      childProps: React.ComponentPropsWithoutRef<"button">;
+      childProps?: React.ComponentPropsWithoutRef<"button">;
     }
 );
 
@@ -140,6 +144,7 @@ const Button = ({
             className + (additionalClassName ? ` ${additionalClassName}` : "")
           }
           disabled={disabled}
+          onClick={otherProps.onClick}
           onMouseMove={setHoverEffects}
           title={label && tooltip}
           type="button"

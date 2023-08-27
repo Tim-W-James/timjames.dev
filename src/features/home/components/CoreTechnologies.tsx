@@ -14,7 +14,7 @@ const CoreTechnologies: React.FC = () => {
   return (
     <div
       className={cn(
-        "mx-auto mt-8 flex max-w-2xl place-content-center items-center",
+        "mx-auto mt-8 flex max-w-xl place-content-center items-center",
         "solid-background",
         "flex-col"
       )}
