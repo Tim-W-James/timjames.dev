@@ -20,12 +20,12 @@ test("should not be reset after changing routes", async ({
   openHamburgerNav(isMobile, page);
   await page
     .getByRole("navigation")
-    .getByRole("link", { name: "Home" })
+    .getByRole("link", { name: "Home", exact: true })
     .click();
   openHamburgerNav(isMobile, page);
   await page
     .getByRole("navigation")
-    .getByRole("link", { name: "Contact" })
+    .getByRole("link", { name: "Contact", exact: true })
     .click();
 
   // check form input

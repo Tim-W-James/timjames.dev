@@ -15,7 +15,7 @@ test("should change page when links are clicked", async ({
   openHamburgerNav(isMobile, page);
   await page
     .getByRole("navigation")
-    .getByRole("link", { name: "Projects" })
+    .getByRole("link", { name: "Projects", exact: true })
     .click();
 
   // Assert page changed
@@ -23,14 +23,14 @@ test("should change page when links are clicked", async ({
   await expect(page).toHaveURL(/.*projects/iu);
 
   openHamburgerNav(isMobile, page);
-  await page.getByRole("link", { name: "Blog" }).click();
+  await page.getByRole("link", { name: "Blog", exact: true }).click();
 
   // Assert page changed
   await expect(page).toHaveTitle(/.*blog/iu);
   await expect(page).toHaveURL(/.*blog/iu);
 
   openHamburgerNav(isMobile, page);
-  await page.getByRole("link", { name: "Contact" }).click();
+  await page.getByRole("link", { name: "Contact", exact: true }).click();
 
   // Assert page changed
   await expect(page).toHaveTitle(/.*contact/iu);
