@@ -1,6 +1,5 @@
 /* eslint-disable max-len */
 import { ConditionalWrapper } from "@components/ConditionalWrapper";
-import { useMobileQuery } from "@hooks/useMediaQuery";
 import cn from "@styles/cssUtils";
 import rangeParser from "parse-numeric-range";
 import ReactMarkdown from "react-markdown";
@@ -28,8 +27,6 @@ SyntaxHighlighter.registerLanguage("json", json);
  * Render markdown content with syntax highlighting in code blocks
  */
 const MarkdownRenderer: React.FC<{ markdown: string }> = ({ markdown }) => {
-  const deviceIsMobile = useMobileQuery();
-
   const syntaxTheme = oneDark;
 
   // Adapted from https://amirardalan.com/blog/syntax-highlight-code-in-markdown
@@ -66,7 +63,7 @@ const MarkdownRenderer: React.FC<{ markdown: string }> = ({ markdown }) => {
         typeof props.children === "string" ? props.children : props.children[0]
       ) as string;
 
-      return hasLang && !deviceIsMobile ? (
+      return hasLang ? (
         <>
           <div className={cn("relative")}>
             <CopyTextButton
