@@ -1,9 +1,12 @@
 ._textAlignment {
-  margin-top: calc(1rem + 7vh);
+  margin-top: calc(6rem + 7vh);
   @media (width >= 500px) and (width <= 2400px) {
-    margin-top: calc(1rem + 8vh + clamp(0px, 10vw, 50px));
+    margin-top: calc(6rem + 8vh + clamp(0px, 10vw, 50px));
   }
   @media (hover: none) and (pointer: coarse) {
+    margin-top: calc(6rem + 5vh);
+  }
+  @media (hover: none) and (pointer: coarse) and (width >= 800px) {
     margin-top: calc(1rem + 5vh);
   }
 }

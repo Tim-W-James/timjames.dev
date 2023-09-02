@@ -69,9 +69,9 @@
   }
 
   .hash-link {
-    @apply ml-8 after:invisible hover:after:visible after:text-3xl;
-    @apply after:hover:text-light-accent after:active:text-dark-accent;
-    @apply after:active:underline after:content-['#'];
+    @apply mr-6 before:invisible hover:before:visible before:text-3xl;
+    @apply before:hover:text-light-accent before:active:text-dark-accent;
+    @apply before:active:underline before:content-['#'] before:mr-2;
   }
 
   .hash-link-left {

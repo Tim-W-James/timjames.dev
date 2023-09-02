@@ -32,7 +32,7 @@ const Home: React.FC = () => {
               styles._textAlignment
             )}
           >
-            <h1 className={cn("mt-40")} id="timjames">
+            <h1 className={cn("mt-20")} id="timjames">
               👋 Hello,
               <br />
               I&apos;m <b className={cn("text-light-accent")}>Tim James</b>

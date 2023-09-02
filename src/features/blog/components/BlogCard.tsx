@@ -26,7 +26,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ article, isCarouselItem }) => {
         isCarouselItem ? "min-w-sm snap-center" : "w-full max-w-sm"
       )}
     >
-      <div className={cn("flex gap-4", "flex-col")}>
+      <div className={cn("flex h-full justify-between gap-4", "flex-col")}>
         <Link to={`/blog/${article.slug}`}>
           <img
             alt="Thumbnail"
@@ -51,32 +51,34 @@ const BlogCard: React.FC<BlogCardProps> = ({ article, isCarouselItem }) => {
             })}
           </div>
         </Link>
-        <div>
-          <Link
-            aria-labelledby={article.title}
-            title="Read blog"
-            to={`/blog/${article.slug}`}
-          >
-            <h3
-              className={cn("mb-0 text-center font-bold text-light-accent")}
-              id={article.title}
+        <div className={cn("flex gap-4", "flex-col")}>
+          <div>
+            <Link
+              aria-labelledby={article.title}
+              title="Read blog"
+              to={`/blog/${article.slug}`}
             >
-              {article.title}
-            </h3>
-          </Link>
-          <hr className={cn("radial-border")} />
-        </div>
-        <div className={cn("flex justify-center gap-2", "flex-wrap")}>
-          {typeof article.tag_list !== "string"
-            ? article.tag_list.map((tag, index) => (
-                <div
-                  className={cn("bg-main-brand px-2 font-bold", "rounded-md")}
-                  key={index}
-                >
-                  {tag}
-                </div>
-              ))
-            : null}
+              <h3
+                className={cn("mb-0 text-center font-bold text-light-accent")}
+                id={article.title}
+              >
+                {article.title}
+              </h3>
+            </Link>
+            <hr className={cn("radial-border")} />
+          </div>
+          <div className={cn("flex justify-center gap-2", "flex-wrap")}>
+            {typeof article.tag_list !== "string"
+              ? article.tag_list.map((tag, index) => (
+                  <div
+                    className={cn("bg-main-brand px-2 font-bold", "rounded-md")}
+                    key={index}
+                  >
+                    {tag}
+                  </div>
+                ))
+              : null}
+          </div>
         </div>
         <div className={cn("mx-2 flex justify-between gap-4", "flex-wrap")}>
           <div className={cn("flex gap-4 text-xl", "flex-wrap")}>

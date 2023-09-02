@@ -1,21 +1,14 @@
 /* eslint-disable max-len */
 import Accordion from "@components/Accordion";
 import Tooltip from "@components/Tooltip";
-import useMediaQuery from "@hooks/useMediaQuery";
-import cv from "@pdfs/tim_james_cv.pdf";
 import cn from "@styles/cssUtils";
-import {
-  BsFileEarmarkPdfFill,
-  BsFillFileEarmarkCodeFill,
-  BsFillKanbanFill,
-} from "react-icons/bs";
+import { BsFillFileEarmarkCodeFill, BsFillKanbanFill } from "react-icons/bs";
 import { GiTalk } from "react-icons/gi";
 import { HiMagnifyingGlassCircle } from "react-icons/hi2";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
 const Skills: React.FC = () => {
-  const shouldScalePdf = useMediaQuery("(max-width: 1050px)");
   const copyFragment = useCallback(
     () =>
       navigator.clipboard.writeText(
@@ -171,19 +164,6 @@ const Skills: React.FC = () => {
             </HashLink>
             .
           </>
-        </Accordion>
-        <hr className={cn("radial-border my-8")} />
-        <Accordion
-          heading="CV / Resume"
-          icon={<BsFileEarmarkPdfFill />}
-          startClosed
-        >
-          <iframe
-            height={shouldScalePdf ? "500px" : "1000px"}
-            src={cv}
-            title="CV"
-            width="100%"
-          />
         </Accordion>
         <hr className={cn("radial-border mt-6")} />
       </section>

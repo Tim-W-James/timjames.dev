@@ -62,7 +62,7 @@ const BlogArticleContent: React.FC<BlogArticleContentProps> = ({ slug }) => {
           <Button
             icon={<BsFillArrowLeftCircleFill />}
             isLight
-            label="Find More Articles"
+            label="Article List"
             mode="route"
             to="/blog"
             tooltip="Back to article list"
@@ -98,7 +98,7 @@ const BlogArticleContent: React.FC<BlogArticleContentProps> = ({ slug }) => {
         <div
           className={cn("mx-4 mb-8 flex justify-between gap-4", "flex-wrap")}
         >
-          <div className={cn("mt-4 flex gap-4 text-xl", "flex-wrap")}>
+          <div className={cn("flex gap-4 text-xl", "flex-wrap")}>
             <a
               className={cn("hover:text-light-accent active:text-dark-accent")}
               href={article.url}

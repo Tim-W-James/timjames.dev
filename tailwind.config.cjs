@@ -16,7 +16,9 @@ module.exports = {
         warning: "hsl(40deg 76% 41%)",
         success: "hsl(134deg 42% 41%)",
         placeholder: "hsl(218deg 22% 30%)",
-        "inline-code-bg": "hsl(216, 20%, 5%)",
+        "inline-code-bg": "hsl(220, 13%, 18%)",
+        "block-code-bg": "hsl(220, 13%, 18%)",
+        "code-text": "white",
       },
       fontFamily: {
         sans: ["Outfit", ...defaultTheme.fontFamily.sans],
@@ -27,10 +29,12 @@ module.exports = {
           css: {
             maxWidth: "100%",
             pre: {
-              backgroundColor: theme("colors.dark-shades"),
+              backgroundColor: theme("colors.block-code-bg"),
+              color: theme("colors.code-text"),
             },
             code: {
               backgroundColor: theme("colors.inline-code-bg"),
+              color: theme("colors.code-text"),
               fontWeight: "400",
               "border-radius": "0.25rem",
             },

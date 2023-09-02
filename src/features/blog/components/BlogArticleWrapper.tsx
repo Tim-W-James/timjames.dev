@@ -6,6 +6,8 @@ import {
 } from "react-icons/bs";
 import { CgSpinner } from "react-icons/cg";
 
+import BlogPostsCarousel from "./BlogPostsCarousel";
+
 type BlogArticleWrapperProps = {
   title?: string;
   children: JSX.Element;
@@ -49,18 +51,20 @@ const BlogArticleWrapper: React.FC<BlogArticleWrapperProps> = ({
             )}
           </h1>
         </header>
-        <div className={cn("mb-8 flex justify-center")}>
+        <div
+          className={cn("mb-2 flex justify-center lg:mb-0 lg:justify-start")}
+        >
           <Button
             icon={<BsFillArrowLeftCircleFill />}
             isLight
-            label="Find More Articles"
+            label="Article List"
             mode="route"
             to="/blog"
             tooltip="Back to article list"
           />
         </div>
         {children}
-        <div className={cn("mt-8 flex justify-center")}>
+        <div className={cn("mt-8 flex justify-center lg:justify-start")}>
           <Button
             childProps={{ onClick: scrollToTop }}
             icon={<BsFillArrowUpCircleFill />}
@@ -70,6 +74,9 @@ const BlogArticleWrapper: React.FC<BlogArticleWrapperProps> = ({
             tooltip="Back to top"
           />
         </div>
+      </div>
+      <div className={cn("container mx-auto pt-8 text-center")}>
+        <BlogPostsCarousel title="Read More" />
       </div>
     </>
   );

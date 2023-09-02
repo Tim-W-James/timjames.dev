@@ -7,7 +7,7 @@ import BlogArticleWrapper from "./BlogArticleWrapper";
  */
 const BlogArticleLoading = () => (
   <BlogArticleWrapper>
-    <div className={cn("flex gap-4", "flex-col", "animate-pulse")}>
+    <div className={cn("mt-8 flex gap-4", "flex-col", "animate-pulse")}>
       <div className={cn("aspect-wide", "mb-8 rounded bg-slate-700")} />
       {[...Array(20).keys()].map((key) => (
         <div key={key}>

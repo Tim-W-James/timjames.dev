@@ -10,7 +10,20 @@ const CopyTextButton: React.FC<{
   buttonClasses?: string;
 }> = ({ stringToCopy, buttonClasses }) => {
   const [showTick, setShowTick] = useState(false);
-  return (
+  const [selectedText, setSelectedText] = useState<string | undefined>();
+
+  const updateSelectedText = useCallback(() => {
+    setSelectedText(window.getSelection()?.toString());
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("mouseup", updateSelectedText);
+    return () => {
+      window.removeEventListener("mouseup", updateSelectedText);
+    };
+  }, [updateSelectedText]);
+
+  return !selectedText ? (
     <CopyToClipboard
       onCopy={() => {
         setShowTick(true);
@@ -27,7 +40,7 @@ const CopyTextButton: React.FC<{
         tooltip="Copy code to clipboard"
       />
     </CopyToClipboard>
-  );
+  ) : null;
 };
 
 export default CopyTextButton;

@@ -16,10 +16,14 @@ import styles from "./BlogPostsCarousel.module.scss";
 
 const articlesToDisplay = 10;
 
+type BlogPostsCarouselProps = {
+  title?: string;
+};
+
 /**
  * Carousel to display latest blog posts
  */
-const BlogPostsCarousel: React.FC = () => {
+const BlogPostsCarousel: React.FC<BlogPostsCarouselProps> = ({ title }) => {
   const { status, data: latestArticles } = useQuery(
     ["devdotto", "articlesMeta", articlesToDisplay, 1],
     devdottoArticlesMeta(articlesToDisplay)
@@ -51,7 +55,7 @@ const BlogPostsCarousel: React.FC = () => {
     <div>
       <h2 className={cn("mb-4 self-center")} id="blog">
         <HashLink className={cn("hash-link")} onClick={copyFragment} to="#blog">
-          Latest Blog Posts{" "}
+          {title ?? "Latest Blog Posts"}{" "}
         </HashLink>
         <hr className={cn("radial-border")} />
       </h2>

@@ -1,4 +1,6 @@
 /* eslint-disable max-len */
+import { ConditionalWrapper } from "@components/ConditionalWrapper";
+import { useMobileQuery } from "@hooks/useMediaQuery";
 import cn from "@styles/cssUtils";
 import rangeParser from "parse-numeric-range";
 import ReactMarkdown from "react-markdown";
@@ -26,6 +28,8 @@ SyntaxHighlighter.registerLanguage("json", json);
  * Render markdown content with syntax highlighting in code blocks
  */
 const MarkdownRenderer: React.FC<{ markdown: string }> = ({ markdown }) => {
+  const deviceIsMobile = useMobileQuery();
+
   const syntaxTheme = oneDark;
 
   // Adapted from https://amirardalan.com/blog/syntax-highlight-code-in-markdown
@@ -33,7 +37,7 @@ const MarkdownRenderer: React.FC<{ markdown: string }> = ({ markdown }) => {
     Omit<NormalComponents, keyof SpecialComponents> & SpecialComponents
   > = {
     // eslint-disable-next-line sonarjs/cognitive-complexity
-    code: ({ node, className, ...props }) => {
+    code: ({ node, className, inline, ...props }) => {
       const hasLang = /language-(\w+)/u.exec(className ?? "");
       const hasMeta = Boolean(node.data?.["meta"]);
 
@@ -62,16 +66,21 @@ const MarkdownRenderer: React.FC<{ markdown: string }> = ({ markdown }) => {
         typeof props.children === "string" ? props.children : props.children[0]
       ) as string;
 
-      return hasLang ? (
+      return hasLang && !deviceIsMobile ? (
         <>
           <div className={cn("relative")}>
             <CopyTextButton
-              buttonClasses={cn("absolute right-2 top-4 w-auto")}
+              buttonClasses={cn("absolute right-2 top-2 w-auto !p-3")}
               stringToCopy={codeString}
             />
           </div>
           <SyntaxHighlighter
             PreTag="div"
+            customStyle={{
+              marginBottom: "2rem",
+              marginTop: 0,
+              paddingBottom: 0,
+            }}
             language={hasLang[1]}
             lineProps={applyHighlights}
             showLineNumbers={true}
@@ -84,7 +93,7 @@ const MarkdownRenderer: React.FC<{ markdown: string }> = ({ markdown }) => {
           <div className={cn("relative")}>
             <div
               className={cn(
-                "absolute right-2 -mt-[2rem] select-none text-sm italic"
+                "absolute left-2 -mt-[1.5rem] select-none text-sm italic"
               )}
             >
               {hasLang[1]}
@@ -92,7 +101,12 @@ const MarkdownRenderer: React.FC<{ markdown: string }> = ({ markdown }) => {
           </div>
         </>
       ) : (
-        <code className={className} {...props} />
+        <ConditionalWrapper
+          condition={!inline}
+          wrapper={(children) => <div className={cn("p-4")}>{children}</div>}
+        >
+          <code className={className} {...props} />
+        </ConditionalWrapper>
       );
     },
   };
