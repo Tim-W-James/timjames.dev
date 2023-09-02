@@ -30,7 +30,8 @@ const Accordion: React.FC<AccordionProps> = ({
           className={cn(
             "mb-2 min-w-0 cursor-pointer p-2 text-light-accent",
             "hover:text-dark-accent active:text-main-brand",
-            "acrylic-dark inline-flex w-full items-center",
+            "acrylic-dark w-full items-center",
+            "inline-flex",
             "rounded-md",
             "gap-2"
           )}
