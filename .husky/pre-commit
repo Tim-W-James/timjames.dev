@@ -3,5 +3,6 @@
 
 # bypass with --no-verify
 npx lint-staged
+pnpm --if-present build
 pnpm --if-present test:run
 pnpm --if-present type-coverage
