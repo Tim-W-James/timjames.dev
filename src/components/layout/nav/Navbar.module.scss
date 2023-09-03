@@ -5,6 +5,13 @@
 }
 
 ._navbarMenu {
+  border-bottom: 1px solid colors.$dark-accent;
+  background: linear-gradient(
+    0deg,
+    colors.$dark-shades 0%,
+    rgb(0 0 0 / 50%) 100%
+  );
+
   @include mixins.acrylic(45deg);
   @apply flex flex-col text-center;
 }

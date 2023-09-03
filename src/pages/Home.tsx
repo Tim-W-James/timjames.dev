@@ -1,3 +1,4 @@
+/* eslint-disable sonarjs/no-duplicate-string */
 import Button from "@components/buttons/Button";
 import BlogPostsCarousel from "@features/blog/components/BlogPostsCarousel";
 import AboutMe from "@features/home/components/AboutMe";
@@ -8,6 +9,7 @@ import SocialLinks from "@features/home/components/SocialLinks";
 import useMediaQuery, { useMobileQuery } from "@hooks/useMediaQuery";
 import ParallaxMountains from "@layout/background/ParallaxMountains";
 import cn, { cnScoped } from "@styles/cssUtils";
+import { isMobileSafari } from "react-device-detect";
 import FadeIn from "react-fade-in";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import { ParallaxProvider } from "react-scroll-parallax";
@@ -31,17 +33,28 @@ const Home: React.FC = () => {
               "flex place-content-center items-center",
               "flex-col",
               isDeviceMobile
-                ? styles._textAlignmentMobile
+                ? !isMobileSafari
+                  ? styles._textAlignmentMobile
+                  : ""
                 : styles._textAlignment
             )}
           >
-            <h1 className={cn("mt-20")} id="timjames">
-              <span className={cn({ "bg-dark-shades": isDeviceMobile })}>
-                👋 Hello,
+            <h1
+              className={cn(isMobileSafari ? "mt-32" : "mt-20")}
+              id="timjames"
+            >
+              <span>
+                <span className={cn("rounded-lg", "bg-dark-shades")}>
+                  👋 Hello,
+                </span>
                 <br />
-                I&apos;m <b className={cn("text-light-accent")}>Tim James</b>
+                <span className={cn("rounded-lg", "bg-dark-shades")}>
+                  I&apos;m <b className={cn("text-light-accent")}>Tim James</b>
+                </span>
                 <hr className={cn("radial-border")} />
-                Full-Stack Developer
+                <span className={cn("rounded-lg", "bg-dark-shades")}>
+                  Full-Stack Developer
+                </span>
               </span>
             </h1>
           </header>
