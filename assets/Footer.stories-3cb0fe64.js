@@ -1,0 +1,2 @@
+import{j as m}from"./cssUtils-d3b3e467.js";import{F as s}from"./Footer-52ec2097.js";import"./index-61bf1805.js";import"./_commonjsHelpers-de833af9.js";const F={component:s},p=a=>m.jsx(s,{...a}),o=p.bind({});o.args={allowFixed:!0};var r,e,t;o.parameters={...o.parameters,docs:{...(r=o.parameters)==null?void 0:r.docs,source:{originalSource:"args => <FooterComponent {...args} />",...(t=(e=o.parameters)==null?void 0:e.docs)==null?void 0:t.source}}};const u=["Footer"];export{o as Footer,u as __namedExportsOrder,F as default};
+//# sourceMappingURL=Footer.stories-3cb0fe64.js.map
