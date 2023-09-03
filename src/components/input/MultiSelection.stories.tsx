@@ -7,6 +7,7 @@ import MultiSelectionComponent, {
   SingleSelection as SingleSelectionComponent,
 } from "./MultiSelection";
 
+// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
 export default {
   component: MultiSelectionComponent,
   argTypes: {

@@ -15,6 +15,7 @@ type ConditionalWrapperProps = {
 
 /**
  * Conditionally wraps children in a wrapper component.
+ *
  * @example
  * <ConditionalWrapper
  *  condition={condition}

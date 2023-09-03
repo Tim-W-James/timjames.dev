@@ -6,6 +6,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import BlogCardComponent from "./BlogCard";
 import BlogCardLoadingComponent from "./BlogCardLoading";
 
+// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
 export default {
   title: "Components/blog/BlogCard",
   component: BlogCardComponent,

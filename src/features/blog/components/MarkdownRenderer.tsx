@@ -59,6 +59,7 @@ const MarkdownRenderer: React.FC<{ markdown: string }> = ({ markdown }) => {
         }
       };
 
+      // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
       const codeString = (
         typeof props.children === "string" ? props.children : props.children[0]
       ) as string;

@@ -3,7 +3,7 @@
  *
  * @param e mouse event for the element
  * @param coordinate coordinate to find the mouse position
- * @param [isFixed] if the element uses fixed positioning
+ * @param isFixed if the element uses fixed positioning
  */
 const mousePercent = (
   e: React.MouseEvent<HTMLElement>,

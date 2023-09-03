@@ -33,6 +33,7 @@ const filters = {
   none: () => true,
 };
 
+// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
 export default {
   title: "Components/timeline/Timeline",
   component: TimelineComponent,

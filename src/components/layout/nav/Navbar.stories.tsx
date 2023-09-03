@@ -3,6 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import NavbarComponent from "./Navbar";
 
+// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
 export default {
   component: NavbarComponent,
 } as Meta<typeof NavbarComponent>;

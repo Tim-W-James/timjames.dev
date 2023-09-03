@@ -11,6 +11,7 @@ import { useEffect } from "react";
  *
  * @param title meta title
  * @param description meta description
+ * @param canonical canonical url
  */
 const useDocumentMeta = (
   title?: string,

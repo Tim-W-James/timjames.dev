@@ -10,6 +10,7 @@ const icons = {
   mailbox: <BsMailbox />,
 };
 
+// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
 export default {
   component: ButtonComponent,
   argTypes: {

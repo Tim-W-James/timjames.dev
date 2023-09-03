@@ -5,6 +5,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import timelineData from "../data/timelineData";
 import TimelineItemComponent from "./TimelineItem";
 
+// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
 export default {
   title: "Components/timeline/TimelineItem",
   component: TimelineItemComponent,

@@ -4,6 +4,7 @@ import clsx from "clsx";
 
 import ClassName from "./cssClasses";
 
+// eslint-disable-next-line jsdoc/require-param
 /**
  * Wrapper for 'classnames' module with strict typing.
  */
@@ -26,7 +27,7 @@ const cn = <S1, S2, S3, S4, S5, S6, S7, S8, S9, S10>(
  * Type checking for Tailwind Classes and infers scoped class names from a
  * record of strings. Is curried to allow the params to be inferred
  *
- * @param ScopedClassNames - auto generated record of all scoped classes
+ * @param scopedClassNames auto generated record of all scoped classes
  */
 export const cnScoped = (scopedClassNames: Record<string, string>) => {
   type ScopedClassNames =

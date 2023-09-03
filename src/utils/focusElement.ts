@@ -61,6 +61,7 @@ const getScrollPositionRestorer = (): (() => void) => {
 /**
  * Executes a function that may (undesirably) change the window's scroll
  * position and then restores the window scroll position and scroll behavior.
+ *
  * @param funcWithScrollSideEffect a function to execute that may (undesirably)
  * change the window's scroll position
  */
@@ -74,7 +75,7 @@ const withRestoreScrollPosition = <T>(funcWithScrollSideEffect: () => T): T => {
 /**
  * Focuses an element, setting `tabindex="-1"` if necessary.
  *
- * @param target the element to focus.
+ * @param element the element to focus.
  * @param preventScroll true if the browser should not scroll the target element
  * into view, false otherwise.
  */

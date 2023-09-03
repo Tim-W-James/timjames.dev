@@ -3,6 +3,7 @@ import cn from "@styles/cssUtils";
 
 import SearchFieldComponent from "./SearchField";
 
+// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
 export default {
   component: SearchFieldComponent,
 } as Meta<typeof SearchFieldComponent>;

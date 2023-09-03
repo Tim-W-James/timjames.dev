@@ -3,6 +3,7 @@ import { ParallaxProvider } from "react-scroll-parallax";
 
 import ParallaxMountainsComponent from "./ParallaxMountains";
 
+// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
 export default {
   component: ParallaxMountainsComponent,
   parameters: {

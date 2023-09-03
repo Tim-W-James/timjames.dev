@@ -1,3 +1,4 @@
+/* eslint-disable jsdoc/require-param */
 // Source: https://github.com/oaf-project/oaf-react-router
 
 /**
@@ -38,7 +39,6 @@ const createAnnounceDiv = (
 /**
  * Make an announcement to screen reader users. Useful for page navigation
  * events.
- *
  * See https://almerosteyn.com/2017/03/accessible-react-navigation
  * See https://getbootstrap.com/docs/4.3/utilities/screen-readers/
  * See https://github.com/twbs/bootstrap/blob/ff29c1224c20b8fcf2d1e7c28426470f1dc3e40d/scss/mixins/_screen-reader.scss#L6

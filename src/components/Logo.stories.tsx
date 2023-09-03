@@ -10,6 +10,7 @@ const images = {
   profile,
 };
 
+// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
 export default {
   component: LogoComponent,
   argTypes: {

@@ -11,6 +11,7 @@ import { Provider } from "react-redux";
 import { contactFormOnSubmitDev } from "../utils/submitFuncs";
 import ContactFormComponent from "./ContactForm";
 
+// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
 export default {
   title: "Components/forms/ContactForm",
   component: ContactFormComponent,

@@ -51,16 +51,19 @@ const formStateDisplay = (
         icon: <MdSend className={cn("text-4xl")} />,
       };
 
+type ContactFormProps = {
+  onSubmit: (params: FormSubmitParams) => Promise<unknown>;
+  showPromptOnClose?: boolean;
+};
+
 /**
  * Contact form with validation for name, email and message. Spam protection
  * with reCAPTCHA and honeypot field
- *
- * @param onSubmit - function to call when the form is submitted
  */
-const ContactForm: React.FC<{
-  onSubmit: (params: FormSubmitParams) => Promise<unknown>;
-  showPromptOnClose?: boolean;
-}> = ({ onSubmit, showPromptOnClose }) => {
+const ContactForm: React.FC<ContactFormProps> = ({
+  onSubmit,
+  showPromptOnClose,
+}) => {
   const responseState = useAppSelector((state) => state.contactForm.status);
   const initialFormData = store.getState().contactForm.formData;
   const dispatch = useAppDispatch();

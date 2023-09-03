@@ -15,6 +15,8 @@ const parseResponse = (response: unknown): unknown =>
 /**
  * Get all articles from dev.to
  *
+ * @param articles number of articles to return
+ * @param page pagination
  */
 export const devdottoArticlesMeta =
   (
