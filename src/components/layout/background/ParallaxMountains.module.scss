@@ -33,12 +33,11 @@
   border-width: 0 min(50vw, 350px) 40vh;
   border-style: solid;
   border-color: transparent transparent colors.$dark-shades;
-  margin-top: 10px;
 }
 
 ._mountainBackgroundFiller {
   @apply absolute -z-[5] w-screen bg-dark-shades;
-  
+
   height: 500vh;
-  margin-top: 40vh;
+  margin-top: 38vh;
 }

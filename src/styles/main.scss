@@ -19,10 +19,23 @@
       @apply absolute -z-50;
 
       width: 100vw;
-      @media (hover: none) and (pointer: coarse) {
-        width: 50vw;
-      }
+      height: calc(100vh * 0.5);
+      background: linear-gradient(
+        180deg,
+        rgb(0 0 0 / 0%) 0%,
+        colors.$dark-shades 50%
+      );
+      content: "";
+    }
+  }
 
+  .mobile-solid-background {
+    @apply w-screen h-auto bg-dark-shades;
+
+    &::before {
+      @apply absolute -z-50;
+
+      width: 50vw;
       height: calc(100vh * 0.5);
       background: linear-gradient(
         180deg,

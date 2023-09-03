@@ -9,7 +9,8 @@ import styles from "./ParallaxMountains.module.scss";
  * Background component with parallax effect.
  */
 const ParallaxMountains: React.FC = () => {
-  const deviceIsMobile = useMobileQuery();
+  const isDeviceMobile = useMobileQuery();
+
   return (
     <>
       <div className={cn("gradient-background")} />
@@ -21,7 +22,7 @@ const ParallaxMountains: React.FC = () => {
         )}
       />
       <FadeIn transitionDuration={200}>
-        {deviceIsMobile ? (
+        {isDeviceMobile ? (
           <div className={cn("flex w-screen justify-center")}>
             <div className={cnScoped(styles)(styles._mountainMiddleMobile)} />
             <div

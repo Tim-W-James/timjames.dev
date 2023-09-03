@@ -3,10 +3,14 @@
   @media (width >= 500px) and (width <= 2400px) {
     margin-top: calc(6rem + 8vh + clamp(0px, 10vw, 50px));
   }
-  @media (hover: none) and (pointer: coarse) {
-    margin-top: calc(6rem + 5vh);
+}
+
+._textAlignmentMobile {
+  margin-top: calc(4rem + 5vh);
+  @media only screen and (orientation: landscape) {
+    margin-top: calc(2rem);
   }
-  @media (hover: none) and (pointer: coarse) and (width >= 800px) {
-    margin-top: calc(1rem + 5vh);
+  @media (width >= 800px) {
+    margin-top: calc(2rem + 3vw);
   }
 }

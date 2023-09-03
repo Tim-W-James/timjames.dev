@@ -5,7 +5,7 @@ import CoreTechnologies from "@features/home/components/CoreTechnologies";
 import MajorProjects from "@features/home/components/MajorProjects";
 import Skills from "@features/home/components/Skills";
 import SocialLinks from "@features/home/components/SocialLinks";
-import useMediaQuery from "@hooks/useMediaQuery";
+import useMediaQuery, { useMobileQuery } from "@hooks/useMediaQuery";
 import ParallaxMountains from "@layout/background/ParallaxMountains";
 import cn, { cnScoped } from "@styles/cssUtils";
 import FadeIn from "react-fade-in";
@@ -15,6 +15,7 @@ import { ParallaxProvider } from "react-scroll-parallax";
 import styles from "./Home.module.scss";
 const Home: React.FC = () => {
   const shouldShrinkButtons = useMediaQuery("(max-width: 670px)");
+  const isDeviceMobile = useMobileQuery();
 
   return (
     <ParallaxProvider>
@@ -29,15 +30,19 @@ const Home: React.FC = () => {
             className={cnScoped(styles)(
               "flex place-content-center items-center",
               "flex-col",
-              styles._textAlignment
+              isDeviceMobile
+                ? styles._textAlignmentMobile
+                : styles._textAlignment
             )}
           >
             <h1 className={cn("mt-20")} id="timjames">
-              👋 Hello,
-              <br />
-              I&apos;m <b className={cn("text-light-accent")}>Tim James</b>
-              <hr className={cn("radial-border")} />
-              Full-Stack Developer
+              <span className={cn({ "bg-dark-shades": isDeviceMobile })}>
+                👋 Hello,
+                <br />
+                I&apos;m <b className={cn("text-light-accent")}>Tim James</b>
+                <hr className={cn("radial-border")} />
+                Full-Stack Developer
+              </span>
             </h1>
           </header>
         </FadeIn>
@@ -46,7 +51,11 @@ const Home: React.FC = () => {
             <SocialLinks shouldShrinkButtons={shouldShrinkButtons} />
           </FadeIn>
           <CoreTechnologies />
-          <div className={cn("solid-background")}>
+          <div
+            className={cn(
+              isDeviceMobile ? "mobile-solid-background" : "solid-background"
+            )}
+          >
             <div className={cn("container mx-auto pt-8")}>
               <FadeIn transitionDuration={400}>
                 <AboutMe />

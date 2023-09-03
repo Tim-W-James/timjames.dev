@@ -1,3 +1,5 @@
+import { isMobile } from "react-device-detect";
+
 /**
  * Hook to check if a css media query is true
  *
@@ -24,7 +26,8 @@ const useMediaQuery = (query: string) => {
  * Check if on a mobile device
  */
 export const useMobileQuery = () =>
-  useMediaQuery("(hover: none) and (pointer: coarse)");
+  // Both methods have false negatives, so we use both
+  useMediaQuery("(hover: none) and (pointer: coarse)") || isMobile;
 
 /**
  * Check if the primary input is touch (not necessarily a mobile device)

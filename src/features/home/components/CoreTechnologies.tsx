@@ -1,9 +1,11 @@
 import technologies from "@data/technologies";
+import { useMobileQuery } from "@hooks/useMediaQuery";
 import cn from "@styles/cssUtils";
 import FadeIn from "react-fade-in";
 import { HashLink } from "react-router-hash-link";
 
 const CoreTechnologies: React.FC = () => {
+  const isDeviceMobile = useMobileQuery();
   const copyFragment = useCallback(
     () =>
       navigator.clipboard.writeText(
@@ -15,7 +17,7 @@ const CoreTechnologies: React.FC = () => {
     <div
       className={cn(
         "mx-auto mt-8 flex max-w-xl place-content-center items-center",
-        "solid-background",
+        isDeviceMobile ? "mobile-solid-background" : "solid-background",
         "flex-col"
       )}
     >
