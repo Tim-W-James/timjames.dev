@@ -1,2 +1,0 @@
-import{r as e}from"./index-61bf1805.js";import{u as r}from"./index-cf646f8d.js";const t=()=>{const{pathname:o}=r();return e.useEffect(()=>{window.location.hash||setTimeout(()=>{window.scrollTo({top:0,behavior:"smooth"})},0)},[o]),null};try{t.displayName="ScrollToTop",t.__docgenInfo={description:"Automatically scrolls to the top of the page when the route changes.",displayName:"ScrollToTop",props:{}}}catch{}export{t as S};
-//# sourceMappingURL=ScrollToTop-11595ade.js.map
