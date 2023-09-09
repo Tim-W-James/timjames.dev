@@ -2,6 +2,7 @@
 import { ConditionalWrapper } from "@components/ConditionalWrapper";
 import cn from "@styles/cssUtils";
 import rangeParser from "parse-numeric-range";
+import { isMobile } from "react-device-detect";
 import ReactMarkdown from "react-markdown";
 import { SpecialComponents } from "react-markdown/lib/ast-to-react";
 import { NormalComponents } from "react-markdown/lib/complex-types";
@@ -76,12 +77,14 @@ const MarkdownRenderer: React.FC<{ markdown: string }> = ({ markdown }) => {
       return hasLang ? (
         isReloaded ? (
           <>
-            <div className={cn("relative")}>
-              <CopyTextButton
-                buttonClasses={cn("absolute right-2 top-2 w-auto !p-3")}
-                stringToCopy={codeString}
-              />
-            </div>
+            {!isMobile ? (
+              <div className={cn("relative")}>
+                <CopyTextButton
+                  buttonClasses={cn("absolute right-2 top-2 w-auto !p-3")}
+                  stringToCopy={codeString}
+                />
+              </div>
+            ) : null}
             <SyntaxHighlighter
               PreTag="div"
               customStyle={{
