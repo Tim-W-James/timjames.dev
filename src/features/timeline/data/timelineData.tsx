@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 /* eslint-disable sonarjs/no-duplicate-string */
 // eslint-disable-next-line filename-rules/match
+import LazyYoutubeVideo from "@components/LazyYoutubeVideo";
 import Tooltip from "@components/Tooltip";
 import adaThumbnail from "@images/projects/ada.png";
 import desktopArtThumbnail from "@images/projects/desktop_art.png";
@@ -14,13 +15,12 @@ import roverThumbnail from "@images/projects/rover.jpeg";
 import sharkShackThumbnail from "@images/projects/shark_shack.jpg";
 import townHouseThumbnail from "@images/projects/town_house.jpg";
 import weatherStationThumbnail from "@images/projects/weather_station.jpg";
-import cn, { cnScoped } from "@styles/cssUtils";
+import cn from "@styles/cssUtils";
 import { BsFillBookFill, BsGithub } from "react-icons/bs";
 import { FaHamburger } from "react-icons/fa";
 import { SiEslint, SiFigma, SiStorybook } from "react-icons/si";
 
 import TimelineItemData from "../types/TimelineData";
-import styles from "./timelineData.module.scss";
 
 const timelineData: TimelineItemData[] = [
   {
@@ -239,15 +239,12 @@ const timelineData: TimelineItemData[] = [
   {
     startDate: new Date("2021"),
     endDate: new Date("2021"),
-    title: "Siding Spring Observatory VR Experience",
+    title: "Siding  Observatory VR Experience",
     body: (
       <>
-        <iframe
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          className={cnScoped(styles)("mb-2", styles._videoPlayer)}
-          src="https://www.youtube-nocookie.com/embed/iNKi8JYBmeo"
-          title="YouTube video player"
+        <LazyYoutubeVideo
+          title="Siding Spring Observatory VR Experience"
+          videoId="iNKi8JYBmeo"
         />
         Part of the{" "}
         <a
@@ -872,13 +869,7 @@ const timelineData: TimelineItemData[] = [
     title: "Project Velocity",
     body: (
       <>
-        <iframe
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          className={cnScoped(styles)("mb-2", styles._videoPlayer)}
-          src="https://www.youtube-nocookie.com/embed/9QV3YlMHT-4"
-          title="YouTube video player"
-        />
+        <LazyYoutubeVideo title="Project Velocity" videoId="9QV3YlMHT-4" />
         A prototype game with procedurally generated levels and time
         manipulation mechanics.
         <br />
@@ -1029,13 +1020,10 @@ const timelineData: TimelineItemData[] = [
     title: "Void Matrix Minecraft Map",
     body: (
       <>
-        <iframe
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          className={cnScoped(styles)("mb-2", styles._videoPlayer)}
+        <LazyYoutubeVideo
           height="315"
-          src="https://www.youtube-nocookie.com/embed/HAFvKqTV4Fg"
-          title="YouTube video player"
+          title="Void Matrix"
+          videoId="HAFvKqTV4Fg"
           width="560"
         />
         Follow up to my popular Minecraft map, Labyrinth of Puzzles, the Void

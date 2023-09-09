@@ -7,7 +7,6 @@ import background from "@images/bg-aurora.jpg";
 import Footer from "@layout/Footer";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import { Outlet } from "react-router-dom";
 const Navbar = lazy(() => import("@layout/nav/Navbar"));
 
@@ -31,22 +30,10 @@ const App: React.FC = () => {
   return (
     <div>
       <QueryClientProvider client={queryClient}>
-        <GoogleReCaptchaProvider
-          container={{
-            element: "captcha-container",
-            parameters: {
-              badge: "bottomright",
-              theme: "dark",
-            },
-          }}
-          reCaptchaKey={import.meta.env["VITE_SITE_RECAPTCHA_KEY"] || ""}
-        >
-          <Navbar />
-          <Outlet />
-          <Footer allowFixed />
-          <div id="captcha-container" />
-          <Toast />
-        </GoogleReCaptchaProvider>
+        <Navbar />
+        <Outlet />
+        <Footer allowFixed />
+        <Toast />
         {import.meta.env.DEV ? (
           <ReactQueryDevtools initialIsOpen={false} />
         ) : null}

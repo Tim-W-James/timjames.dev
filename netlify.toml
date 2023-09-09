@@ -54,6 +54,16 @@ package = "netlify-plugin-submit-sitemap"
   [headers.values]
     Content-Type = "application/javascript"
 
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Feature-Policy = "camera 'none'; microphone 'none'; geolocation 'none'; speaker 'none'; payment 'none';"
+    Accept-Encoding = "gzip, compress, br"
+
 # redirects
 
 [[redirects]]

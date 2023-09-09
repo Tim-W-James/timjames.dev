@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import {
   BsChatLeftTextFill,
   BsFillArrowLeftCircleFill,
+  BsFillArrowUpCircleFill,
   BsHeart,
 } from "react-icons/bs";
 import { useParams } from "react-router-dom";
@@ -17,7 +18,13 @@ import MarkdownRenderer from "./MarkdownRenderer";
 
 type BlogArticleContentProps = { slug: string };
 
+// eslint-disable-next-line sonarjs/cognitive-complexity
 const BlogArticleContent: React.FC<BlogArticleContentProps> = ({ slug }) => {
+  const scrollToTop = useCallback(
+    () => window.scrollTo({ top: 0, behavior: "smooth" }),
+    []
+  );
+
   const { status, data: article } = useQuery(
     ["devdotto", "article", slug],
     devdottoArticle(slug)
@@ -113,7 +120,7 @@ const BlogArticleContent: React.FC<BlogArticleContentProps> = ({ slug }) => {
             </a>
             <a
               className={cn("hover:text-light-accent active:text-dark-accent")}
-              href={article.url}
+              href={`${article.url}#comments`}
               rel="noreferrer"
               target="_blank"
               title="Comment on dev.to"
@@ -127,6 +134,50 @@ const BlogArticleContent: React.FC<BlogArticleContentProps> = ({ slug }) => {
           </div>
         </div>
         <MarkdownRenderer markdown={article.body_markdown} />
+
+        <div className={cn("radial-border mt-4 flex justify-center gap-2")}>
+          <a
+            className={cn(
+              "flex items-center gap-2 hover:text-light-accent",
+              "border-r",
+              "pr-2",
+              "active:text-dark-accent"
+            )}
+            href={article.url}
+            rel="noreferrer"
+            target="_blank"
+            title="Like on dev.to"
+          >
+            Like <BsHeart />{" "}
+            {article.public_reactions_count !== 0
+              ? article.public_reactions_count
+              : ""}
+          </a>
+          <a
+            className={cn(
+              "flex items-center gap-2 hover:text-light-accent",
+              "active:text-dark-accent"
+            )}
+            href={`${article.url}#comments`}
+            rel="noreferrer"
+            target="_blank"
+            title="Comment on dev.to"
+          >
+            Comment <BsChatLeftTextFill />{" "}
+            {article.comments_count !== 0 ? article.comments_count : ""}
+          </a>
+        </div>
+        <div className={cn("mt-4 flex justify-center")}>
+          <Button
+            childProps={{ onClick: scrollToTop }}
+            className={cn("!px-4 !py-1")}
+            icon={<BsFillArrowUpCircleFill />}
+            isLight
+            label="Top"
+            mode="button"
+            tooltip="Back to top"
+          />
+        </div>
       </div>
     </BlogArticleWrapper>
   );

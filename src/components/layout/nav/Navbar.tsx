@@ -17,7 +17,7 @@ const MenuToggle = lazy(() => import("./MenuToggle"));
 const Navbar: React.FC = () => {
   const location = useLocation();
   const [hamburgerMenuIsOpen, openHamburgerMenu] = useState(false);
-  const shouldUseHamburgerMenu = useMediaQuery("(max-width: 1050px)");
+  const shouldUseFullWidth = useMediaQuery("(min-width: 1050px)");
 
   const navbarItems = (
     <>
@@ -68,7 +68,21 @@ const Navbar: React.FC = () => {
     [hamburgerMenuIsOpen]
   );
 
-  return shouldUseHamburgerMenu ? (
+  return shouldUseFullWidth ? (
+    <nav
+      className={cnScoped(styles)(
+        styles._navbar,
+        "w-screen sticky top-0 left-0 z-50"
+      )}
+    >
+      <div className={cn("container mx-auto")}>
+        <div className={cn("flex items-center justify-between", "flex-row")}>
+          {navbarBrand}
+          <div className={cn("flex justify-around")}>{navbarItems}</div>
+        </div>
+      </div>
+    </nav>
+  ) : (
     <ClickAwayListener onClickAway={closeHamburgerMenu}>
       <nav className={cn("sticky left-0 top-0 z-[100]")}>
         <div
@@ -94,20 +108,6 @@ const Navbar: React.FC = () => {
         </div>
       </nav>
     </ClickAwayListener>
-  ) : (
-    <nav
-      className={cnScoped(styles)(
-        styles._navbar,
-        "w-screen sticky top-0 left-0 z-50"
-      )}
-    >
-      <div className={cn("container mx-auto")}>
-        <div className={cn("flex items-center justify-between", "flex-row")}>
-          {navbarBrand}
-          <div className={cn("flex justify-around")}>{navbarItems}</div>
-        </div>
-      </div>
-    </nav>
   );
 };
 

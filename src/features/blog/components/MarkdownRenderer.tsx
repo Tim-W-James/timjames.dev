@@ -6,6 +6,7 @@ import { isMobile } from "react-device-detect";
 import ReactMarkdown from "react-markdown";
 import { SpecialComponents } from "react-markdown/lib/ast-to-react";
 import { NormalComponents } from "react-markdown/lib/complex-types";
+import { HashLink } from "react-router-hash-link";
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import bash from "react-syntax-highlighter/dist/cjs/languages/prism/bash";
 import json from "react-syntax-highlighter/dist/cjs/languages/prism/json";
@@ -38,6 +39,11 @@ const MarkdownRenderer: React.FC<{ markdown: string }> = ({ markdown }) => {
 
     return () => clearTimeout(timerId);
   }, []);
+
+  const copyFragment = useCallback(
+    () => navigator.clipboard.writeText(`${location.href.split("#")[0] ?? ""}`),
+    []
+  );
 
   // Adapted from https://amirardalan.com/blog/syntax-highlight-code-in-markdown
   const MarkdownComponents: Partial<
@@ -125,7 +131,35 @@ const MarkdownRenderer: React.FC<{ markdown: string }> = ({ markdown }) => {
 
   return (
     <article className={cn("prose", "prose-invert", "lg:prose-xl")}>
-      <ReactMarkdown components={MarkdownComponents}>{markdown}</ReactMarkdown>
+      <ReactMarkdown
+        components={{
+          ...MarkdownComponents,
+          h2: ({ children }) => (
+            <h2 id={children.toString()}>
+              <HashLink
+                className={cn("hash-link-right", "no-underline", "after:ml-2")}
+                onClick={copyFragment}
+                to={`#${children.toString()}`}
+              >
+                {children}
+              </HashLink>
+            </h2>
+          ),
+          h3: ({ children }) => (
+            <h3 id={children.toString()}>
+              <HashLink
+                className={cn("hash-link-right", "no-underline", "after:ml-2")}
+                onClick={copyFragment}
+                to={`#${children.toString()}`}
+              >
+                {children}
+              </HashLink>
+            </h3>
+          ),
+        }}
+      >
+        {markdown}
+      </ReactMarkdown>
     </article>
   );
 };
