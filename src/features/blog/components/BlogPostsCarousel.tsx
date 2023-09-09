@@ -1,6 +1,7 @@
 import Button from "@components/buttons/Button";
 import cn, { cnScoped } from "@styles/cssUtils";
 import { useQuery } from "@tanstack/react-query";
+import { isSafari } from "react-device-detect";
 import {
   BsFillArrowLeftCircleFill,
   BsFillArrowRightCircleFill,
@@ -67,7 +68,7 @@ const BlogPostsCarousel: React.FC<BlogPostsCarouselProps> = ({ title }) => {
             "max-sm:px-1",
             "overflow-auto snap-x",
             "flex gap-4",
-            styles._carousel
+            { [styles._carousel]: !isSafari }
           )}
           data-chromatic="ignore"
           id="carousel"

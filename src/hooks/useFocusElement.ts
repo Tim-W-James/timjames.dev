@@ -1,5 +1,6 @@
 import { focusElement } from "@utils/focusElement";
 import { useUpdateEffect } from "ahooks";
+import { isSafari } from "react-device-detect";
 import { useLocation } from "react-router-dom";
 
 /**
@@ -13,6 +14,8 @@ export const useResetFocusNavigation = () => {
     // Focus the page heading, if it exists, otherwise clear focus to avoid an
     // error.
     // @see https://www.gatsbyjs.com/blog/2019-07-11-user-testing-accessible-client-routing/
-    focusElement(document.querySelector("h1") ?? document.body);
+    isSafari
+      ? focusElement(document.body)
+      : focusElement(document.querySelector("h1") ?? document.body);
   }, [location.pathname]);
 };

@@ -29,6 +29,15 @@ SyntaxHighlighter.registerLanguage("json", json);
 const MarkdownRenderer: React.FC<{ markdown: string }> = ({ markdown }) => {
   const syntaxTheme = oneDark;
 
+  // HACK fix a rare issue with Prism failing to render
+  // https://github.com/react-syntax-highlighter/react-syntax-highlighter/issues/513
+  const [isReloaded, setIsReloaded] = useState(false);
+  useEffect(() => {
+    const timerId = setTimeout(() => setIsReloaded(true), 0);
+
+    return () => clearTimeout(timerId);
+  }, []);
+
   // Adapted from https://amirardalan.com/blog/syntax-highlight-code-in-markdown
   const MarkdownComponents: Partial<
     Omit<NormalComponents, keyof SpecialComponents> & SpecialComponents
@@ -65,39 +74,41 @@ const MarkdownRenderer: React.FC<{ markdown: string }> = ({ markdown }) => {
       ) as string;
 
       return hasLang ? (
-        <>
-          <div className={cn("relative")}>
-            <CopyTextButton
-              buttonClasses={cn("absolute right-2 top-2 w-auto !p-3")}
-              stringToCopy={codeString}
-            />
-          </div>
-          <SyntaxHighlighter
-            PreTag="div"
-            customStyle={{
-              marginBottom: "2rem",
-              marginTop: 0,
-              paddingBottom: 0,
-            }}
-            language={hasLang[1]}
-            lineProps={applyHighlights}
-            showLineNumbers={true}
-            style={syntaxTheme}
-            useInlineStyles={true}
-            wrapLines={hasMeta}
-          >
-            {[codeString]}
-          </SyntaxHighlighter>
-          <div className={cn("relative")}>
-            <div
-              className={cn(
-                "absolute left-2 -mt-[1.5rem] select-none text-sm italic"
-              )}
-            >
-              {hasLang[1]}
+        isReloaded ? (
+          <>
+            <div className={cn("relative")}>
+              <CopyTextButton
+                buttonClasses={cn("absolute right-2 top-2 w-auto !p-3")}
+                stringToCopy={codeString}
+              />
             </div>
-          </div>
-        </>
+            <SyntaxHighlighter
+              PreTag="div"
+              customStyle={{
+                marginBottom: "2rem",
+                marginTop: 0,
+                paddingBottom: 0,
+              }}
+              language={hasLang[1]}
+              lineProps={applyHighlights}
+              showLineNumbers={true}
+              style={syntaxTheme}
+              useInlineStyles={true}
+              wrapLines={hasMeta}
+            >
+              {[codeString]}
+            </SyntaxHighlighter>
+            <div className={cn("relative")}>
+              <div
+                className={cn(
+                  "absolute left-2 -mt-[1.5rem] select-none text-sm italic"
+                )}
+              >
+                {hasLang[1]}
+              </div>
+            </div>
+          </>
+        ) : null
       ) : (
         <ConditionalWrapper
           condition={!inline}

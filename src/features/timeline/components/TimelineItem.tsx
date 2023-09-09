@@ -6,6 +6,7 @@ import {
   useAnimation,
   useInView,
 } from "framer-motion";
+import { isSafari } from "react-device-detect";
 
 import TimelineItemData from "../types/TimelineData";
 import ItemLinksList from "./ItemLinksList";
@@ -45,7 +46,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
   const isOddIndex = index % 2 === 0 && hasTwoColumns;
 
   useEffect(() => {
-    if (isInView) {
+    if (isInView || isSafari) {
       control.start("visible");
     } else {
       control.start("hidden");

@@ -45,7 +45,6 @@ const CoreTechnologies: React.FC = () => {
             .filter(([_, value]) => value.isCore)
             .map(([key, value], index) => (
               <HashLink
-                aria-label={key}
                 className={cn(
                   "inline-flex",
                   "items-center",
