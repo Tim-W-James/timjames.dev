@@ -3,8 +3,8 @@
 /**
  * Get and set a value in browser local storage
  *
- * @param key key for the data
- * @param initialValue initial data value
+ * @param key - key for the data
+ * @param initialValue - initial data value
  */
 const useLocalStorage = <T>(key: string, initialValue: T) => {
   // State to store our value

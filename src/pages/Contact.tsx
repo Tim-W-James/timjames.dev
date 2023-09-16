@@ -4,14 +4,15 @@ import contactFormOnSubmit, {
 } from "@features/contactForm/utils/submitFuncs";
 import cn from "@styles/cssUtils";
 import FadeIn from "react-fade-in";
-import { BsFacebook, BsGithub, BsLinkedin, BsTwitter } from "react-icons/bs";
+import { BsFacebook, BsGithub, BsLinkedin } from "react-icons/bs";
+import { FaXTwitter } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { SiSpotify, SiSteam } from "react-icons/si";
 import { HashLink } from "react-router-hash-link";
 
 type SocialLinkProps = {
   icon: JSX.Element;
-  body: string;
+  body?: string;
   url: string;
   tooltip: string;
 };
@@ -91,7 +92,7 @@ const Contact = () => {
           />
           <SocialLink
             body="Twitter"
-            icon={<BsTwitter />}
+            icon={<FaXTwitter />}
             tooltip="@TimWJames"
             url="https://twitter.com/TimWJames"
           />

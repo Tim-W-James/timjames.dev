@@ -123,7 +123,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
   }, [executeRecaptcha]);
 
   useEffect(() => {
-    handleReCaptchaVerify();
+    void handleReCaptchaVerify();
   }, [handleReCaptchaVerify]);
 
   // Ensure reCAPTCHA badge appears on top and complies with Google's TOS
@@ -134,8 +134,8 @@ const ContactForm: React.FC<ContactFormProps> = ({
 
   // Reverify the CAPTCHA on form submission
   const onFormSubmit = (data: ContactFormSchema) => {
-    handleReCaptchaVerify().then(() => {
-      toast.promise(
+    void handleReCaptchaVerify().then(() => {
+      void toast.promise(
         onSubmit({
           data,
           dispatch,

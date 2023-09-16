@@ -5,7 +5,7 @@ import trim from "validator/lib/trim";
  * Encode a JSON object for the request of a HTTP body using
  * application/x-www-form-urlencoded
  *
- * @param data JSON object to encode
+ * @param data - JSON object to encode
  */
 const encodeContactFormData = (data: object) =>
   Object.entries(data)

@@ -3,7 +3,7 @@ import { isMobile } from "react-device-detect";
 /**
  * Hook to check if a css media query is true
  *
- * @param query media query to use
+ * @param query - media query to use
  * @example useMediaQuery("(min-width: 1280px)")
  */
 const useMediaQuery = (query: string) => {

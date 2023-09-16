@@ -22,8 +22,8 @@ const prefersReducedMotion = (): boolean =>
  * If the user has indicated that they prefer reduced motion, the smoothScroll
  * value will be ignored.
  *
- * @param scrollPosition the scroll position to scroll to
- * @param smoothScroll true for smooth scrolling, false otherwise
+ * @param scrollPosition - the scroll position to scroll to
+ * @param smoothScroll - true for smooth scrolling, false otherwise
  */
 export const setScrollPosition = (
   scrollPosition: ScrollPosition,
@@ -62,8 +62,8 @@ const getScrollPositionRestorer = (): (() => void) => {
  * Executes a function that may (undesirably) change the window's scroll
  * position and then restores the window scroll position and scroll behavior.
  *
- * @param funcWithScrollSideEffect a function to execute that may (undesirably)
- * change the window's scroll position
+ * @param funcWithScrollSideEffect - a function to execute that may
+ * (undesirably) change the window's scroll position
  */
 const withRestoreScrollPosition = <T>(funcWithScrollSideEffect: () => T): T => {
   const restoreScrollPosition = getScrollPositionRestorer();
@@ -75,9 +75,9 @@ const withRestoreScrollPosition = <T>(funcWithScrollSideEffect: () => T): T => {
 /**
  * Focuses an element, setting `tabindex="-1"` if necessary.
  *
- * @param element the element to focus.
- * @param preventScroll true if the browser should not scroll the target element
- * into view, false otherwise.
+ * @param element - the element to focus.
+ * @param preventScroll - true if the browser should not scroll the target
+ * element into view, false otherwise.
  */
 export const focusElement = (
   element: HTMLElement | SVGElement,

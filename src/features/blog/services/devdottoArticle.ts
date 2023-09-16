@@ -15,8 +15,8 @@ const parseResponse = (response: unknown): unknown =>
 /**
  * Get all articles from dev.to
  *
- * @param articles number of articles to return
- * @param page pagination
+ * @param articles - number of articles to return
+ * @param page - pagination
  */
 export const devdottoArticlesMeta =
   (
@@ -57,7 +57,7 @@ export const devdottoArticlesMeta =
 /**
  * Get a single dev.to article
  *
- * @param slug URL slug (title) for the article
+ * @param slug - URL slug (title) for the article
  */
 const devdottoArticle =
   (slug: string): (() => Promise<DevdottoArticle | undefined>) =>

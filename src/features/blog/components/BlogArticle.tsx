@@ -8,6 +8,7 @@ import {
   BsFillArrowUpCircleFill,
   BsHeart,
 } from "react-icons/bs";
+import { FaXTwitter } from "react-icons/fa6";
 import { useParams } from "react-router-dom";
 import escape from "validator/lib/escape";
 
@@ -107,6 +108,7 @@ const BlogArticleContent: React.FC<BlogArticleContentProps> = ({ slug }) => {
         >
           <div className={cn("flex gap-4 text-xl", "flex-wrap")}>
             <a
+              // eslint-disable-next-line sonarjs/no-duplicate-string
               className={cn("hover:text-light-accent active:text-dark-accent")}
               href={article.url}
               rel="noreferrer"
@@ -127,6 +129,17 @@ const BlogArticleContent: React.FC<BlogArticleContentProps> = ({ slug }) => {
             >
               <BsChatLeftTextFill />{" "}
               {article.comments_count !== 0 ? article.comments_count : ""}
+            </a>
+            <a
+              className={cn("hover:text-light-accent active:text-dark-accent")}
+              href={`https://twitter.com/intent/tweet?text=Check%20out%20this%20post%3A%20${
+                location.href.split("#")[0]
+              }`}
+              rel="noreferrer"
+              target="_blank"
+              title="Share on X (Twitter)"
+            >
+              <FaXTwitter />
             </a>
           </div>
           <div className={cn("text-lg")}>

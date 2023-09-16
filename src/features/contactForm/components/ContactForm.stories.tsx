@@ -127,7 +127,7 @@ ValidForm.play = async ({ canvasElement }) => {
     }
   );
 
-  userEvent.click(canvas.getByRole("button"));
+  await userEvent.click(canvas.getByRole("button"));
 
   // Assert
   await waitFor(

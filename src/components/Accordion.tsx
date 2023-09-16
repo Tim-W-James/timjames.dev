@@ -2,7 +2,7 @@ import cn from "@styles/cssUtils";
 import { AnimatePresence, domAnimation, LazyMotion, m } from "framer-motion";
 import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md";
 
-type AccordionProps = {
+export type AccordionProps = {
   heading: string;
   icon: JSX.Element;
   children: JSX.Element;

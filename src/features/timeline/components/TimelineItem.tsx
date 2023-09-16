@@ -47,9 +47,9 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
 
   useEffect(() => {
     if (isInView || isSafari) {
-      control.start("visible");
+      void control.start("visible");
     } else {
-      control.start("hidden");
+      void control.start("hidden");
     }
   }, [control, isInView]);
 

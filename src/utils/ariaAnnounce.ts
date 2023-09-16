@@ -43,9 +43,9 @@ const createAnnounceDiv = (
  * See https://getbootstrap.com/docs/4.3/utilities/screen-readers/
  * See https://github.com/twbs/bootstrap/blob/ff29c1224c20b8fcf2d1e7c28426470f1dc3e40d/scss/mixins/_screen-reader.scss#L6
  *
- * @param message the message to announce to screen reader users, e.g.
+ * @param message - the message to announce to screen reader users, e.g.
  * "navigated to about page".
- * @param announcementsDivId a DOM ID of the visually hidden announcements
+ * @param announcementsDivId - a DOM ID of the visually hidden announcements
  * element, e.g. "announcements".
  */
 export const ariaAnnounce = (

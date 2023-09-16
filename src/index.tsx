@@ -23,11 +23,11 @@ const Projects = lazyWithPreload(() => import("@pages/Projects"));
 const Blog = lazyWithPreload(() => import("@pages/Blog"));
 const BlogArticle = lazy(() => import("@features/blog/components/BlogArticle"));
 // Start preloading other routes in the background
-Home.preload();
-Contact.preload();
-NotFound.preload();
-Projects.preload();
-Blog.preload();
+void Home.preload();
+void Contact.preload();
+void NotFound.preload();
+void Projects.preload();
+void Blog.preload();
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 createRoot(document.getElementById("root")!).render(
@@ -159,6 +159,7 @@ createRoot(document.getElementById("root")!).render(
                   path={path}
                 />
               ))}
+              {/* eslint-disable-next-line react/jsx-max-depth */}
               <Route
                 element={
                   <Page nonStandardLayout title="Not Found">

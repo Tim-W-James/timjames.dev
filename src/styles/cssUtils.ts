@@ -27,7 +27,7 @@ const cn = <S1, S2, S3, S4, S5, S6, S7, S8, S9, S10>(
  * Type checking for Tailwind Classes and infers scoped class names from a
  * record of strings. Is curried to allow the params to be inferred
  *
- * @param scopedClassNames auto generated record of all scoped classes
+ * @param scopedClassNames - auto generated record of all scoped classes
  */
 export const cnScoped = (scopedClassNames: Record<string, string>) => {
   type ScopedClassNames =
@@ -49,8 +49,6 @@ export const cnScoped = (scopedClassNames: Record<string, string>) => {
 /**
  * Type checking for Tailwind Classes and allows an explicit type for scoped
  * class names to be specified. Is curried to allow the params to be inferred
- *
- * @template ScopedClassNames - auto generated union type of all scoped classes
  */
 export const cnScopedUnion =
   <ScopedClassNames>() =>

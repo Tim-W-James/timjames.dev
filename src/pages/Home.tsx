@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-max-depth */
 /* eslint-disable sonarjs/no-duplicate-string */
 import Button from "@components/buttons/Button";
 import BlogPostsCarousel from "@features/blog/components/BlogPostsCarousel";

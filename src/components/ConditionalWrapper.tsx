@@ -17,12 +17,14 @@ type ConditionalWrapperProps = {
  * Conditionally wraps children in a wrapper component.
  *
  * @example
+ * ```tsx
  * <ConditionalWrapper
  *  condition={condition}
  *  wrapper={(children) => <Wrapper>{children}</Wrapper>}
  * >
  *  <Children />
  * </ConditionalWrapper>
+ * ```
  */
 export const ConditionalWrapper: React.FC<ConditionalWrapperProps> = ({
   condition,
