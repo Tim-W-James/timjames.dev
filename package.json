@@ -65,7 +65,7 @@
       "stylelint"
     ],
     "./**/*.md": "prettier --write",
-    "./**/*.{json,yaml,yml,ts,js,cjs}": "prettier --write"
+    "./**/*.{ts,js,cjs}": "prettier --write"
   },
   "browserslist": {
     "production": [
