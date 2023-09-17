@@ -18,7 +18,7 @@ module.exports = {
         placeholder: "hsl(218deg 22% 30%)",
         "inline-code-bg": "hsl(220, 13%, 18%)",
         "block-code-bg": "hsl(220, 13%, 18%)",
-        "code-text": "white",
+        "code-text": "hsl(180deg 5% 91%)",
       },
       fontFamily: {
         sans: ["Outfit", ...defaultTheme.fontFamily.sans],

@@ -25,6 +25,12 @@ SyntaxHighlighter.registerLanguage("bash", bash);
 SyntaxHighlighter.registerLanguage("markdown", markdown);
 SyntaxHighlighter.registerLanguage("json", json);
 
+const kebabCase = (string: string) =>
+  string
+    .replace(/([a-z])([A-Z])/gu, "$1-$2")
+    .replace(/[\s_]+/gu, "-")
+    .toLowerCase();
+
 /**
  * Render markdown content with syntax highlighting in code blocks
  */
@@ -134,28 +140,42 @@ const MarkdownRenderer: React.FC<{ markdown: string }> = ({ markdown }) => {
       <ReactMarkdown
         components={{
           ...MarkdownComponents,
-          h2: ({ children }) => (
-            <h2 id={children.toString()}>
-              <HashLink
-                className={cn("hash-link-right", "no-underline", "after:ml-2")}
-                onClick={copyFragment}
-                to={`#${children.toString()}`}
-              >
-                {children}
-              </HashLink>
-            </h2>
-          ),
-          h3: ({ children }) => (
-            <h3 id={children.toString()}>
-              <HashLink
-                className={cn("hash-link-right", "no-underline", "after:ml-2")}
-                onClick={copyFragment}
-                to={`#${children.toString()}`}
-              >
-                {children}
-              </HashLink>
-            </h3>
-          ),
+          h2: ({ children }) => {
+            const id = encodeURIComponent(kebabCase(children.toString()));
+            return (
+              <h2 id={id}>
+                <HashLink
+                  className={cn(
+                    "hash-link-right",
+                    "no-underline",
+                    "after:ml-2"
+                  )}
+                  onClick={copyFragment}
+                  to={`#${id}`}
+                >
+                  {children}
+                </HashLink>
+              </h2>
+            );
+          },
+          h3: ({ children }) => {
+            const id = encodeURIComponent(kebabCase(children.toString()));
+            return (
+              <h3 id={id}>
+                <HashLink
+                  className={cn(
+                    "hash-link-right",
+                    "no-underline",
+                    "after:ml-2"
+                  )}
+                  onClick={copyFragment}
+                  to={`#${id}`}
+                >
+                  {children}
+                </HashLink>
+              </h3>
+            );
+          },
         }}
       >
         {markdown}

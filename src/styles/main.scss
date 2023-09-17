@@ -272,6 +272,19 @@
     padding: 0 !important;
   }
 
+  // Markdown styles for keyboard keys
+  strong {
+    code {
+      border: 1px solid colors.$inline-code-bg;
+      border-bottom: 3px solid colors.$inline-code-bg;
+      /* stylelint-disable-next-line declaration-no-important */
+      background-color: colors.$light-shades !important;
+      /* stylelint-disable-next-line declaration-no-important */
+      color: colors.$dark-shades !important;
+      font-weight: bold;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
