@@ -1,4 +1,4 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Sitemap: https://timjames.dev/sitemap.xml
-Disallow:
+Disallow: /assets/pdfs/tim_james_cv.pdf

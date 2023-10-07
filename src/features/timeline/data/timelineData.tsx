@@ -17,7 +17,7 @@ import townHouseThumbnail from "@images/projects/town_house.jpg";
 import weatherStationThumbnail from "@images/projects/weather_station.jpg";
 import cn from "@styles/cssUtils";
 import { BsFillBookFill, BsGithub } from "react-icons/bs";
-import { FaHamburger } from "react-icons/fa";
+import { FaHamburger, FaItchIo } from "react-icons/fa";
 import { SiEslint, SiFigma, SiStorybook } from "react-icons/si";
 
 import TimelineItemData from "../types/TimelineData";
@@ -702,7 +702,7 @@ const timelineData: TimelineItemData[] = [
   {
     startDate: new Date("2019"),
     endDate: new Date("2019"),
-    title: "Interactive Procedural Text Experience",
+    title: "Interactive Procedural Art",
     body: (
       <>
         An experimental interactive experience where players create their own
@@ -716,12 +716,16 @@ const timelineData: TimelineItemData[] = [
     technologies: ["JavaScript", "p5js"],
     links: [
       {
+        text: "Live demo",
+        url: "https://interactive-procedural-art.timjames.dev",
+      },
+      {
         text: "Source code",
         url: "https://github.com/Tim-W-James/JavaScript-Interactive-Procedural-Text-Experience",
         icon: <BsGithub aria-label="GitHub" />,
       },
       {
-        text: "Artist Statement",
+        text: "Artist statement",
         url: "https://github.com/Tim-W-James/JavaScript-Interactive-Procedural-Text-Experience/blob/master/artist-statement.md",
       },
       {
@@ -734,7 +738,7 @@ const timelineData: TimelineItemData[] = [
   {
     startDate: new Date("2019"),
     endDate: new Date("2019"),
-    title: "Interactive Procedural Text Experience",
+    title: "Interactive Desktop Sim",
     body: (
       <>
         Interactive art piece based on the theme &apos;interactive picture
@@ -747,12 +751,16 @@ const timelineData: TimelineItemData[] = [
     technologies: ["JavaScript", "p5js"],
     links: [
       {
+        text: "Live demo",
+        url: "https://interactive-desktop-sim.timjames.dev",
+      },
+      {
         text: "Source code",
         url: "https://github.com/Tim-W-James/JavaScript-Interactive-Desktop-Sim",
         icon: <BsGithub aria-label="GitHub" />,
       },
       {
-        text: "Artist Statement",
+        text: "Artist statement",
         url: "https://github.com/Tim-W-James/JavaScript-Interactive-Desktop-Sim/blob/master/artist-statement.md",
       },
       {
@@ -892,6 +900,11 @@ const timelineData: TimelineItemData[] = [
     isFeatured: false,
     technologies: ["Unity", "CSharp"],
     links: [
+      {
+        text: "Download on itch.io",
+        url: "https://explosivefridge.itch.io/project-velocity-prototype",
+        icon: <FaItchIo />,
+      },
       {
         text: "Source code",
         url: "https://github.com/Tim-W-James/Time-Travel-Roguelite-Game",
