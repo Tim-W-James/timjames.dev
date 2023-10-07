@@ -2,7 +2,7 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 # bypass with --no-verify
-npx lint-staged
 pnpm --if-present build
+npx lint-staged
 pnpm --if-present test:run
 pnpm --if-present type-coverage

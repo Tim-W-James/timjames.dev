@@ -18,13 +18,23 @@ import styles from "./BlogPostsCarousel.module.scss";
 const articlesToDisplay = 10;
 
 type BlogPostsCarouselProps = {
+  /**
+   * Title for the carousel widget
+   */
   title?: string;
+  /**
+   * Slugs for posts to exclude from carousel
+   */
+  excludeSlugs?: string[];
 };
 
 /**
  * Carousel to display latest blog posts
  */
-const BlogPostsCarousel: React.FC<BlogPostsCarouselProps> = ({ title }) => {
+const BlogPostsCarousel: React.FC<BlogPostsCarouselProps> = ({
+  title,
+  excludeSlugs,
+}) => {
   const { status, data: latestArticles } = useQuery(
     ["devdotto", "articlesMeta", articlesToDisplay, 1],
     devdottoArticlesMeta(articlesToDisplay)
@@ -84,6 +94,9 @@ const BlogPostsCarousel: React.FC<BlogPostsCarouselProps> = ({ title }) => {
             </div>
           ) : (
             latestArticles
+              .filter(
+                (articleMeta) => !excludeSlugs?.includes(articleMeta.slug)
+              )
               .sort(sortByLatest)
               .map((articleMeta, index) => (
                 <BlogCard article={articleMeta} isCarouselItem key={index} />

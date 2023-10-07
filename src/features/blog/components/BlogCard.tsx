@@ -1,5 +1,5 @@
 import cn from "@styles/cssUtils";
-import { BsChatLeftTextFill, BsHeart } from "react-icons/bs";
+import { BsChatLeftTextFill, BsHeartFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 import { DevdottoArticleMeta } from "../types/devdottoArticle";
@@ -83,25 +83,31 @@ const BlogCard: React.FC<BlogCardProps> = ({ article, isCarouselItem }) => {
         <div className={cn("mx-2 flex justify-between gap-4", "flex-wrap")}>
           <div className={cn("flex gap-4 text-xl", "flex-wrap")}>
             <a
-              className={cn("hover:text-light-accent active:text-dark-accent")}
+              className={cn(
+                "hover:text-light-accent active:text-dark-accent",
+                "flex items-center gap-2"
+              )}
               href={article.url}
               rel="noreferrer"
               target="_blank"
               title="Like on dev.to"
             >
-              <BsHeart />{" "}
+              <BsHeartFill />
               {article.public_reactions_count > 0
                 ? article.public_reactions_count
                 : ""}
             </a>
             <a
-              className={cn("hover:text-light-accent active:text-dark-accent")}
+              className={cn(
+                "hover:text-light-accent active:text-dark-accent",
+                "flex items-center gap-2"
+              )}
               href={article.url}
               rel="noreferrer"
               target="_blank"
               title="Comment on dev.to"
             >
-              <BsChatLeftTextFill />{" "}
+              <BsChatLeftTextFill />
               {article.comments_count > 0 ? article.comments_count : ""}
             </a>
           </div>

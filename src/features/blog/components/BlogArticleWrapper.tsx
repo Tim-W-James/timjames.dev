@@ -1,6 +1,4 @@
-import Button from "@components/buttons/Button";
 import cn from "@styles/cssUtils";
-import { BsFillArrowLeftCircleFill } from "react-icons/bs";
 import { CgSpinner } from "react-icons/cg";
 
 import BlogPostsCarousel from "./BlogPostsCarousel";
@@ -8,6 +6,7 @@ import BlogPostsCarousel from "./BlogPostsCarousel";
 type BlogArticleWrapperProps = {
   title?: string;
   children: JSX.Element;
+  slug?: string;
 };
 
 /**
@@ -16,6 +15,7 @@ type BlogArticleWrapperProps = {
 const BlogArticleWrapper: React.FC<BlogArticleWrapperProps> = ({
   title,
   children,
+  slug,
 }) => (
   <>
     <div className={cn("fixed -z-10 -mt-5 h-screen w-screen bg-dark-shades")} />
@@ -40,20 +40,13 @@ const BlogArticleWrapper: React.FC<BlogArticleWrapperProps> = ({
           )}
         </h1>
       </header>
-      <div className={cn("mb-2 flex justify-center lg:mb-0 lg:justify-start")}>
-        <Button
-          icon={<BsFillArrowLeftCircleFill />}
-          isLight
-          label="Article List"
-          mode="route"
-          to="/blog"
-          tooltip="Back to article list"
-        />
-      </div>
       {children}
     </div>
     <div className={cn("container mx-auto pt-4 text-center")}>
-      <BlogPostsCarousel title="Read More" />
+      <BlogPostsCarousel
+        excludeSlugs={slug ? [slug] : undefined}
+        title="Read More"
+      />
     </div>
   </>
 );

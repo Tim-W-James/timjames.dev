@@ -2,11 +2,15 @@ import cn from "@styles/cssUtils";
 
 import BlogArticleWrapper from "./BlogArticleWrapper";
 
+type BlogArticleLoadingProps = {
+  slug?: string;
+};
+
 /**
  * Loading skeleton for a blog article
  */
-const BlogArticleLoading = () => (
-  <BlogArticleWrapper>
+const BlogArticleLoading: React.FC<BlogArticleLoadingProps> = ({ slug }) => (
+  <BlogArticleWrapper slug={slug}>
     <div className={cn("mt-8 flex gap-4", "flex-col", "animate-pulse")}>
       <div className={cn("aspect-wide", "mb-8 rounded bg-slate-700")} />
       {[...Array(20).keys()].map((key) => (

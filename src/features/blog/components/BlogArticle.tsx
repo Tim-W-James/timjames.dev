@@ -3,9 +3,9 @@ import useDocumentMeta from "@hooks/useDocumentMeta";
 import cn from "@styles/cssUtils";
 import { useQuery } from "@tanstack/react-query";
 import {
-  BsChatLeftTextFill,
+  BsArrowUpCircle,
+  BsChatLeftText,
   BsFillArrowLeftCircleFill,
-  BsFillArrowUpCircleFill,
   BsHeart,
 } from "react-icons/bs";
 import { FaXTwitter } from "react-icons/fa6";
@@ -46,7 +46,7 @@ const BlogArticleContent: React.FC<BlogArticleContentProps> = ({ slug }) => {
   const imageHasLoaded = useCallback(() => setHasImageLoaded(true), []);
 
   return status === "loading" ? (
-    <BlogArticleLoading />
+    <BlogArticleLoading slug={slug} />
   ) : status === "error" || !article?.title ? (
     <>
       <div
@@ -79,7 +79,7 @@ const BlogArticleContent: React.FC<BlogArticleContentProps> = ({ slug }) => {
       </div>
     </>
   ) : (
-    <BlogArticleWrapper title={article.title || ""}>
+    <BlogArticleWrapper slug={article.slug} title={article.title || ""}>
       <div className={cn("mx-auto flex", "flex-col")}>
         <div className={cn("mr-4 text-right text-lg")}>
           {new Date(article.published_timestamp).toLocaleDateString("en-US", {
@@ -108,30 +108,39 @@ const BlogArticleContent: React.FC<BlogArticleContentProps> = ({ slug }) => {
         >
           <div className={cn("flex gap-4 text-xl", "flex-wrap")}>
             <a
-              // eslint-disable-next-line sonarjs/no-duplicate-string
-              className={cn("hover:text-light-accent active:text-dark-accent")}
+              className={cn(
+                // eslint-disable-next-line sonarjs/no-duplicate-string
+                "hover:text-light-accent active:text-dark-accent",
+                "flex items-center gap-1"
+              )}
               href={article.url}
               rel="noreferrer"
               target="_blank"
               title="Like on dev.to"
             >
-              <BsHeart />{" "}
+              <BsHeart />
               {article.public_reactions_count !== 0
                 ? article.public_reactions_count
                 : ""}
             </a>
             <a
-              className={cn("hover:text-light-accent active:text-dark-accent")}
+              className={cn(
+                "hover:text-light-accent active:text-dark-accent",
+                "flex items-center gap-2"
+              )}
               href={`${article.url}#comments`}
               rel="noreferrer"
               target="_blank"
               title="Comment on dev.to"
             >
-              <BsChatLeftTextFill />{" "}
+              <BsChatLeftText />
               {article.comments_count !== 0 ? article.comments_count : ""}
             </a>
             <a
-              className={cn("hover:text-light-accent active:text-dark-accent")}
+              className={cn(
+                "hover:text-light-accent active:text-dark-accent",
+                "flex items-center"
+              )}
               href={`https://twitter.com/intent/tweet?text=Check%20out%20this%20post%3A%20${
                 location.href.split("#")[0]
               }`}
@@ -151,9 +160,11 @@ const BlogArticleContent: React.FC<BlogArticleContentProps> = ({ slug }) => {
         <div className={cn("radial-border mt-4 flex justify-center gap-2")}>
           <a
             className={cn(
+              // eslint-disable-next-line sonarjs/no-duplicate-string
               "flex items-center gap-2 hover:text-light-accent",
               "border-r",
               "pr-2",
+              // eslint-disable-next-line sonarjs/no-duplicate-string
               "active:text-dark-accent"
             )}
             href={article.url}
@@ -169,6 +180,8 @@ const BlogArticleContent: React.FC<BlogArticleContentProps> = ({ slug }) => {
           <a
             className={cn(
               "flex items-center gap-2 hover:text-light-accent",
+              "border-r",
+              "pr-2",
               "active:text-dark-accent"
             )}
             href={`${article.url}#comments`}
@@ -176,20 +189,21 @@ const BlogArticleContent: React.FC<BlogArticleContentProps> = ({ slug }) => {
             target="_blank"
             title="Comment on dev.to"
           >
-            Comment <BsChatLeftTextFill />{" "}
+            Comment <BsChatLeftText />{" "}
             {article.comments_count !== 0 ? article.comments_count : ""}
           </a>
-        </div>
-        <div className={cn("mt-4 flex justify-center")}>
-          <Button
-            childProps={{ onClick: scrollToTop }}
-            className={cn("!px-4 !py-1")}
-            icon={<BsFillArrowUpCircleFill />}
-            isLight
-            label="Top"
-            mode="button"
-            tooltip="Back to top"
-          />
+          <button
+            className={cn(
+              "flex items-center gap-2 hover:text-light-accent",
+              "active:text-dark-accent"
+            )}
+            onClick={scrollToTop}
+            title="Back to top"
+            type="button"
+          >
+            Top
+            <BsArrowUpCircle />
+          </button>
         </div>
       </div>
     </BlogArticleWrapper>
@@ -205,7 +219,7 @@ const BlogArticle: React.FC = () => {
   return slug ? (
     <BlogArticleContent slug={escape(slug)} />
   ) : (
-    <BlogArticleLoading />
+    <BlogArticleLoading slug={slug} />
   );
 };
 
