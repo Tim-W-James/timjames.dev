@@ -2,11 +2,9 @@ module.exports = {
   parserOptions: {
     tsconfigRootDir: __dirname,
   },
-  plugins: ["vitest"],
   extends: [
     "@tim-w-james",
     "plugin:tailwindcss/recommended",
-    "plugin:vitest/recommended",
     "plugin:storybook/recommended",
     "./.eslintrc-auto-import.json",
   ],
