@@ -58,7 +58,7 @@ const timelineData: TimelineItemData[] = [
         a portfolio website. Includes a{" "}
         <a
           className={cn("link")}
-          href="https://tim-w-james.github.io/timjames.dev/"
+          href="https://storybook.timjames.dev"
           rel="noreferrer"
           target="_blank"
           title="View components on Storybook"
@@ -110,7 +110,7 @@ const timelineData: TimelineItemData[] = [
       },
       {
         text: "Storybook components",
-        url: "https://tim-w-james.github.io/timjames.dev/",
+        url: "https://storybook.timjames.dev",
         icon: <SiStorybook aria-label="Storybook" />,
       },
       {

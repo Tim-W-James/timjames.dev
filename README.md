@@ -171,10 +171,10 @@ list of proposed features (and known issues). -->
 - [![Vitest](https://img.shields.io/badge/-Vitest-black?style=flat-square&logo=vite)](https://vitest.dev/config/):
   unit testing framework. Configured in [`vite.config.ts` >
   `test`](./vite.config.ts#L52)
-- [![Storybook](https://img.shields.io/badge/-Storybook-black?style=flat-square&logo=storybook)](https://tim-w-james.github.io/timjames.dev/):
+- [![Storybook](https://img.shields.io/badge/-Storybook-black?style=flat-square&logo=storybook)](https://storybook.timjames.dev):
   view, document and test individual components and pages. Configured in
   [`.storybook/main.cjs`](./.storybook/main.cjs). Automatically deployed to
-  [Github Pages](https://tim-w-james.github.io/timjames.dev/)
+  [Github Pages](https://storybook.timjames.dev)
 - [![Playwright](https://img.shields.io/badge/-Playwright-black?style=flat-square&logo=playwright)](https://playwright.dev/):
   end-to-end tests. Configured in [`playwright.config.ts`](./playwright.config.ts)
   and located in [`e2e/`](./e2e/)
@@ -567,7 +567,7 @@ a [cleaner file tree](https://github.com/antfu/vscode-file-nesting-config).
   ```
 
   Storybook is automatically deployed to [Github
-  Pages](https://tim-w-james.github.io/timjames.dev/)
+  Pages](https://storybook.timjames.dev)
 
 <!-- CONTRIBUTING -->
 <!-- ## Contributing
