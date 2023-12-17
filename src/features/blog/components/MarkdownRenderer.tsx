@@ -89,14 +89,6 @@ const MarkdownRenderer: React.FC<{ markdown: string }> = ({ markdown }) => {
       return hasLang ? (
         isReloaded ? (
           <>
-            {!isMobile ? (
-              <div className={cn("relative")}>
-                <CopyTextButton
-                  buttonClasses={cn("absolute right-2 top-2 w-auto !p-3")}
-                  stringToCopy={codeString}
-                />
-              </div>
-            ) : null}
             <SyntaxHighlighter
               PreTag="div"
               customStyle={{
@@ -113,14 +105,22 @@ const MarkdownRenderer: React.FC<{ markdown: string }> = ({ markdown }) => {
             >
               {[codeString]}
             </SyntaxHighlighter>
-            <div className={cn("relative")}>
+            <div className={cn("-mt-[1.5rem] flex justify-between pb-1")}>
               <div
-                className={cn(
-                  "absolute left-2 -mt-[1.5rem] select-none text-sm italic"
-                )}
+                className={cn("mx-2 mt-[0.75rem] select-none text-sm italic")}
               >
                 {hasLang[1]}
               </div>
+              {!isMobile ? (
+                <CopyTextButton
+                  buttonClasses={cn(
+                    "!mx-1 !h-[30px]",
+                    "!px-2 !py-0",
+                    "!text-sm"
+                  )}
+                  stringToCopy={codeString}
+                />
+              ) : null}
             </div>
           </>
         ) : null

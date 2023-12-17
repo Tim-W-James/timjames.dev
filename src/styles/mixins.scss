@@ -1,4 +1,5 @@
 @use "src/styles/colors.scss" as colors;
+@use "sass:color";
 
 @mixin acrylic($angle: 90deg) {
   backdrop-filter: blur(24px);
@@ -26,4 +27,12 @@
       rgb(0 0 0 / 0%) 100%
     )
     1;
+}
+
+@mixin acrylic-white($angle: 160deg) {
+  background: linear-gradient(
+    $angle,
+    color.scale(colors.$dark-accent, $lightness: 25%) 0%,
+    colors.$light-shades 80%
+  );
 }

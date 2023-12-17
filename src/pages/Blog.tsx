@@ -14,6 +14,7 @@ import sortFuncFromOption, {
   sortOptions,
 } from "@features/blog/utils/sortFuncs";
 import useLocalStorage from "@hooks/useLocalStorage";
+import useMediaQuery from "@hooks/useMediaQuery";
 import { useQueryParams } from "@hooks/useQueryParams";
 import cn from "@styles/cssUtils";
 import { useQuery } from "@tanstack/react-query";
@@ -92,6 +93,8 @@ const Blog = () => {
       setIsResetButtonAnimated(false);
     }, 500);
   }, []);
+
+  const shouldShrinkButtons = useMediaQuery("(max-width: 500px)");
 
   const navigate = useNavigate();
 
@@ -217,6 +220,7 @@ const Blog = () => {
         >
           <Button
             icon={<SiDevdotto />}
+            isLabelHidden={shouldShrinkButtons}
             isLight
             label="DEV.to"
             to="https://dev.to/timwjames"
@@ -224,6 +228,7 @@ const Blog = () => {
           />
           <Button
             icon={<SiMedium />}
+            isLabelHidden={shouldShrinkButtons}
             isLight
             label="Medium"
             to="https://medium.com/@twjames"
@@ -241,7 +246,11 @@ const Blog = () => {
             <SearchField handleChange={handleChange} searchText={searchText} />
             <Button
               childProps={{ onClick: resetOptions, type: "reset" }}
-              className={cn("!-mt-1 !px-2 !py-2 !text-3xl")}
+              className={
+                shouldShrinkButtons
+                  ? cn("!-mt-1 !px-2 !py-2 !text-3xl")
+                  : cn("!-mt-1", "!h-[50px]", "!py-0")
+              }
               icon={
                 isResetButtonAnimated ? (
                   <span
@@ -258,7 +267,7 @@ const Blog = () => {
                 )
               }
               iconRight
-              isLabelHidden
+              isLabelHidden={shouldShrinkButtons}
               isLight
               label="Reset"
               mode="button"

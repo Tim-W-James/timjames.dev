@@ -54,6 +54,10 @@
     @include mixins.acrylic-light;
   }
 
+  .acrylic-white {
+    @include mixins.acrylic-white;
+  }
+
   .radial-border-utils {
     content: "";
     inset: 0;

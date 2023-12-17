@@ -2,7 +2,15 @@ import cn from "@styles/cssUtils";
 import FadeIn from "react-fade-in";
 import { HashLink } from "react-router-hash-link";
 
+import CredlyBadges from "./CredlyBadges";
+
 const AboutMe: React.FC = () => {
+  const badgeIds = [
+    "3e2a7963-2ea9-43c4-8550-fac792692b36",
+    "389f3969-b65b-4dd3-8df8-537dcb794bca",
+    "23372af0-4d55-41e9-a3a3-7d3d55c380fc",
+  ] as const;
+
   const copyFragment = useCallback(
     () =>
       navigator.clipboard.writeText(
@@ -10,6 +18,7 @@ const AboutMe: React.FC = () => {
       ),
     []
   );
+
   return (
     <div
       className={cn(
@@ -29,7 +38,10 @@ const AboutMe: React.FC = () => {
           <hr className={cn("radial-border")} />
         </h2>
         <br />
-        <section aria-labelledby="about">
+        <section
+          aria-labelledby="about"
+          className={cn("flex", "flex-col", "gap-4")}
+        >
           <ul className={cn("list-disc text-left text-xl")}>
             <li>
               💼 <b className={cn("font-bold")}>Software Engineer</b> at{" "}
@@ -88,18 +100,6 @@ const AboutMe: React.FC = () => {
               </a>
             </li>
             <li>
-              📄{" "}
-              <a
-                className={cn("link")}
-                href={`${location.href}assets/pdfs/tim_james_cv.pdf`}
-                rel="noreferrer"
-                target="_blank"
-                title="CV / Resume"
-              >
-                CV / Resume
-              </a>
-            </li>
-            <li>
               🏆 View my certifications on{" "}
               <a
                 aria-label="Credly"
@@ -113,6 +113,7 @@ const AboutMe: React.FC = () => {
               </a>
             </li>
           </ul>
+          <CredlyBadges badgeIds={badgeIds} />
         </section>
       </FadeIn>
     </div>

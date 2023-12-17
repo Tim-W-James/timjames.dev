@@ -16,6 +16,9 @@
     pointer-events: none;
 
     // HACK align with container correctly
+    @media (width <= 412px) {
+      display: none;
+    }
     @media (width >= 640px) {
       left: calc(calc(100% - 640px) / 2);
     }
@@ -48,6 +51,9 @@
     pointer-events: none;
 
     // HACK align with container correctly
+    @media (width <= 412px) {
+      display: none;
+    }
     @media (width >= 640px) {
       right: calc(calc(100% - 640px) / 2);
     }

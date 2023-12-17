@@ -10,37 +10,25 @@ const CopyTextButton: React.FC<{
   buttonClasses?: string;
 }> = ({ stringToCopy, buttonClasses }) => {
   const [showTick, setShowTick] = useState(false);
-  const [selectedText, setSelectedText] = useState<string | undefined>();
-
-  const updateSelectedText = useCallback(() => {
-    setSelectedText(window.getSelection()?.toString());
-  }, []);
-
-  useEffect(() => {
-    window.addEventListener("mouseup", updateSelectedText);
-    return () => {
-      window.removeEventListener("mouseup", updateSelectedText);
-    };
-  }, [updateSelectedText]);
-
-  return !selectedText ? (
-    <CopyToClipboard
-      onCopy={() => {
-        setShowTick(true);
-        setTimeout(() => setShowTick(false), 2500);
-      }}
-      text={stringToCopy}
-    >
-      <Button
-        className={buttonClasses}
-        icon={showTick ? <MdCheckCircle /> : <MdContentCopy />}
-        isLabelHidden
-        label="Copy code to clipboard"
-        mode="button"
-        tooltip="Copy code to clipboard"
-      />
-    </CopyToClipboard>
-  ) : null;
+  return (
+    <div>
+      <CopyToClipboard
+        onCopy={() => {
+          setShowTick(true);
+          setTimeout(() => setShowTick(false), 2500);
+        }}
+        text={stringToCopy}
+      >
+        <Button
+          className={buttonClasses}
+          icon={showTick ? <MdCheckCircle /> : <MdContentCopy />}
+          label="Copy"
+          mode="button"
+          tooltip="Copy code to clipboard"
+        />
+      </CopyToClipboard>
+    </div>
+  );
 };
 
 export default CopyTextButton;

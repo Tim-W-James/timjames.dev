@@ -118,8 +118,8 @@ $type-base-size: 1rem;
     }
 
     &:focus {
-      border-bottom: 1px solid;
       background: color.scale(colors.$main-brand, $lightness: -75%);
+      outline: 3px solid colors.$light-accent;
     }
 
     &:hover {

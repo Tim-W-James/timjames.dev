@@ -23,7 +23,9 @@ const BlogCard: React.FC<BlogCardProps> = ({ article, isCarouselItem }) => {
         "border-dark-accent",
         "acrylic-light",
         "rounded-lg",
-        isCarouselItem ? "min-w-sm snap-center" : "w-full max-w-sm"
+        isCarouselItem
+          ? "min-w-sm snap-center max-sm:min-w-[340px]"
+          : "w-full max-w-sm"
       )}
     >
       <div className={cn("flex h-full justify-between gap-4", "flex-col")}>
