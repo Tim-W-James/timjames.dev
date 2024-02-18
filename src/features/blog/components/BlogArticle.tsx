@@ -157,6 +157,19 @@ const BlogArticleContent: React.FC<BlogArticleContentProps> = ({ slug }) => {
         </div>
         <MarkdownRenderer markdown={article.body_markdown} />
 
+        <div className={cn("flex w-full justify-center")}>
+          <a
+            href="https://ko-fi.com/D1D4UM8D0"
+            rel="noreferrer"
+            target="_blank"
+          >
+            <img
+              alt="Buy Me a Coffee at ko-fi.com"
+              src="https://storage.ko-fi.com/cdn/kofi5.png?v=3"
+              style={{ border: "0px", height: "36px" }}
+            />
+          </a>
+        </div>
         <div className={cn("radial-border mt-4 flex justify-center gap-2")}>
           <a
             className={cn(
