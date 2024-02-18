@@ -52,10 +52,10 @@ const Blog = () => {
   const [tagOptions, setTagOptions] = useState<readonly Option[]>([]);
   const [searchText, setSearchText] = useState<string>("");
 
-  const { status, data: articles } = useQuery(
-    ["devdotto", "articlesMeta", articlesToDisplay, 1],
-    devdottoArticlesMeta(articlesToDisplay)
-  );
+  const { status, data: articles } = useQuery({
+    queryKey: ["devdotto", "articlesMeta", articlesToDisplay, 1],
+    queryFn: devdottoArticlesMeta(articlesToDisplay),
+  });
 
   useEffect(() => {
     setTagOptions(
@@ -186,7 +186,7 @@ const Blog = () => {
 
   const filteredArticles = useMemo(
     () =>
-      status === "loading" || status === "error" || !articles
+      status === "pending" || status === "error" || !articles
         ? []
         : articles
             .sort(sortByPopularity)
@@ -297,7 +297,7 @@ const Blog = () => {
           className={cn("flex justify-center gap-4 p-0", "flex-wrap")}
           data-chromatic="ignore"
         >
-          {status === "loading" ? (
+          {status === "pending" ? (
             [...Array(6).keys()].map((key) => <BlogCardLoading key={key} />)
           ) : status === "error" || !articles ? (
             <div className={cn("mb-8 text-center text-xl ")}>

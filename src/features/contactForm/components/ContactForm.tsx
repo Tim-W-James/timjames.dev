@@ -30,26 +30,28 @@ const formStateDisplay = (
   responseState === "success"
     ? { message: "Sent!", icon: <MdCheckCircle className={cn("text-4xl")} /> }
     : responseState === "error"
-    ? { message: "Error", icon: <MdError className={cn("text-4xl")} /> }
-    : !formState.isValid
-    ? {
-        message: "Please complete the form",
-        icon: <MdInfo className={cn("text-4xl")} />,
-      }
-    : formState.isSubmitting ||
-      (formState.isSubmitSuccessful && responseState === "notSent")
-    ? {
-        message: "Submitting...",
-        icon: (
-          <span className={cn("inline-block", "leading-0", "animate-spin")}>
-            <CgSpinner className={cn("text-4xl")} />
-          </span>
-        ),
-      }
-    : {
-        message: "Submit your message",
-        icon: <MdSend className={cn("text-4xl")} />,
-      };
+      ? { message: "Error", icon: <MdError className={cn("text-4xl")} /> }
+      : !formState.isValid
+        ? {
+            message: "Please complete the form",
+            icon: <MdInfo className={cn("text-4xl")} />,
+          }
+        : formState.isSubmitting ||
+            (formState.isSubmitSuccessful && responseState === "notSent")
+          ? {
+              message: "Submitting...",
+              icon: (
+                <span
+                  className={cn("inline-block", "leading-0", "animate-spin")}
+                >
+                  <CgSpinner className={cn("text-4xl")} />
+                </span>
+              ),
+            }
+          : {
+              message: "Submit your message",
+              icon: <MdSend className={cn("text-4xl")} />,
+            };
 
 type ContactFormProps = {
   onSubmit: (params: FormSubmitParams) => Promise<unknown>;
@@ -295,8 +297,8 @@ const ContactForm: React.FC<ContactFormProps> = ({
             (formState.isSubmitSuccessful && responseState === "notSent")
               ? cn("!cursor-wait")
               : responseState === "success"
-              ? cn("!cursor-default")
-              : ""
+                ? cn("!cursor-default")
+                : ""
           }
           disabled={isFormDisabled}
           icon={formStateDisplay(formState, responseState).icon}

@@ -15,9 +15,9 @@ const encodeContactFormData = (data: object) =>
           item[1] === undefined
             ? ""
             : // Sanitize and format data
-            item[0] === "email"
-            ? normalizeEmail(item[1])
-            : trim(item[1])
+              item[0] === "email"
+              ? normalizeEmail(item[1])
+              : trim(item[1])
         )}`
     )
     .join("&");

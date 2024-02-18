@@ -14,7 +14,7 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       staleTime: 10 * (60 * 1000), // 10 mins
-      cacheTime: 60 * (60 * 1000), // 1 hour
+      gcTime: 60 * (60 * 1000), // 1 hour
     },
   },
 });
@@ -35,7 +35,10 @@ const App: React.FC = () => {
         <Footer allowFixed />
         <Toast />
         {import.meta.env.DEV ? (
-          <ReactQueryDevtools initialIsOpen={false} />
+          <ReactQueryDevtools
+            buttonPosition="bottom-left"
+            initialIsOpen={false}
+          />
         ) : null}
       </QueryClientProvider>
     </div>

@@ -1,5 +1,6 @@
 import { composeStories } from "@storybook/react";
 import { render, screen, waitFor } from "@testing-library/react";
+// eslint-disable-next-line import/no-named-as-default
 import userEvent from "@testing-library/user-event";
 
 import * as stories from "./SearchField.stories";

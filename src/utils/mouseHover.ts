@@ -51,8 +51,8 @@ export const setMouseHoverCssProperties = (
     `${(verticalPercent > 50
       ? mouseDegFromCenter
       : mouseDegFromCenter < 0
-      ? 180 - Math.abs(mouseDegFromCenter)
-      : -(180 - Math.abs(mouseDegFromCenter))
+        ? 180 - Math.abs(mouseDegFromCenter)
+        : -(180 - Math.abs(mouseDegFromCenter))
     ).toFixed(2)}deg`
   );
 };

@@ -26,17 +26,17 @@ const BlogArticleContent: React.FC<BlogArticleContentProps> = ({ slug }) => {
     []
   );
 
-  const { status, data: article } = useQuery(
-    ["devdotto", "article", slug],
-    devdottoArticle(slug)
-  );
+  const { status, data: article } = useQuery({
+    queryKey: ["devdotto", "article", slug],
+    queryFn: devdottoArticle(slug),
+  });
 
   useDocumentMeta(
     article?.title
       ? article.title
-      : status === "loading"
-      ? "Blog"
-      : "Article Not Found",
+      : status === "pending"
+        ? "Blog"
+        : "Article Not Found",
     article?.description ? article.description : "Blog Article",
     slug
   );
@@ -45,7 +45,7 @@ const BlogArticleContent: React.FC<BlogArticleContentProps> = ({ slug }) => {
 
   const imageHasLoaded = useCallback(() => setHasImageLoaded(true), []);
 
-  return status === "loading" ? (
+  return status === "pending" ? (
     <BlogArticleLoading slug={slug} />
   ) : status === "error" || !article?.title ? (
     <>

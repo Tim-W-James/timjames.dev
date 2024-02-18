@@ -98,39 +98,39 @@ type IsValidClass<
       : Err<`'${T}' is scoped, and no ScopedClassNames type is specified`>
     : Err<`'${T}' is scoped, and is not included in the ScopedClassNames type`>
   : // Make sure each item is a valid `ClassName`
-  SplitToTailwindClassNames<T> extends ClassName[]
-  ? // If valid, success and return `T`
-    T
-  : // Cover an edge case where, e.g., flex-col is invalid because the
-  // flex class exists
-  T extends ClassName
-  ? T
-  : // If still invalid, raise an error
-    GetFirstError<SplitToTailwindClassNames<T>>;
+    SplitToTailwindClassNames<T> extends ClassName[]
+    ? // If valid, success and return `T`
+      T
+    : // Cover an edge case where, e.g., flex-col is invalid because the
+      // flex class exists
+      T extends ClassName
+      ? T
+      : // If still invalid, raise an error
+        GetFirstError<SplitToTailwindClassNames<T>>;
 
 type SplitToTailwindClassNamesInner<T extends string> =
   T extends `${ClassName}${infer Tail}`
     ? T extends `${infer C}${Tail}`
       ? [C, ...SplitToTailwindClassNames<Trim<Tail>>]
-      : Err<"Should not happen">
+      : [Err<"Should not happen">]
     : // Handles cases where `T` does not match
-    // ${ClassName}${Tail}. For example
-    // 'block', '', '\n\n', 'invalid', or 'invalid  block'
-    // Note: `Tail` has already been trimmed from whitespace
-    T extends `${infer Tail}`
-    ? Tail extends ClassName
-      ? // `Tail` equals a valid Tailwind class.
-        // End recursion successfully.
-        [Tail]
-      : Trim<Tail> extends ""
-      ? // `Tail` has only whitespace left.
-        // End recursion successfully.
-        []
-      : // Something else was found.
-        // Raise an error
-        [Err<`'${Tail}' is not a valid Tailwind or scoped class`>]
-    : // Should never happen as `T` is a string.
-      [Err<"Should not happen">];
+      // ${ClassName}${Tail}. For example
+      // 'block', '', '\n\n', 'invalid', or 'invalid  block'
+      // Note: `Tail` has already been trimmed from whitespace
+      T extends `${infer Tail}`
+      ? Tail extends ClassName
+        ? // `Tail` equals a valid Tailwind class.
+          // End recursion successfully.
+          [Tail]
+        : Trim<Tail> extends ""
+          ? // `Tail` has only whitespace left.
+            // End recursion successfully.
+            []
+          : // Something else was found.
+            // Raise an error
+            [Err<`'${Tail}' is not a valid Tailwind or scoped class`>]
+      : // Should never happen as `T` is a string.
+        [Err<"Should not happen">];
 
 // Gets the first string of an array that starts with 'Error: '
 // Must be used only when `T` actually includes an error item
@@ -169,11 +169,11 @@ type TailwindClassNamesArray<T, ScopedClassNames> = {
 type TailwindClassParameterValue<S, ScopedClassNames> = S extends string
   ? IsValidString<S, ScopedClassNames>
   : // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  S extends any[]
-  ? TailwindClassNamesArray<S, ScopedClassNames>
-  : S extends ClassNamesObject
-  ? TailwindClassNamesObject<S, ScopedClassNames>
-  : // Format not supported
-    never;
+    S extends any[]
+    ? TailwindClassNamesArray<S, ScopedClassNames>
+    : S extends ClassNamesObject
+      ? TailwindClassNamesObject<S, ScopedClassNames>
+      : // Format not supported
+        never;
 
 export default cn;

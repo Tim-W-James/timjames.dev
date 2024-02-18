@@ -28,11 +28,9 @@ import { useNavigate } from "react-router-dom";
 
 const technologyOptions: readonly Option[] = Object.keys(technologies)
   .map((technology) => {
-    const count = timelineData.filter(
-      (item) =>
-        // eslint-disable-next-line max-len
-        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-        item.technologies?.includes(technology as keyof typeof technologies)
+    const count = timelineData.filter((item) =>
+      // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+      item.technologies?.includes(technology as keyof typeof technologies)
     ).length;
     return {
       value: technology,

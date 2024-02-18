@@ -20,19 +20,23 @@ const BlogArticleLoading: React.FC<BlogArticleLoadingProps> = ({ slug }) => (
               // eslint-disable-next-line tailwindcss/no-custom-classname
               className={`basis-${(key % 3) + 1} ${cn(
                 // eslint-disable-next-line sonarjs/no-duplicate-string
-                "h-4 w-full min-w-1/10 rounded bg-slate-700"
+                "h-4 w-full rounded bg-slate-700",
+                // eslint-disable-next-line sonarjs/no-duplicate-string
+                "min-w-1/10"
               )}`}
             />
             <div
               // eslint-disable-next-line tailwindcss/no-custom-classname
               className={`basis-${(key % 6) + 1} ${cn(
-                "h-4 w-full min-w-1/10 rounded bg-slate-700"
+                "h-4 w-full rounded bg-slate-700",
+                "min-w-1/10"
               )}`}
             />
             <div
               // eslint-disable-next-line tailwindcss/no-custom-classname
               className={`basis-${5 - ((key % 3) + (key % 6))} ${cn(
-                "h-4 w-full min-w-1/10 rounded bg-slate-700"
+                "h-4 w-full rounded bg-slate-700",
+                "min-w-1/10"
               )}`}
             />
           </div>

@@ -93,6 +93,7 @@ const MultiSelection: React.FC<MultiSelectionProps> = ({
   <div className={cn("multi-select scroll-dark z-10 w-full text-dark-shades")}>
     <Select
       aria-label={placeholder ?? "Select..."}
+      aria-live="off"
       closeMenuOnSelect={false}
       components={animatedComponents}
       defaultValue={selectedOptions}

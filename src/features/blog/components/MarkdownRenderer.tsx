@@ -15,6 +15,7 @@ import scss from "react-syntax-highlighter/dist/cjs/languages/prism/scss";
 import tsx from "react-syntax-highlighter/dist/cjs/languages/prism/tsx";
 import typescript from "react-syntax-highlighter/dist/cjs/languages/prism/typescript";
 import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { z } from "zod";
 
 import CopyTextButton from "../utils/CopyTextButton";
 
@@ -55,16 +56,18 @@ const MarkdownRenderer: React.FC<{ markdown: string }> = ({ markdown }) => {
   const MarkdownComponents: Partial<
     Omit<NormalComponents, keyof SpecialComponents> & SpecialComponents
   > = {
-    // eslint-disable-next-line sonarjs/cognitive-complexity
     code: ({ node, className, inline, ...props }) => {
       const hasLang = /language-(\w+)/u.exec(className ?? "");
-      const hasMeta = Boolean(node.data?.["meta"]);
+
+      const nodeDataCodec = z.object({ meta: z.unknown() });
+      const nodeData = nodeDataCodec.safeParse(node.data);
+      const hasMeta = nodeData.success;
 
       const applyHighlights: object = (applyHighlights: number) => {
         if (hasMeta) {
           // eslint-disable-next-line require-unicode-regexp
           const RE = /{([\d,-]+)}/;
-          const rawMetadata = node.data?.["meta"];
+          const rawMetadata = nodeData.data.meta;
           const metadata =
             typeof rawMetadata === "string"
               ? rawMetadata.replace(/\s/gu, "")

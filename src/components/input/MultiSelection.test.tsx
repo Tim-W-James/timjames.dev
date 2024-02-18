@@ -1,6 +1,7 @@
 import selectionOptions from "@mocks/options";
 import { composeStories } from "@storybook/react";
 import { render } from "@testing-library/react";
+// eslint-disable-next-line import/no-named-as-default
 import userEvent from "@testing-library/user-event";
 
 import * as stories from "./MultiSelection.stories";
@@ -19,5 +20,7 @@ it("selection dropdown contains search term", async () => {
   );
 
   // Assert
-  expect(getByText(/option/iu)).toHaveTextContent(/option Chocolate focused/iu);
+  expect(getByText(/result/iu)).toHaveTextContent(
+    /1 result available for search term Chocolate./iu
+  );
 });

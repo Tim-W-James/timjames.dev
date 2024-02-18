@@ -22,6 +22,7 @@ export default defineConfig(() => {
           "**/cssClasses.d.ts",
           "**/*module.scss.d.ts",
           "playwright-report",
+          "storybook-static",
         ],
       },
     },

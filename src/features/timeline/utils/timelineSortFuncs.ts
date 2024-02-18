@@ -17,10 +17,10 @@ export const sortByTechnologiesCount = (
   a.technologies && !b.technologies
     ? -1
     : b.technologies && !a.technologies
-    ? 1
-    : a.technologies && b.technologies
-    ? b.technologies.length - a.technologies.length
-    : 0;
+      ? 1
+      : a.technologies && b.technologies
+        ? b.technologies.length - a.technologies.length
+        : 0;
 
 export const sortByFeatured = (a: TimelineItemData, b: TimelineItemData) =>
   a.isFeatured && !b.isFeatured ? -1 : b.isFeatured && !a.isFeatured ? 1 : 0;

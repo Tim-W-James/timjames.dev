@@ -35,10 +35,10 @@ const BlogPostsCarousel: React.FC<BlogPostsCarouselProps> = ({
   title,
   excludeSlugs,
 }) => {
-  const { status, data: latestArticles } = useQuery(
-    ["devdotto", "articlesMeta", articlesToDisplay, 1],
-    devdottoArticlesMeta(articlesToDisplay)
-  );
+  const { status, data: latestArticles } = useQuery({
+    queryKey: ["devdotto", "articlesMeta", articlesToDisplay, 1],
+    queryFn: devdottoArticlesMeta(articlesToDisplay),
+  });
 
   const goNext = useCallback(() => {
     document.getElementById("carousel")?.scrollBy({
@@ -83,7 +83,7 @@ const BlogPostsCarousel: React.FC<BlogPostsCarouselProps> = ({
           data-chromatic="ignore"
           id="carousel"
         >
-          {status === "loading" ? (
+          {status === "pending" ? (
             [...Array(4).keys()].map((key) => (
               <BlogCardLoading isCarouselItem key={key} />
             ))
