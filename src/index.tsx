@@ -7,6 +7,7 @@ import { BLOG, CONTACT, HOME, PROJECTS } from "@constants/routes";
 import Page from "@layout/Page";
 import cn from "@styles/cssUtils";
 import App from "App";
+import { envs } from "environment";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
@@ -40,7 +41,7 @@ createRoot(document.getElementById("root")!).render(
           theme: "dark",
         },
       }}
-      reCaptchaKey={import.meta.env["VITE_SITE_RECAPTCHA_KEY"] || ""}
+      reCaptchaKey={envs.VITE_SITE_RECAPTCHA_KEY}
       scriptProps={{
         defer: true,
       }}
