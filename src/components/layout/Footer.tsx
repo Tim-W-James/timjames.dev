@@ -19,7 +19,7 @@ const Footer: React.FC<FooterProps> = ({ allowFixed }) => (
         { fixed: Boolean(allowFixed) }
       )}
     >
-      © <time>{new Date().getFullYear()}</time> Tim James
+      © <time>{new Date().getFullYear()}</time> Tim James - ABN 31 445 198 482
     </footer>
     {/* Spacer when the footer is fixed on desktop */}
     {allowFixed ? <div className={cn("invisible p-4")}>&nbsp;</div> : null}

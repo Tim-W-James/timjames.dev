@@ -49,8 +49,6 @@ const Contact = () => {
     []
   );
 
-  const [kofiWidgetLoaded, setKofiWidgetLoaded] = useState<boolean>(false);
-
   return (
     <div>
       <FadeIn transitionDuration={200}>
@@ -129,37 +127,18 @@ const Contact = () => {
             tim.james.work9800@gmail.com
           </a>
         </div>
-
-        <h2
-          className={cn("mx-auto mt-8 w-fit self-center text-center")}
-          id="support"
-        >
-          <HashLink
-            className={cn("hash-link")}
-            onClick={copyFragment}
-            to="#support"
+        <div className={cn("mt-4 text-center text-xl", "basis-min-content")}>
+          ABN:{" "}
+          <a
+            className={cn("link", "hyphens-none")}
+            href="https://abr.business.gov.au/ABN/View?id=31445198482"
+            rel="noreferrer"
+            target="_blank"
+            title="ABN Lookup"
           >
-            Support Me{" "}
-          </HashLink>
-          <hr className={cn("radial-border mb-4")} />
-        </h2>
-        <section aria-labelledby="support">
-          <div className={cn("flex w-full justify-center")}>
-            <div style={{ width: "clamp(0px, 100%, 600px)" }}>
-              <iframe
-                className={cn("acrylic-white", "rounded-lg", {
-                  "animate-pulse": !kofiWidgetLoaded,
-                })}
-                height="712"
-                id="kofiframe"
-                onLoad={() => setKofiWidgetLoaded(true)}
-                src="https://ko-fi.com/timjames/?hidefeed=true&widget=true&embed=true&preview=true"
-                title="timjames"
-                width="100%"
-              />
-            </div>
-          </div>
-        </section>
+            31 445 198 482
+          </a>
+        </div>
       </FadeIn>
     </div>
   );
