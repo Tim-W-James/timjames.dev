@@ -1,3 +1,4 @@
+/* eslint-disable sonarjs/no-duplicate-string */
 import ContactForm from "@features/contactForm/components/ContactForm";
 import contactFormOnSubmit, {
   contactFormOnSubmitDev,
