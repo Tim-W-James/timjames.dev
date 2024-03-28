@@ -26,7 +26,7 @@ const timelineData: TimelineItemData[] = [
   {
     startDate: new Date("2023"),
     endDate: new Date("2023"),
-    title: "Aged-Care Meal Delivery System",
+    title: "Aged-Care Food Delivery System",
     body: (
       <>
         Full-stack{" "}
@@ -35,12 +35,11 @@ const timelineData: TimelineItemData[] = [
           tooltip="
       Enterprise Resource Planning"
         />{" "}
-        application used to coordinate staff and mange deliveries providing
-        meals to those in need.
+        application used to coordinate staff and manage deliveries.
       </>
     ),
     category: "Agile Digital",
-    isFeatured: true,
+    isFeatured: false,
   },
   {
     startDate: new Date("2022"),
