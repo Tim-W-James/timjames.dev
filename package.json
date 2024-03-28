@@ -129,7 +129,7 @@
     "@storybook/jest": "^0.2.3",
     "@storybook/react": "^7.6.16",
     "@storybook/react-vite": "^7.6.16",
-    "@storybook/test-runner": "^0.16.0",
+    "@storybook/test-runner": "^0.17.0",
     "@storybook/testing-library": "^0.2.2",
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.10",
@@ -204,7 +204,7 @@
     "vite-tsconfig-paths": "^4.3.1",
     "vitest": "^1.3.0"
   },
-  "packageManager": "pnpm@7.33.0",
+  "packageManager": "pnpm@7.33.7",
   "engines": {
     "node": ">=18",
     "pnpm": ">=7"
