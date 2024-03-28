@@ -26,7 +26,7 @@ const timelineData: TimelineItemData[] = [
   {
     startDate: new Date("2023"),
     endDate: new Date("2023"),
-    title: "Meals on Wheels",
+    title: "Aged-Care Meal Delivery System",
     body: (
       <>
         Full-stack{" "}
@@ -41,12 +41,6 @@ const timelineData: TimelineItemData[] = [
     ),
     category: "Agile Digital",
     isFeatured: true,
-    links: [
-      {
-        text: "Client website",
-        url: "https://mealsonwheels.org.au/",
-      },
-    ],
   },
   {
     startDate: new Date("2022"),
