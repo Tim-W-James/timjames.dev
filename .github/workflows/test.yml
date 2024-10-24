@@ -43,7 +43,7 @@ jobs:
           fetch-depth: 0 # Required for Chromatic to retrieve git history
 
       - name: Install pnpm 🔧
-        uses: pnpm/action-setup@v2.2.4
+        uses: pnpm/action-setup@v2.4.1
         with:
           version: 7
 
