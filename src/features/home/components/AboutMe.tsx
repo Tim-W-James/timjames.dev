@@ -99,6 +99,20 @@ const AboutMe: React.FC = () => {
                 tim.james.work9800@gmail.com
               </a>
             </li>
+            <li>🏢 Baseline security clearance and police check (2025)</li>
+            <li>
+              💻 Member of the{" "}
+              <a
+                aria-label="ACS"
+                className={cn("link")}
+                href="https://www.acs.org.au/"
+                rel="noreferrer"
+                target="_blank"
+                title="Australian Computer Society"
+              >
+                Australian Computer Society
+              </a>
+            </li>
             <li>
               🏆 View my certifications on{" "}
               <a

@@ -292,7 +292,6 @@ export type ClassNames =
   | "snap-center"
   | "snap-x"
   | "solid-background"
-  | "static"
   | "sticky"
   | "subtitle"
   | "table"

@@ -19,7 +19,7 @@ const LazyYoutubeVideo: React.FC<LazyYoutubeVideoProps> = ({
   return (
     <iframe
       // eslint-disable-next-line max-len
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowFullScreen
       className={cnScoped(styles)(
         "mb-2 z-10",
@@ -29,6 +29,7 @@ const LazyYoutubeVideo: React.FC<LazyYoutubeVideoProps> = ({
       height={height}
       loading="lazy"
       onLoad={() => setIsLoading(false)}
+      referrerPolicy="strict-origin-when-cross-origin"
       src={`https://www.youtube-nocookie.com/embed/${videoId}`}
       title={title}
       width={width}
