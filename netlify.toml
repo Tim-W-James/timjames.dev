@@ -40,11 +40,6 @@ package = "netlify-plugin-submit-sitemap"
     imagesPath = "/assets/images"
 
 [[plugins]]
-  package = "@netlify/plugin-a11y"
-  [plugins.inputs]
-    failWithIssues = false
-
-[[plugins]]
   package = "@netlify/plugin-lighthouse"
 
 # headers
