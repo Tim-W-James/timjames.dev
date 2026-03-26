@@ -44,7 +44,10 @@ const AboutMe: React.FC = () => {
         >
           <ul className={cn("list-disc text-left text-xl")}>
             <li>
-              💼 <b className={cn("font-bold")}>Software Engineer</b> at{" "}
+              {}
+              💼 <b className={cn("font-bold")}>
+                Senior Software Engineer
+              </b> at{" "}
               <a
                 aria-label="Agile Digital"
                 className={cn("link")}
