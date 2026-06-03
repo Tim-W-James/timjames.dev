@@ -17,6 +17,8 @@
 
   <h2 align="center" id="top">timjames.dev</h2>
 
+> This project has been migrated to Next JS. Please find the latest here: [https://github.com/Tim-W-James/timjames.dev-next](https://github.com/Tim-W-James/timjames.dev-next)
+
   <p align="center">
     Personal site for Tim W James - Portfolio, Blog, and more
     <br />
